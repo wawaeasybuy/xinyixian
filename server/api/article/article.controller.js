@@ -25,6 +25,7 @@ exports.create=function (req,res){
 	if(req.body._id){
 		delete req.body._id;
 	}
+	// req.body.addDate=new Date();
 	req.body.category=getNoRepeatArr(req.body.category);
 	req.body.tags=getNoRepeatArr(req.body.tags);
 	req.body.remindTag=getNoRepeatArr(req.body.remindTag);
