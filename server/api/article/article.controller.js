@@ -259,7 +259,7 @@ exports.change = function (req,res){
 		.exec(function (err,articles){
 			if(err){ return handleError(res,err);}
 			var num=articles.indexOf(article);//当前文章的下标
-			console.log("num",num);
+			// console.log("num",num);
 			if(state==1){
 				if(num==0){
 					return res.json(400,{error:{msg:'This article is the first article'}});
