@@ -163,3 +163,118 @@ exports.index_update=function (req,res){
 	});
 };
 
+//index
+exports.index=function (req,res){
+	var page = req.query.page || 1,
+    	itemsPerPage = req.query.itemsPerPage || 10;
+   	var count;
+	var category=req.query.category;
+	var tag=req.query.tag;
+	var name=req.query.retrieval;
+	var condition={
+		page:page,
+		itemsPerPage:itemsPerPage
+	};
+	if(category){
+		condition=_.merge(condition,{category:category});
+	}
+	if(tag){
+		condition=_.merge(condition,{tags:tag});
+	}
+	if(name){
+		condition=_.merge(condition,{title:{'$regex' : '.*' + name + '.*'}});
+	}
+	Article.find(condition).count(function (err,c){
+		if(err){ return handleError(res,err);}
+		count=c;
+	});
+	Article.find(condition,{},{
+		skip: (page - 1) * itemsPerPage,
+        limit: itemsPerPage
+	})
+	.populate("tags")
+	.exec(function (err,articles){
+		if(err){ return handleError(res,err);}
+		return res.json(200,{
+			articles:articles,
+			page:page,
+			count:count
+		});
+	});
+
+};
+
+//show
+exports.show=function (req,res){
+	var id=req.params.id;
+	Article.findById(id,function (err,article){
+		if(err){ return handleError(res,err);}
+		if(!article){return res.json(404,{error:{msg:'article not found'}});}
+		return res.json(200,{article:article});
+	});
+};
+
+//推荐
+//上(下)一篇 index为当前文章的序号,state=1(上一篇),2(下一篇) ,id为当前文章的id
+exports.change = function (req,res){
+	var id=req.params.id;
+	var index=req.query.index;
+	var state=req.query.state;
+	var category=req.query.category;
+	var tag=req.query.tag;
+	var condition={};
+	if(!state||(state!=1&&state!=2)){return res.json(400,{error:{msg:'state is required or state is wrong'}});}
+	if((!index&&index!=0)||index<0){return res.json(400,{error:{msg:'index is required or index is wrong'}});}
+
+	
+	if(category){
+		condition=_.merge(condition,{category:category});
+	}
+	if(tag){
+		condition=_.merge(condition,{tags:tag});
+	}
+	//获取上一篇或下一篇文章 condition为查询条件，number为admin那边文章总数的记录
+	// var getArticle=function (index,state,condition,count){
+	// 	if(state==1){
+	// 		if(index==0){
+	// 			return res.json(400,{error:{msg:'This article is the first article'}});
+	// 		}
+	// 		var aimNum=index-1;
+	// 	}else{
+	// 		if((index+1)==articles.length){
+	// 			return res.json(400,{error:{msg:'This article is the last one'}});
+	// 		}
+	// 		var aimNum=index+1;
+	// 	}
+	// 	Article.findOne({index},function (){
+
+	// 	});
+	// };
+	Article.findById(id,function (err,article){
+		if(err){ return handleError(res,err);}
+		if(!article){return res.json(404,{error:{msg:'article not found'}});}
+		Article.find(condition)
+		.sort({index:1})
+		.limit(parseInt(index)+1)
+		.exec(function (err,articles){
+			if(err){ return handleError(res,err);}
+			var num=articles.indexOf(article);//当前文章的下标
+			console.log("num",num);
+			if(state==1){
+				if(num==0){
+					return res.json(400,{error:{msg:'This article is the first article'}});
+				}
+				var aimNum=num-1;
+			}else{
+				if((num+1)==articles.length){
+					return res.json(400,{error:{msg:'This article is the last one'}});
+				}
+				var aimNum=num+1;
+			}
+			return res.json(200,{
+				article:articles[aimNum]
+			});
+		});
+	});
+	
+};

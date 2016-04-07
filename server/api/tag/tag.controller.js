@@ -73,10 +73,21 @@ exports.destory=function (req,res){
 //index
 exports.index=function (req,res){
 	var page = req.query.page || 1,
-    itemsPerPage = req.query.itemsPerPage || 10;
-    var isReturn=function(index,len){
-    	if(index==len){return res.json();}
+    	itemsPerPage = req.query.itemsPerPage || 10;
+    var isReturn=function(index,len,tags){
+    	if(index==len){
+    		return res.json(200,{
+    			tags:tag,
+    			count:count,
+    			page:page
+    		});
+    	}
     };
+    var count;
+    Tag.find({}).count(function (err,c){
+    	if(err){ return handleError(res,err);}
+    	count=c;
+    });
     Tag.find({},{},{
     	skip: (page - 1) * itemsPerPage,
         limit: itemsPerPage
@@ -93,7 +104,7 @@ exports.index=function (req,res){
     			if(err){ return handleError(res,err);}
     			index++;
     			tag.articleCount=c;
-    			isReturn(index,tags.length);
+    			isReturn(index,tags.length,tags);
     		});
     	});
     });

@@ -3,6 +3,7 @@
 var _ = require('lodash');
 var Category = require('./category.model');
 var User = require('../user/user.model');
+var Article = require('../article/article.model');
 
 
 var handleError = function (res, err) {
@@ -87,4 +88,45 @@ exports.destory=function (req,res){
 		
 		
 	});
+};
+
+
+//index
+exports.index=function (req,res){
+	var page = req.query.page || 1,
+    	itemsPerPage = req.query.itemsPerPage || 10;
+   	var count;
+   	var isReturn=function(index,len,categories){
+    	if(index==len){
+    		return res.json(200,{
+    			categories:categories,
+    			count:count,
+    			page:page
+    		});
+    	}
+    };
+    Category.find({}).count(function (err,c){
+    	if(err){ return handleError(res,err);}
+    	count=c;
+    });
+
+    Category.find({},{},{
+    	skip: (page - 1) * itemsPerPage,
+        limit: itemsPerPage
+    })
+    .exec(function (err,categories){
+    	if(err){ return handleError(res,err);}
+    	for(var i=0;i<categories.length;i++){
+    		categories[i]=categories[i].toObject();
+    	}
+    	var index=0;
+    	_.each(categories,function (category){
+    		Article.find({category:category._id}).count(function (err,c){
+    			if(err){ return handleError(res,err);}
+    			index++;
+    			category.articleCount=c;
+    			isReturn(index,categories.length,categories);
+    		});
+    	});
+    });
 };

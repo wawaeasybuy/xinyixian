@@ -8,6 +8,7 @@
 var Thing = require('../api/thing/thing.model');
 var User = require('../api/user/user.model');
 var Category = require('../api/category/category.model');
+var ImageGroup = require('../api/image-group/image-group.model');
 
 Thing.find({}).remove(function() {
   Thing.create({
@@ -42,11 +43,22 @@ User.find({}).remove(function() {
       console.log('finished populating users');
       Category.find({}).remove(function(){
         Category.create({
-          sign:'1',//分类的标志,默认分类为1
+          // sign:'1',//分类的标志,默认分类为1
           name:'默认分类',//分类名
-          tags:[]
+          tags:[],
+          createDate:new Date()
         },function(){
           console.log('finished populating defalut category');
+        });
+      });
+      ImageGroup.find({}).remove(function(){
+        ImageGroup.create({
+          // sign:'1',//分类组的标志,默认分类为1
+          name:'默认分组',//分类组名
+          images:[],
+          createDate:new Date()
+        },function(){
+          console.log('finished populating defalut image-group');
         });
       });
     }

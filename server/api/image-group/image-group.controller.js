@@ -86,6 +86,7 @@ exports.destory=function (req,res){
 	ImageGroup.findById(id,function (err,group1){
 		if(err){ return handleError(res,err);}
 		if(!group1){return res.json(404,{error:{msg:'group not found'}});}
+		if(group1.sign==1){ return res.json(400,{error:{msg:'defalut group can not delete'}});}
 		ImageGroup.findOne({sign:1},function (err,group2){
 			if(err){ return handleError(res,err);}
 			if(!group2){return res.json(404,{error:{msg:'defalut group not found'}});}
@@ -98,4 +99,27 @@ exports.destory=function (req,res){
 			return res.json(200,{msg:'delete success'});
 		});
 	});
+};
+
+//index
+exports.index=function (req,res){
+	var page = req.query.page || 1,
+    	itemsPerPage = req.query.itemsPerPage || 10;
+    var count;
+    ImageGroup.find({}).count(function (err,c){
+    	if(err){ return handleError(res,err);}
+    	count=c;
+    });
+    ImageGroup.find({},{},{
+    	skip: (page - 1) * itemsPerPage,
+        limit: itemsPerPage
+    })
+    .exec(function (err,groups){
+    	if(err){ return handleError(res,err);}
+    	return res.json(200,{
+    		groups:groups,
+    		count:count,
+    		page:page
+    	});
+    });
 };
