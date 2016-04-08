@@ -11,6 +11,9 @@ var UserSchema = new Schema({
     type: String,
     default: 'user'
   },
+  nextArticleNumber: { type: Number, default: 1 },//文章序号
+  nextCategoryNumber: { type: Number, default: 1 },//种类标记
+  nextGroupNumber:{ type: Number, default: 1 },//图片库标记
   hashedPassword: String,
   provider: String,
   salt: String
