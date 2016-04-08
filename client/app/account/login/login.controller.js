@@ -22,4 +22,5 @@ angular.module('xinyixianApp')
         });
       }
     };
+
   });
