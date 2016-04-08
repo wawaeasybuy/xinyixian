@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('xinyixianApp', ['ngCookies', 'ngResource', 'ngSanitize', 'btford.socket-io', 'ui.router', 'ui.bootstrap', 'ngFileUpload']).config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
+angular.module('xinyixianApp', ['ngCookies', 'ngResource', 'ngSanitize', 'btford.socket-io', 'ui.router', 'ngFileUpload']).config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
   $urlRouterProvider.otherwise('/');
 
   $locationProvider.html5Mode(true);
@@ -32,10 +32,7 @@ angular.module('xinyixianApp', ['ngCookies', 'ngResource', 'ngSanitize', 'btford
   // Redirect to login if route requires auth and you're not logged in
   $rootScope.$on('$stateChangeStart', function (event, next) {
     Auth.isLoggedInAsync(function (loggedIn) {
-      if (next.authenticate && !loggedIn) {
-        event.preventDefault();
-        $location.path('/login');
-      }
+      $location.path('/show/home/view');
     });
   });
 });
