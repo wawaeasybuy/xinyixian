@@ -16,6 +16,7 @@ module.exports = function(app) {
   app.use('/api/categories', require('./api/category'));
   app.use('/api/tags', require('./api/tag'));
   app.use('/api/image-groups', require('./api/image-group'));
+  app.use('/api/upload', require('./api/upload'));
 
   app.use('/auth', require('./auth'));
   

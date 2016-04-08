@@ -29,7 +29,10 @@ var socketio = require('socket.io')(server, {
   serveClient: config.env !== 'production',
   path: '/socket.io-client'
 });
-app.use(bodyParser());  
+// parse application/x-www-form-urlencoded  
+app.use(bodyParser.urlencoded({ extended: false, keepExtensions: true, uploadDir: './api/upload/images' }))  
+// parse application/json  
+app.use(bodyParser.json())  
 require('./config/socketio')(socketio);
 require('./config/express')(app);
 require('./routes')(app);
