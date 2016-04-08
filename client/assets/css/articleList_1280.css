@@ -1,0 +1,344 @@
+body,span{margin: 0px;padding: 0px;}
+body{
+	background-color: #E1E1E1;
+}
+/*最大的div*/
+.backgroundPosition{
+	/*border:1px solid red;*/
+	width: 80%;
+	margin: 20px auto 200px;
+}
+
+
+/*导航的位置*/
+.navPosition{
+	/*border:1px solid #00ff00;*/
+	height: 50px;
+	position: relative;
+}
+/*logo的位置*/
+.logo{
+	width: 90px;
+	height: 90px;
+	background: url(../images/logo.png);
+	position: absolute;
+	top:0px;
+	left: -100px;
+}
+/*上面横线*/
+.upLine{
+	height: 3px;
+	background-color: #686868;
+}
+/*四个导航*/
+.navs{
+	/*border:1px solid #0000ff;*/
+	width: 500px;
+	height: 22px;
+	margin-top: 13px;
+}
+/*每个导航*/
+.navs .nav{
+	float: left;
+	width: 125px;
+}
+.nav .dot{
+	float: left;
+	width: 22px;
+	height: 22px;
+	border-radius: 22px;
+	background-color: #fff;
+
+}
+.nav .navName{
+	float: left;
+	text-indent: 3px;
+	line-height: 22px;
+	font-size: 12px;
+	color: #999;
+	font-weight: bold;
+}
+/*二维码展示区*/
+.qrCodes{
+	/*border:1px solid red;*/
+	width: 210px;
+	height: 22px;
+	position: absolute;
+	top:16px;
+	right: 200px;
+}
+.qrCodes .qrCode{
+	float: left;
+	width: 22px;
+	height: 22px;
+	border-radius: 22px;
+	background-color: #1DFF00;
+	margin-left: 20px;
+}
+/*搜索*/
+.search{
+	border:1px solid #ccc;
+	width: 150px;
+	height: 22px;
+	position: absolute;
+	top:16px;
+	right: 10px;
+}
+/*下横线*/
+.downLine{
+	height: 2px;
+	background-color: #686868;
+	margin-top: 13px;
+}
+/*导航的位置*/
+
+
+/*文章内容页*/
+.articleContent{
+	/*border:1px solid red;*/
+	margin: 50px auto 0px;
+	width: 580px;
+	padding-bottom: 50px;
+	position: relative;
+}
+.articleImage{
+	height: 320px;
+	background-color: #fff;
+}
+.articleWord{
+	margin-top:50px;
+	/*height: 500px;*/
+	/*background-color: #fff;*/
+}
+/*撑开文章高度*/
+.openArticleWord{
+	/*border:1px solid red;*/
+	width: 0;
+	height: 500px;
+}
+
+.articleShare{
+	/*border:1px solid red;*/
+	width: 235px;
+	position: absolute;
+	bottom: 10px;
+	right: 0px;
+}
+.articleShare .share{
+	float: left;
+	height: 22px;
+	line-height: 22px;
+	font-size: 14px;
+	color: #666;
+	font-weight: bold;
+}
+.articleShare .shareDot{
+	float: left;
+	width: 22px;
+	height: 22px;
+	border-radius: 22px;
+	background-color: #1DFF00;
+	margin-left: 10px;
+}
+/*文章内容页*/
+
+
+
+/*与底部的分割线*/
+.splitLine{
+	/*margin: 0 auto;*/
+	/*width: 1024px;*/
+	height: 2px;
+	background-color: #686868;
+}
+
+
+
+/*推荐列表*/
+.recommendList{
+	/*border:1px solid red;*/
+	margin: 0 auto;
+	width: 1024px;
+	height: 230px;
+	overflow: hidden;
+}
+/*某个推荐*/
+.recommend{
+	float: left;
+	width: 150px;
+	height: 198px;
+	margin-left: 27px;
+	margin-right: 27px;
+	margin-top: 30px;
+	position: relative;
+}
+/*推荐的图片部分包括遮罩*/
+.recommendIcon{
+	width: 150px;
+	height: 150px;
+	border-radius: 150px;
+	position: relative;
+}
+.pictureBox{
+	width: 150px;
+	height: 150px;
+	border-radius: 150px;
+	overflow: hidden;
+	transition:0.4s linear;
+	-webkit-transition:0.4s linear;//重点
+	-moz-transition:0.4s linear;
+}
+/*图片的遮罩*/
+.pictureMask{
+	width: 150px;
+	height: 150px;
+	border-radius: 150px;
+	background-color: transparent;
+	position: absolute;
+	top:0px;
+	transition:0.4s linear;
+	-webkit-transition:0.4s linear;//重点
+	-moz-transition:0.4s linear;
+}
+.picture{
+	width: 150px;
+	height: 150px;
+	transition:0.4s linear;
+}
+/*.cityName{
+	position: absolute;
+	top:0px;
+	width: 150px;
+	height: 150px;
+	line-height: 150px;
+	text-align: center;
+	color: #333;
+	font-size: 18px;
+	font-weight: bold;
+	cursor: pointer;
+}*/
+/*悬浮时的效果*/
+.recommendIcon:hover .pictureBox{
+	border-radius: 30px;
+	transform:rotate(45deg) scale(0.8);
+	-webkit-border-radius:30px;
+	-moz-border-radius:30px;
+	-o-border-radius:30px;
+}
+.recommendIcon:hover .pictureMask{
+	background-color: #00ff00;
+	opacity:0.4;
+	border-radius: 30px;
+	transform:rotate(45deg) scale(0.8);
+	-webkit-border-radius:30px;
+	-moz-border-radius:30px;
+	-o-border-radius:30px;
+}
+.recommendIcon:hover .picture{
+	transform: rotate(-45deg) scale(1.25);
+}
+/*.recommendIcon:hover .cityName{
+	display: none;
+}*/
+/*序号*/
+.number{
+	/*border:1px solid red;*/
+	width: 48px;
+	height: 30px;
+	line-height: 0px;
+	position: absolute;
+	left: -10px;
+	bottom: 52px;
+	color: #333;
+}
+.symbol{
+	/*border:1px solid red;*/
+	font-size: 12px;
+	position: relative;
+	top:-15px;
+	left: 5px;
+}
+.num{
+	/*border:1px solid red;*/
+	font-size: 32px;
+	line-height: 30px;
+}
+/*城市信息*/
+.cityIntroduction{
+	width: 130px;
+	height: 34px;
+	border-top: 2px solid #333;
+	border-bottom: 2px solid #333;
+	/*文字css*/
+	text-align: center;
+	line-height: 17px;
+	color: #333;
+	font-size: 10px;
+	font-weight: bold;
+	/*位置css*/
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	position: absolute;
+	bottom: 10px;
+}
+/*时间*/
+.time{
+	height: 6px;
+	line-height: 6px;
+	color: #333;
+	position: absolute;
+	bottom: 1px;
+	font-size: 8px;
+	/*border:1px solid red;*/
+}
+/*推荐列表*/
+
+
+
+/*底部链接栏*/
+.bottomLink{
+	/*border:1px solid red;*/
+	margin-top: 100px;
+	height: 22px;
+}
+.links{
+	/*border:1px solid red;*/
+}
+.links .link{
+	/*border:1px solid red;*/
+	float: left;
+	width: 80px;
+	line-height: 22px;
+	font-size: 12px;
+	font-weight: bold;
+	color: #666;
+}
+.records{
+	/*border:1px solid red;*/
+	float: right;
+	width: 480px;
+	font-size: 12px;
+	font-weight: bold;
+	color: #666;
+}
+.email,.record{
+	/*border:1px solid red;*/
+	float: left;
+	height: 22px;
+	line-height: 22px;
+	margin-left: 5px;
+}
+.emailDot,.recordDot{
+	float: left;
+	width: 22px;
+	height: 22px;
+	border-radius: 22px;
+	background-color: #8b8b8b;
+}
+.word{
+	float: left;
+	margin-left: 5px;
+}
+/*底部链接栏*/
