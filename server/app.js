@@ -9,7 +9,8 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 var express = require('express');
 var mongoose = require('mongoose');
-var config = require('./config/environment');
+var config = require('./config/environment');  
+var multipart = require('connect-multiparty');
 
 // Connect to database
 mongoose.connect(config.mongo.uri, config.mongo.options);
@@ -28,6 +29,11 @@ var socketio = require('socket.io')(server, {
   serveClient: config.env !== 'production',
   path: '/socket.io-client'
 });
+
+app.use(multipart({
+    uploadDir: __dirname+"/images"
+}));
+
 require('./config/socketio')(socketio);
 require('./config/express')(app);
 require('./routes')(app);

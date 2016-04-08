@@ -1,12 +1,12 @@
 'use strict';
-console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+// console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 angular.module('xinyixianApp').config(function ($stateProvider) {
   $stateProvider
 
   // 餐厅
-  .state('admin-restaurant-view', {
-    url: '/admin/restaurant/view?itemsPerPage&page&name',
-    templateUrl: 'app/admin/restaurant/view-restaurant.html',
+  .state('test-upload', {
+    url: '/admin/test-upload',
+    templateUrl: 'app/test/test.html',
     controller: 'AdminViewRestaurantController',
     controllerAs: 'viewRestaurantCtrl'
   });
