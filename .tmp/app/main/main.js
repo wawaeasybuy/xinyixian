@@ -1,7 +1,8 @@
 'use strict';
 
-angular.module('xinyixianApp').config(function ($routeProvider) {
-  $routeProvider.when('/', {
+angular.module('xinyixianApp').config(function ($stateProvider) {
+  $stateProvider.state('main', {
+    url: '/',
     templateUrl: 'app/main/main.html',
     controller: 'MainCtrl'
   });

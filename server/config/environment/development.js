@@ -8,5 +8,5 @@ module.exports = {
     uri: 'mongodb://localhost/xinyixian-dev'
   },
 
-  // seedDB: true
+  seedDB: true
 };
