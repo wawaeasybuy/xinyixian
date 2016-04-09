@@ -20,6 +20,31 @@ var getNoRepeatArr=function (arr){
 	return newArr;
 };
 
+//处理提示标签，两个标签之间用,隔开(英文)
+var getTagArr=function (tagString){
+	var tags=[];
+	var deal=function(arr,tags_string){
+		var index=tags_string.indexOf(',');
+		if(index>0){
+			arr.push(tags_string.substr(0,index));
+			var newString=tags_string.substr(index+1);
+			return deal(arr,newString);
+		}else if(index==0){
+			var newString=tags_string.substr(index+1);
+			return deal(arr,newString);
+		}else{
+			if(tags_string.length>0){
+				arr.push(tags_string);
+			}
+			return arr;
+		}
+	}
+	return getNoRepeatArr(deal(tags,tagString));
+	
+};
+
+
+
 //create article
 exports.create=function (req,res){
 	if(req.body._id){
@@ -28,7 +53,8 @@ exports.create=function (req,res){
 	// req.body.addDate=new Date();
 	req.body.category=getNoRepeatArr(req.body.category);
 	req.body.tags=getNoRepeatArr(req.body.tags);
-	req.body.remindTag=getNoRepeatArr(req.body.remindTag);
+	//先把String转换成数组
+	req.body.remindTag=getTagArr(req.body.remindTag);
 	if(!req.body.category){
 		Category.findOne({sgin:1},function (err,category){
 			if(err){ return handleError(res,err);}
@@ -57,7 +83,7 @@ exports.update=function(){
 	var articleDetails=_.pick(req.body,'category','remindTag','tags','title','author','image','isBigImage','thumbnail','summary','updateDate','content','state','speciaLink');
 	articleDetails.category=getNoRepeatArr(articleDetails.category);
 	articleDetails.tags=getNoRepeatArr(articleDetails.tags);
-	articleDetails.remindTag=getNoRepeatArr(articleDetails.remindTag);
+	articleDetails.remindTag=getTagArr(articleDetails.remindTag);
 	Article.findById(id,function (err,article){
 		if(err){ return handleError(res,err);}
 		if(!article){return res.json(404,{error:{msg:'article not found'}});}
