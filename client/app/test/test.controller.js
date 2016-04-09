@@ -26,6 +26,12 @@ angular.module('xinyixianApp')
         if($state.current.name=="test-edit"){
           initSample();
         }
+
+        self.show=function(){
+          console.log("self.aaa",self.aaa);
+          var stem = CKEDITOR.instances.editor.getData();
+          console.log(stem);
+        };
         // initSample();
         
   }]);
