@@ -59,24 +59,10 @@ body{
 	left: 110px;
 }
 .reportLogo{
-	border:1px solid #00ff00;
-	width: 70px;
-	height: 70px;
-	margin-top: 20px;
-	margin-left: 80px;
-}
-.reportTitle{
 	/*border:1px solid #00ff00;*/
-	width: 100px;
-	height: 37px;
-	border-bottom: 3px solid #9a9a9a;
-	line-height: 37px;
-	text-align: center;
-	font-size: 18px;
-	font-weight: bold;
-	color: #9a9a9a;
-	margin: 0 auto;
-	font-style:italic;
+	width: 230px;
+	height: 230px;
+	border-radius: 230px;
 }
 .infographics{
 	width: 170px;
@@ -87,6 +73,12 @@ body{
 	top:40px;
 	left: 320px;
 }
+.infographicsLogo{
+	/*border:1px solid #00ff00;*/
+	width: 170px;
+	height: 170px;
+	border-radius: 170px;
+}
 .cityList{
 	width: 320px;
 	height: 320px;
@@ -96,6 +88,12 @@ body{
 	top:40px;
 	left: 500px;
 }
+.listLogo{
+	/*border:1px solid #00ff00;*/
+	width: 320px;
+	height: 320px;
+	border-radius: 320px;
+}
 .cityActivity{
 	width: 230px;
 	height: 230px;
@@ -104,6 +102,12 @@ body{
 	position: absolute;
 	top:140px;
 	left: 845px;
+}
+.activityLogo{
+	/*border:1px solid #00ff00;*/
+	width: 230px;
+	height: 230px;
+	border-radius: 230px;
 }
 .aboutUs{
 	width: 120px;
