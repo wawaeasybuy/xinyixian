@@ -23,9 +23,8 @@ angular.module('xinyixianApp')
            };
         };
 
-        self.showText=function(){
-          console.log('54xxx');
-          initSample();
-        };
+        
+
+        initSample();
         
   }]);
