@@ -23,8 +23,9 @@ angular.module('xinyixianApp')
            };
         };
 
-        
-
-        initSample();
+        if($state.current.name=="test-edit"){
+          initSample();
+        }
+        // initSample();
         
   }]);

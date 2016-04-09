@@ -21,6 +21,9 @@ angular.module('xinyixianApp').controller('AdminViewRestaurantController', ['$st
         };
     };
 
-    initSample();
+    if ($state.current.name == "test-edit") {
+        initSample();
+    }
+    // initSample();
 }]);
 //# sourceMappingURL=test.controller.js.map
