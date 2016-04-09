@@ -1,0 +1,90 @@
+
+<link href="../assets/css/edit-article.css"rel="stylesheet"type="text/css">
+<!-- <script src="../ckeditor.js"></script>
+<script src="js/sample.js"></script> -->
+<link rel="stylesheet" href="../assets/backstage/article/css/samples.css">
+<link rel="stylesheet" href="../assets/backstage/article/toolbarconfigurator/lib/codemirror/neo.css">
+
+<div class="backgroundPosition">
+	<!-- 导航栏 -->
+	<div class="navs">
+		<div class="nav">文章</div>
+		<div class="nav">分类</div>
+		<div class="nav">标签</div>
+		<div class="nav">图片</div>
+		<div style="clear:both"></div>
+	</div>
+
+	<div class="contentPosition">
+		<div class="content">
+			<div class="articleInfo">
+				<div class="title">ID</div>
+				<input type="text" class="input">
+			</div>
+			<div class="articleInfo">
+				<div class="title">序号</div>
+				<input type="text" class="input">
+			</div>
+			<div class="articleInfo">
+				<div class="title">标题</div>
+				<input type="text" class="input">
+			</div>
+			<div class="articleInfo">
+				<div class="title">作者</div>
+				<input type="text" class="input">
+			</div>
+			<div class="articleInfo">
+				<div class="title">摘要</div>
+				<input type="text" class="input">
+			</div>
+			<div class="articleInfo">
+				<div class="title">显示日期</div>
+				<input type="text" class="input">
+			</div>
+			<div class="articleInfo">
+				<div class="title">标签</div>
+				<input type="text" class="input">
+			</div>
+			<div class="articleInfo">
+				<div class="title">特殊链接</div>
+				<input type="text" class="input">
+			</div>
+			<div class="articleInfo">
+				<div class="title">分类</div>
+				<input type="text" class="input">
+			</div>
+			<div class="articleInfo">
+				<div class="title">题图</div>
+				<div class="imageBtn">上传图片</div>
+			</div>
+			<div class="showImage"></div>
+			<div class="articleInfo">
+				<div class="title">大图</div>
+				<div class="imageBtn">上传图片</div>
+			</div>
+			<div class="showImage"></div>
+			<div class="articleInfo">
+				<div class="title">题图缩略图</div>
+				<div class="imageBtn">上传图片</div>
+			</div>
+			<div class="showImage">建议图片大小为150*150</div>
+
+			<div class="article">
+				<div class="title">正文ss</div>
+				<div style="width:500px;float:left;margin-left:50px;margin-top:-20px;">
+				<div ng-click="editArticleCtrl.show()">test</div>
+					<div id="editor">
+						<!-- 正文 -->
+					</div>
+				</div>
+				<!-- <div></div> -->
+			</div>
+		</div>
+
+		<div class="buttons">
+			<div class="btnSave">保存</div>
+			<div class="btnCancel">撤销</div>
+			<div class="btnPreview">预览</div>
+		</div>
+	</div>
+</div>

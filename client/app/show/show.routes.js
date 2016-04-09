@@ -3,7 +3,7 @@
 angular.module('xinyixianApp')
   .config(function($stateProvider) {
     $stateProvider
-      .state('home-view', {
+      .state('view-home', {
         url: '/show/home/view',
         templateUrl: 'app/show/home/home.html',
         controller: 'ViewHomeController',
@@ -17,7 +17,7 @@ angular.module('xinyixianApp')
         controllerAs: 'viewHomeCtrl',
         // authenticate: true
       })
-      .state('article-view', {
+      .state('view-article', {
         url: '/show/article/view',
         templateUrl: 'app/show/article/article.html',
         controller: 'ViewAarticleController',

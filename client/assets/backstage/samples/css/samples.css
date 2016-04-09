@@ -85,6 +85,7 @@ html {
 .grid-container:after,
 *[class*="grid-width"]:before,
 .grid-container:before {
+  content: '';
   display: block;
   overflow: hidden;
   visibility: hidden;
@@ -746,7 +747,7 @@ body input.navigation-b ul li a:hover:hover {
   color: #575757;
 }
 .balloon-a:before {
-  /*content: '';*/
+  content: '';
   width: 0;
   height: 0;
   border-style: solid;
