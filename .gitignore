@@ -1,6 +1,7 @@
 node_modules
 public
-.tmp
+*.tmp
+*.sass-cache
 .idea
 client/bower_components
 dist
