@@ -6,7 +6,7 @@ angular.module('xinyixianApp')
        self = this;
 
        self.go = function(){
-       	$state.go('list-view');
+       	$state.go('article-view');
        };
         
   }]);

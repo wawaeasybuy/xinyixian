@@ -10,11 +10,11 @@ angular.module('xinyixianApp')
         controllerAs: 'viewHomeCtrl',
         // authenticate: true
       })
-      .state('list-view', {
-        url: '/show/list/view',
-        templateUrl: 'app/show/articlelist/articlelist.html',
-        controller: 'ViewListController',
-        controllerAs: 'viewListCtrl',
+      .state('article-view', {
+        url: '/show/article/view',
+        templateUrl: 'app/show/article/article.html',
+        controller: 'ViewAarticleController',
+        controllerAs: 'viewArticleCtrl',
         // authenticate: true
       });
   });
