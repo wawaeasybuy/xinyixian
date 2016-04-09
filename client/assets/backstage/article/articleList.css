@@ -1,0 +1,110 @@
+body,span{margin: 0px;padding: 0px;}
+body{
+	background-color: #f1f1f1;
+}
+/*最大框*/
+.backgroundPosition{
+	/*border:1px solid red;*/
+	width: 80%;
+	margin: 20px auto 200px;
+}
+/*导航*/
+.navs{
+	/*border:1px solid red;*/
+}
+.navs .nav{
+	/*border:1px solid red;*/
+	float: left;
+	width: 100px;
+	height: 50px;
+	margin-left: 50px;
+	text-align: center;
+	line-height: 50px;
+	font-weight: bold;
+}
+/*内容*/
+.content{
+	/*border:1px solid red;*/
+	width: 990px;
+	margin: 50px auto;
+}
+.screen{
+	border:1px solid #ccc;
+	width: 150px;
+	height: 36px;
+	line-height: 36px;
+	text-align: center;
+}
+.tableTitle{
+	width: 990px;
+	height: 40px;
+	line-height: 40px;
+	background-color: #fff;
+	margin-top: 20px;
+}
+.tableContent{
+	width: 990px;
+	height: 60px;
+	line-height: 40px;
+	background-color: #F9F9F9;
+	position: relative;
+}
+.articleDelete,.articleId,
+.articleNum,.articleTitle,
+.articleclassify,.articleTag,
+.articleReleaseTime,.articleAddTime,
+.articleState,.articlePv{
+	/*border:1px solid red;*/
+	float: left;
+	width: 99px;
+	text-align: center;
+}
+.chooseDelete{
+	width: 18px;
+	height: 18px;
+	border:1px solid #B4B9BE;
+	margin-top: 12px;
+	margin-left: 40px;
+}
+/*备用*/
+/*.articleId{
+}
+.articleNum{
+}
+.articleTitle{
+}
+.articleclassify{
+}
+.articleTag{
+}
+.articleReleaseTime{
+}
+.articleAddTime{
+}
+.articleState{
+}
+.articlePv{
+}*/
+.buttons{
+	/*border:1px solid red;*/
+	height: 20px;
+	line-height: 20px;
+	position: absolute;
+	left: 40px;
+	bottom: 0px;
+	display: none;
+}
+.btnEdit,
+.btnDelete,
+.btnPreview,
+.btnNumUp,
+.btnNumDown{
+	float: left;
+	margin-right: 30px;
+	font-size: 12px;
+	cursor: pointer;
+}
+
+.tableContent:hover .buttons{
+	display: block;
+}

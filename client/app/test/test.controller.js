@@ -21,6 +21,11 @@ angular.module('xinyixianApp')
                 console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
             });
            };
-        }
+        };
+
+        self.showText=function(){
+          console.log('54xxx');
+          initSample();
+        };
         
   }]);

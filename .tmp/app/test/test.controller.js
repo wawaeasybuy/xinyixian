@@ -20,5 +20,10 @@ angular.module('xinyixianApp').controller('AdminViewRestaurantController', ['$st
             });
         };
     };
+
+    self.showText = function () {
+        console.log('54xxx');
+        initSample();
+    };
 }]);
 //# sourceMappingURL=test.controller.js.map

@@ -16,7 +16,7 @@ angular.module('xinyixianApp')
        };
 
        var init=function(){
-       		loadArticle();
+       		// loadArticle();
        };
 
        init();

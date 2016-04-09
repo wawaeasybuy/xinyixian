@@ -11,5 +11,12 @@ angular.module('xinyixianApp')
         controller: 'AdminViewRestaurantController',
         controllerAs: 'viewRestaurantCtrl',
         // authenticate: true
+      })
+      .state('test-edit', {
+        url: '/admin/test-edit',
+        templateUrl: 'app/test/articleEdit.html',
+        controller: 'AdminViewRestaurantController',
+        controllerAs: 'viewRestaurantCtrl',
+        // authenticate: true
       });
   });

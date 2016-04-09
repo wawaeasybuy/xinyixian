@@ -9,6 +9,12 @@ angular.module('xinyixianApp').config(function ($stateProvider) {
     templateUrl: 'app/test/test.html',
     controller: 'AdminViewRestaurantController',
     controllerAs: 'viewRestaurantCtrl'
+  }). // authenticate: true
+  state('test-edit', {
+    url: '/admin/test-edit',
+    templateUrl: 'app/test/articleEdit.html',
+    controller: 'AdminViewRestaurantController',
+    controllerAs: 'viewRestaurantCtrl'
   });
 });
 // authenticate: true
