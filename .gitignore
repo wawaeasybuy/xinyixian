@@ -27,12 +27,10 @@ client/assets/upload
 .tmp/components
 *.tmp
 *.sass-cache
+*.map
+
 
 # Dependency directory
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
 node_modules
 
-
-*.map
-*.map
-.tmp/app/test/test.controller.js.map
