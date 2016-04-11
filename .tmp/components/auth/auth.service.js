@@ -15,7 +15,7 @@ angular.module('xinyixianApp').factory('Auth', function Auth($location, $rootSco
      * @param  {Function} callback - optional
      * @return {Promise}
      */
-    login: function login(user, callback) {
+    login: function (user, callback) {
       var cb = callback || angular.noop;
       var deferred = $q.defer();
 
@@ -27,11 +27,11 @@ angular.module('xinyixianApp').factory('Auth', function Auth($location, $rootSco
         currentUser = User.get();
         deferred.resolve(data);
         return cb();
-      }).error((function (err) {
+      }).error(function (err) {
         this.logout();
         deferred.reject(err);
         return cb(err);
-      }).bind(this));
+      }.bind(this));
 
       return deferred.promise;
     },
@@ -41,7 +41,7 @@ angular.module('xinyixianApp').factory('Auth', function Auth($location, $rootSco
      *
      * @param  {Function}
      */
-    logout: function logout() {
+    logout: function () {
       $cookieStore.remove('token');
       currentUser = {};
     },
@@ -53,17 +53,17 @@ angular.module('xinyixianApp').factory('Auth', function Auth($location, $rootSco
      * @param  {Function} callback - optional
      * @return {Promise}
      */
-    createUser: function createUser(user, callback) {
+    createUser: function (user, callback) {
       var cb = callback || angular.noop;
 
       return User.save(user, function (data) {
         $cookieStore.put('token', data.token);
         currentUser = User.get();
         return cb(user);
-      }, (function (err) {
+      }, function (err) {
         this.logout();
         return cb(err);
-      }).bind(this)).$promise;
+      }.bind(this)).$promise;
     },
 
     /**
@@ -74,7 +74,7 @@ angular.module('xinyixianApp').factory('Auth', function Auth($location, $rootSco
      * @param  {Function} callback    - optional
      * @return {Promise}
      */
-    changePassword: function changePassword(oldPassword, newPassword, callback) {
+    changePassword: function (oldPassword, newPassword, callback) {
       var cb = callback || angular.noop;
 
       return User.changePassword({ id: currentUser._id }, {
@@ -92,7 +92,7 @@ angular.module('xinyixianApp').factory('Auth', function Auth($location, $rootSco
      *
      * @return {Object} user
      */
-    getCurrentUser: function getCurrentUser() {
+    getCurrentUser: function () {
       return currentUser;
     },
 
@@ -101,18 +101,18 @@ angular.module('xinyixianApp').factory('Auth', function Auth($location, $rootSco
      *
      * @return {Boolean}
      */
-    isLoggedIn: function isLoggedIn() {
+    isLoggedIn: function () {
       return currentUser.hasOwnProperty('role');
     },
 
     /**
      * Waits for currentUser to resolve before checking if user is logged in
      */
-    isLoggedInAsync: function isLoggedInAsync(cb) {
+    isLoggedInAsync: function (cb) {
       if (currentUser.hasOwnProperty('$promise')) {
         currentUser.$promise.then(function () {
           cb(true);
-        })['catch'](function () {
+        }).catch(function () {
           cb(false);
         });
       } else if (currentUser.hasOwnProperty('role')) {
@@ -127,14 +127,14 @@ angular.module('xinyixianApp').factory('Auth', function Auth($location, $rootSco
      *
      * @return {Boolean}
      */
-    isAdmin: function isAdmin() {
+    isAdmin: function () {
       return currentUser.role === 'admin';
     },
 
     /**
      * Get auth token
      */
-    getToken: function getToken() {
+    getToken: function () {
       return $cookieStore.get('token');
     }
   };

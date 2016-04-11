@@ -1,4 +1,4 @@
-'use strict';
+// 'use strict';
 
 angular.module('xinyixianApp', ['ngCookies', 'ngResource', 'ngSanitize', 'btford.socket-io', 'ui.router', 'ngFileUpload']).config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
   $urlRouterProvider.otherwise('/');
@@ -8,7 +8,7 @@ angular.module('xinyixianApp', ['ngCookies', 'ngResource', 'ngSanitize', 'btford
 }).factory('authInterceptor', function ($rootScope, $q, $cookieStore, $location) {
   return {
     // Add authorization token to headers
-    request: function request(config) {
+    request: function (config) {
       config.headers = config.headers || {};
       if ($cookieStore.get('token')) {
         config.headers.Authorization = 'Bearer ' + $cookieStore.get('token');
@@ -17,7 +17,7 @@ angular.module('xinyixianApp', ['ngCookies', 'ngResource', 'ngSanitize', 'btford
     },
 
     // Intercept 401s and redirect you to login
-    responseError: function responseError(response) {
+    responseError: function (response) {
       if (response.status === 401) {
         $location.path('/login');
         // remove any stale tokens

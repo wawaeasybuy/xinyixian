@@ -15,7 +15,7 @@ angular.module('xinyixianApp').controller('SignupCtrl', function ($scope, Auth, 
       }).then(function () {
         // Account created, redirect to home
         $location.path('/');
-      })['catch'](function (err) {
+      }).catch(function (err) {
         err = err.data;
         $scope.errors = {};
 

@@ -27,7 +27,7 @@ angular.module('xinyixianApp').factory('socket', function (socketFactory) {
      * @param {Array} array
      * @param {Function} cb
      */
-    syncUpdates: function syncUpdates(modelName, array, cb) {
+    syncUpdates: function (modelName, array, cb) {
       cb = cb || angular.noop;
 
       /**
@@ -65,7 +65,7 @@ angular.module('xinyixianApp').factory('socket', function (socketFactory) {
      *
      * @param modelName
      */
-    unsyncUpdates: function unsyncUpdates(modelName) {
+    unsyncUpdates: function (modelName) {
       socket.removeAllListeners(modelName + ':save');
       socket.removeAllListeners(modelName + ':remove');
     }

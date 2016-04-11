@@ -32,7 +32,7 @@ angular.module('xinyixianApp').factory('Modal', function ($rootScope, $modal) {
        * @param  {Function} del - callback, ran when delete is confirmed
        * @return {Function}     - the function to open the modal (ex. myModalFn)
        */
-      'delete': function _delete(del) {
+      delete: function (del) {
         del = del || angular.noop;
 
         /**
@@ -53,13 +53,13 @@ angular.module('xinyixianApp').factory('Modal', function ($rootScope, $modal) {
               buttons: [{
                 classes: 'btn-danger',
                 text: 'Delete',
-                click: function click(e) {
+                click: function (e) {
                   deleteModal.close(e);
                 }
               }, {
                 classes: 'btn-default',
                 text: 'Cancel',
-                click: function click(e) {
+                click: function (e) {
                   deleteModal.dismiss(e);
                 }
               }]

@@ -1,5 +1,6 @@
 'use strict';
 // console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+
 angular.module('xinyixianApp').config(function ($stateProvider) {
   $stateProvider
 
@@ -17,5 +18,4 @@ angular.module('xinyixianApp').config(function ($stateProvider) {
     controllerAs: 'viewRestaurantCtrl'
   });
 });
-// authenticate: true
 //# sourceMappingURL=test.routes.js.map

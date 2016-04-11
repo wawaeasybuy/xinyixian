@@ -3,14 +3,14 @@
 angular.module('socketMock', []).factory('socket', function () {
   return {
     socket: {
-      connect: function connect() {},
-      on: function on() {},
-      emit: function emit() {},
-      receive: function receive() {}
+      connect: function () {},
+      on: function () {},
+      emit: function () {},
+      receive: function () {}
     },
 
-    syncUpdates: function syncUpdates() {},
-    unsyncUpdates: function unsyncUpdates() {}
+    syncUpdates: function () {},
+    unsyncUpdates: function () {}
   };
 });
 //# sourceMappingURL=socket.mock.js.map
