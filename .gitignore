@@ -22,7 +22,7 @@ coverage
 # Compiled binary addons (http://nodejs.org/api/addons.html)
 build/Release
 dist
-server/api/upload/images
+
 .tmp/app
 .tmp/components
 *.tmp

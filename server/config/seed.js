@@ -40,27 +40,36 @@ User.find({}).remove(function() {
     email: 'admin@admin.com',
     password: 'admin'
   }, function() {
-      console.log('finished populating users');
-      Category.find({}).remove(function(){
-        Category.create({
-          // sign:'1',//分类的标志,默认分类为1
-          name:'默认分类',//分类名
-          tags:[],
-          createDate:new Date()
-        },function(){
-          console.log('finished populating defalut category');
+      console.log('finished populating admin');
+      User.create({
+        provider: 'local',
+        role: 'user',
+        name: 'tourist',
+        email: 'tourist@tourist.com',
+        password: 'tourist'
+      },function(){
+        console.log('finished populating user');
+        Category.find({}).remove(function(){
+          Category.create({
+            // sign:'1',//分类的标志,默认分类为1
+            name:'默认分类',//分类名
+            tags:[],
+            createDate:new Date()
+          },function(){
+            console.log('finished populating defalut category');
+          });
+        });
+        ImageGroup.find({}).remove(function(){
+          ImageGroup.create({
+            // sign:'1',//分类组的标志,默认分类为1
+            name:'默认分组',//分类组名
+            images:[],
+            createDate:new Date()
+          },function(){
+            console.log('finished populating defalut image-group');
+          });
         });
       });
-      ImageGroup.find({}).remove(function(){
-        ImageGroup.create({
-          // sign:'1',//分类组的标志,默认分类为1
-          name:'默认分组',//分类组名
-          images:[],
-          createDate:new Date()
-        },function(){
-          console.log('finished populating defalut image-group');
-        });
-      });
-    }
-  );
+      
+  });
 });

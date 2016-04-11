@@ -44,14 +44,17 @@ module.exports = mongoose.model('Article', ArticleSchema);
 //生成id
 ArticleSchema.pre('save', function(next){
 	var self=this;
+	//如果是第一次发布，则生成addDate
+	if(self.state==2 && !self.addDate){
+		self.addDate=new Date();
+	}
 	//如果为新的，文章id赋值,admin中下篇文章编号+1
+	
 	if(self.isNew || !self.index){
 		User.findOne({role:'admin'},function (err,admin){
 			if (err) next(err);
 			self.index=admin.nextArticleNumber;
-			if(self.state==2 && !self.addDate){
-				self.addDate=new Date();
-			}
+			
 			admin.nextArticleNumber+=1;
 			admin.save(function (err){
 				if (err) next(err);
@@ -59,9 +62,6 @@ ArticleSchema.pre('save', function(next){
 			});
 		});
 	}else{
-		if(self.state==2 && !self.addDate){
-			self.addDate=new Date();
-		}
 		next();
 	}
 });

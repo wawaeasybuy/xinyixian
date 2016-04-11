@@ -2,12 +2,15 @@
 
 angular.module('xinyixianApp')
   .factory('Article', function ($resource) {
-    return $resource('/api/users/:id/:controller', {
+    return $resource('/api/articles/:id/:controller', {
       id: '@_id'
     },
     {
       index: {
         method: 'GET'
+      },
+      create:{
+        method: 'POST'
       }
 	  });
   });

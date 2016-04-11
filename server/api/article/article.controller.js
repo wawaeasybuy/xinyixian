@@ -210,6 +210,19 @@ exports.index=function (req,res){
 	if(name){
 		condition=_.merge(condition,{title:{'$regex' : '.*' + name + '.*'}});
 	}
+	if(req.user){
+		if(req.user.role=='admin'){
+			var state=req.query.state;
+			if(state){
+				condition=_.merge(condition,{state:state});
+			}
+		}else{
+			condition=_.merge(condition,{state:2});
+		}
+	}else{
+		condition=_.merge(condition,{state:2});
+	}
+	console.log(condition);
 	Article.find(condition).count(function (err,c){
 		if(err){ return handleError(res,err);}
 		count=c;
@@ -219,6 +232,7 @@ exports.index=function (req,res){
         limit: itemsPerPage
 	})
 	.populate("tags")
+	.sort({updateDate:-1})
 	.exec(function (err,articles){
 		if(err){ return handleError(res,err);}
 		return res.json(200,{

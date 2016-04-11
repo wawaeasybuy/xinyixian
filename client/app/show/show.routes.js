@@ -15,7 +15,7 @@ angular.module('xinyixianApp')
         templateUrl: 'app/show/home/home.html',
         controller: 'ViewHomeController',
         controllerAs: 'viewHomeCtrl',
-        // authenticate: true
+        // authenticate: false
       })
       .state('view-article', {
         url: '/show/article/view',

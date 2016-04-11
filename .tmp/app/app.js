@@ -1,5 +1,5 @@
 // 'use strict';
-
+var testNum = 0;
 angular.module('xinyixianApp', ['ngCookies', 'ngResource', 'ngSanitize', 'btford.socket-io', 'ui.router', 'ngFileUpload']).config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
   $urlRouterProvider.otherwise('/');
 
@@ -32,6 +32,10 @@ angular.module('xinyixianApp', ['ngCookies', 'ngResource', 'ngSanitize', 'btford
   // Redirect to login if route requires auth and you're not logged in
   $rootScope.$on('$stateChangeStart', function (event, next) {
     Auth.isLoggedInAsync(function (loggedIn) {
+      //若没有登录，则使用游客身份登录
+      if (!loggedIn) {
+        Auth.login({ email: 'tourist@tourist.com', password: 'tourist' }, function () {});
+      }
       // $location.path('/show/home/view');
     });
   });
