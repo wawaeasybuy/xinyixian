@@ -18,24 +18,16 @@
 	<div class="contentPosition">
 		<div class="content">
 			<div class="articleInfo">
-				<div class="title">ID</div>
-				<input type="text" class="input">
-			</div>
-			<div class="articleInfo">
-				<div class="title">序号</div>
-				<input type="text" class="input">
-			</div>
-			<div class="articleInfo">
 				<div class="title" >标题</div>
-				<input type="text" class="input" ng-model="editArticleCtrl.article.title">
+				<input type="text" class="input">
 			</div>
 			<div class="articleInfo">
 				<div class="title">作者</div>
-				<input type="text" class="input" ng-model="editArticleCtrl.article.author">
+				<input type="text" class="input">
 			</div>
 			<div class="articleInfo">
 				<div class="title">摘要</div>
-				<input type="text" class="input" ng-model="editArticleCtrl.article.summary">
+				<input type="text" class="input">
 			</div>
 			<div class="articleInfo">
 				<div class="title">显示日期</div>
@@ -47,7 +39,7 @@
 			</div>
 			<div class="articleInfo">
 				<div class="title">特殊链接</div>
-				<input type="text" class="input" ng-model="editArticleCtrl.article.speciaLink">
+				<input type="text" class="input">
 			</div>
 			<div class="articleInfo">
 				<div class="title">分类</div>
@@ -60,10 +52,11 @@
 			</div>
 			<div class="showImage">
 				<!-- 图片进度条 -->
-				<div style="width:100px;">
-	            	<progressbar ng-show="editRestaurantCtrl.loaded > 0" class="progress-striped " ng-class="{active: editRestaurantCtrl.loaded < 100}" max="100" value="editRestaurantCtrl.loaded" style="width:100px;"><span ng-bind="editRestaurantCtrl.loaded"></span>%</progressbar>
-	          	</div>
+				<!-- <div style="width:100px;border:1px solid red">
+	            	<progressbar ng-show="addArticleCtrl.loaded > 0" class="progress-striped " ng-class="{active: addArticleCtrl.loaded < 100}" max="100" value="addArticleCtrl.loaded" style="width:100px;"><span ng-bind="addArticleCtrl.loaded"></span>%</progressbar>
+	          	</div> -->
 			</div>
+
 			<div class="articleInfo">
 				<div class="title">题图缩略图</div>
 				<div class="imageBtn">上传图片</div>
@@ -73,7 +66,7 @@
 			<div class="article">
 				<div class="title">正文</div>
 				<div style="width:580px;float:left;margin-left:50px;margin-top:-20px;">
-				<div class="loadArticle" ng-click="editArticleCtrl.show()">载入或重置文章内容</div>
+				<div class="loadArticle">载入或重置文章内容</div>
 					<div id="editor">
 						<!-- 正文 -->
 					</div>
@@ -83,7 +76,7 @@
 		</div>
 
 		<div class="buttons">
-			<div class="btnSave" ng-click='editArticleCtrl.save()'>保存</div>
+			<div class="btnSave">保存</div>
 			<div class="btnCancel">撤销</div>
 			<div class="btnPreview">预览</div>
 		</div>

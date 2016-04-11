@@ -30,10 +30,21 @@ body{
 }
 .screen{
 	border:1px solid #ccc;
+	float: left;
 	width: 150px;
 	height: 36px;
 	line-height: 36px;
 	text-align: center;
+}
+.addArticle{
+	border:1px solid #ccc;
+	float: right;
+	width: 80px;
+	height: 36px;
+	border-radius: 36px;
+	line-height: 36px;
+	text-align: center;
+	cursor: pointer;
 }
 .tableTitle{
 	width: 990px;
