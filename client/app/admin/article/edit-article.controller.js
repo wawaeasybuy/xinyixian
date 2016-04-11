@@ -31,15 +31,34 @@ angular.module('xinyixianApp')
         	console.log(stem);
         };
 
+        self.upload=function(file){
+        // console.log("sasa");
+        // console.log(file);
+        if(file.length>0){
+            Upload.upload({
+                method: 'POST',
+                url: 'api/upload',
+                data: {file: file, 'username': 'hahahah'}
+            }).then(function (resp) {
+                console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
+            }, function (resp) {
+                console.log('Error status: ' + resp.status);
+            }, function (evt) {
+                self.loaded = parseInt(100.0 * evt.loaded / evt.total);
+                console.log('progress: ' + self.loaded + '% ' + evt.config.data.file.name);
+            });
+           };
+        };
+
         self.save=function(){
             var stem = CKEDITOR.instances.editor.getData();
             self.article.content=stem;
-            console.log(self.article.content);
-            // Article.create({},self.article,function (data){
-            //     console.log();
-            // },function(){
+            console.log(self.article);
+            Article.create({},self.article,function (data){
+                console.log(data);
+            },function(){
 
-            // });
+            });
         };
 
         init();

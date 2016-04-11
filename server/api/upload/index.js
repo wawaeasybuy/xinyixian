@@ -8,6 +8,7 @@ var router = express.Router();
 
 
 router.post('/',controller.upload);
+router.post('/lib',controller.uploadToLib);
 
 
 module.exports = router;

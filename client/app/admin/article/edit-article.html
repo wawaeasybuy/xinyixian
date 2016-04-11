@@ -26,16 +26,16 @@
 				<input type="text" class="input">
 			</div>
 			<div class="articleInfo">
-				<div class="title">标题</div>
-				<input type="text" class="input">
+				<div class="title" >标题</div>
+				<input type="text" class="input" ng-model="editArticleCtrl.article.title">
 			</div>
 			<div class="articleInfo">
 				<div class="title">作者</div>
-				<input type="text" class="input">
+				<input type="text" class="input" ng-model="editArticleCtrl.article.author">
 			</div>
 			<div class="articleInfo">
 				<div class="title">摘要</div>
-				<input type="text" class="input">
+				<input type="text" class="input" ng-model="editArticleCtrl.article.summary">
 			</div>
 			<div class="articleInfo">
 				<div class="title">显示日期</div>
@@ -47,7 +47,7 @@
 			</div>
 			<div class="articleInfo">
 				<div class="title">特殊链接</div>
-				<input type="text" class="input">
+				<input type="text" class="input" ng-model="editArticleCtrl.article.speciaLink">
 			</div>
 			<div class="articleInfo">
 				<div class="title">分类</div>
@@ -60,7 +60,12 @@
 			<div class="showImage"></div>
 			<div class="articleInfo">
 				<div class="title">大图</div>
-				<div class="imageBtn">上传图片</div>
+				<div class="imageBtn">上传图片
+					<!-- 图片进度条 -->
+					<div style="width:100px;">
+		            	<progressbar ng-show="editRestaurantCtrl.loaded > 0" class="progress-striped " ng-class="{active: editRestaurantCtrl.loaded < 100}" max="100" value="editRestaurantCtrl.loaded" style="width:100px;"><span ng-bind="editRestaurantCtrl.loaded"></span>%</progressbar>
+		          	</div>
+				</div>
 			</div>
 			<div class="showImage"></div>
 			<div class="articleInfo">
@@ -70,7 +75,7 @@
 			<div class="showImage">建议图片大小为150*150</div>
 
 			<div class="article">
-				<div class="title">正文ss</div>
+				<div class="title">正文</div>
 				<div style="width:500px;float:left;margin-left:50px;margin-top:-20px;">
 				<div ng-click="editArticleCtrl.show()">test</div>
 					<div id="editor">

@@ -11,12 +11,12 @@ angular.module('xinyixianApp').controller('AdminViewRestaurantController', ['$st
                 url: 'api/upload',
                 data: { file: file, 'username': 'hahahah' }
             }).then(function (resp) {
-                console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
+                // console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
             }, function (resp) {
                 console.log('Error status: ' + resp.status);
             }, function (evt) {
                 var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-                console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
+                console.log('progress: ' + progressPercentage + '% ');
             });
         };
     };
