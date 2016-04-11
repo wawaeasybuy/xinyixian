@@ -41,6 +41,7 @@ module.exports = mongoose.model('Article', ArticleSchema);
 
 // var article =  mongoose.model('article', ArticleSchema);
 
+var User = require('../user/user.model');
 //生成id
 ArticleSchema.pre('save', function(next){
 	var self=this;

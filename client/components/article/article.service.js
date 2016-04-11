@@ -6,11 +6,18 @@ angular.module('xinyixianApp')
       id: '@_id'
     },
     {
+      
+      create:{
+        method: 'POST'
+      },
       index: {
         method: 'GET'
       },
-      create:{
-        method: 'POST'
+      show:{
+        method: 'GET'
+      },
+      update:{
+        method: 'PUT'
       }
 	  });
   });

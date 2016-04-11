@@ -76,7 +76,7 @@ exports.create=function (req,res){
 };
 
 //update article (含发布，删除，更新，state改变即可)
-exports.update=function(){
+exports.update=function(req,res){
 	var id=req.params.id;
 	if(!id){return res.json(400,{error:{msg:'id is required'}});}
 	
@@ -197,10 +197,7 @@ exports.index=function (req,res){
 	var category=req.query.category;
 	var tag=req.query.tag;
 	var name=req.query.retrieval;
-	var condition={
-		page:page,
-		itemsPerPage:itemsPerPage
-	};
+	var condition={};
 	if(category){
 		condition=_.merge(condition,{category:category});
 	}

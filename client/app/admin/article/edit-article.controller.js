@@ -5,6 +5,8 @@ angular.module('xinyixianApp')
     function ($state, $stateParams, $location, $scope,$cookies,Article) {
     	var self=this;
 
+        self.id = $stateParams.id;
+
         self.article={
             category:'',//分类
             remindTag:'',//提示Tag,不加入tag库,多个标签用,隔开
@@ -23,12 +25,25 @@ angular.module('xinyixianApp')
 
     	var init = function(){
     		initSample();
-    	};
+            loadArticle();
+            // var open=true;
+            // while(open){
+            //     CKEDITOR.instances.editor.insertHtml('<p>dsadfasdadasda<img alt="" src="http://localhost:9000/assets/upload/upload_images/25d6a93b88cd7a87d433485bc540f85b.jpeg" style="height:62px; width:100px" /></p>');
+            // }
+        };
+
+        var loadArticle=function(){
+            self.id='570b695c0e8c454d775b37d8';
+            Article.show({id:self.id},function (data){
+                self.article=data.article;
+                CKEDITOR.instances.editor.insertHtml(self.article.content);
+            });
+        };
 
     	self.show=function(){
-        	console.log("self.aaa",self.aaa);
         	var stem = CKEDITOR.instances.editor.getData();
         	console.log(stem);
+            CKEDITOR.instances.editor.setData(self.article.content);
         };
 
         self.upload=function(file){
@@ -54,13 +69,22 @@ angular.module('xinyixianApp')
             var stem = CKEDITOR.instances.editor.getData();
             self.article.content=stem;
             console.log(self.article);
-            Article.create({},self.article,function (data){
-                console.log(data);
+            Article.update({id:self.id},self.article,function (data){
+                console.log('success');
             },function(){
 
             });
+            // Article.create({},self.article,function (data){
+            //     console.log(data);
+            // },function(){
+
+            // });
         };
 
         init();
-        
+        setTimeout(function(){
+            console.log('1111');
+            CKEDITOR.instances.editor.setData(self.article.content);
+        },1000);
   }]);
+

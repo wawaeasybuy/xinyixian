@@ -10,7 +10,7 @@ angular.module('xinyixianApp')
         // authenticate: true
       })
       .state('article-edit', {
-        url: '/admin/article/edit',
+        url: '/admin/article/edit/:id',
         templateUrl: 'app/admin/article/edit-article.html',
         controller: 'EditArticleController',
         controllerAs: 'editArticleCtrl',
