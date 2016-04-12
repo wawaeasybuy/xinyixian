@@ -1,9 +1,18 @@
 'use strict';
 
 angular.module('xinyixianApp')
-  .controller('LoginCtrl', function ($scope, Auth, $location) {
+  .controller('LoginCtrl', function ($scope, Auth, $location,$stateParams) {
     $scope.user = {};
     $scope.errors = {};
+
+    self.role = $stateParams.role || 0;
+
+    Auth.logout();
+
+    if(self.role!='admin'){
+      $location.path('/');
+      return;
+    }
 
     $scope.login = function(form) {
       $scope.submitted = true;
@@ -22,4 +31,5 @@ angular.module('xinyixianApp')
         });
       }
     };
+
   });

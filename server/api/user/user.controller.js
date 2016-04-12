@@ -9,6 +9,10 @@ var validationError = function(res, err) {
   return res.status(422).json(err);
 };
 
+exports.check=function (req,res){
+  return res.json(200,{msg:'is admin'});
+};
+
 /**
  * Get list of users
  * restriction: 'admin'

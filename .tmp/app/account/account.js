@@ -2,7 +2,7 @@
 
 angular.module('xinyixianApp').config(function ($stateProvider) {
   $stateProvider.state('login', {
-    url: '/login',
+    url: '/login?role',
     templateUrl: 'app/account/login/login.html',
     controller: 'LoginCtrl'
   }).state('signup', {
