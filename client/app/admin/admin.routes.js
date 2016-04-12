@@ -5,7 +5,7 @@ angular.module('xinyixianApp')
 
     // 文章页面
       .state('article-view', {
-        url: '/admin/article/view',
+        url: '/admin/article/view?page&itemsPerPage&category',
         templateUrl: 'app/admin/article/view-article.html',
         controller: 'ViewArticleController',
         controllerAs: 'viewArticleCtrl',

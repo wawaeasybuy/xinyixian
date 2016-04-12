@@ -130,3 +130,11 @@ exports.index=function (req,res){
     	});
     });
 };
+
+//admin getAll
+exports.all_index=function (req,res){
+	Category.find({},function (err,categories){
+		if(err){ return handleError(res,err);}
+		res.json(200,{categories:categories});
+	});
+};

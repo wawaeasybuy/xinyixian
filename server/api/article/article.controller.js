@@ -197,7 +197,7 @@ exports.index=function (req,res){
 	var category=req.query.category;
 	var tag=req.query.tag;
 	var name=req.query.retrieval;
-	var condition={};
+	var condition={state:2};
 	if(category){
 		condition=_.merge(condition,{category:category});
 	}
@@ -206,18 +206,6 @@ exports.index=function (req,res){
 	}
 	if(name){
 		condition=_.merge(condition,{title:{'$regex' : '.*' + name + '.*'}});
-	}
-	if(req.user){
-		if(req.user.role=='admin'){
-			var state=req.query.state;
-			if(state){
-				condition=_.merge(condition,{state:state});
-			}
-		}else{
-			condition=_.merge(condition,{state:2});
-		}
-	}else{
-		condition=_.merge(condition,{state:2});
 	}
 	console.log(condition);
 	Article.find(condition).count(function (err,c){
@@ -228,7 +216,7 @@ exports.index=function (req,res){
 		skip: (page - 1) * itemsPerPage,
         limit: itemsPerPage
 	})
-	.populate("tags")
+	.populate("tags category")
 	.sort({updateDate:-1})
 	.exec(function (err,articles){
 		if(err){ return handleError(res,err);}
@@ -240,6 +228,50 @@ exports.index=function (req,res){
 	});
 
 };
+
+//admin_index
+exports.admin_index=function (req,res){
+	var page = req.query.page || 1,
+    	itemsPerPage = req.query.itemsPerPage || 10;
+   	var count;
+	var category=req.query.category;
+	var tag=req.query.tag;
+	var name=req.query.retrieval;
+	var state=req.query.state;
+	var condition={};
+	if(category){
+		condition=_.merge(condition,{category:category});
+	}
+	if(tag){
+		condition=_.merge(condition,{tags:tag});
+	}
+	if(name){
+		condition=_.merge(condition,{title:{'$regex' : '.*' + name + '.*'}});
+	}
+	if(state){
+		condition=_.merge(condition,{title:{state:state}});
+	}
+	console.log(condition);
+	Article.find(condition).count(function (err,c){
+		if(err){ return handleError(res,err);}
+		count=c;
+	});
+	Article.find(condition,{},{
+		skip: (page - 1) * itemsPerPage,
+        limit: itemsPerPage
+	})
+	.populate("tags category")
+	.sort({updateDate:-1})
+	.exec(function (err,articles){
+		if(err){ return handleError(res,err);}
+		return res.json(200,{
+			articles:articles,
+			page:page,
+			count:count
+		});
+	});
+};
+
 
 //show
 exports.show=function (req,res){

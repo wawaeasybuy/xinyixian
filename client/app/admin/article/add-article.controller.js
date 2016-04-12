@@ -4,8 +4,7 @@ angular.module('xinyixianApp')
   .controller('AddArticleController', ['$state', '$stateParams', '$location', '$scope','$cookies', 'Article', 'Upload','Category',
     function ($state, $stateParams, $location, $scope,$cookies,Article,Upload,Category) {
     	var self=this;
-        var upload_image_url=hostUrl+"/assets/upload/upload_images/";
-        var defalut_image=hostUrl+"/assets/";
+        
      //    self.id = $stateParams.id;
         self._updateDate=false;
 
@@ -36,8 +35,9 @@ angular.module('xinyixianApp')
         };
 
         var loadCategory=function(){
-            Category.index({},function (data){
+            Category.all_index({},function (data){
                 self.categories=data.categories;
+                self.showCategory=_.findWhere(self.categories,{sign:'1'});
             });
         };
 
@@ -63,8 +63,8 @@ angular.module('xinyixianApp')
         var MIN = 1;
         //state=1题图，2缩略图
         self.upload=function(file,state){
-        console.log("sasa");
-        console.log(file);
+        // console.log("sasa");
+        // console.log(file);
         if(file.length>0){
             var file=file[0];
             var now = new Date().getTime();

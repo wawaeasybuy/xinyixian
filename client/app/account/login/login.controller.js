@@ -8,7 +8,6 @@ angular.module('xinyixianApp')
     self.role = $stateParams.role || 0;
 
     Auth.logout();
-
     if(self.role!='admin'){
       $location.path('/');
       return;

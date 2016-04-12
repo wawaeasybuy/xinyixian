@@ -7,7 +7,6 @@ angular.module('xinyixianApp').controller('LoginCtrl', function ($scope, Auth, $
   self.role = $stateParams.role || 0;
 
   Auth.logout();
-
   if (self.role != 'admin') {
     $location.path('/');
     return;

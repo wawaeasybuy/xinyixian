@@ -13,6 +13,13 @@ angular.module('xinyixianApp')
       index: {
         method: 'GET'
       },
+      admin_index: {
+        method: 'GET',
+        params:{
+          id:'admin',
+          controller:'index'
+        }
+      },
       show:{
         method: 'GET'
       },

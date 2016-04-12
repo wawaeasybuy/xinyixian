@@ -1,6 +1,9 @@
 // 'use strict';
 //全局host根目录
 var hostUrl = "http://localhost:9000";
+var upload_image_url = hostUrl + "/assets/upload/upload_images/";
+var lib_image_url = hostUrl + "/assets/upload/upload_images/";
+var defalut_image = hostUrl + "/assets/";
 angular.module('xinyixianApp', ['ngCookies', 'ngResource', 'ngSanitize', 'btford.socket-io', 'ui.router', 'ui.bootstrap',
 // '720kb.datepicker',
 'ngFileUpload']).config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {

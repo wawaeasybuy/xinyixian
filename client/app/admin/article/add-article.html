@@ -16,6 +16,7 @@
 	</div>
 
 	<div class="contentPosition">
+		<!-- updateDate -->
 		<div style="width:300px;margin:0 auto;height:0px;">
 			<div style="width:300px;background-color:#fff;position:absolute;top:390px;">
 				<datepicker class="from-data" style="box-shadow: 0 0 20px #aaa;" ng-show="addArticleCtrl._updateDate" ng-model="addArticleCtrl.article.updateDate"  datepicker-mode="year"></datepicker>
@@ -35,7 +36,7 @@
 				<input type="text" class="input" ng-model="addArticleCtrl.article.summary">
 			</div>
 			<div class="articleInfo">
-				<div class="title">修改日期</div>
+				<div class="title">显示日期</div>
 				
 				<div class="input" style="border-radius: 3px;width:100px;" ng-click="addArticleCtrl.openDate()">
 					<div ng-bind="addArticleCtrl.article.updateDate | date:'MMM d, yyyy'" ></div>

@@ -8,6 +8,13 @@ angular.module('xinyixianApp')
     {
       index: {
         method: 'GET'
+      },
+      all_index: {
+        method: 'GET',
+        params:{
+          id:'all',
+          controller:'category'
+        }
       }
       // show:{
       //   method: 'GET'

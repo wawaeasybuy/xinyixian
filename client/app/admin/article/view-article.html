@@ -10,7 +10,16 @@
 		<div style="clear:both"></div>
 	</div>
 	<div class="content">
-		<div class="screen">所有分类</div>
+		<div class="screen" ng-click="viewArticleCtrl.openCategory()" ng-bind="viewArticleCtrl.selectedCategory">所有分类</div>
+		<!-- 分类下拉框 -->
+		<div style="width:200px;height:0px;float:left;">
+			<div ng-show="viewArticleCtrl._openCategory" style="width:200px;height:100px;overflow-y:auto;position:relative; left:-200px;top:36px;">
+				<div ng-click="viewArticleCtrl.chooseCategory('all')" style="border:1px solid #000;background-color: #fff;">全部</div>
+				<div ng-repeat="category in viewArticleCtrl.categories" ng-bind="category.name" ng-click="viewArticleCtrl.chooseCategory(category)" style="border:1px solid #000;background-color: #fff;"></div>
+				<!-- <div ng-bind="addArticleCtrl.categories[0].name" ></div> -->
+			</div>
+		</div>
+		<!--  -->
 		<div class="addArticle" ui-sref="article-add">新增</div>
 		<div style="clear:both"></div>
 		<!-- 标题 -->
@@ -28,19 +37,19 @@
 		</div>
 		
 		<!-- 显示 -->
-		<div class="tableContent">
+		<div class="tableContent" ng-repeat="article in viewArticleCtrl.articles">
 			<div class="articleDelete"><div class="chooseDelete"></div></div>
-			<div class="articleId">1</div>
-			<div class="articleNum">1</div>
-			<div class="articleTitle">1</div>
-			<div class="articleclassify">1</div>
+			<div class="articleId" ng-bind="article._id">1</div>
+			<div class="articleNum" ng-bind="article.index">1</div>
+			<div class="articleTitle" ng-bind="article.title">1</div>
+			<div class="articleclassify" ng-bind="article.category.name">1</div>
 			<div class="articleTag">1</div>
-			<div class="articleReleaseTime">1</div>
-			<div class="articleAddTime">1</div>
-			<div class="articleState">1</div>
-			<div class="articlePv">1</div>
+			<div class="articleReleaseTime" ng-bind="article.updateDate | date:'MMM d, yyyy'">1</div>
+			<div class="articleAddTime" ng-bind="article.addDate | date:'MMM d, yyyy'">1</div>
+			<div class="articleState" ng-bind="article.showState">1</div>
+			<div class="articlePv" ng-bind="article.pv">1</div>
 			<div class="buttons">
-				<div class="btnEdit" ui-sref="article-edit">编辑</div>
+				<div class="btnEdit" ui-sref="article-edit({id:article._id})">编辑</div>
 				<div class="btnDelete">删除</div>
 				<div class="btnPreview">预览</div>
 				<div class="btnNumUp">序号上移</div>
@@ -49,4 +58,5 @@
 		</div>
 		<div class="batchDelete">批量删除</div>
 	</div>
+	<pagination style="float:right;margin-right:30px;" ng-if="viewOrderCtrl.pagination.numPages > 1" total-items="viewOrderCtrl.pagination.totalItems" ng-model="viewOrderCtrl.pagination.page" items-per-page="viewOrderCtrl.pagination.itemsPerPage" max-size="viewOrderCtrl.pagination.maxSize" boundary-links="{{viewOrderCtrl.pagination.numPages > 2}}" rotate="false" num-pages="viewOrderCtrl.pagination.numPages" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;" ng-change="viewOrderCtrl.pageChanged()"></pagination>
 </div>
