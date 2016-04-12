@@ -1,0 +1,45 @@
+
+<link href="../assets/css/edit-classify.css"rel="stylesheet"type="text/css">
+<div class="backgroundPosition">
+	<!-- 导航栏 -->
+	<div class="navs">
+		<div class="nav" ui-sref="article-view">文章</div>
+		<div class="nav" ui-sref="classify-view">分类</div>
+		<div class="nav" ui-sref="tag-view">标签</div>
+		<div class="nav" ui-sref="image-view">图片</div>
+		<div style="clear:both"></div>
+	</div>
+
+	<div class="contentPosition">
+		<div class="content">
+			<div class="classifyInfo">
+				<div class="title">项目名称</div>
+				<input type="text" class="input">
+			</div>
+			<div class="classifyInfo">
+				<div class="title">分类名称</div>
+				<input type="text" class="input">
+			</div>
+			<div class="classifyInfo">
+				<div class="title" >Url名</div>
+				<input type="text" class="input">
+			</div>
+			<div class="classifyInfo">
+				<div class="title">分类图标</div>
+				<div class="imageBtn">上传图片</div>
+			</div>
+			<div class="showImage">
+				<!-- 图片进度条 -->
+				<!-- <div style="width:100px;">
+	            	<progressbar ng-show="editRestaurantCtrl.loaded > 0" class="progress-striped " ng-class="{active: editRestaurantCtrl.loaded < 100}" max="100" value="editRestaurantCtrl.loaded" style="width:100px;"><span ng-bind="editRestaurantCtrl.loaded"></span>%</progressbar>
+	          	</div> -->
+			</div>
+			
+		</div>
+
+		<div class="buttons">
+			<div class="btnSave">保存</div>
+			<div class="btnCancel">撤销</div>
+		</div>
+	</div>
+</div>

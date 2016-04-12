@@ -1,0 +1,41 @@
+
+<link href="../assets/css/view-classify.css"rel="stylesheet"type="text/css">
+<div class="backgroundPosition">
+	<!-- 导航栏 -->
+	<div class="navs">
+		<div class="nav" ui-sref="article-view">文章</div>
+		<div class="nav" ui-sref="classify-view">分类</div>
+		<div class="nav" ui-sref="tag-view">标签</div>
+		<div class="nav" ui-sref="image-view">图片</div>
+		<div style="clear:both"></div>
+	</div>
+	<div class="content">
+		<!-- <div class="screen">所有分类</div> -->
+		<div class="addClassify" ui-sref="classify-add">新增</div>
+		<div style="clear:both"></div>
+		<!-- 标题 -->
+		<div class="tableTitle">
+			<div class="catalogDelete"><div class="chooseDelete"></div></div>
+			<div class="catalogId">ID</div>
+			<div class="catalogName">名称</div>
+			<div class="catalogUrl">Url名</div>
+			<div class="catalogArticleNum">文章总数</div>
+		</div>
+		
+		<!-- 显示 -->
+		<div class="tableContent">
+			<div class="catalogDelete"><div class="chooseDelete"></div></div>
+				<div class="catalogId">1</div>
+				<div class="catalogName">1</div>
+				<div class="catalogUrl">1</div>
+				<div class="catalogArticleNum">1</div>
+				
+				<div class="buttons">
+					<div class="btnEdit" ui-sref="classify-edit">编辑</div>
+					<div class="btnDelete">删除</div>
+					<div class="btnShow">查看</div>
+				</div>
+		</div>
+		<div class="batchDelete">批量删除</div>
+	</div>
+</div>

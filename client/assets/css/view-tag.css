@@ -36,7 +36,7 @@ body{
 	line-height: 36px;
 	text-align: center;
 }
-.addArticle{
+.addTag{
 	border:1px solid #ccc;
 	float: right;
 	width: 80px;
@@ -60,14 +60,11 @@ body{
 	background-color: #F9F9F9;
 	position: relative;
 }
-.articleDelete,.articleId,
-.articleNum,.articleTitle,
-.articleclassify,.articleTag,
-.articleReleaseTime,.articleAddTime,
-.articleState,.articlePv{
+.tagDelete,.tagId,
+.tagName,.tagArticleNum{
 	/*border:1px solid red;*/
 	float: left;
-	width: 99px;
+	width: 247px;
 	text-align: center;
 }
 .chooseDelete{
@@ -107,9 +104,7 @@ body{
 }
 .btnEdit,
 .btnDelete,
-.btnPreview,
-.btnNumUp,
-.btnNumDown{
+.btnShow{
 	float: left;
 	margin-right: 30px;
 	font-size: 12px;
