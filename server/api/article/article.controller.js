@@ -117,7 +117,22 @@ exports.destory=function (req,res){
 	Article.findByIdAndRemove(id,function (err,article){
 		if(err){ return handleError(res,err);}
 		if(!article){return res.json(404,{error:{msg:'article not found'}});}
-		return res.json(200,{msg:'delete success'});
+		Article.find({index:{$gte:article.index}},function (err,articles){
+			if(err){ return handleError(res,err);}
+			console.log(articles);
+			_.each(articles,function (article){
+				article.index=article.index-1;
+				article.save();
+			});
+			User.findOne({role:'admin'},function (err,admin){
+				if(err){ return handleError(res,err);}				
+				admin.nextArticleNumber-=1;
+				admin.save();
+				return res.json(200,{msg:'delete success'});
+			});
+			
+		});
+		
 	});
 };
 
@@ -144,7 +159,29 @@ exports.destory_all=function (req,res){
 		_.each(articles,function (article){
 			article.remove();
 		});
-		return res.json(200,{msg:'delete success'});
+		//取最小的index
+		var index=articles[0];
+		var len=articles.length;
+		for(var i=1;i<articles.length;i++){
+			if(articles[i].index<index){
+				index=articles[i].index;
+			}
+		}
+		Article.find({index:{$gte:index}},function (err,articles){
+			if(err){ return handleError(res,err);}
+			// console.log(articles);
+			_.each(articles,function (article){
+				article.index=article.index-len;
+				article.save();
+			});
+			User.findOne({role:'admin'},function (err,admin){
+				if(err){ return handleError(res,err);}				
+				admin.nextArticleNumber-=len;
+				admin.save();
+				return res.json(200,{msg:'delete success'});
+			});
+			
+		});
 	});
 };
 
@@ -155,38 +192,45 @@ exports.index_update=function (req,res){
 	if(!id){return res.json(400,{error:{msg:'id is required'}});}
 	if(!state){return res.json(400,{error:{msg:'state is required'}});}
 	if(state!=1&&state!=2){return res.json(400,{error:{msg:'state is wrong'}});}
-	Article.findById(id,function (err,article_one){
-		if(err){ return handleError(res,err);}
-		if(!article_one){return res.json(404,{error:{msg:'article_one not found'}});}
-		var index_one;
-		var index_two=article_one.index;
-		if(state==1){
-			if(article_one.index==1){return res.json(400,{error:{msg:'article already is the frist'}});}
-			index_one=article_one.index-1;
-			var condition={index:index_one};
-		}else{
-			index_one=article_one.index+1;
-			var condition={index:index_one};
-		}
-		Article.findOne(condition,function (err,article_two){
+	//判断是不是最后一篇，是不能后移
+	User.findOne({role:'admin'},function (err,admin){
+		if(err){ return handleError(res,err);}				
+		Article.findById(id,function (err,article_one){
 			if(err){ return handleError(res,err);}
-			if(article_two){
-				article_one.index=index_one;
-				article_two.index=index_two;
-				article_two.save();
-				article_one.save(function (err,article){
-					if(err){ return handleError(res,err);}
-					return res.json(200,{article:article});
-				});
+			if(!article_one){return res.json(404,{error:{msg:'article_one not found'}});}
+			var index_one;
+			var index_two=article_one.index;
+			if(state==1){
+				if(article_one.index==1){return res.json(400,{error:{msg:'article already is the frist'}});}
+				index_one=article_one.index-1;
+				var condition={index:index_one};
 			}else{
-				article_one.index=index_one;
-				article_one.save(function (err,article){
-					if(err){ return handleError(res,err);}
-					return res.json(200,{article:article});
-				});
+				index_one=article_one.index+1;
+				if(article_one.index==admin.nextArticleNumber){return res.json(400,{error:{msg:'article already is the latest'}});}
+				var condition={index:index_one};
 			}
+			Article.findOne(condition,function (err,article_two){
+				if(err){ return handleError(res,err);}
+				if(article_two){
+					article_one.index=index_one;
+					article_two.index=index_two;
+					article_two.save();
+					article_one.save(function (err,article){
+						if(err){ return handleError(res,err);}
+						return res.json(200,{article:article});
+					});
+				}else{
+					article_one.index=index_one;
+					article_one.save(function (err,article){
+						if(err){ return handleError(res,err);}
+						return res.json(200,{article:article});
+					});
+				}
+			});
 		});
+		
 	});
+	
 };
 
 //index
@@ -251,7 +295,6 @@ exports.admin_index=function (req,res){
 	if(state){
 		condition=_.merge(condition,{title:{state:state}});
 	}
-	console.log(condition);
 	Article.find(condition).count(function (err,c){
 		if(err){ return handleError(res,err);}
 		count=c;
@@ -261,7 +304,7 @@ exports.admin_index=function (req,res){
         limit: itemsPerPage
 	})
 	.populate("tags category")
-	.sort({updateDate:-1})
+	.sort({index:1})
 	.exec(function (err,articles){
 		if(err){ return handleError(res,err);}
 		return res.json(200,{
@@ -291,7 +334,7 @@ exports.change = function (req,res){
 	var state=req.query.state;
 	var category=req.query.category;
 	var tag=req.query.tag;
-	var condition={};
+	var condition={state:2};
 	if(!state||(state!=1&&state!=2)){return res.json(400,{error:{msg:'state is required or state is wrong'}});}
 	if((!index&&index!=0)||index<0){return res.json(400,{error:{msg:'index is required or index is wrong'}});}
 
