@@ -2,12 +2,20 @@ body,span{margin: 0px;padding: 0px;}
 body{
 	background-color: #353535;
 }
+.css960{
+	/*border:1px solid red;*/
+	width:1000px;
+	margin:0 auto;
+}
 /*最大的div*/
 .backgroundPosition{
 	/*border:1px solid red;*/
 	width: 1250px;
-	margin: 20px auto 200px;
-	transform: scale(0.7);
+	/*margin: 20px auto 200px;*/
+	transform: scale(0.8);
+	position: relative;
+	top:-120px;
+	left: -125px;
 }
 
 /*导航的位置*/
