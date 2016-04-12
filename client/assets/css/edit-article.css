@@ -131,3 +131,10 @@ body{
 	margin-right: 15px;
 	cursor: pointer;
 }
+/*增加个箭头背景图片*/
+.pull-left{
+	background-color: #000
+}
+.pull-right{
+	background-color: #000
+}

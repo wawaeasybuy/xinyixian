@@ -51,7 +51,7 @@ exports.create=function (req,res){
 		delete req.body._id;
 	}
 	// req.body.addDate=new Date();
-	req.body.category=getNoRepeatArr(req.body.category);
+	// req.body.category=getNoRepeatArr(req.body.category);
 	req.body.tags=getNoRepeatArr(req.body.tags);
 	//先把String转换成数组
 	req.body.remindTag=getTagArr(req.body.remindTag);
@@ -81,7 +81,7 @@ exports.update=function(req,res){
 	if(!id){return res.json(400,{error:{msg:'id is required'}});}
 	
 	var articleDetails=_.pick(req.body,'category','remindTag','tags','title','author','image','isBigImage','thumbnail','summary','updateDate','content','state','speciaLink');
-	articleDetails.category=getNoRepeatArr(articleDetails.category);
+	// articleDetails.category=getNoRepeatArr(articleDetails.category);
 	articleDetails.tags=getNoRepeatArr(articleDetails.tags);
 	articleDetails.remindTag=getTagArr(articleDetails.remindTag);
 	Article.findById(id,function (err,article){

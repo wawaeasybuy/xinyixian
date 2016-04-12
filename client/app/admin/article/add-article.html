@@ -16,22 +16,35 @@
 	</div>
 
 	<div class="contentPosition">
+		<div style="width:300px;margin:0 auto;height:0px;">
+			<div style="width:300px;background-color:#fff;position:absolute;top:390px;">
+				<datepicker class="from-data" style="box-shadow: 0 0 20px #aaa;" ng-show="addArticleCtrl._updateDate" ng-model="addArticleCtrl.article.updateDate"  datepicker-mode="year"></datepicker>
+			</div>
+		</div>
 		<div class="content">
 			<div class="articleInfo">
-				<div class="title" >标题</div>
-				<input type="text" class="input">
+				<div class="title">标题</div>
+				<input type="text" class="input" ng-model="addArticleCtrl.article.title">
 			</div>
 			<div class="articleInfo">
 				<div class="title">作者</div>
-				<input type="text" class="input">
+				<input type="text" class="input" ng-model="addArticleCtrl.article.author">
 			</div>
 			<div class="articleInfo">
 				<div class="title">摘要</div>
-				<input type="text" class="input">
+				<input type="text" class="input" ng-model="addArticleCtrl.article.summary">
 			</div>
 			<div class="articleInfo">
-				<div class="title">显示日期</div>
-				<input type="text" class="input">
+				<div class="title">修改日期</div>
+				
+				<div class="input" style="border-radius: 3px;width:100px;" ng-click="addArticleCtrl.openDate()">
+					<div ng-bind="addArticleCtrl.article.updateDate | date:'MMM d, yyyy'" ></div>
+				</div>
+				<!--  -->
+			</div>
+			<div class="articleInfo">
+				<div class="title" >提示标签</div>
+				<input type="text" class="input" ng-model="addArticleCtrl.article.remindTag">
 			</div>
 			<div class="articleInfo">
 				<div class="title">标签</div>
@@ -39,34 +52,47 @@
 			</div>
 			<div class="articleInfo">
 				<div class="title">特殊链接</div>
-				<input type="text" class="input">
+				<input type="text" class="input" ng-model="addArticleCtrl.article.speciaLink">
 			</div>
 			<div class="articleInfo">
 				<div class="title">分类</div>
-				<input type="text" class="input">
+				<div class="input" style="border-radius: 3px;width:200px;" ng-click="addArticleCtrl.openCategory()">
+					<div ng-bind="addArticleCtrl.showCategory.name" ></div>
+				</div>
+				<div style="width:200px;height:0px;float:left;">
+					<div ng-show="addArticleCtrl._openCategory" style="width:200px;height:100px;overflow-y:auto;position:relative; left:-200px;top:36px;">
+						<div ng-repeat="category in addArticleCtrl.categories" ng-bind="category.name" ng-click="addArticleCtrl.chooseCategory(category)" style="border:1px solid #000;background-color: #fff;"></div>
+						<!-- <div ng-bind="addArticleCtrl.categories[0].name" ></div> -->
+					</div>
+				</div>
+				<!-- <input type="text" class="input"> -->
 			</div>
 			<div class="articleInfo">
 				<div class="title">题图</div>
-				<div class="imageBtn">上传图片</div>
-				<div class="bigImage">大图模式</div><div class="chooseBigImage"></div>
+				<div class="imageBtn" ngf-select ngf-change="addArticleCtrl.upload($files,1)">上传图片</div>
+				<div class="bigImage">大图模式<div style="border:1px solid #000;width:10px"></div></div>
 			</div>
 			<div class="showImage">
+				<img src="{{addArticleCtrl.showImage}}" style="width:100px;height:50px">
 				<!-- 图片进度条 -->
-				<!-- <div style="width:100px;border:1px solid red">
-	            	<progressbar ng-show="addArticleCtrl.loaded > 0" class="progress-striped " ng-class="{active: addArticleCtrl.loaded < 100}" max="100" value="addArticleCtrl.loaded" style="width:100px;"><span ng-bind="addArticleCtrl.loaded"></span>%</progressbar>
-	          	</div> -->
+	            <progressbar ng-show="addArticleCtrl.loaded1 > 0" class="progress-striped" ng-class="{active: addArticleCtrl.loaded1 < 100}" max="100" value="addArticleCtrl.loaded1" style="background-color:#9DD1FF;display: block;border-radius:5px;text-align:center"><span ng-bind="addArticleCtrl.loaded1"></span>%</progressbar>
 			</div>
 
 			<div class="articleInfo">
 				<div class="title">题图缩略图</div>
-				<div class="imageBtn">上传图片</div>
+				<div class="imageBtn" ngf-select ngf-change="addArticleCtrl.upload($files,2)">上传图片</div>
 			</div>
-			<div class="showImage">建议图片大小为150*150</div>
-
+			<!-- 建议图片大小为150*150 -->
+			<div class="showImage">
+				<img src="{{addArticleCtrl.showThumbnail}}" style="width:100px;height:50px">
+				<!-- 图片进度条 -->
+	            <progressbar ng-show="addArticleCtrl.loaded2 > 0" class="progress-striped" ng-class="{active: addArticleCtrl.loaded2 < 100}" max="100" value="addArticleCtrl.loaded2" style="background-color:#9DD1FF;display: block;border-radius:5px;text-align:center"><span ng-bind="addArticleCtrl.loaded2"></span>%</progressbar>
+			</div>
+				
 			<div class="article">
 				<div class="title">正文</div>
 				<div style="width:580px;float:left;margin-left:50px;margin-top:-20px;">
-				<div class="loadArticle">载入或重置文章内容</div>
+				<div class="loadArticle"  ng-click="addArticleCtrl.resetContent()">重置文章内容</div>
 					<div id="editor">
 						<!-- 正文 -->
 					</div>
@@ -76,9 +102,13 @@
 		</div>
 
 		<div class="buttons">
-			<div class="btnSave">保存</div>
+			<div class="btnSave" ng-click="addArticleCtrl.save()">保存</div>
 			<div class="btnCancel">撤销</div>
 			<div class="btnPreview">预览</div>
 		</div>
 	</div>
+	<!-- <datepicker style="width:200px;">
+	  <input ng-model="date" type="text"/>
+	</datepicker> -->
+	
 </div>

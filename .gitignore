@@ -36,3 +36,4 @@ node_modules
 
 
 *.map
+.tmp/app/app.js

@@ -1,11 +1,13 @@
 'use strict';
 
 angular.module('xinyixianApp')
-  .controller('AddArticleController', ['$state', '$stateParams', '$location', '$scope','$cookies', 'Article',
-    function ($state, $stateParams, $location, $scope,$cookies,Article) {
+  .controller('AddArticleController', ['$state', '$stateParams', '$location', '$scope','$cookies', 'Article', 'Upload','Category',
+    function ($state, $stateParams, $location, $scope,$cookies,Article,Upload,Category) {
     	var self=this;
-
+        var upload_image_url=hostUrl+"/assets/upload/upload_images/";
+        var defalut_image=hostUrl+"/assets/";
      //    self.id = $stateParams.id;
+        self._updateDate=false;
 
         self.article={
             category:'',//分类
@@ -25,6 +27,7 @@ angular.module('xinyixianApp')
 
     	var init = function(){
     		initSample();
+            loadCategory();
             // loadArticle();
             // var open=true;
             // while(open){
@@ -32,59 +35,86 @@ angular.module('xinyixianApp')
             // }
         };
 
-     //    var loadArticle=function(){
-     //        self.id='570b695c0e8c454d775b37d8';
-     //        Article.show({id:self.id},function (data){
-     //            self.article=data.article;
-     //            CKEDITOR.instances.editor.insertHtml(self.article.content);
-     //        });
-     //    };
+        var loadCategory=function(){
+            Category.index({},function (data){
+                self.categories=data.categories;
+            });
+        };
 
-    	// self.show=function(){
-     //    	var stem = CKEDITOR.instances.editor.getData();
-     //    	console.log(stem);
-     //        CKEDITOR.instances.editor.setData(self.article.content);
-     //    };
+        //打开updateDate日历
+        self.openDate=function(){
+            self._updateDate=!self._updateDate;
+        };
 
-        // self.upload=function(file){
-        // // console.log("sasa");
-        // // console.log(file);
-        // if(file.length>0){
-        //     Upload.upload({
-        //         method: 'POST',
-        //         url: 'api/upload',
-        //         data: {file: file, 'username': 'hahahah'}
-        //     }).then(function (resp) {
-        //         console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
-        //     }, function (resp) {
-        //         console.log('Error status: ' + resp.status);
-        //     }, function (evt) {
-        //         self.loaded = parseInt(100.0 * evt.loaded / evt.total);
-        //         console.log('progress: ' + self.loaded + '% ' + evt.config.data.file.name);
-        //     });
-        //    };
-        // };
+        self.openCategory=function(){
+            self._openCategory=!self._openCategory;
+        };
 
-     //    self.save=function(){
-     //        var stem = CKEDITOR.instances.editor.getData();
-     //        self.article.content=stem;
-     //        console.log(self.article);
-     //        Article.update({id:self.id},self.article,function (data){
-     //            console.log('success');
-     //        },function(){
+        self.chooseCategory=function (category){
+            self.showCategory=category;
+            self._openCategory=false;
+        };
 
-     //        });
-     //        // Article.create({},self.article,function (data){
-     //        //     console.log(data);
-     //        // },function(){
+        self.resetContent=function(){
+            CKEDITOR.instances.editor.setData('');
+        };
 
-     //        // });
-     //    };
+        var MAX = Math.pow(2, 32);
+        var MIN = 1;
+        //state=1题图，2缩略图
+        self.upload=function(file,state){
+        console.log("sasa");
+        console.log(file);
+        if(file.length>0){
+            var file=file[0];
+            var now = new Date().getTime();
+            var nowStr = now.toString();
+            var rand = (Math.floor(Math.random() * (MAX - MIN)) + MIN).toString();
+            var randStr = rand.toString();
+            var filename = nowStr + '_' + randStr + '_' + file.name.replace(/[^0-9a-z\.]+/gi, '');
+            console.log(filename);
+            Upload.upload({
+                method: 'POST',
+                url: 'api/upload',
+                data: {file: file, 'filename': filename}
+            }).then(function (resp) {
+                switch(state){
+                    case 1:
+                        self.article.image=filename;
+                        self.showImage=upload_image_url+filename;
+                        break;
+                    case 2:
+                        self.article.thumbnail=filename;
+                        self.showThumbnail=upload_image_url+filename;
+                        break;
+                }
+            }, function (resp) {
+                alert("上传失败");
+            }, function (evt) {
+                switch(state){
+                    case 1:
+                        self.loaded1 = parseInt(100.0 * evt.loaded / evt.total);
+                        break;
+                    case 2:
+                        self.loaded2 = parseInt(100.0 * evt.loaded / evt.total);
+                        break;
+                }
+            });
+           };
+        };
+
+        self.save=function(){
+            var stem = CKEDITOR.instances.editor.getData();
+            self.article.content=stem;
+            self.article.category=self.showCategory._id;
+            console.log(self.article);
+            Article.create({},self.article,function (data){
+                console.log(data);
+            },function(){
+
+            });
+        };
 
         init();
-        setTimeout(function(){
-            console.log('1111');
-            CKEDITOR.instances.editor.setData(self.article.content);
-        },1000);
   }]);
 

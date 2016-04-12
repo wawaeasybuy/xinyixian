@@ -1,6 +1,9 @@
 // 'use strict';
-var testNum = 0;
-angular.module('xinyixianApp', ['ngCookies', 'ngResource', 'ngSanitize', 'btford.socket-io', 'ui.router', 'ngFileUpload']).config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
+//全局host根目录
+var hostUrl = "http://localhost:9000";
+angular.module('xinyixianApp', ['ngCookies', 'ngResource', 'ngSanitize', 'btford.socket-io', 'ui.router', 'ui.bootstrap',
+// '720kb.datepicker',
+'ngFileUpload']).config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
   $urlRouterProvider.otherwise('/');
 
   $locationProvider.html5Mode(true);

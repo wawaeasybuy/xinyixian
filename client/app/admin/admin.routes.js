@@ -19,7 +19,7 @@ angular.module('xinyixianApp')
         // authenticate: true
       })
       .state('article-add', {
-        url: '/admin/article/add/:id',
+        url: '/admin/article/add',
         templateUrl: 'app/admin/article/add-article.html',
         controller: 'AddArticleController',
         controllerAs: 'addArticleCtrl',
