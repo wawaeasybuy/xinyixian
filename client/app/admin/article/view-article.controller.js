@@ -59,7 +59,6 @@ angular.module('xinyixianApp')
             });
             // ng-bind="article.showState'"
       			self.pagination.page=data.page;
-      			self.pagination.itemsPerPage=data.itemsPerPage;
       			self.pagination.totalItems=data.count;
       			self.pagination.numPages=self.pagination.totalItems/self.pagination.itemsPerPage;
       		});
@@ -68,10 +67,13 @@ angular.module('xinyixianApp')
         var loadCategory=function(){
             Category.all_index({},function (data){
                 self.categories=data.categories;
-                var c=_.findWhere(self.categories,{_id:self.category.toString()});
-                if(c){
-                  self.selectedCategory=c.name;
+                if(self.category){
+                  var c=_.findWhere(self.categories,{_id:self.category.toString()});
+                  if(c){
+                    self.selectedCategory=c.name;
+                  }
                 }
+                
             });
         };
 
@@ -96,6 +98,29 @@ angular.module('xinyixianApp')
 
         self.openCategory=function(){
             self._openCategory=!self._openCategory;
+        };
+
+        //删除至回收站,如果已经是回收站内容提示删除为永久删除，确认删除
+        //1草稿，2发布，3回收站
+        self.dustbin=function(article){
+          var state=article.state;
+          console.log(article);
+          if(state=='3'){
+            if(confirm("该文章已在回收站,将永久删除,确认删除？")){
+              Article.destory({id:article._id},function(){
+                loadArticle();
+              });
+            }
+          }else{
+            if(confirm("确认移动至回收站？")){
+              Article.dustbin({id:article._id},{},function (){
+                loadArticle();
+              },function(){
+
+              });
+            }
+            
+          }
         };
         
         init();

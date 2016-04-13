@@ -50,7 +50,7 @@
 			<div class="articlePv" ng-bind="article.pv">1</div>
 			<div class="buttons">
 				<div class="btnEdit" ui-sref="article-edit({id:article._id})">编辑</div>
-				<div class="btnDelete">删除</div>
+				<div class="btnDelete"ng-click="viewArticleCtrl.dustbin(article)">删除</div>
 				<div class="btnPreview">预览</div>
 				<div class="btnNumUp">序号上移</div>
 				<div class="btnNumDown">序号下移</div>

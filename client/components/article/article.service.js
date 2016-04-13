@@ -6,7 +6,6 @@ angular.module('xinyixianApp')
       id: '@_id'
     },
     {
-      
       create:{
         method: 'POST'
       },
@@ -25,6 +24,15 @@ angular.module('xinyixianApp')
       },
       update:{
         method: 'PUT'
+      },
+      dustbin:{
+        method: 'PUT',
+        params:{
+          controller:'dustbin'
+        }
+      },
+      destory:{
+        method: 'DELETE'
       }
 	  });
   });

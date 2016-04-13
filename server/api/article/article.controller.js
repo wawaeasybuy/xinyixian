@@ -82,8 +82,12 @@ exports.update=function(req,res){
 	
 	var articleDetails=_.pick(req.body,'category','remindTag','tags','title','author','image','isBigImage','thumbnail','summary','updateDate','content','state','speciaLink');
 	// articleDetails.category=getNoRepeatArr(articleDetails.category);
-	articleDetails.tags=getNoRepeatArr(articleDetails.tags);
-	articleDetails.remindTag=getTagArr(articleDetails.remindTag);
+	if(articleDetails.tags){
+		articleDetails.tags=getNoRepeatArr(articleDetails.tags);
+	}
+	if(articleDetails.remindTag){
+		articleDetails.remindTag=getTagArr(articleDetails.remindTag);
+	}	
 	Article.findById(id,function (err,article){
 		if(err){ return handleError(res,err);}
 		if(!article){return res.json(404,{error:{msg:'article not found'}});}
