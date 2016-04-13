@@ -47,10 +47,24 @@
 				<div class="title" >提示标签</div>
 				<input type="text" class="input" ng-model="addArticleCtrl.article.remindTag">
 			</div>
-			<div class="articleInfo">
+			<div style="margin-top: 20px;">
 				<div class="title">标签</div>
-				<input type="text" class="input">
+				<div class="showTags">
+					<div class="showTag">1</div>
+					<div class="showTag"><div class="addTag"></div></div>
+
+					<div class="chooseTag">
+						<div class="close"></div>
+						<div class="name">Tag</div>
+						<div class="chooseBox"></div>
+						<div class="Tags">
+							<div class="tag">222</div>
+						</div>
+						<!-- <div style="clear:both"></div> -->
+					</div>
+				</div>
 			</div>
+			<div style="clear:both"></div>
 			<div class="articleInfo">
 				<div class="title">特殊链接</div>
 				<input type="text" class="input" ng-model="addArticleCtrl.article.speciaLink">

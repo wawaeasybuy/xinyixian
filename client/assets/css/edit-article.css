@@ -112,6 +112,73 @@ body{
 	border:1px solid #ccc;
 }
 
+.showTags{
+	/*border:1px solid red;*/
+	float: left;
+	width: 500px;
+	margin-left: 50px;
+	position: relative;
+}
+.showTag{
+	border:1px solid #ccc;
+	float: left;
+	width: 78px;
+	margin-right: 20px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	margin-top: 5px;
+}
+.addTag{
+	float: left;
+	/*border:1px solid red;*/
+	width: 20px;
+	height: 20px;
+	background: url(../images/add.png);
+	margin-top: 5px;
+	margin-left: 30px;
+}
+
+.chooseTag{
+	display: none;
+	width: 200px;
+	height: 100px;
+	background: #fff;
+	box-shadow: #ccc 0 0 5px 0;
+	position: absolute;
+	top:0px;
+	right: 150px;
+}
+.close{
+	width: 20px;
+	height: 20px;
+	border-radius: 20px;
+	background: url(../images/close.png);
+	position: relative;
+	top:2px;
+	left: 178px;
+}
+.name{
+	float: left;
+	margin-left: 20px;
+}
+.chooseBox{
+	width: 100px;
+	height: 30px;
+	border:1px solid #ccc;
+	margin-left: 60px;
+	cursor: pointer;
+}
+.Tags{
+	width: 100px;
+	height: 20px;
+	border:1px solid #ccc;
+	border-top: none;
+	margin-left: 60px;
+	text-align: center;
+	line-height: 20px;
+}
+
 
 .buttons{
 	width: 400px;

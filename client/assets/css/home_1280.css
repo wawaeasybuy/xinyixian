@@ -58,6 +58,9 @@ body{
 	top:140px;
 	left: 110px;
 }
+.cityReport:hover{
+	border:5px solid #00ff00;
+}
 .reportLogo{
 	/*border:1px solid #00ff00;*/
 	width: 230px;
@@ -72,6 +75,9 @@ body{
 	position: absolute;
 	top:40px;
 	left: 320px;
+}
+.infographics:hover{
+	border:5px solid #00ff00;
 }
 .infographicsLogo{
 	/*border:1px solid #00ff00;*/
@@ -88,6 +94,9 @@ body{
 	top:40px;
 	left: 500px;
 }
+.cityList:hover{
+	border:5px solid #00ff00;
+}
 .listLogo{
 	/*border:1px solid #00ff00;*/
 	width: 320px;
@@ -102,6 +111,9 @@ body{
 	position: absolute;
 	top:140px;
 	left: 845px;
+}
+.cityActivity:hover{
+	border:5px solid #00ff00;
 }
 .activityLogo{
 	/*border:1px solid #00ff00;*/
@@ -151,7 +163,22 @@ body{
 	line-height: 50px;
 	font-size: 10px;
 	color: #333;
+	overflow: hidden;
 }
+.shenyang:hover,.changsha:hover,.dalian:hover,.tianjin:hover,
+.wuhan:hover,.nanjing:hover,.hangzhou:hover,.qingdao:hover,
+.beishang:hover,.chengdu:hover,.fun:hover,.suzhou:hover,
+.xian:hover,.xiamen:hover,.wuxi:hover,.chongqing:hover{
+	background-color: #00ff00;
+}
+/*.word{
+	border:1px solid red;
+	width: 24px;
+	height: 24px;
+	line-height: 12px;
+	margin-top: 13px;
+	margin-left: 13px;
+}*/
 .shenyang{
 	position: absolute;
 	top:110px;
@@ -196,14 +223,6 @@ body{
 	position: absolute;
 	top:40px;
 	left:500px;
-}
-.beishang .word{
-	/*border:1px solid red;*/
-	width: 24px;
-	height: 24px;
-	line-height: 12px;
-	margin-top: 13px;
-	margin-left: 13px;
 }
 .chengdu{
 	position: absolute;
@@ -327,6 +346,59 @@ body{
 	top:130px;
 	left:1230px;
 }
+/*二维码圆*/
+.qrcodeDots div{
+	width: 25px;
+	height: 25px;
+	border-radius: 25px;
+	background-color: #fff;
+}
+.qrcodeDot1{
+	position: absolute;
+	top:15px;
+	left:770px;
+}
+.qrcodeDot2{
+	position: absolute;
+	top:15px;
+	left:820px;
+}
+.qrcodeDot3{
+	position: absolute;
+	top:15px;
+	left:870px;
+}
+.qrcodeDot4{
+	position: absolute;
+	top:15px;
+	left:920px;
+}
+.qrcodeDot5{
+	position: absolute;
+	top:15px;
+	left:970px;
+}
+/*显示二维码的圆*/
+.showQdcode{
+	width: 170px;
+	height: 170px;
+	border-radius: 170px;
+	position: absolute;
+	top:45px;
+	left: 830px;
+	background-color: #00ff00;
+	opacity: 0.8;
+	display: none;
+}
+.qrcodeDot1:hover,
+.qrcodeDot2:hover,
+.qrcodeDot3:hover,
+.qrcodeDot4:hover,
+.qrcodeDot5:hover{
+	background-color: #00ff00;
+}
+
+
 /*所有文章*/
 .articleKind{
 	width: 200px;
