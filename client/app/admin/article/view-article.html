@@ -41,16 +41,16 @@
 		<!-- 显示 -->
 		<div class="tableContent" ng-repeat="article in viewArticleCtrl.articles">
 			<div class="articleDelete height60"><div class="chooseDelete"></div></div>
-			<div class="articleId height60" ng-bind="article._id">1</div>
-			<div class="articleNum height60" ng-bind="article.index">1</div>
-			<div class="articleTitle height60" ng-bind="article.title">1</div>
-			<div class="articleclassify height60" ng-bind="article.category.name">1</div>
-			<div class="articleTag height60">1</div>
-			<div class="promptTag">tag</div>
-			<div class="articleReleaseTime height60" ng-bind="article.updateDate | date:'MMM d, yyyy'">1</div>
-			<div class="articleAddTime height60" ng-bind="article.addDate | date:'MMM d, yyyy'">1</div>
-			<div class="articleState height60" ng-bind="article.showState">1</div>
-			<div class="articlePv height60" ng-bind="article.pv">1</div>
+			<div class="articleId height60" style="text-overflow:ellipsis" ng-bind="article._id">1</div>
+			<div class="articleNum height60" style="text-overflow:ellipsis" ng-bind="article.index">1</div>
+			<div class="articleTitle height60" style="text-overflow:ellipsis" ng-bind="article.title">1</div>
+			<div class="articleclassify height60" style="text-overflow:ellipsis" ng-bind="article.category.name">1</div>
+			<div class="articleTag height60" style="text-overflow:ellipsis">1</div>
+			<div class="promptTag height60" style="text-overflow:ellipsis">tag</div>
+			<div class="articleReleaseTime height60" style="text-overflow:ellipsis" ng-bind="article.updateDate | date:'MMM d, yyyy'">1</div>
+			<div class="articleAddTime height60" style="text-overflow:ellipsis" ng-bind="article.addDate | date:'MMM d, yyyy'">1</div>
+			<div class="articleState height60" style="text-overflow:ellipsis" ng-bind="article.showState">1</div>
+			<div class="articlePv height60" style="text-overflow:ellipsis" ng-bind="article.pv">1</div>
 			<div class="buttons">
 				<div class="btnEdit" ui-sref="article-edit({id:article._id})">编辑</div>
 				<div class="btnDelete"ng-click="viewArticleCtrl.dustbin(article)">删除</div>
