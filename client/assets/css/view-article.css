@@ -120,9 +120,7 @@ body{
 	margin-top: 12px;
 	margin-left: 40px;
 }
-.chooseDelete:hover{
-	background: url(../images/choose.png);
-}
+
 /*备用*/
 /*.articleId{
 }
