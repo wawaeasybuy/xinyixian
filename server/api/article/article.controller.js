@@ -164,13 +164,14 @@ exports.destory_all=function (req,res){
 			article.remove();
 		});
 		//取最小的index
-		var index=articles[0];
+		var index=articles[0].index;
 		var len=articles.length;
 		for(var i=1;i<articles.length;i++){
 			if(articles[i].index<index){
 				index=articles[i].index;
 			}
 		}
+		console.log(index);
 		Article.find({index:{$gte:index}},function (err,articles){
 			if(err){ return handleError(res,err);}
 			// console.log(articles);
@@ -210,7 +211,7 @@ exports.index_update=function (req,res){
 				var condition={index:index_one};
 			}else{
 				index_one=article_one.index+1;
-				console.log(index_one);
+				// console.log(index_one);
 				console.log(admin.nextArticleNumber);
 				console.log(admin.nextArticleNumber);
 				if(index_one==admin.nextArticleNumber){return res.json(400,{error:{msg:'article already is the latest'}});}
@@ -327,7 +328,9 @@ exports.admin_index=function (req,res){
 //show
 exports.show=function (req,res){
 	var id=req.params.id;
-	Article.findById(id,function (err,article){
+	Article.findById(id)
+	.populate('tags category')
+	.exec(function (err,article){
 		if(err){ return handleError(res,err);}
 		if(!article){return res.json(404,{error:{msg:'article not found'}});}
 		return res.json(200,{article:article});

@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('xinyixianApp')
-  .controller('EditArticleController', ['$state', '$stateParams', '$location', '$scope','$cookies', 'Article','Upload','Category',
-    function ($state, $stateParams, $location, $scope,$cookies,Article,Upload,Category) {
+  .controller('EditArticleController', ['$state', '$stateParams', '$location', '$scope','$cookies', 'Article','Upload','Category','Tag',
+    function ($state, $stateParams, $location, $scope,$cookies,Article,Upload,Category,Tag) {
     	var self=this;
 
         self.id = $stateParams.id;
@@ -29,23 +29,24 @@ angular.module('xinyixianApp')
 
     	var init = function(){
     		initSample();
-            loadArticle();//load完后loadCategory
-            
+            loadArticle();
+            loadCategory();
             // var open=true;
             // while(open){
             //     CKEDITOR.instances.editor.insertHtml('<p>dsadfasdadasda<img alt="" src="http://localhost:9000/assets/upload/upload_images/25d6a93b88cd7a87d433485bc540f85b.jpeg" style="height:62px; width:100px" /></p>');
             // }
         };
-        //在loadArticle之后
+        
         var loadCategory=function(){
             Category.all_index({},function (data){
                 self.categories=data.categories;
-                var c=_.findWhere(self.categories,{_id:self.article.category});
-                if(c){
-                    self.showCategory=c;
-                }else{
-                    self.showCategory=_.findWhere(self.categories,{sign:'1'});
-                }
+
+                // var c=_.findWhere(self.categories,{_id:self.article.category});
+                // if(c){
+                //     self.showCategory=c;
+                // }else{
+                //     self.showCategory=_.findWhere(self.categories,{sign:'1'});
+                // }
             });
         };
 
@@ -71,7 +72,10 @@ angular.module('xinyixianApp')
                 if(self.article.thumbnail){
                     self.showThumbnail=upload_image_url+self.article.thumbnail;
                 }
-                loadCategory();
+                self.showCategory=self.article.category;
+                //clone tag,清空原tag
+                self.showTags=_.clone(self.article.tags);
+                self.article.tags=[];
                 // console.log(self.showThumbnail);
                 // CKEDITOR.instances.editor.insertHtml(self.article.content);
             });
@@ -90,6 +94,14 @@ angular.module('xinyixianApp')
 
         self.openCategory=function(){
             self._openCategory=!self._openCategory;
+        };
+
+        self.openAddTag=function(){
+            self._openAddTag=!self._openAddTag;
+        };
+
+        self.closeOpenAddTag=function(){
+            self._openAddTag=false;
         };
 
         self.chooseCategory=function (category){
@@ -141,9 +153,45 @@ angular.module('xinyixianApp')
            };
         };
 
+        //搜索标签
+        self.select=function(){
+            Tag.select({name:self.selectTagName},{},function (data){
+                self.selectTags=data.tags;
+            },function(){
+
+            });
+        };
+
+        //选择标签
+        self.chooseTag=function(tag){
+            // if(self.showTags.indexOf(tag)>0){
+            //     return alert('不能添加同一个标签！');
+            // }
+            self.showTags.push(tag);
+            self._openAddTag=false;
+            delete self.selectTagName;
+            delete self.selectTags;
+        };
+
+        //去除标签
+        self.pullTag=function(tag){
+            if(confirm('确定去掉标签:'+tag.name+"?")){
+                self.showTags.splice(self.showTags.indexOf(tag),1);
+            }
+        };
+
+        //选择是否为大图模式
+        self.chooseBigImage=function(){
+            self.article.isBigImage=!self.article.isBigImage
+        };
+
         self.save=function(){
             var stem = CKEDITOR.instances.editor.getData();
             self.article.content=stem;
+            self.article.category=self.showCategory._id;
+            _.each(self.showTags,function (tag){
+                self.article.tags.push(tag._id);
+            });
             console.log(self.article);
             Article.update({id:self.id},self.article,function (data){
                 console.log('success');

@@ -18,7 +18,7 @@
 	<div class="contentPosition">
 		<!-- updateDate -->
 		<div style="width:300px;margin:0 auto;height:0px;">
-			<div style="width:300px;background-color:#fff;position:absolute;top:390px;">
+			<div style="width:300px;background-color:#fff;position:absolute;top:390px;z-index:999">
 				<datepicker class="from-data" style="box-shadow: 0 0 20px #aaa;" ng-show="addArticleCtrl._updateDate" ng-model="addArticleCtrl.article.updateDate"  datepicker-mode="year"></datepicker>
 			</div>
 		</div>
@@ -50,15 +50,15 @@
 			<div style="margin-top: 20px;">
 				<div class="title">标签</div>
 				<div class="showTags">
-					<div class="showTag">1</div>
-					<div class="showTag"><div class="addTag"></div></div>
+					<div class="showTag" ng-repeat="tag in addArticleCtrl.showTags" ng-bind="tag.name" ng-click="addArticleCtrl.pullTag(tag)"></div>
+					<div class="showTag" ng-click="addArticleCtrl.openAddTag()"><div class="addTag"></div></div>
 
-					<div class="chooseTag">
-						<div class="close"></div>
+					<div class="chooseTag" ng-show="addArticleCtrl._openAddTag">
+						<div class="close" ng-click="addArticleCtrl.closeOpenAddTag()"></div>
 						<div class="name">Tag</div>
-						<div class="chooseBox"></div>
+						<input class="chooseBox" ng-model="addArticleCtrl.selectTagName" ng-change="addArticleCtrl.select()"></input>
 						<div class="Tags">
-							<div class="tag">222</div>
+							<div class="tag" ng-repeat="tag in addArticleCtrl.selectTags" ng-bind="tag.name" ng-click="addArticleCtrl.chooseTag(tag)">222</div>
 						</div>
 						<!-- <div style="clear:both"></div> -->
 					</div>
@@ -85,7 +85,7 @@
 			<div class="articleInfo">
 				<div class="title">题图</div>
 				<div class="imageBtn" ngf-select ngf-change="addArticleCtrl.upload($files,1)">上传图片</div>
-				<div class="bigImage">大图模式<div style="border:1px solid #000;width:10px"></div></div>
+				<div class="bigImage">大图模式</div><div class="chooseBigImage" ng-click="addArticleCtrl.chooseBigImage()"><img src="../assets/images/choose.png" ng-show="addArticleCtrl.article.isBigImage"></div>
 			</div>
 			<div class="showImage">
 				<img src="{{addArticleCtrl.showImage}}" style="width:100px;height:50px">

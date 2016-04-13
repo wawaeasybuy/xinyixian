@@ -10,7 +10,7 @@
 		<div style="clear:both"></div>
 	</div>
 	<div class="content">
-		<div class="screen" ng-click="viewArticleCtrl.openCategory()" ng-bind="viewArticleCtrl.selectedCategory">所有分类</div>
+		<div class="screen" ng-click="viewArticleCtrl.openCategory()" ng-bind="'分类:'+viewArticleCtrl.selectedCategory">所有分类</div>
 		<!-- 分类下拉框 -->
 		<div class="dropBoxPosition">
 			<div ng-show="viewArticleCtrl._openCategory" class="dropBoxs">
@@ -19,7 +19,7 @@
 				<!-- <div ng-bind="addArticleCtrl.categories[0].name" ></div> -->
 			</div>
 		</div>
-		<div class="state" ng-click="viewArticleCtrl.openState()">状态</div>
+		<div class="state" ng-click="viewArticleCtrl.openState()" ng-bind="'状态:'+viewArticleCtrl.selectedState">状态</div>
 		<div class="dropBoxPosition">
 			<div ng-show="viewArticleCtrl._openState" class="dropBoxs">
 				<div ng-click="viewArticleCtrl.chooseState('all')" class="dropBox">全部</div>
@@ -32,7 +32,7 @@
 		<div style="clear:both"></div>
 		<!-- 标题 -->
 		<div class="tableTitle">
-			<div class="articleDelete"><div class="chooseDelete"></div></div>
+			<div class="articleDelete"><div class="chooseDelete" ng-click="viewArticleCtrl.chooseAllDelete()"><img src="../assets/images/choose.png" style="position: relative; top:-6px;" ng-show="viewArticleCtrl.selectedAll"></div></div>
 			<div class="articleId">ID</div>
 			<div class="articleNum">序号</div>
 			<div class="articleTitle">标题</div>
@@ -47,13 +47,13 @@
 		
 		<!-- 显示 -->
 		<div class="tableContent" ng-repeat="article in viewArticleCtrl.articles">
-			<div class="articleDelete height60"><div class="chooseDelete"></div></div>
+			<div class="articleDelete height60"><div class="chooseDelete" ng-click="viewArticleCtrl.chooseDelete(article)"><img src="../assets/images/choose.png" style="position: relative; top:-6px;" ng-show="article.isSelected"></div></div>
 			<div class="articleId height60" style="text-overflow:ellipsis" ng-bind="article._id">1</div>
 			<div class="articleNum height60" style="text-overflow:ellipsis" ng-bind="article.index">1</div>
 			<div class="articleTitle height60" style="text-overflow:ellipsis" ng-bind="article.title">1</div>
 			<div class="articleclassify height60" style="text-overflow:ellipsis" ng-bind="article.category.name">1</div>
-			<div class="articleTag height60" style="text-overflow:ellipsis">1</div>
-			<div class="promptTag height60" style="text-overflow:ellipsis">tag</div>
+			<div class="articleTag height60" style="text-overflow:ellipsis" ng-bind="article.showTags">1</div>
+			<div class="promptTag height60" style="text-overflow:ellipsis" ng-bind="article.remindTag">tag</div>
 			<div class="articleReleaseTime height60" style="text-overflow:ellipsis" ng-bind="article.updateDate | date:'MMM d, yyyy'">1</div>
 			<div class="articleAddTime height60" style="text-overflow:ellipsis" ng-bind="article.addDate | date:'MMM d, yyyy'">1</div>
 			<div class="articleState height60" style="text-overflow:ellipsis" ng-bind="article.showState">1</div>
@@ -68,7 +68,7 @@
 				<div class="btncancelReleaes" ng-show="article.state==2" ng-click='viewArticleCtrl.cancelRelease(article._id)'>撤销发布</div>
 			</div>
 		</div>
-		<div class="batchDelete">批量删除</div>
+		<div class="batchDelete" ng-click="viewArticleCtrl.dustbin_all()">批量删除</div>
 	</div>
-	<pagination style="float:right;margin-right:30px;" ng-if="viewOrderCtrl.pagination.numPages > 1" total-items="viewOrderCtrl.pagination.totalItems" ng-model="viewOrderCtrl.pagination.page" items-per-page="viewOrderCtrl.pagination.itemsPerPage" max-size="viewOrderCtrl.pagination.maxSize" boundary-links="{{viewOrderCtrl.pagination.numPages > 2}}" rotate="false" num-pages="viewOrderCtrl.pagination.numPages" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;" ng-change="viewOrderCtrl.pageChanged()"></pagination>
+	<pagination style="float:right;margin-right:30px;" ng-if="viewArticleCtrl.pagination.numPages > 1" total-items="viewArticleCtrl.pagination.totalItems" ng-model="viewArticleCtrl.pagination.page" items-per-page="viewArticleCtrl.pagination.itemsPerPage" max-size="viewArticleCtrl.pagination.maxSize" boundary-links="{{viewArticleCtrl.pagination.numPages > 2}}" rotate="false" num-pages="viewArticleCtrl.pagination.numPages" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;" ng-change="viewArticleCtrl.pageChanged()"></pagination>
 </div>

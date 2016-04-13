@@ -39,6 +39,20 @@ angular.module('xinyixianApp')
         params:{
           controller:'updateIndex'
         }
+      },
+      dustbin_all:{
+        method: 'PUT',
+        params:{
+          id:'dustbin',
+          controller:'all'
+        }
+      },
+      destory_all:{
+        method: 'PUT',
+        params:{
+          id:'destory',
+          controller:'all'
+        }
       }
 	  });
   });

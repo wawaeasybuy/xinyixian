@@ -140,7 +140,7 @@ body{
 }
 
 .chooseTag{
-	display: none;
+	/*display: none;*/
 	width: 200px;
 	height: 100px;
 	background: #fff;

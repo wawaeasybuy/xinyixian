@@ -66,6 +66,17 @@ angular.module('xinyixianApp')
           }
       		Article.admin_index(condition,function (data){
       			self.articles=data.articles;
+            var getStringArr=function(arr){
+              var str='';
+              if(arr.length>0){
+                str=arr[0];
+                for(var i=1;i<arr.length;i++){
+                  str=str+','+arr[i];
+                }
+              }
+              return str;
+            };
+            //初始化remindTag，showTags，isReadyDelete
             //增加showState,1=草稿，2=发布，3=回收站
             _.each(self.articles,function (article){
               switch(article.state){
@@ -79,6 +90,9 @@ angular.module('xinyixianApp')
                   article.showState='回收站';
                   break;
               }
+              article.remindTag=getStringArr(article.remindTag);
+              article.showTags=getStringArr(article.tags);
+              // article.isReadyDelete=false;
             });
             // ng-bind="article.showState'"
       			self.pagination.page=data.page;
@@ -108,6 +122,7 @@ angular.module('xinyixianApp')
         var initOpen=function(){
           self._openState=false;
           self._openCategory=false;
+          self.selectedAll=false;
         };
 
         self.chooseCategory=function (category){
@@ -206,6 +221,62 @@ angular.module('xinyixianApp')
           },function(){
             
           });
+        };
+
+        //选择勾选删除
+        self.chooseDelete=function (article){
+          article.isSelected=!article.isSelected;
+          if(!article.isSelected){
+            self.selectedAll=false;
+          }
+        };
+
+        //全选删除
+        self.chooseAllDelete=function(){
+          _.each(self.articles,function (article){
+            if(self.selectedAll){
+              article.isSelected=false;
+            }else{
+              article.isSelected=true;
+            }
+            
+          });
+          if(self.selectedAll){
+              self.selectedAll=false;
+            }else{
+              self.selectedAll=true;
+            }
+        };
+
+        //批量移至回收站，批量彻底删除
+        self.dustbin_all=function(){
+          var arr=[];
+          _.each(self.articles,function (article){
+            if(article.isSelected){
+              arr.push(article._id);
+            }
+          });
+          if(self.state!=3){
+            if(confirm("确定将选中文章移动至回收站？若要彻底删除,请选择状态为回收站,再点击。")){
+              Article.dustbin_all({},{articles:arr},function (){
+                console.log('success');
+                loadArticle();
+                initOpen();
+              },function(){
+
+              });
+            }
+          }else{
+            if(confirm("确定将选中文章彻底删除？")){
+              Article.destory_all({},{articles:arr},function (){
+                console.log('success');
+                loadArticle();
+                initOpen();
+              },function(){
+
+              });
+            }
+          }
         };
         
         init();

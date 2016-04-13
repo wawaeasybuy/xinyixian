@@ -109,3 +109,16 @@ exports.index=function (req,res){
     	});
     });
 };
+
+//query
+exports.query=function (req,res){
+	var name=req.query.name;
+	if(!name){return res.json(400,{error:{msg:'name is required'}});}
+	var condition={name:{'$regex' : '.*' + name + '.*'}};
+	Tag.find(condition)
+	.limit(3)
+    .exec(function (err,tags){
+    	if(err){ return handleError(res,err);}
+    	return res.json(200,{tags:tags});
+    });
+};

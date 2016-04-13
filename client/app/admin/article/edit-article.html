@@ -18,7 +18,7 @@
 	<div class="contentPosition">
 		<!-- updateDate -->
 		<div style="width:300px;margin:0 auto;height:0px;">
-			<div style="width:300px;background-color:#fff;position:absolute;top:390px;">
+			<div style="width:300px;background-color:#fff;position:absolute;top:390px;z-index:999">
 				<datepicker class="from-data" style="box-shadow: 0 0 20px #aaa;" ng-show="editArticleCtrl._updateDate" ng-model="editArticleCtrl.article.updateDate"  datepicker-mode="year"></datepicker>
 			</div>
 		</div>
@@ -56,15 +56,15 @@
 			<div style="margin-top: 20px;">
 				<div class="title">标签</div>
 				<div class="showTags">
-					<div class="showTag">1</div>
-					<div class="showTag"><div class="addTag"></div></div>
+					<div class="showTag" ng-repeat="tag in editArticleCtrl.showTags" ng-bind="tag.name" ng-click="editArticleCtrl.pullTag(tag)"></div>
+					<div class="showTag" ng-click="editArticleCtrl.openAddTag()"><div class="addTag"></div></div>
 
-					<div class="chooseTag">
-						<div class="close"></div>
+					<div class="chooseTag" ng-show="editArticleCtrl._openAddTag">
+						<div class="close" ng-click="editArticleCtrl.closeOpenAddTag()"></div>
 						<div class="name">Tag</div>
-						<div class="chooseBox"></div>
+						<input class="chooseBox" ng-model="editArticleCtrl.selectTagName" ng-change="editArticleCtrl.select()"></input>
 						<div class="Tags">
-							<div class="tag">222</div>
+							<div class="tag" ng-repeat="tag in editArticleCtrl.selectTags" ng-bind="tag.name" ng-click="editArticleCtrl.chooseTag(tag)">222</div>
 						</div>
 						<!-- <div style="clear:both"></div> -->
 					</div>
@@ -90,7 +90,7 @@
 			<div class="articleInfo">
 				<div class="title">题图</div>
 				<div class="imageBtn" ngf-select ngf-change="editArticleCtrl.upload($files,1)">上传图片</div>
-				<div class="bigImage">大图模式</div><div class="chooseBigImage"></div>
+				<div class="bigImage">大图模式</div><div class="chooseBigImage" ng-click="editArticleCtrl.chooseBigImage()"><img src="../assets/images/choose.png" ng-show="editArticleCtrl.article.isBigImage"></div>
 			</div>
 			<div class="showImage">
 				<img src="{{editArticleCtrl.showImage}}" style="width:100px;height:50px">
