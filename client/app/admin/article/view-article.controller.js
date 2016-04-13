@@ -8,6 +8,7 @@ angular.module('xinyixianApp')
        	self.page = $stateParams.page || 1;
       	self.itemsPerPage = $stateParams.itemsPerPage || 20;
       	self.category = $stateParams.category;
+        self.state = $stateParams.state;
       	
 
       	//查询的page,itemsPerPage用这个变量的
@@ -20,9 +21,26 @@ angular.module('xinyixianApp')
     		};
 
         self.selectedCategory='全部';
+        
     		
     		self.pagination.page=self.page;
     		self.pagination.itemsPerPage=self.itemsPerPage;
+        //sattes:1草稿，2发布，3回收站
+        self.states=[{_id:1,name:'草稿'},{_id:2,name:'发布'},{_id:3,name:'回收站'}];
+        switch(self.state){
+          case 1:
+            self.selectedState='草稿';
+            break;
+          case 2:
+            self.selectedState='发布';
+            break;
+          case 3:
+            self.selectedState='回收站';
+            break;
+          default:
+            self.selectedState='全部';
+            break;
+        }
 
        //重新生成路由
       	var doLocation=function(){
@@ -30,6 +48,7 @@ angular.module('xinyixianApp')
 	          .search('page', self.pagination.page)
 	          .search('itemsPerPage', self.pagination.itemsPerPage)
 	          .search('category', self.category)
+            .search('state', self.state);
 	        console.log($location);
       	};
 
@@ -40,6 +59,10 @@ angular.module('xinyixianApp')
       		};
           if(self.category&&self.category!='all'){
             condition=_.merge(condition,{category:self.category});
+          }
+          // console.log(self.state);
+          if(self.state&&self.state!='all'){
+            condition=_.merge(condition,{state:self.state});
           }
       		Article.admin_index(condition,function (data){
       			self.articles=data.articles;
@@ -80,8 +103,12 @@ angular.module('xinyixianApp')
        	var init=function(){
        		loadArticle();
           loadCategory();
-
       	};
+
+        var initOpen=function(){
+          self._openState=false;
+          self._openCategory=false;
+        };
 
         self.chooseCategory=function (category){
           if(category=='all'){
@@ -94,10 +121,29 @@ angular.module('xinyixianApp')
           self.pagination.page=1;
           doLocation();
           loadArticle();
+          initOpen();
+        };
+
+        self.chooseState=function (state){
+          if(state=='all'){
+            self.state=state;
+            self.selectedState='全部';
+          }else{
+            self.state=state._id;
+            self.selectedState=state.name;
+          }
+          self.pagination.page=1;
+          doLocation();
+          loadArticle();
+          initOpen();
         };
 
         self.openCategory=function(){
             self._openCategory=!self._openCategory;
+        };
+        
+        self.openState=function(){
+            self._openState=!self._openState;
         };
 
         //删除至回收站,如果已经是回收站内容提示删除为永久删除，确认删除
@@ -121,6 +167,45 @@ angular.module('xinyixianApp')
             }
             
           }
+        };
+
+        //移动文章序号,1为上移，2为下移
+        self.updateIndex=function(article,num){
+          Article.updateIndex({id:article._id,state:num},{},function(){
+            loadArticle();
+            initOpen();
+          },function (err){
+            switch(err.data.error.msg){
+              case 'article already is the frist':
+              console.log('x');
+                alert('该文章已经是第一篇文章！');
+                break;
+              case 'article already is the latest':
+              console.log('y');
+                alert('该文章已经是最后一篇文章！');
+                break;
+            }
+          });
+        };
+
+        //发布
+        self.release=function(id){
+          Article.update({id:id},{state:2},function(){
+            loadArticle();
+            initOpen();
+          },function(){
+
+          });
+        };
+
+        //撤销发布
+        self.cancelRelease=function(id){
+          Article.update({id:id},{state:1},function(){
+            loadArticle();
+            initOpen();
+          },function(){
+            
+          });
         };
         
         init();

@@ -123,7 +123,7 @@ exports.destory=function (req,res){
 		if(!article){return res.json(404,{error:{msg:'article not found'}});}
 		Article.find({index:{$gte:article.index}},function (err,articles){
 			if(err){ return handleError(res,err);}
-			console.log(articles);
+			// console.log(articles);
 			_.each(articles,function (article){
 				article.index=article.index-1;
 				article.save();
@@ -210,7 +210,10 @@ exports.index_update=function (req,res){
 				var condition={index:index_one};
 			}else{
 				index_one=article_one.index+1;
-				if(article_one.index==admin.nextArticleNumber){return res.json(400,{error:{msg:'article already is the latest'}});}
+				console.log(index_one);
+				console.log(admin.nextArticleNumber);
+				console.log(admin.nextArticleNumber);
+				if(index_one==admin.nextArticleNumber){return res.json(400,{error:{msg:'article already is the latest'}});}
 				var condition={index:index_one};
 			}
 			Article.findOne(condition,function (err,article_two){
@@ -297,8 +300,9 @@ exports.admin_index=function (req,res){
 		condition=_.merge(condition,{title:{'$regex' : '.*' + name + '.*'}});
 	}
 	if(state){
-		condition=_.merge(condition,{title:{state:state}});
+		condition=_.merge(condition,{state:state});
 	}
+	// console.log(condition);
 	Article.find(condition).count(function (err,c){
 		if(err){ return handleError(res,err);}
 		count=c;

@@ -19,7 +19,14 @@
 				<!-- <div ng-bind="addArticleCtrl.categories[0].name" ></div> -->
 			</div>
 		</div>
-		<div class="state">状态</div>
+		<div class="state" ng-click="viewArticleCtrl.openState()">状态</div>
+		<div class="dropBoxPosition">
+			<div ng-show="viewArticleCtrl._openState" class="dropBoxs">
+				<div ng-click="viewArticleCtrl.chooseState('all')" class="dropBox">全部</div>
+				<div ng-repeat="state in viewArticleCtrl.states" ng-bind="state.name" ng-click="viewArticleCtrl.chooseState(state)" class="dropBox"></div>
+				<!-- <div ng-bind="addArticleCtrl.categories[0].name" ></div> -->
+			</div>
+		</div>
 		<!--  -->
 		<div class="addArticle" ui-sref="article-add">新增</div>
 		<div style="clear:both"></div>
@@ -53,12 +60,12 @@
 			<div class="articlePv height60" style="text-overflow:ellipsis" ng-bind="article.pv">1</div>
 			<div class="buttons">
 				<div class="btnEdit" ui-sref="article-edit({id:article._id})">编辑</div>
-				<div class="btnDelete"ng-click="viewArticleCtrl.dustbin(article)">删除</div>
+				<div class="btnDelete" ng-click="viewArticleCtrl.dustbin(article)">删除</div>
 				<div class="btnPreview">预览</div>
-				<div class="btnNumUp">序号上移</div>
-				<div class="btnNumDown">序号下移</div>
-				<div class="btnRelease">发布</div>
-				<div class="btncancelReleaes">撤销发布</div>
+				<div class="btnNumUp" ng-click="viewArticleCtrl.updateIndex(article,1)">序号上移</div>
+				<div class="btnNumDown" ng-click="viewArticleCtrl.updateIndex(article,2)">序号下移</div>
+				<div class="btnRelease" ng-show="article.state!=2" ng-click='viewArticleCtrl.release(article._id)'>发布</div>
+				<div class="btncancelReleaes" ng-show="article.state==2" ng-click='viewArticleCtrl.cancelRelease(article._id)'>撤销发布</div>
 			</div>
 		</div>
 		<div class="batchDelete">批量删除</div>

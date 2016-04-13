@@ -33,6 +33,12 @@ angular.module('xinyixianApp')
       },
       destory:{
         method: 'DELETE'
+      },
+      updateIndex:{
+        method: 'PUT',
+        params:{
+          controller:'updateIndex'
+        }
       }
 	  });
   });
