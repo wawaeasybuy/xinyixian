@@ -5,10 +5,11 @@ angular.module('xinyixianApp')
 
     // 文章页面
       .state('article-view', {
-        url: '/admin/article/view?page&itemsPerPage&category',
+        url: '/admin/article/view?page&itemsPerPage&category&state',
         templateUrl: 'app/admin/article/view-article.html',
         controller: 'ViewArticleController',
         controllerAs: 'viewArticleCtrl',
+        reloadOnSearch: false
         // authenticate: true
       })
       .state('article-edit', {
