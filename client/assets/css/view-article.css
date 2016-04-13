@@ -35,6 +35,37 @@ body{
 	height: 36px;
 	line-height: 36px;
 	text-align: center;
+	cursor: pointer;
+}
+.dropBoxPosition{
+	width:200px;
+	height:0px;
+	float:left;
+}
+.dropBoxs{
+	/*border:1px solid red;*/
+	width:152px;
+	height:100px;
+	overflow-y:auto;
+	position:relative;
+	left:-152px;
+	top:36px;
+	z-index: 9999;
+}
+.dropBox{
+	border:1px solid #ccc;
+	height: 36px;
+	background-color: #fff;"
+}
+.state{
+	border:1px solid #ccc;
+	float: left;
+	width: 150px;
+	height: 36px;
+	line-height: 36px;
+	text-align: center;
+	margin-left: 20px;
+	cursor: pointer;
 }
 .addArticle{
 	border:1px solid #ccc;
@@ -63,12 +94,16 @@ body{
 .articleDelete,.articleId,
 .articleNum,.articleTitle,
 .articleclassify,.articleTag,
-.articleReleaseTime,.articleAddTime,
-.articleState,.articlePv{
+.promptTag,.articleReleaseTime,
+.articleAddTime,.articleState,
+.articlePv{
 	/*border:1px solid red;*/
 	float: left;
-	width: 99px;
+	width: 82px;
 	text-align: center;
+}
+.height60{
+	height: 60px;
 }
 .chooseDelete{
 	width: 18px;
@@ -76,6 +111,9 @@ body{
 	border:1px solid #B4B9BE;
 	margin-top: 12px;
 	margin-left: 40px;
+}
+.chooseDelete:hover{
+	background: url(../images/choose.png);
 }
 /*备用*/
 /*.articleId{
@@ -105,11 +143,10 @@ body{
 	bottom: 0px;
 	display: none;
 }
-.btnEdit,
-.btnDelete,
-.btnPreview,
-.btnNumUp,
-.btnNumDown{
+.btnEdit,.btnDelete,
+.btnPreview,.btnNumUp,
+.btnNumDown,.btnRelease,
+.btncancelReleaes{
 	float: left;
 	margin-right: 30px;
 	font-size: 12px;
@@ -127,4 +164,5 @@ body{
 	line-height: 36px;
 	text-align: center;
 	margin-top: 20px;
+	cursor: pointer;
 }

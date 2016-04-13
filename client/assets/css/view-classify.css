@@ -68,6 +68,9 @@ body{
 	width: 198px;
 	text-align: center;
 }
+.height60{
+	height: 60px;
+}
 .chooseDelete{
 	width: 18px;
 	height: 18px;

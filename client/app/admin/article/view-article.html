@@ -12,13 +12,14 @@
 	<div class="content">
 		<div class="screen" ng-click="viewArticleCtrl.openCategory()" ng-bind="viewArticleCtrl.selectedCategory">所有分类</div>
 		<!-- 分类下拉框 -->
-		<div style="width:200px;height:0px;float:left;">
-			<div ng-show="viewArticleCtrl._openCategory" style="width:200px;height:100px;overflow-y:auto;position:relative; left:-200px;top:36px;">
-				<div ng-click="viewArticleCtrl.chooseCategory('all')" style="border:1px solid #000;background-color: #fff;">全部</div>
-				<div ng-repeat="category in viewArticleCtrl.categories" ng-bind="category.name" ng-click="viewArticleCtrl.chooseCategory(category)" style="border:1px solid #000;background-color: #fff;"></div>
+		<div class="dropBoxPosition">
+			<div ng-show="viewArticleCtrl._openCategory" class="dropBoxs">
+				<div ng-click="viewArticleCtrl.chooseCategory('all')" class="dropBox">全部</div>
+				<div ng-repeat="category in viewArticleCtrl.categories" ng-bind="category.name" ng-click="viewArticleCtrl.chooseCategory(category)" class="dropBox"></div>
 				<!-- <div ng-bind="addArticleCtrl.categories[0].name" ></div> -->
 			</div>
 		</div>
+		<div class="state">状态</div>
 		<!--  -->
 		<div class="addArticle" ui-sref="article-add">新增</div>
 		<div style="clear:both"></div>
@@ -30,6 +31,7 @@
 			<div class="articleTitle">标题</div>
 			<div class="articleclassify">所属分类</div>
 			<div class="articleTag">Tag</div>
+			<div class="promptTag">提示Tag</div>
 			<div class="articleReleaseTime">发布日期</div>
 			<div class="articleAddTime">添加日期</div>
 			<div class="articleState">状态</div>
@@ -37,23 +39,26 @@
 		</div>
 		
 		<!-- 显示 -->
-		<div class="tableContent" ng-repeat="article in viewArticleCtrl.articles">
-			<div class="articleDelete"><div class="chooseDelete"></div></div>
-			<div class="articleId" ng-bind="article._id">1</div>
-			<div class="articleNum" ng-bind="article.index">1</div>
-			<div class="articleTitle" ng-bind="article.title">1</div>
-			<div class="articleclassify" ng-bind="article.category.name">1</div>
-			<div class="articleTag">1</div>
-			<div class="articleReleaseTime" ng-bind="article.updateDate | date:'MMM d, yyyy'">1</div>
-			<div class="articleAddTime" ng-bind="article.addDate | date:'MMM d, yyyy'">1</div>
-			<div class="articleState" ng-bind="article.showState">1</div>
-			<div class="articlePv" ng-bind="article.pv">1</div>
+		<div class="tableContent" ng-repea="article in viewArticleCtrl.articles">
+			<div class="articleDelete height60"><div class="chooseDelete"></div></div>
+			<div class="articleId height60" ng-bin="article._id">1</div>
+			<div class="articleNum height60" ng-bin="article.index">1</div>
+			<div class="articleTitle height60" ng-bin="article.title">1</div>
+			<div class="articleclassify height60" ng-bin="article.category.name">1</div>
+			<div class="articleTag height60">1</div>
+			<div class="promptTag">tag</div>
+			<div class="articleReleaseTime height60" ng-bin="article.updateDate | date:'MMM d, yyyy'">1</div>
+			<div class="articleAddTime height60" ng-bin="article.addDate | date:'MMM d, yyyy'">1</div>
+			<div class="articleState height60" ng-bin="article.showState">1</div>
+			<div class="articlePv height60" ng-bin="article.pv">1</div>
 			<div class="buttons">
 				<div class="btnEdit" ui-sref="article-edit({id:article._id})">编辑</div>
 				<div class="btnDelete"ng-click="viewArticleCtrl.dustbin(article)">删除</div>
 				<div class="btnPreview">预览</div>
 				<div class="btnNumUp">序号上移</div>
 				<div class="btnNumDown">序号下移</div>
+				<div class="btnRelease">发布</div>
+				<div class="btncancelReleaes">撤销发布</div>
 			</div>
 		</div>
 		<div class="batchDelete">批量删除</div>
