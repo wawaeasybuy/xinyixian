@@ -77,7 +77,7 @@ exports.index=function (req,res){
     var isReturn=function(index,len,tags){
     	if(index==len){
     		return res.json(200,{
-    			tags:tag,
+    			tags:tags,
     			count:count,
     			page:page
     		});
@@ -95,6 +95,13 @@ exports.index=function (req,res){
     .sort({createDate:-1})
     .exec(function (err,tags){
     	if(err){ return handleError(res,err);}
+    	if(tags.length == 0){
+    		return res.json(200,{
+    			tags:tags,
+    			count:count,
+    			page:page
+    		});
+    	}
     	for(var i=0;i<tags.length;i++){
     		tags[i]=tags[i].toObject();
     	}
