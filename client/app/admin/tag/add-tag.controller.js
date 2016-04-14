@@ -16,7 +16,7 @@ angular.module('xinyixianApp')
     		}
     		console.log("aaaa");
 			Tag.create({},{name:self.tags.name},function (data){
-    			
+    			$state.go('tag-view');
     		},function (){
 
     		});

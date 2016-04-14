@@ -19,9 +19,9 @@ angular.module('xinyixianApp')
       create: {
         method: 'POST',
       },
-      // show:{
-      //   method: 'GET'
-      // },
+      show:{
+        method: 'GET'
+      },
       update:{
         method: 'PUT'
       }

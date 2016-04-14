@@ -159,3 +159,13 @@ exports.destory_all=function (req,res){
 		});
 	});
 };
+
+
+exports.show = function (req, res){
+	var id = req.params.id;
+	Tag.findById(id,function (err, tag){
+		if(err){ return handleError(res,err);}
+		if(!tag){return res.json(404,{error:{msg:'tag not found'}});}
+		return res.json(200,{tag:tag});
+	});
+};
