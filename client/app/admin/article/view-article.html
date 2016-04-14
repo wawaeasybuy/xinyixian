@@ -70,5 +70,5 @@
 		</div>
 		<div class="batchDelete" ng-click="viewArticleCtrl.dustbin_all()">批量删除</div>
 	</div>
-	<pagination style="float:right;margin-right:30px;" ng-if="viewArticleCtrl.pagination.numPages > 1" total-items="viewArticleCtrl.pagination.totalItems" ng-model="viewArticleCtrl.pagination.page" items-per-page="viewArticleCtrl.pagination.itemsPerPage" max-size="viewArticleCtrl.pagination.maxSize" boundary-links="{{viewArticleCtrl.pagination.numPages > 2}}" rotate="false" num-pages="viewArticleCtrl.pagination.numPages" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;" ng-change="viewArticleCtrl.pageChanged()"></pagination>
+	<pagination class="paning" style="float:right;margin-right:30px;" ng-if="viewArticleCtrl.pagination.numPages > 1" total-items="viewArticleCtrl.pagination.totalItems" ng-model="viewArticleCtrl.pagination.page" items-per-page="viewArticleCtrl.pagination.itemsPerPage" max-size="viewArticleCtrl.pagination.maxSize" boundary-links="{{viewArticleCtrl.pagination.numPages > 2}}" rotate="false" num-pages="viewArticleCtrl.pagination.numPages" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;" ng-change="viewArticleCtrl.pageChanged()"></pagination>
 </div>

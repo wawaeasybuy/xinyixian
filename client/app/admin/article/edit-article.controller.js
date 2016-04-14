@@ -206,6 +206,10 @@ angular.module('xinyixianApp')
             // });
         };
 
+        self.cancel = function (){
+            $state.go('article-view');
+        };
+
         init();
         setTimeout(function(){
             CKEDITOR.instances.editor.setData(self.article.content);

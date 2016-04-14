@@ -36,7 +36,7 @@
 				<div class="img"><img src="{{editClassifyCtrl.showImage}}"></div>
 				<!-- 图片进度条 -->
 				<div style="width:100px;">
-	            	<progressbar ng-show="editClassifyCtrl.loaded > 0" class="progress-striped " ng-class="{active: editClassifyCtrl.loaded < 100}" max="100" value="editClassifyCtrl.loaded" style="width:100px;"><span ng-bind="editClassifyCtrl.loaded"></span>%</progressbar>
+	            	<progressbar ng-show="editClassifyCtrl.loaded > 0" class="progress-striped progressBar" ng-class="{active: editClassifyCtrl.loaded < 100}" max="100" value="editClassifyCtrl.loaded" style="width:100px;"><span ng-bind="editClassifyCtrl.loaded"></span>%</progressbar>
 	          	</div>
 			</div>
 			
@@ -44,7 +44,7 @@
 
 		<div class="buttons">
 			<div class="btnSave" ng-click="editClassifyCtrl.save()">保存</div>
-			<div class="btnCancel">撤销</div>
+			<div class="btnCancel" ng-click="editClassifyCtrl.cancel()">撤销</div>
 		</div>
 	</div>
 </div>

@@ -44,8 +44,13 @@ angular.module('xinyixianApp')
 	    self.save=function(){
 	    	Category.create({},self.category,function(){
 	    		console.log("success");
+	    		$state.go('classify-view');
 	    	},function(){
 
 	    	});
+	    };
+
+	    self.cancel = function (){
+	    	$state.go('classify-view');
 	    };
   }]);

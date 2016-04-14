@@ -56,9 +56,14 @@ angular.module('xinyixianApp')
 	    self.save=function(){
 	    	Category.update({id:self.id},self.category,function(){
 	    		console.log("success");
+	    		$state.go('classify-view');
 	    	},function(){
 
 	    	});
+	    };
+
+	    self.cancel = function (){
+	    	$state.go('classify-view');
 	    };
 
 	    init();

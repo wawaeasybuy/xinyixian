@@ -157,6 +157,10 @@ angular.module('xinyixianApp')
             $state.go('article-view');
         };
 
+        self.cancel = function (){
+            $state.go('article-view');
+        };
+
         init();
   }]);
 

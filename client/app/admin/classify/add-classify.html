@@ -32,7 +32,7 @@
 				<div class="img"><img src="{{addClassifyCtrl.showImage}}"></div>
 				<!-- 图片进度条 -->
 				<div style="width:100px;">
-	            	<progressbar ng-show="addClassifyCtrl.loaded > 0" class="progress-striped " ng-class="{active: addClassifyCtrl.loaded < 100}" max="100" value="addClassifyCtrl.loaded" style="width:100px;"><span ng-bind="addClassifyCtrl.loaded"></span>%</progressbar>
+	            	<progressbar ng-show="addClassifyCtrl.loaded > 0" class="progress-striped progressBar" ng-class="{active: addClassifyCtrl.loaded < 100}" max="100" value="addClassifyCtrl.loaded" style="width:100px;"><span ng-bind="addClassifyCtrl.loaded"></span>%</progressbar>
 	          	</div>
 			</div>
 			
@@ -40,7 +40,7 @@
 
 		<div class="buttons">
 			<div class="btnSave" ng-click="addClassifyCtrl.save()">保存</div>
-			<div class="btnCancel">撤销</div>
+			<div class="btnCancel" ng-click="addClassifyCtrl.cancel()">撤销</div>
 		</div>
 	</div>
 </div>

@@ -289,5 +289,9 @@ angular.module('xinyixianApp')
           }
         };
         
+        self.pageChanged = function () {
+          doLocation();
+        };
+
         init();
   }]);
