@@ -39,7 +39,7 @@ body{
 	cursor: pointer;
 }
 .addNewClassify{
-	display: none;
+	/*display: none;*/
 	width: 400px;
 	height: 250px;
 	background-color: #fff;

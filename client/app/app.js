@@ -2,7 +2,7 @@
 //全局host根目录
 var hostUrl="http://localhost:9000";
 var upload_image_url=hostUrl+"/assets/upload/upload_images/";
-var lib_image_url=hostUrl+"/assets/upload/upload_images/";
+var lib_image_url=hostUrl+"/assets/upload/images_lib/";
 var defalut_image=hostUrl+"/assets/";
 angular.module('xinyixianApp', [
   'ngCookies',

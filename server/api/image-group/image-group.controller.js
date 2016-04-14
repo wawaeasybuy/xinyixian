@@ -103,23 +103,31 @@ exports.destory=function (req,res){
 
 //index
 exports.index=function (req,res){
-	var page = req.query.page || 1,
-    	itemsPerPage = req.query.itemsPerPage || 10;
-    var count;
-    ImageGroup.find({}).count(function (err,c){
-    	if(err){ return handleError(res,err);}
-    	count=c;
-    });
-    ImageGroup.find({},{},{
-    	skip: (page - 1) * itemsPerPage,
-        limit: itemsPerPage
-    })
-    .exec(function (err,groups){
-    	if(err){ return handleError(res,err);}
+	// var page = req.query.page || 1,
+ //    	itemsPerPage = req.query.itemsPerPage || 10;
+ //    var count;
+ //    ImageGroup.find({}).count(function (err,c){
+ //    	if(err){ return handleError(res,err);}
+ //    	count=c;
+ //    });
+ //    ImageGroup.find({},{},{
+ //    	skip: (page - 1) * itemsPerPage,
+ //        limit: itemsPerPage
+ //    })
+ //    .exec(function (err,groups){
+ //    	if(err){ return handleError(res,err);}
+ //    	return res.json(200,{
+ //    		groups:groups,
+ //    		count:count,
+ //    		page:page
+ //    	});
+ //    });
+	ImageGroup.find({})
+	.sort({createDate:1})
+	.exec(function (err,groups){
+		if(err){ return handleError(res,err);}
     	return res.json(200,{
-    		groups:groups,
-    		count:count,
-    		page:page
+    		groups:groups
     	});
-    });
+	});
 };

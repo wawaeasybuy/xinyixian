@@ -79,10 +79,11 @@ angular.module('xinyixianApp')
 
       // 图库页面
       .state('image-view', {
-        url: '/admin/image/view',
+        url: '/admin/image/view?picturePage&group',
         templateUrl: 'app/admin/image/view-image.html',
         controller: 'ViewImageController',
         controllerAs: 'viewImageCtrl',
+        reloadOnSearch: false
         // authenticate: true
       })
       .state('image-edit', {
