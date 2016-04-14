@@ -12,37 +12,38 @@
 
 	<div class="contentPosition">
 		<div class="content">
-			<div class="classifyInfo">
+			<!-- <div class="classifyInfo">
 				<div class="title">项目名称</div>
 				<input type="text" class="input">
-			</div>
+			</div> -->
 			<div class="classifyInfo">
-				<div class="title">分类名称</div>
-				<input type="text" class="input">
+				<div class="title">ID</div>
+				<input type="text" class="input" ng-model="editClassifyCtrl.category._id">
 			</div>
 			<div class="classifyInfo">
 				<div class="title" >Url名</div>
-				<input type="text" class="input">
+				<input type="text" class="input" ng-model="editClassifyCtrl.category.url">
 			</div>
 			<div class="classifyInfo">
-				<div class="title">ID</div>
-				<input type="text" class="input">
+				<div class="title">分类名称</div>
+				<input type="text" class="input" ng-model="editClassifyCtrl.category.name">
 			</div>
 			<div class="classifyInfo">
 				<div class="title">分类图标</div>
-				<div class="imageBtn">上传图片</div>
+				<div class="imageBtn" ngf-select ngf-change="editClassifyCtrl.upload($files)">上传图片</div>
 			</div>
 			<div class="showImage">
+				<div class="img"><img src="{{editClassifyCtrl.showImage}}"></div>
 				<!-- 图片进度条 -->
-				<!-- <div style="width:100px;">
-	            	<progressbar ng-show="editRestaurantCtrl.loaded > 0" class="progress-striped " ng-class="{active: editRestaurantCtrl.loaded < 100}" max="100" value="editRestaurantCtrl.loaded" style="width:100px;"><span ng-bind="editRestaurantCtrl.loaded"></span>%</progressbar>
-	          	</div> -->
+				<div style="width:100px;">
+	            	<progressbar ng-show="editClassifyCtrl.loaded > 0" class="progress-striped " ng-class="{active: editClassifyCtrl.loaded < 100}" max="100" value="editClassifyCtrl.loaded" style="width:100px;"><span ng-bind="editClassifyCtrl.loaded"></span>%</progressbar>
+	          	</div>
 			</div>
 			
 		</div>
 
 		<div class="buttons">
-			<div class="btnSave">保存</div>
+			<div class="btnSave" ng-click="editClassifyCtrl.save()">保存</div>
 			<div class="btnCancel">撤销</div>
 		</div>
 	</div>

@@ -44,7 +44,7 @@ angular.module('xinyixianApp')
         // authenticate: true
       })
       .state('classify-add', {
-        url: '/admin/classify/add/:id',
+        url: '/admin/classify/add',
         templateUrl: 'app/admin/classify/add-classify.html',
         controller: 'AddClassifyController',
         controllerAs: 'addClassifyCtrl',

@@ -31,7 +31,7 @@
 			<div class="catalogArticleNum height60"  ng-bind="category.articleCount">2</div>
 			
 			<div class="buttons" ng-show="category.sign&&category.sign!=1">
-				<div class="btnEdit" ui-sref="classify-edit">编辑</div>
+				<div class="btnEdit" ui-sref="classify-edit({id:category._id})">编辑</div>
 				<div class="btnDelete" ng-click="viewClassifyCtrl.destory(category)">删除</div>
 				<div class="btnShow" ui-sref="main({id:category._id})">查看</div>
 			</div>

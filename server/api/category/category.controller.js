@@ -43,7 +43,7 @@ exports.create=function (req,res){
 };
 
 //update category
-exports.update=function(){
+exports.update=function(req,res){
 	var id=req.params.id;
 	if(!id){return res.json(400,{error:{msg:'id is required'}});}
 	
@@ -193,5 +193,15 @@ exports.destory_all=function(req,res){
 			});
 		});
 		
+	});
+};
+
+//admin get category by id
+exports.show=function (req,res){
+	var id=req.params.id;
+	Category.findById(id,function (err,category){
+		if(err){ return handleError(res,err);}
+		if(!category){return res.json(404,{error:{msg:'category not found'}});}
+		return res.json(200,{category:category});
 	});
 };

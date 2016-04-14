@@ -19,7 +19,8 @@ angular.module('xinyixianApp')
       index_admin:{
         method: 'GET',
         params:{
-          id:'admin'
+          id:'admin',
+          controller:'category'
         }
       },
       update: {
@@ -34,6 +35,12 @@ angular.module('xinyixianApp')
           id:'destory',
           controller:'all'
         }
+      },
+      create:{
+        method:'POST'
+      },
+      show:{
+        method:'GET'
       }
       // show:{
       //   method: 'GET'
