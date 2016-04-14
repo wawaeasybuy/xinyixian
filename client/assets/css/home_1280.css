@@ -2,6 +2,10 @@ body,span{margin: 0px;padding: 0px;}
 body{
 	background-color: #353535;
 }
+
+.css320{
+	display: none;
+}
 /*最大的div*/
 .backgroundPosition{
 	/*border:1px solid red;*/

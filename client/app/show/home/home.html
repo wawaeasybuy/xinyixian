@@ -1,7 +1,7 @@
 
 <link href="../assets/css/home_1280.css" rel="stylesheet" type="text/css" media="screen and (min-width: 1280px) and (max-width: 1920px)">
 <link href="../assets/css/home_960.css"rel="stylesheet"type="text/css"  media="screen and (min-width: 960px) and (max-width: 1280px)">
-<link href="../assets/css/home_000.css"rel="stylesheet"type="text/css"  media="screen and (min-width: 0px) and (max-width: 960px)">
+<link href="../assets/css/home_000.css"rel="stylesheet"type="text/css"  media="screen and (min-width: 0px) and (max-width: 959px)">
 
 <div class="css960">
 	<div class="backgroundPosition">
@@ -92,7 +92,7 @@
 		<!-- 文章内容 -->
 		<div class="articleList">
 			<div class="openArticleList"></div>
-			<div class="articl" ng-repeat="a in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]" ng-click="viewHomeCtrl.go()">
+			<div class="articl" ng-repeat="a in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]" ui-sref="view-article({id:id})">
 				<div class="aeticlIcon">
 					<div class="pictureBox">
 						<image class="picture" src="../assets/images/city.png">
@@ -138,7 +138,57 @@
 
 <!-- 960像素以下的页面 -->
 
-<!-- <div class="a1">div1</div> -->
-<div class="main">
-    <div class="a2">div2</div>
+<div class="css320">
+	<!-- 导航 -->
+    <div class="mobileNavPosition">
+    	<div class="mobileNavs">
+    		<div class="mobileNav">
+    			<div class="rank"></div>
+    			<div class="word">rank</div>
+    		</div>
+    		<div class="mobileNav">
+    			<div class="info"></div>
+    			<div class="word">info</div>
+    		</div>
+    		<div class="mobileNav">
+    			<div class="city"></div>
+    			<div class="word">city</div>
+    		</div>
+    		<div class="mobileNav">
+    			<div class="report"></div>
+    			<div class="word">report</div>
+    		</div>
+    		<div class="btns">
+	    		<div class="aboutUs">about us</div>
+	    		<div class="closeNav"></div>
+	    	</div>
+    		<!-- <div style="clear:both"></div> -->
+    	</div>
+    </div>
+
+    <!-- 文章内容 -->
+	<div class="articleList">
+		<div class="articleListPosition">
+			<div class="articl" ng-repeat="a in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]" ui-sref="view-article({id:id})">
+				<div class="aeticlIcon">
+					<div class="pictureBox">
+						<image class="picture" src="../assets/images/city.png">
+					</div>
+					<div class="pictureMask"></div>
+					<div class="cityName"><u>苏州</u></div>
+				</div>
+				
+				<div class="number">
+					<span class="symbol">#</span>
+					<span class="num">14</span>
+				</div>
+				<div class="cityIntroduction">城市向上生长的野心从未停止</div>
+				<div class="time">2015.10.10</div>
+			</div>
+			<div style="clear:both"></div>
+		</div>
+		<div style="clear:both"></div>
+	</div>
+
+
 </div>
