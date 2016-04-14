@@ -18,7 +18,7 @@ angular.module('xinyixianApp')
         // authenticate: false
       })
       .state('view-article', {
-        url: '/show/article/view',
+        url: '/show/article/view/:id',
         templateUrl: 'app/show/article/article.html',
         controller: 'ViewAarticleController',
         controllerAs: 'viewArticleCtrl',

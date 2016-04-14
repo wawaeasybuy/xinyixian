@@ -2,20 +2,236 @@ body,span{margin: 0px;padding: 0px;}
 body{
 	background-color: #353535;
 }
-html,body{height:100%; width:100%; overflow:hidden;}
-.main{width:100%; height:100%; overflow:hidden; margin:0; padding:0;}
+html,body{height:100%; width:100%;}
 /*最大的div*/
 .css960{
 	display: none;
 }
+.css320{
+	width:100%;
+	height:100%;
+	/*overflow:hidden; */
+	margin:0; 
+	padding:0;
+}
+.mobileNavPosition{
+	z-index: 9999;
+	border:1px solid #101010;
+	width:47%;
+	height:100%;
+	background-color: #101010;
+	position: fixed;
+	top:0px;
+	left: -40%;
+	transition:0.8s linear;
+	-webkit-transition:0.8s linear;//重点
+	-moz-transition:0.8s linear;
+}
+.mobileNavPosition:hover{
+	position: fixed;
+	top:0px;
+	left: 0%;
+	opacity: 0.8;
+}
+.mobileNavs{
+	/*border:1px solid red;*/
+	margin: 0 auto;
+	width: 66px;
+	height: 100%;
+}
+.mobileNav{
+	/*border:1px solid red;*/
+	height: 15%;
+	width: 66px;*
+}
+.rank,.info,.city,.report{
+	width: 60px;
+	height: 60px;
+	border-radius: 60px;
+	border:3px solid #fff;
+	margin-top: 15%;
+	cursor: pointer;
+}
+.word{
+	/*border:1px solid red;*/
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	color: #fff;
+	font-size: 14px;
+}
+.btns{
+	/*border:1px solid red;*/
+	width: 66px;
+	height: 40%;
+}
+.aboutUs{
+	width: 66px;
+	height: 30px;
+	border-radius: 30px;
+	background-color: #E1E1E1;
+	line-height: 30px;
+	text-align: center;
+	cursor: pointer;
+	margin-top: 50%;
 
-.a1{width:100%; height:100%; color:#fff; background-color:#369; text-align:center;}
-.a2{width:100%; height:100%; color:#fff; background-color:#FF0000; text-align:center;"}
-.ng-scope{
-	width: 100% !important;
-	height: 100% !important;
 }
-.down960{
-	width: 100% !important;
-	height: 100% !important;
+.closeNav{
+	width: 24px;
+	height: 24px;
+	border-radius: 24px;
+	border:2px solid #E1E1E1;
+	background: url(../images/closeNav.png);
+	margin: 0 auto;
+	margin-top: 80%;
 }
+
+
+
+/*文章内容*/
+.articleList{
+	/*float: left;*/
+	border:1px solid #00ff00;
+	margin: 0 auto;
+	width: 100%;
+	z-index: 9999;
+}
+.articleListPosition{
+	/*border:1px solid red;*/
+	width: 70%;
+	margin: 0 auto;
+}
+/*某篇文章*/
+.articl{
+	/*border:1px solid red;*/
+	float: left;
+	width: 150px;
+	height: 198px;
+	margin-left: 35px;
+	margin-right: 35px;
+	margin-top: 30px;
+	position: relative;
+}
+/*文章的图片部分包括遮罩*/
+.aeticlIcon{
+	width: 150px;
+	height: 150px;
+	border-radius: 150px;
+	position: relative;
+}
+.pictureBox{
+	width: 150px;
+	height: 150px;
+	border-radius: 150px;
+	overflow: hidden;
+	transition:0.4s linear;
+	-webkit-transition:0.4s linear;//重点
+	-moz-transition:0.4s linear;
+}
+/*图片的遮罩*/
+.pictureMask{
+	width: 150px;
+	height: 150px;
+	border-radius: 150px;
+	background-color: transparent;
+	position: absolute;
+	top:0px;
+	transition:0.4s linear;
+	-webkit-transition:0.4s linear;//重点
+	-moz-transition:0.4s linear;
+}
+.picture{
+	width: 150px;
+	height: 150px;
+	transition:0.4s linear;
+}
+.cityName{
+	position: absolute;
+	top:0px;
+	width: 150px;
+	height: 150px;
+	line-height: 150px;
+	text-align: center;
+	color: #fff;
+	font-size: 18px;
+	font-weight: bold;
+	cursor: pointer;
+}
+/*悬浮时的效果*/
+.aeticlIcon:hover .pictureBox{
+	border-radius: 30px;
+	transform:rotate(45deg) scale(0.8);
+	-webkit-border-radius:30px;
+	-moz-border-radius:30px;
+	-o-border-radius:30px;
+}
+.aeticlIcon:hover .pictureMask{
+	background-color: #00ff00;
+	opacity:0.4;
+	border-radius: 30px;
+	transform:rotate(45deg) scale(0.8);
+	-webkit-border-radius:30px;
+	-moz-border-radius:30px;
+	-o-border-radius:30px;
+}
+.aeticlIcon:hover .picture{
+	transform: rotate(-45deg) scale(1.25);
+}
+.aeticlIcon:hover .cityName{
+	display: none;
+}
+/*序号*/
+.number{
+	/*border:1px solid red;*/
+	width: 48px;
+	height: 30px;
+	line-height: 0px;
+	position: absolute;
+	left: -10px;
+	bottom: 52px;
+	color: #c7c7c7;
+}
+.symbol{
+	/*border:1px solid red;*/
+	font-size: 12px;
+	position: relative;
+	top:-15px;
+	left: 5px;
+}
+.num{
+	/*border:1px solid red;*/
+	font-size: 32px;
+	line-height: 30px;
+}
+/*文章信息*/
+.cityIntroduction{
+	width: 130px;
+	height: 34px;
+	border-top: 2px solid #c7c7c7;
+	border-bottom: 2px solid #c7c7c7;
+	/*文字css*/
+	text-align: center;
+	line-height: 17px;
+	color: #c7c7c7;
+	font-size: 10px;
+	font-weight: bold;
+	/*位置css*/
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	position: absolute;
+	bottom: 10px;
+}
+/*时间*/
+.time{
+	height: 6px;
+	line-height: 6px;
+	color: #c7c7c7;
+	position: absolute;
+	bottom: 1px;
+	font-size: 8px;
+	/*border:1px solid red;*/
+}
+/*推荐列表*/
+/*文章内容*/

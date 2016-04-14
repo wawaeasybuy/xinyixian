@@ -2,6 +2,9 @@ body,span{margin: 0px;padding: 0px;}
 body{
 	background-color: #353535;
 }
+.css320{
+	display: none;
+}
 .css960{
 	/*border:1px solid red;*/
 	width:1000px;
