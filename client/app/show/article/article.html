@@ -11,22 +11,11 @@
 		<div class="upLine"></div>
 		<!-- 四个导航 -->
 		<div class="navs">
-			<div class="nav">
-				<div class="dot"></div>
-				<div class="navName">城市榜单</div>
+			<div class="nav" ng-repeat="category in viewArticleCtrl.categories">
+				<div class="dot"><img src="{{viewArticleCtrl.hostDir+category.image}}" style="width:22px;height:22px" ng-show="category.image"></div>
+				<div class="navName" ng-bind="category.name" ui-sref="main({id:category._id})">城市榜单</div>
 			</div>
-			<div class="nav">
-				<div class="dot"></div>
-				<div class="navName">城市活动</div>
-			</div>
-			<div class="nav">
-				<div class="dot"></div>
-				<div class="navName">城市报告</div>
-			</div>
-			<div class="nav">
-				<div class="dot"></div>
-				<div class="navName">Infographics</div>
-			</div>
+			
 		</div>
 		<!-- 二维码展示区 -->
 		<div class="qrCodes">
@@ -45,8 +34,8 @@
 	<!-- 文章内容的位置 -->
 	<div class="articleContent">
 
-		<div class="articleImage"></div>
-		<div class="articleWord"><div class="openArticleWord"></div></div>
+		<div class="articleImage"><img src="{{viewArticleCtrl.articleImage}}" style="width:580px;height:320px;"></div>
+		<div class="articleWord"><div class="openArticleWord" ></div><div ng-bind-html="viewArticleCtrl.article.content | to_trusted"></div></div>
 		<div class="articleShare">
 			<div class="share">Share</div>
 			<div class="shareDot"></div>

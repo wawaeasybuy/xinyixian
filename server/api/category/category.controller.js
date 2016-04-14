@@ -105,12 +105,12 @@ exports.index=function (req,res){
     		});
     	}
     };
-    Category.find({}).count(function (err,c){
+    Category.find({sign:{$ne:1}}).count(function (err,c){
     	if(err){ return handleError(res,err);}
     	count=c;
     });
 
-    Category.find({},{},{
+    Category.find({sign:{$ne:1}},{},{
     	skip: (page - 1) * itemsPerPage,
         limit: itemsPerPage
     })

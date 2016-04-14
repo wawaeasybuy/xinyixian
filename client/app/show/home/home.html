@@ -19,19 +19,19 @@
 			<div class="firstCatalog">
 				<div class="cityReport">
 					<!-- 230*230 -->
-					<div class="reportLogo"></div>
+					<div class="reportLogo"><img src="{{viewHomeCtrl.hostDir+viewHomeCtrl.categories[0].image}}" style="width:230px;height:230px" ng-show="viewHomeCtrl.categories[0].image"></div>
 				</div>
 				<div class="infographics">
 					<!-- 170*170 -->
-					<div class="infographicsLogo"></div>
+					<div class="infographicsLogo"><img src="{{viewHomeCtrl.hostDir+viewHomeCtrl.categories[1].image}}" style="width:170px;height:170px" ng-show="viewHomeCtrl.categories[1].image"></div>
 				</div>
 				<div class="cityList">
 					<!-- 320*320 -->
-					<div class="listLogo"></div>
+					<div class="listLogo"><img src="{{viewHomeCtrl.hostDir+viewHomeCtrl.categories[2].image}}" style="width:320px;height:320px" ng-show="viewHomeCtrl.categories[2].image"></div>
 				</div>
 				<div class="cityActivity">
 					<!-- 230*230 -->
-					<div class="activityLogo"></div>
+					<div class="activityLogo"><img src="{{viewHomeCtrl.hostDir+viewHomeCtrl.categories[3].image}}" style="width:230px;height:230px" ng-show="viewHomeCtrl.categories[3].image"></div>
 				</div>
 				<div class="aboutUs">
 					<div class="about">ABOUT</div>
@@ -93,23 +93,26 @@
 		<!-- 文章内容 -->
 		<div class="articleList">
 			<div class="openArticleList"></div>
-			<div class="articl" ng-repeat="a in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]" ui-sref="view-article({id:id})">
+			<div class="articl" ng-repeat="article in viewHomeCtrl.articles" ui-sref="view-article({id:article._id})">
 				<div class="aeticlIcon">
 					<div class="pictureBox">
-						<image class="picture" src="../assets/images/city.png">
+						<image class="picture" src="{{viewHomeCtrl.hostDir+article.thumbnail}}">
 					</div>
 					<div class="pictureMask"></div>
-					<div class="cityName"><u>苏州</u></div>
+					<div class="cityName"><u ng-bind="article.title">苏州</u></div>
 				</div>
 				
 				<div class="number">
 					<span class="symbol">#</span>
-					<span class="num">14</span>
+					<span class="num" ng-bind="article.i">14</span>
 				</div>
-				<div class="cityIntroduction">城市向上生长的野心从未停止</div>
-				<div class="time">2015.10.10</div>
+				<div class="cityIntroduction" ng-bind="article.summary">城市向上生长的野心从未停止</div>
+				<div class="time" ng-bind="article.updateDate | date:'yyyy.MM.dd'">2015.10.10</div>
 			</div>
+			<div style="clear:both"></div>
 		</div>
+		<!-- 分页 -->
+		<pagination style="float:right;margin-right:30px;" ng-if="viewHomeCtrl.pagination.numPages > 1" total-items="viewHomeCtrl.pagination.totalItems" ng-model="viewHomeCtrl.pagination.page" items-per-page="viewHomeCtrl.pagination.itemsPerPage" max-size="viewHomeCtrl.pagination.maxSize" boundary-links="{{viewHomeCtrl.pagination.numPages > 2}}" rotate="false" num-pages="viewHomeCtrl.pagination.numPages" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;" ng-change="viewHomeCtrl.pageChanged()"></pagination>
 		<div style="clear:both"></div>
 
 		<!-- 底部链接栏 -->

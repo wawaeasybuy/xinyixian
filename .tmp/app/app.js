@@ -4,7 +4,7 @@ var hostUrl = "http://localhost:9000";
 var upload_image_url = hostUrl + "/assets/upload/upload_images/";
 var lib_image_url = hostUrl + "/assets/upload/images_lib/";
 var defalut_image = hostUrl + "/assets/";
-angular.module('xinyixianApp', ['ngCookies', 'ngResource', 'ngSanitize', 'btford.socket-io', 'ui.router', 'ui.bootstrap',
+var app = angular.module('xinyixianApp', ['ngCookies', 'ngResource', 'ngSanitize', 'btford.socket-io', 'ui.router', 'ui.bootstrap',
 // '720kb.datepicker',
 'ngFileUpload']).config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
   $urlRouterProvider.otherwise('/');
@@ -46,4 +46,10 @@ angular.module('xinyixianApp', ['ngCookies', 'ngResource', 'ngSanitize', 'btford
     });
   });
 });
+
+app.filter('to_trusted', ['$sce', function ($sce) {
+  return function (text) {
+    return $sce.trustAsHtml(text);
+  };
+}]);
 //# sourceMappingURL=app.js.map
