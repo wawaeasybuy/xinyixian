@@ -154,6 +154,7 @@ angular.module('xinyixianApp')
             },function(){
 
             });
+            $state.go('article-view');
         };
 
         init();

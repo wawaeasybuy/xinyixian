@@ -198,6 +198,7 @@ angular.module('xinyixianApp')
             },function(){
 
             });
+            $state.go('article-view');
             // Article.create({},self.article,function (data){
             //     console.log(data);
             // },function(){

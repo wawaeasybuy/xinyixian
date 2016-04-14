@@ -6,11 +6,20 @@ body{
 .css320{
 	display: none;
 }
+.css960{
+	/*border:1px solid red;*/
+	/*width:1000px;*/
+	margin:0 auto;
+}
+
 /*最大的div*/
 .backgroundPosition{
 	/*border:1px solid red;*/
 	width: 80%;
 	margin: 20px auto 200px;
+	transform: scale(0.8);
+	position: relative;
+	top:-130px;
 }
 
 
@@ -168,6 +177,7 @@ body{
 	width: 1024px;
 	height: 230px;
 	overflow: hidden;
+	transform: scale(0.8);
 }
 /*某个推荐*/
 .recommend{
@@ -309,6 +319,7 @@ body{
 	/*border:1px solid red;*/
 	margin-top: 100px;
 	height: 22px;
+	transform: scale(0.8);
 }
 .links{
 	/*border:1px solid red;*/

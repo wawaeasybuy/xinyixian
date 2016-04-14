@@ -117,18 +117,27 @@ exports.index=function (req,res){
     .sort({createDate:1})
     .exec(function (err,categories){
     	if(err){ return handleError(res,err);}
-    	for(var i=0;i<categories.length;i++){
-    		categories[i]=categories[i].toObject();
-    	}
-    	var index=0;
-    	_.each(categories,function (category){
-    		Article.find({category:category._id}).count(function (err,c){
-    			if(err){ return handleError(res,err);}
-    			index++;
-    			category.articleCount=c;
-    			isReturn(index,categories.length,categories);
+    	if(categories.length == 0){
+    		return res.json(200,{
+    			categories:categories,
+    			count:count,
+    			page:page
     		});
-    	});
+    	}else{
+    		for(var i=0;i<categories.length;i++){
+	    		categories[i]=categories[i].toObject();
+	    	}
+	    	var index=0;
+	    	_.each(categories,function (category){
+	    		Article.find({category:category._id}).count(function (err,c){
+	    			if(err){ return handleError(res,err);}
+	    			index++;
+	    			category.articleCount=c;
+	    			isReturn(index,categories.length,categories);
+	    		});
+	    	});
+    	}
+    	
     });
 };
 

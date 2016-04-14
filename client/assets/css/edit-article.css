@@ -235,8 +235,14 @@ body{
 }
 /*增加个箭头背景图片*/
 .pull-left{
-	background-color: #000
+	width: 20px;
+	height: 20px;
+	background: url(../images/left.png);
+	border:none;
 }
 .pull-right{
-	background-color: #000
+	width: 20px;
+	height: 20px;
+	background: url(../images/right.png);
+	border:none;
 }
