@@ -69,7 +69,7 @@ exports.move=function (req,res){
 			if(!group2){return res.json(404,{error:{msg:'group not found'}});}
 			_.each(images,function (image){
 				group1.images.pull(image);
-				group2.images.push(image);
+				group2.images.unshift(image);
 			});
 			group1.images=getNoRepeatArr(group1.images);
 			group2.images=getNoRepeatArr(group2.images);

@@ -6,7 +6,7 @@ angular.module('xinyixianApp')
     	var self=this;
 
     	self.lib_image_url=lib_image_url;
-    	console.log(self.lib_image_url);
+    	// console.log(self.lib_image_url);
     	// self.page = $stateParams.page || 1;
       	self.picturePage = $stateParams.picturePage || 0;
     	self.group = $stateParams.group;
@@ -19,6 +19,11 @@ angular.module('xinyixianApp')
 	          
 	        console.log($location);
       	};
+
+        //弹出url
+        self.address=function (url){
+            alert("图片地址为:"+url);
+        };
 
       	//初始化group选中状态
       	var initGroupChoosed=function(){
@@ -37,6 +42,10 @@ angular.module('xinyixianApp')
         			self.group=_.findWhere(self.groups,{sign:'1'})._id;
         		}
         		var c=_.findWhere(self.groups,{_id:self.group});
+                if(!c){
+                    self.group=_.findWhere(self.groups,{sign:'1'})._id;
+                    c=_.findWhere(self.groups,{_id:self.group});
+                }
         		c.style="background:#CCCCCC";
         		//载入图片
         		reloadImage();
@@ -109,6 +118,58 @@ angular.module('xinyixianApp')
         	self._openAddGroup=!self._openAddGroup;
         };
 
+        //打开分组编辑
+        self.openEditCategory=function(){
+            self._openEditCategory=!self._openEditCategory;
+            if(!self._openEditCategory){
+                self._openEidtCategoryName=false;
+                delete self.selectedGroup;
+            }
+            if(self._openEditImage){
+                self._openEditImage=false;
+                self._openMove=false;
+                delete self.selectedImage;
+            }
+        };
+
+        //打开修改分组名称
+        self.openEidtCategoryName=function(group){
+            self._openEidtCategoryName=true;
+            self.selectedGroup=group;
+            console.log(group);
+        };
+
+        //关闭修改分组名称
+        self.closeEidtCategoryName=function(){
+            self._openEidtCategoryName=false;
+            delete self.selectedGroup;
+        };
+
+        //确认修改分组名称
+        self.save=function(){
+            console.log(self.selectedGroup);
+            ImageGroup.update({id:self.selectedGroup._id},{name:self.selectedGroup.name},function(){
+                loadGroups();
+                delete self.selectedGroup;
+                self._openEidtCategoryName=false;
+            },function(){
+
+            });
+        };
+
+        //删除分组
+        self.deleteGroup=function(group){
+            if(confirm("确认删除分组,组内图片将被移动至默认分组！")){
+                ImageGroup.destory({id:group._id},{},function(){
+                    self.group=_.findWhere(self.groups,{sign:'1'})._id;
+                    doLocation();
+                },function(){
+
+                });
+            }
+            
+        };
+
         //取消新增
         self.cancel=function(){
         	self._openAddGroup=false;
@@ -117,6 +178,49 @@ angular.module('xinyixianApp')
         //打开编辑图片按钮
         self.openEditImage=function(){
         	self._openEditImage=!self._openEditImage;
+            self.closeEidtCategoryName();
+            if(!self._openEditImage){
+                self._openMove=false;
+                delete self.selectedImage;
+            }
+            if(self._openEditCategory){
+                self._openEditCategory=false;
+                self._openEidtCategoryName=false;
+                delete self.selectedGroup;
+            }
+        };
+
+        //打开图片移动
+        self.openMove=function(image){
+            self._openMove=true;
+            var c=_.findWhere(self.groups,{_id:self.group});
+            self.selectedImage={
+                image:image,
+                group:self.group,
+                name:c.name
+            };
+        };
+
+        //q取消图片移动
+        self.closeMove=function(){
+            self._openMove=false;
+            delete self.selectedImage;
+        };
+
+        //选择移动目标组
+        self.chooseMoveAim=function(group){
+            self.selectedImage.name=group.name;
+            self.selectedImage.aim=group._id;
+        };
+
+        //确定移动
+        self.doMove=function(){
+            ImageGroup.move({id:self.selectedImage.group},{id:self.selectedImage.aim,images:[self.selectedImage.image]},function(){
+                loadGroups();
+                self.closeMove();
+            },function(){
+
+            });
         };
 
         //移除对应组中的图片

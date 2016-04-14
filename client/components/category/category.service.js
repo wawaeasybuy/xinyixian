@@ -15,7 +15,10 @@ angular.module('xinyixianApp')
           id:'all',
           controller:'category'
         }
-      }
+      },
+      update: {
+        method: 'PUT'
+      },
       // show:{
       //   method: 'GET'
       // },

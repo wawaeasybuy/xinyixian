@@ -10,9 +10,9 @@
 		<div style="clear:both"></div>
 	</div>
 	<div class="content">
-		<div class="editClassify">修改分类</div>
+		<div class="editClassify" ng-click="viewImageCtrl.openEditCategory()">修改分组</div>
 		<div class="editImage" ng-click="viewImageCtrl.openEditImage()">编辑图片</div>
-		<div class="addClassify" ng-click="viewImageCtrl.openAddGroup()">新增分类</div>
+		<div class="addClassify" ng-click="viewImageCtrl.openAddGroup()">新增分组</div>
 			<div class="addNewClassify" ng-show="viewImageCtrl._openAddGroup">
 				<div class="close" ng-click="viewImageCtrl.cancel()"></div>
 				<div class="classifyContent">
@@ -25,21 +25,21 @@
 		<div style="clear:both"></div>
 		<!-- 图片分类 -->
 		<div class="imageClassifys">
-			<div class="classifyName" ng-repeat="group in viewImageCtrl.groups" ng-click="viewImageCtrl.chooseGroup(group)">
-				<div class="name1" ng-bind="group.name" style="{{group.style}}">默认分类</div>
-				<div class="deleteClassify" style="float:left">删除</div>
-				<div class="deleteClassify">编辑</div>
+			<div class="classifyName" ng-repeat="group in viewImageCtrl.groups">
+				<div class="name1" ng-bind="group.name" style="{{group.style}}" ng-click="viewImageCtrl.chooseGroup(group)">默认分类</div>
+				<div class="deleteClassify" style="float:left" ng-show="viewImageCtrl._openEditCategory&&group.sign!=1" ng-click="viewImageCtrl.deleteGroup(group)">删除</div>
+				<div class="deleteClassify" ng-show="viewImageCtrl._openEditCategory&&group.sign!=1" ng-click="viewImageCtrl.openEidtCategoryName(group)">编辑</div>
 			</div>
 			
 			<!-- 修改分类名 -->
-			<div class="addNewClassify">
-				<div class="close"></div>
+			<div class="addNewClassify" ng-show="viewImageCtrl._openEidtCategoryName">
+				<div class="close" ng-click="viewImageCtrl.closeEidtCategoryName()"></div>
 				<div class="classifyContent">
 					<div class="name">分类名</div>
-					<input class="input" type="text">
+					<input class="input" type="text" ng-model="viewImageCtrl.selectedGroup.name">
 				</div>
 				<div style="clear:both"></div>
-				<div class="save">保存</div>
+				<div class="save" ng-click="viewImageCtrl.save()">保存</div>
 			</div>
 			<!-- 修改分类名 -->
 			<div style="clear:both"></div>
@@ -48,20 +48,25 @@
 		<!-- 图片显示 -->
 		<div class="showImages">
 			<div class="showImage" ng-repeat="image in viewImageCtrl.showImages">
-				<img src="{{viewImageCtrl.lib_image_url+image}}"style="width: 100px;height: 100px;">
+				<img src="{{viewImageCtrl.lib_image_url+image}}"style="width: 100px;height: 100px;" ng-click="viewImageCtrl.address(viewImageCtrl.lib_image_url+image)">
 				<div class="deleteImage" ng-show="viewImageCtrl._openEditImage" ng-click="viewImageCtrl.pullImage(image)"></div>
-				<div class="move">移动至</div>
+				<div class="move" ng-show="viewImageCtrl._openEditImage" ng-click="viewImageCtrl.openMove(image)">移动至</div>
 			</div>
 			<!-- 移动到其他分类 -->
-			<!-- <div class="addNewClassify">
-				<div class="close"></div>
+			<div class="addNewClassify" ng-show="viewImageCtrl._openMove">
+				<div class="close" ng-click="viewImageCtrl.closeMove()"></div>
 				<div class="classifyContent">
 					<div class="name">分类名</div>
-					<div class="input"></div>
+					<!-- 显示框 -->
+					<div ng-bind="viewImageCtrl.selectedImage.name"></div>
+					<!-- 选择框 -->
+					<div>
+						<div ng-repeat="group in viewImageCtrl.groups" ng-bind="group.name" ng-click="viewImageCtrl.chooseMoveAim(group)"></div>
+					</div>
 				</div>
 				<div style="clear:both"></div>
-				<div class="save">保存</div>
-			</div> -->
+				<div class="save" ng-click="viewImageCtrl.doMove()">保存</div>
+			</div>
 			<!-- 移动到其他分类 -->
 			<div class="showImage uploadImage" ngf-select ngf-change="viewImageCtrl.upload($files)"></div>
 			<div style="clear:both"></div>

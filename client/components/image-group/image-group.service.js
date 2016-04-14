@@ -14,6 +14,15 @@ angular.module('xinyixianApp')
       },
       update:{
         method:'PUT'
+      },
+      move:{
+        method:'PUT',
+        params:{
+          controller:"move"
+        }
+      },
+      destory:{
+        method:'DELETE'
       }
       // show:{
       //   method: 'GET'
