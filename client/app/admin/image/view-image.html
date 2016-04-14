@@ -26,7 +26,7 @@
 		<!-- 图片分类 -->
 		<div class="imageClassifys">
 			<div class="classifyName" ng-repeat="group in viewImageCtrl.groups">
-				<div class="name1" ng-bind="group.name" style="{{group.style}}" ng-click="viewImageCtrl.chooseGroup(group)">默认分类</div>
+				<div class="name1" style="text-overflow:ellipsis" title="{{group.name}}" ng-bind="group.name" style="{{group.style}}" ng-click="viewImageCtrl.chooseGroup(group)"></div>
 				<div class="deleteClassify" style="float:left" ng-show="viewImageCtrl._openEditCategory&&group.sign!=1" ng-click="viewImageCtrl.deleteGroup(group)">删除</div>
 				<div class="deleteClassify" ng-show="viewImageCtrl._openEditCategory&&group.sign!=1" ng-click="viewImageCtrl.openEidtCategoryName(group)">编辑</div>
 			</div>

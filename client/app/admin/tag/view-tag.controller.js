@@ -16,6 +16,19 @@ angular.module('xinyixianApp')
           totalItems: null
         };
 
+
+
+      //重新生成路由
+        var doLocation=function(){
+          $location
+            .search('page', self.pagination.page)
+            .search('itemsPerPage', self.pagination.itemsPerPage)
+            .search('category', self.category)
+            .search('state', self.state);
+          console.log($location);
+        };
+
+
     	var init = function (){
     		loadTags();
     	};
@@ -90,6 +103,10 @@ angular.module('xinyixianApp')
           }
           
           
+        };
+
+        self.pageChanged = function () {
+          doLocation();
         };
 
 

@@ -54,7 +54,7 @@ angular.module('xinyixianApp')
 
       // tag页面
       .state('tag-view', {
-        url: '/admin/tag/view',
+        url: '/admin/tag/view?page&itemsPerPage',
         templateUrl: 'app/admin/tag/view-tag.html',
         controller: 'ViewTagController',
         controllerAs: 'viewTagCtrl',

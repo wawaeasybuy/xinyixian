@@ -35,5 +35,6 @@
 				</div>
 		</div>
 		<div class="batchDelete" ng-click="viewTagCtrl.dustbin_all()">批量删除</div>
+		<pagination class="paning" style="float:right;margin-right:30px;" ng-if="viewTagCtrl.pagination.numPages > 1" total-items="viewTagCtrl.pagination.totalItems" ng-model="viewTagCtrl.pagination.page" items-per-page="viewTagCtrl.pagination.itemsPerPage" max-size="viewTagCtrl.pagination.maxSize" boundary-links="{{viewTagCtrl.pagination.numPages > 2}}" rotate="false" num-pages="viewTagCtrl.pagination.numPages" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;" ng-change="viewTagCtrl.pageChanged()"></pagination>
 	</div>
 </div>
