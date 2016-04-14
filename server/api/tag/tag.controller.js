@@ -95,7 +95,9 @@ exports.index=function (req,res){
     .sort({createDate:-1})
     .exec(function (err,tags){
     	if(err){ return handleError(res,err);}
+
     	if(tags.length==0){
+
     		return res.json(200,{
     			tags:tags,
     			count:count,
