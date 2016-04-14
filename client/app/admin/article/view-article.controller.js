@@ -28,13 +28,13 @@ angular.module('xinyixianApp')
         //sattes:1草稿，2发布，3回收站
         self.states=[{_id:1,name:'草稿'},{_id:2,name:'发布'},{_id:3,name:'回收站'}];
         switch(self.state){
-          case 1:
+          case "1":
             self.selectedState='草稿';
             break;
-          case 2:
+          case "2":
             self.selectedState='发布';
             break;
-          case 3:
+          case "3":
             self.selectedState='回收站';
             break;
           default:
@@ -66,14 +66,24 @@ angular.module('xinyixianApp')
           }
       		Article.admin_index(condition,function (data){
       			self.articles=data.articles;
-            var getStringArr=function(arr){
+            var getStringArr=function(arr,state){
               var str='';
-              if(arr.length>0){
-                str=arr[0];
-                for(var i=1;i<arr.length;i++){
-                  str=str+','+arr[i];
+              if(state==1){
+                if(arr.length>0){
+                  str=arr[0];
+                  for(var i=1;i<arr.length;i++){
+                    str=str+','+arr[i];
+                  }
+                }
+              }else{
+                if(arr.length>0){
+                  str=arr[0].name;
+                  for(var i=1;i<arr.length;i++){
+                    str=str+','+arr[i].name;
+                  }
                 }
               }
+              
               return str;
             };
             //初始化remindTag，showTags，isReadyDelete
@@ -90,8 +100,8 @@ angular.module('xinyixianApp')
                   article.showState='回收站';
                   break;
               }
-              article.remindTag=getStringArr(article.remindTag);
-              article.showTags=getStringArr(article.tags);
+              article.remindTag=getStringArr(article.remindTag,1);
+              article.showTags=getStringArr(article.tags,2);
               // article.isReadyDelete=false;
             });
             // ng-bind="article.showState'"
@@ -135,7 +145,7 @@ angular.module('xinyixianApp')
           }
           self.pagination.page=1;
           doLocation();
-          loadArticle();
+          // loadArticle();
           initOpen();
         };
 
@@ -149,7 +159,7 @@ angular.module('xinyixianApp')
           }
           self.pagination.page=1;
           doLocation();
-          loadArticle();
+          // loadArticle();
           initOpen();
         };
 

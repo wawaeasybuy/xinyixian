@@ -9,7 +9,7 @@ angular.module('xinyixianApp')
         templateUrl: 'app/admin/article/view-article.html',
         controller: 'ViewArticleController',
         controllerAs: 'viewArticleCtrl',
-        reloadOnSearch: false
+        // reloadOnSearch: false
         // authenticate: true
       })
       .state('article-edit', {
@@ -83,7 +83,7 @@ angular.module('xinyixianApp')
         templateUrl: 'app/admin/image/view-image.html',
         controller: 'ViewImageController',
         controllerAs: 'viewImageCtrl',
-        reloadOnSearch: false
+        // reloadOnSearch: false
         // authenticate: true
       })
       .state('image-edit', {
