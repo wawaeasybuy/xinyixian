@@ -15,12 +15,15 @@ angular.module('xinyixianApp')
           id:'select',
           controller:'tag'
         }
-      }
+      },
+      create: {
+        method: 'POST',
+      },
       // show:{
       //   method: 'GET'
       // },
-      // update:{
-      //   method: 'PUT'
-      // }
+      update:{
+        method: 'PUT'
+      }
 	  });
   });

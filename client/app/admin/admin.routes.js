@@ -68,7 +68,7 @@ angular.module('xinyixianApp')
         // authenticate: true
       })
       .state('tag-add', {
-        url: '/admin/tag/add/:id',
+        url: '/admin/tag/add',
         templateUrl: 'app/admin/tag/add-tag.html',
         controller: 'AddTagController',
         controllerAs: 'addTagCtrl',

@@ -22,11 +22,11 @@
 		</div>
 		
 		<!-- 显示 -->
-		<div class="tableContent">
+		<div class="tableContent" ng-repeat="tag in viewTagCtrl.tags">
 			<div class="tagDelete"><div class="chooseDelete"></div></div>
-				<div class="tagId">1</div>
-				<div class="tagName">1</div>
-				<div class="tagArticleNum">1</div>
+				<div class="tagId" ng-bind="tag._id">1</div>
+				<div class="tagName" ng-bind="tag.name">1</div>
+				<div class="tagArticleNum" ng-bind="tag.articleCount">1</div>
 				
 				<div class="buttons">
 					<div class="btnEdit" ui-sref="tag-edit">编辑</div>

@@ -14,24 +14,13 @@
 		<div class="content">
 			<div class="tagInfo">
 				<div class="title">标签名称</div>
-				<input type="text" class="input">
+				<input type="text" class="input" ng-model="addTagCtrl.tags.name">
 			</div>
-			<!-- <div class="tagInfo">
-				<div class="title">标签图标</div>
-				<div class="imageBtn">上传图片</div>
-			</div>
-			<div class="showImage"> -->
-				<!-- 图片进度条 -->
-				<!-- <div style="width:100px;">
-	            	<progressbar ng-show="editRestaurantCtrl.loaded > 0" class="progress-striped " ng-class="{active: editRestaurantCtrl.loaded < 100}" max="100" value="editRestaurantCtrl.loaded" style="width:100px;"><span ng-bind="editRestaurantCtrl.loaded"></span>%</progressbar>
-	          	</div>
-			</div> -->
-			
 		</div>
 
 		<div class="buttons">
-			<div class="btnSave">保存</div>
-			<div class="btnCancel">撤销</div>
+			<div class="btnSave" ng-click="addTagCtrl.save()">保存</div>
+			<div class="btnCancel" ng-click="addTagCtrl.cancel()">撤销</div>
 		</div>
 	</div>
 </div>
