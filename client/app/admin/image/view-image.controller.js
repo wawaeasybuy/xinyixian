@@ -11,6 +11,8 @@ angular.module('xinyixianApp')
       	self.picturePage = $stateParams.picturePage || 0;
     	self.group = $stateParams.group;
 
+        self.showLoadMore = true;
+
         //重新生成路由
       	var doLocation=function(){
 	        $location
@@ -104,13 +106,13 @@ angular.module('xinyixianApp')
 
         //loadmore
         self.loadMore=function(){
-        	doLocation();
         	var c=_.findWhere(self.groups,{_id:self.group});
         	self.showImages=c.images.slice(0,15+self.picturePage*16);
         	if(c.images.length <= (15+self.picturePage*16)){
 	           self.showLoadMore = false;
 	        }
 	        self.picturePage++;
+            doLocation();
         };
 
         //打开新增分组页面

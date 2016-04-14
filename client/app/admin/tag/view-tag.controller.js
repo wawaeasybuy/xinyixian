@@ -31,7 +31,7 @@ angular.module('xinyixianApp')
     			var count = self.pagination.itemsPerPage*(self.pagination.page-1)+1;
                 self.pagination.totalItems = data.count;
                 self.pagination.numPages = self.pagination.totalItems/self.pagination.itemsPerPage;
-    		};function (){
+    		},function (){
 
     		});
     	};
