@@ -24,6 +24,17 @@ angular.module('xinyixianApp')
       },
       update:{
         method: 'PUT'
+      },
+      destory:{
+        method:'DELETE'
+      },
+      destory_all:{
+        method:'PUT',
+        params:{
+          id:'destory',
+          controller:'all'
+        }
       }
+
 	  });
   });

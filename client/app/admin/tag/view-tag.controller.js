@@ -27,7 +27,7 @@ angular.module('xinyixianApp')
             };
     		Tag.index(condition,{},function (data){
     			self.tags = data.tags;
-    			console.log(self.tags);
+    			// console.log(self.tags);
     			var count = self.pagination.itemsPerPage*(self.pagination.page-1)+1;
                 self.pagination.totalItems = data.count;
                 self.pagination.numPages = self.pagination.totalItems/self.pagination.itemsPerPage;
@@ -35,6 +35,62 @@ angular.module('xinyixianApp')
 
     		});
     	};
+
+      //选择勾选删除
+        self.chooseDelete=function (tag){
+          // console.log("@@");
+          tag.isSelected=!tag.isSelected;
+          if(!tag.isSelected){
+            self.selectedAll=false;
+          }
+        };
+
+        //全选删除
+        self.chooseAllDelete=function(){
+          _.each(self.tags,function (tag){
+            if(self.selectedAll){
+              tag.isSelected=false;
+            }else{
+              tag.isSelected=true;
+            }
+            
+          });
+          if(self.selectedAll){
+              self.selectedAll=false;
+            }else{
+              self.selectedAll=true;
+            }
+        };
+
+        //删除
+        self.destory=function(tagId){
+          if(confirm("确认删除该标签？")){
+            Tag.destory({id:tagId},{},function(){
+              loadTags();
+            },function(){
+
+            });
+          }
+        };
+
+        //批量移至回收站，批量彻底删除
+        self.dustbin_all=function(){
+          if(confirm('确认删除这些标签？')){
+            var arr=[];
+            _.each(self.tags,function (tag){
+              if(tag.isSelected){
+                arr.push(tag._id);
+              }
+            });
+            Tag.destory_all({},{tags:arr},function(){
+              loadTags();
+            },function(){
+
+            });
+          }
+          
+          
+        };
 
 
     init();

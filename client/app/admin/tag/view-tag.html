@@ -15,7 +15,7 @@
 		<div style="clear:both"></div>
 		<!-- 标题 -->
 		<div class="tableTitle">
-			<div class="tagDelete"><div class="chooseDelete"></div></div>
+			<div class="tagDelete"><div class="chooseDelete" ng-click="viewTagCtrl.chooseAllDelete()"><img src="../assets/images/choose.png" style="position: relative; top:-6px;" ng-show="viewTagCtrl.selectedAll"></div></div>
 			<div class="tagId">ID</div>
 			<div class="tagName">名称</div>
 			<div class="tagArticleNum">文章总数</div>
@@ -23,17 +23,17 @@
 		
 		<!-- 显示 -->
 		<div class="tableContent" ng-repeat="tag in viewTagCtrl.tags">
-			<div class="tagDelete"><div class="chooseDelete"></div></div>
+			<div class="tagDelete"><div class="chooseDelete" ng-click="viewTagCtrl.chooseDelete(tag)"><img src="../assets/images/choose.png" style="position: relative; top:-6px;" ng-show="tag.isSelected"></div></div>
 				<div class="tagId" ng-bind="tag._id">1</div>
 				<div class="tagName" ng-bind="tag.name">1</div>
 				<div class="tagArticleNum" ng-bind="tag.articleCount">1</div>
 				
 				<div class="buttons">
 					<div class="btnEdit" ui-sref="tag-edit({id:tag._id})">编辑</div>
-					<div class="btnDelete">删除</div>
+					<div class="btnDelete" ng-click="viewTagCtrl.destory(tag._id)">删除</div>
 					<div class="btnShow">查看</div>
 				</div>
 		</div>
-		<div class="batchDelete">批量删除</div>
+		<div class="batchDelete" ng-click="viewTagCtrl.dustbin_all()">批量删除</div>
 	</div>
 </div>
