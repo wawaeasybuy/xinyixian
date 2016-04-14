@@ -16,9 +16,9 @@
 	</div>
 
 	<div class="contentPosition">
-		<!-- updateDate -->
+		<!-- updateDate 日历-->
 		<div style="width:300px;margin:0 auto;height:0px;">
-			<div style="width:300px;background-color:#fff;position:absolute;top:390px;z-index:999">
+			<div class="datepickerPosition" style="position:absolute;top:378px;">
 				<datepicker class="from-data" style="box-shadow: 0 0 20px #aaa;" ng-show="addArticleCtrl._updateDate" ng-model="addArticleCtrl.article.updateDate"  datepicker-mode="year"></datepicker>
 			</div>
 		</div>
@@ -55,8 +55,10 @@
 
 					<div class="chooseTag" ng-show="addArticleCtrl._openAddTag">
 						<div class="close" ng-click="addArticleCtrl.closeOpenAddTag()"></div>
-						<div class="name">Tag</div>
-						<input class="chooseBox" ng-model="addArticleCtrl.selectTagName" ng-change="addArticleCtrl.select()"></input>
+						<div class="chooseTagName">
+							<div class="name">Tag</div>
+							<input class="chooseBox" ng-model="addArticleCtrl.selectTagName" ng-change="addArticleCtrl.select()"></input>
+						</div>
 						<div class="Tags">
 							<div class="tag" ng-repeat="tag in addArticleCtrl.selectTags" ng-bind="tag.name" ng-click="addArticleCtrl.chooseTag(tag)">222</div>
 						</div>
@@ -76,7 +78,7 @@
 				</div>
 				<div style="width:200px;height:0px;float:left;">
 					<div ng-show="addArticleCtrl._openCategory" style="width:200px;height:100px;overflow-y:auto;position:relative; left:-200px;top:36px;">
-						<div ng-repeat="category in addArticleCtrl.categories" ng-bind="category.name" ng-click="addArticleCtrl.chooseCategory(category)" style="border:1px solid #000;background-color: #fff;"></div>
+						<div ng-repeat="category in addArticleCtrl.categories" ng-bind="category.name" ng-click="addArticleCtrl.chooseCategory(category)" style="border:1px solid #000;background-color: #f1f1f1;border:1px solid #ccc;text-indent:20px;"></div>
 						<!-- <div ng-bind="addArticleCtrl.categories[0].name" ></div> -->
 					</div>
 				</div>
@@ -88,9 +90,9 @@
 				<div class="bigImage">大图模式</div><div class="chooseBigImage" ng-click="addArticleCtrl.chooseBigImage()"><img src="../assets/images/choose.png" ng-show="addArticleCtrl.article.isBigImage"></div>
 			</div>
 			<div class="showImage">
-				<img src="{{addArticleCtrl.showImage}}" style="width:100px;height:50px">
+				<div class="img"><img src="{{addArticleCtrl.showImage}}"></div>
 				<!-- 图片进度条 -->
-	            <progressbar ng-show="addArticleCtrl.loaded1 > 0" class="progress-striped" ng-class="{active: addArticleCtrl.loaded1 < 100}" max="100" value="addArticleCtrl.loaded1" style="background-color:#9DD1FF;display: block;border-radius:5px;text-align:center"><span ng-bind="addArticleCtrl.loaded1"></span>%</progressbar>
+	            <progressbar ng-show="addArticleCtrl.loaded1 > 0" class="progress-striped progressBar" ng-class="{active: addArticleCtrl.loaded1 < 100}" max="100" value="addArticleCtrl.loaded1" style="background-color:#9DD1FF;display: block;border-radius:5px;text-align:center"><span ng-bind="addArticleCtrl.loaded1"></span>%</progressbar>
 			</div>
 
 			<div class="articleInfo">
@@ -99,9 +101,9 @@
 			</div>
 			<!-- 建议图片大小为150*150 -->
 			<div class="showImage">
-				<img src="{{addArticleCtrl.showThumbnail}}" style="width:100px;height:50px">
+				<div class="img"><img src="{{addArticleCtrl.showThumbnail}}"></div>
 				<!-- 图片进度条 -->
-	            <progressbar ng-show="addArticleCtrl.loaded2 > 0" class="progress-striped" ng-class="{active: addArticleCtrl.loaded2 < 100}" max="100" value="addArticleCtrl.loaded2" style="background-color:#9DD1FF;display: block;border-radius:5px;text-align:center"><span ng-bind="addArticleCtrl.loaded2"></span>%</progressbar>
+	            <progressbar ng-show="addArticleCtrl.loaded2 > 0" class="progress-striped progressBar" ng-class="{active: addArticleCtrl.loaded2 < 100}" max="100" value="addArticleCtrl.loaded2" style="background-color:#9DD1FF;display: block;border-radius:5px;text-align:center"><span ng-bind="addArticleCtrl.loaded2"></span>%</progressbar>
 			</div>
 				
 			<div class="article">

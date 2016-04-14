@@ -44,17 +44,18 @@ body{
 }
 .dropBoxs{
 	/*border:1px solid red;*/
-	width:152px;
-	height:100px;
+	width:150px;
+	height:74px;
 	overflow-y:auto;
 	position:relative;
 	left:-152px;
-	top:38px;
+	top:36px;
 	z-index: 9999;
+	border: 1px solid #ccc;
+	border-top:none;
 }
 .dropBox{
-	border:1px solid #ccc;
-	border-top: none;
+	border-top:1px solid #ccc;
 	height: 36px;
 	background-color: #f1f1f1;
 	line-height: 36px;
