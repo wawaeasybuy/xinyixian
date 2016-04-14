@@ -30,7 +30,7 @@ angular.module('xinyixianApp')
 
       // 分类页面
       .state('classify-view', {
-        url: '/admin/classify/view',
+        url: '/admin/classify/view?page&itemsPerPage',
         templateUrl: 'app/admin/classify/view-classify.html',
         controller: 'ViewClassifyController',
         controllerAs: 'viewClassifyCtrl',

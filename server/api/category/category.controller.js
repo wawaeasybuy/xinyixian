@@ -114,6 +114,7 @@ exports.index=function (req,res){
     	skip: (page - 1) * itemsPerPage,
         limit: itemsPerPage
     })
+    .sort({createDate:1})
     .exec(function (err,categories){
     	if(err){ return handleError(res,err);}
     	for(var i=0;i<categories.length;i++){
@@ -133,7 +134,9 @@ exports.index=function (req,res){
 
 //admin getAll
 exports.all_index=function (req,res){
-	Category.find({},function (err,categories){
+	Category.find({})
+	.sort({createDate:1})
+	.exec(function (err,categories){
 		if(err){ return handleError(res,err);}
 		res.json(200,{categories:categories});
 	});

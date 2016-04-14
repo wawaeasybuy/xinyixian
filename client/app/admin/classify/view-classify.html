@@ -23,12 +23,12 @@
 		</div>
 		
 		<!-- 显示 -->
-		<div class="tableContent">
+		<div class="tableContent" ng-repeat="category in viewClassifyCtrl.categories">
 			<div class="catalogDelete height60"><div class="chooseDelete"></div></div>
-			<div class="catalogId height60">1</div>
-			<div class="catalogName height60">1</div>
-			<div class="catalogUrl height60"></div>
-			<div class="catalogArticleNum height60">2</div>
+			<div class="catalogId height60" ng-bind="category._id">1</div>
+			<div class="catalogName height60" ng-bind="category.name">1</div>
+			<div class="catalogUrl height60"  ng-bind="category.url ? viewClassifyCtrl.host+category.url:''" ></div>
+			<div class="catalogArticleNum height60"  ng-bind="category.articleCount">2</div>
 			
 			<div class="buttons">
 				<div class="btnEdit" ui-sref="classify-edit">编辑</div>
