@@ -10,6 +10,7 @@
 		<div style="clear:both"></div>
 	</div>
 	<div class="content">
+		<div class="editClassify">修改分类</div>
 		<div class="editImage" ng-click="viewImageCtrl.openEditImage()">编辑图片</div>
 		<div class="addClassify" ng-click="viewImageCtrl.openAddGroup()">新增分类</div>
 			<div class="addNewClassify" ng-show="viewImageCtrl._openAddGroup">
@@ -24,7 +25,23 @@
 		<div style="clear:both"></div>
 		<!-- 图片分类 -->
 		<div class="imageClassifys">
-			<div class="classifyName" ng-repeat="group in viewImageCtrl.groups" ng-bind="group.name" ng-click="viewImageCtrl.chooseGroup(group)" style="{{group.style}}">默认分类</div>
+			<div class="classifyName" ng-repeat="group in viewImageCtrl.groups" ng-click="viewImageCtrl.chooseGroup(group)">
+				<div class="name1" ng-bind="group.name" style="{{group.style}}">默认分类</div>
+				<div class="deleteClassify" style="float:left">删除</div>
+				<div class="deleteClassify">编辑</div>
+			</div>
+			
+			<!-- 修改分类名 -->
+			<div class="addNewClassify">
+				<div class="close"></div>
+				<div class="classifyContent">
+					<div class="name">分类名</div>
+					<input class="input" type="text">
+				</div>
+				<div style="clear:both"></div>
+				<div class="save">保存</div>
+			</div>
+			<!-- 修改分类名 -->
 			<div style="clear:both"></div>
 		</div>
 		
@@ -33,7 +50,19 @@
 			<div class="showImage" ng-repeat="image in viewImageCtrl.showImages">
 				<img src="{{viewImageCtrl.lib_image_url+image}}"style="width: 100px;height: 100px;">
 				<div class="deleteImage" ng-show="viewImageCtrl._openEditImage" ng-click="viewImageCtrl.pullImage(image)"></div>
+				<div class="move">移动至</div>
 			</div>
+			<!-- 移动到其他分类 -->
+			<!-- <div class="addNewClassify">
+				<div class="close"></div>
+				<div class="classifyContent">
+					<div class="name">分类名</div>
+					<div class="input"></div>
+				</div>
+				<div style="clear:both"></div>
+				<div class="save">保存</div>
+			</div> -->
+			<!-- 移动到其他分类 -->
 			<div class="showImage uploadImage" ngf-select ngf-change="viewImageCtrl.upload($files)"></div>
 			<div style="clear:both"></div>
 		</div>

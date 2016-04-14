@@ -85,19 +85,5 @@ angular.module('xinyixianApp')
         controllerAs: 'viewImageCtrl',
         // reloadOnSearch: false
         // authenticate: true
-      })
-      .state('image-edit', {
-        url: '/admin/image/edit/:id',
-        templateUrl: 'app/admin/image/edit-image.html',
-        controller: 'EditImageController',
-        controllerAs: 'editImageCtrl',
-        // authenticate: true
-      })
-      .state('image-add', {
-        url: '/admin/image/add/:id',
-        templateUrl: 'app/admin/image/add-image.html',
-        controller: 'AddImageController',
-        controllerAs: 'addImageCtrl',
-        // authenticate: true
       });
   });
