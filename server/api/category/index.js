@@ -11,6 +11,7 @@ router.get('/admin',auth.hasRole(['admin']),controller.index_admin);
 router.get('/',controller.index);
 router.post('/', auth.hasRole(['admin']), controller.create);
 router.put('/:id', auth.hasRole(['admin']), controller.update);
+router.put('/destory/all', auth.hasRole(['admin']), controller.destory_all);
 router.delete('/:id', auth.hasRole(['admin']), controller.destory);
 
 module.exports = router;

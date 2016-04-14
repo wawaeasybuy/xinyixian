@@ -167,3 +167,31 @@ exports.all_index=function (req,res){
 		res.json(200,{categories:categories});
 	});
 };
+
+//批量删除
+exports.destory_all=function(req,res){
+	var ids=req.body.categories;
+	if(!ids){return res.json(400,{error:{msg:'categories is required'}});}
+	Category.find({_id:{$in:ids}},function (err,categories){
+		if(err){ return handleError(res,err);}
+		
+		Category.findOne({sign:1},function (err,category){
+			if(err){ return handleError(res,err);}
+			if(!category){return res.json(404,{error:{msg:'defalut category not found'}});}
+			Article.find({category:{$in:ids}},function (err,articles){
+				if(err){ return handleError(res,err);}
+				//删除分类
+				_.each(categories,function (category){
+					category.remove();
+				});
+				//将文章的category移动至默认分类
+				_.each(articles,function (article){
+					article.category=category._id;
+					article.save();
+				});
+				return res.json(200,{msg:'delete success'});
+			});
+		});
+		
+	});
+};

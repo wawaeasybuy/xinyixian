@@ -15,7 +15,7 @@
 		<div style="clear:both"></div>
 		<!-- 标题 -->
 		<div class="tableTitle">
-			<div class="catalogDelete"><div class="chooseDelete"></div></div>
+			<div class="catalogDelete"><div class="chooseDelete" ng-click="viewClassifyCtrl.chooseAllDelete()"><img src="../assets/images/choose.png" style="position: relative; top:-6px;" ng-show="viewClassifyCtrl.selectedAll"></div></div>
 			<div class="catalogId">ID</div>
 			<div class="catalogName">名称</div>
 			<div class="catalogUrl">Url名</div>
@@ -24,19 +24,19 @@
 		
 		<!-- 显示 -->
 		<div class="tableContent" ng-repeat="category in viewClassifyCtrl.categories">
-			<div class="catalogDelete height60"><div class="chooseDelete"></div></div>
+			<div class="catalogDelete height60"><div class="chooseDelete" ng-show="category.sign&&category.sign!=1" ng-click="viewClassifyCtrl.choosenDelete(category)"><img src="../assets/images/choose.png" style="position: relative; top:-6px;" ng-show="category.isSelected"></div></div>
 			<div class="catalogId height60" ng-bind="category._id">1</div>
 			<div class="catalogName height60" ng-bind="category.name">1</div>
 			<div class="catalogUrl height60"  ng-bind="category.url ? viewClassifyCtrl.host+category.url:''" ></div>
 			<div class="catalogArticleNum height60"  ng-bind="category.articleCount">2</div>
 			
-			<div class="buttons">
+			<div class="buttons" ng-show="category.sign&&category.sign!=1">
 				<div class="btnEdit" ui-sref="classify-edit">编辑</div>
 				<div class="btnDelete" ng-click="viewClassifyCtrl.destory(category)">删除</div>
-				<div class="btnShow">查看</div>
+				<div class="btnShow" ui-sref="main({id:category._id})">查看</div>
 			</div>
 		</div>
-		<div class="batchDelete">批量删除</div>
+		<div class="batchDelete" ng-click="viewClassifyCtrl.destory_all()">批量删除</div>
 		<pagination style="float:right;margin-right:30px;" ng-if="viewClassifyCtrl.pagination.numPages > 1" total-items="viewClassifyCtrl.pagination.totalItems" ng-model="viewClassifyCtrl.pagination.page" items-per-page="viewClassifyCtrl.pagination.itemsPerPage" max-size="viewClassifyCtrl.pagination.maxSize" boundary-links="{{viewClassifyCtrl.pagination.numPages > 2}}" rotate="false" num-pages="viewClassifyCtrl.pagination.numPages" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;" ng-change="viewClassifyCtrl.pageChanged()"></pagination>
 	</div>
 </div>

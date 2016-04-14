@@ -55,6 +55,53 @@ angular.module('xinyixianApp')
           });
         }
       };
+
+      //选择删除
+      self.choosenDelete=function(category){
+        category.isSelected=!category.isSelected;
+        if(!category.isSelected){
+          self.selectedAll=false;
+        }
+      };
+
+      //全选删除
+      self.chooseAllDelete=function(){
+        _.each(self.categories,function (category){
+          if(self.selectedAll){
+            category.isSelected=false;
+          }else{
+            category.isSelected=true;
+          }
+          
+        });
+        if(self.selectedAll){
+          self.selectedAll=false;
+        }else{
+          self.selectedAll=true;
+        }
+        //去掉默认分类的勾选
+        _.findWhere(self.categories,{sign:'1'}).isSelected=false;
+      };
+
+      //批量删除
+      self.destory_all=function(){
+        if(confirm("确认删除这些分类?")){
+          var arr=[];
+          _.each(self.categories,function (category){
+            if(category.isSelected){
+              arr.push(category._id);
+            }
+          });
+          Category.destory_all({},{categories:arr},function(){
+            loadCategory();
+            self.selectedAll=false;
+          },function(){
+
+          });
+        }
+        
+      };
+
     	init();
     	
   }]);

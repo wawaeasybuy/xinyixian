@@ -133,3 +133,29 @@ exports.query=function (req,res){
     	return res.json(200,{tags:tags});
     });
 };
+
+//批量删除标签
+exports.destory_all=function (req,res){
+	var ids=req.body.tags;
+	if(!ids){return res.json(400,{error:{msg:'tags is required'}});}
+	Tag.find({_id:{$in:ids}},function (err,tags){
+		if(err){ return handleError(res,err);}
+		Article.find({tags:{$in:ids}},function (err,articles){
+			if(err){ return handleError(res,err);}
+			_.each(tags,function (tag){
+				tag.remove();
+			});
+			_.each(articles,function (article){
+				for(var i=0;i<ids.length;i++){
+					if(article.tags.indexOf(ids[i])>0){
+						article.tags.pull(ids[i]);
+					}
+				}
+			});
+			_.each(articles,function (article){
+				article.save()
+			});
+			return res.json(200,{msg:'delete success'});
+		});
+	});
+};
