@@ -71,7 +71,7 @@ exports.destory=function (req,res){
 		if(category_destory.sign==1){
 			return res.json(400,{error:{msg:'defalut category can not remove'}});
 		}else{
-			category.findOne({sign:1},function (err,category){
+			Category.findOne({sign:1},function (err,category){
 				if(err){ return handleError(res,err);}
 				if(!category){return res.json(404,{error:{msg:'defalut category not found'}});}
 				Article.find({category:id},function (err,articles){
@@ -96,15 +96,6 @@ exports.index=function (req,res){
 	var page = req.query.page || 1,
     	itemsPerPage = req.query.itemsPerPage || 10;
    	var count;
-   	var isReturn=function(index,len,categories){
-    	if(index==len){
-    		return res.json(200,{
-    			categories:categories,
-    			count:count,
-    			page:page
-    		});
-    	}
-    };
     Category.find({sign:{$ne:1}}).count(function (err,c){
     	if(err){ return handleError(res,err);}
     	count=c;
@@ -117,27 +108,53 @@ exports.index=function (req,res){
     .sort({createDate:1})
     .exec(function (err,categories){
     	if(err){ return handleError(res,err);}
-    	if(categories.length == 0){
+    	return res.json(200,{
+    			categories:categories,
+    			count:count,
+    			page:page
+    		});
+    	
+    });
+};
+
+//admin的category列表获取
+exports.index_admin=function(req,res){
+	var page = req.query.page || 1,
+    	itemsPerPage = req.query.itemsPerPage || 10;
+   	var count;
+   	var isReturn=function(index,len,categories){
+    	if(index==len){
     		return res.json(200,{
     			categories:categories,
     			count:count,
     			page:page
     		});
-    	}else{
-    		for(var i=0;i<categories.length;i++){
-	    		categories[i]=categories[i].toObject();
-	    	}
-	    	var index=0;
-	    	_.each(categories,function (category){
-	    		Article.find({category:category._id}).count(function (err,c){
-	    			if(err){ return handleError(res,err);}
-	    			index++;
-	    			category.articleCount=c;
-	    			isReturn(index,categories.length,categories);
-	    		});
-	    	});
     	}
-    	
+    };
+    Category.find({}).count(function (err,c){
+    	if(err){ return handleError(res,err);}
+    	count=c;
+    });
+
+    Category.find({},{},{
+    	skip: (page - 1) * itemsPerPage,
+        limit: itemsPerPage
+    })
+    .sort({createDate:1})
+    .exec(function (err,categories){
+    	if(err){ return handleError(res,err);}
+		for(var i=0;i<categories.length;i++){
+    		categories[i]=categories[i].toObject();
+    	}
+    	var index=0;
+    	_.each(categories,function (category){
+    		Article.find({category:category._id}).count(function (err,c){
+    			if(err){ return handleError(res,err);}
+    			index++;
+    			category.articleCount=c;
+    			isReturn(index,categories.length,categories);
+    		});
+    	});
     });
 };
 

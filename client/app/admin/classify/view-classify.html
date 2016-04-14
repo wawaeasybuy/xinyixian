@@ -32,10 +32,11 @@
 			
 			<div class="buttons">
 				<div class="btnEdit" ui-sref="classify-edit">编辑</div>
-				<div class="btnDelete">删除</div>
+				<div class="btnDelete" ng-click="viewClassifyCtrl.destory(category)">删除</div>
 				<div class="btnShow">查看</div>
 			</div>
 		</div>
 		<div class="batchDelete">批量删除</div>
+		<pagination style="float:right;margin-right:30px;" ng-if="viewClassifyCtrl.pagination.numPages > 1" total-items="viewClassifyCtrl.pagination.totalItems" ng-model="viewClassifyCtrl.pagination.page" items-per-page="viewClassifyCtrl.pagination.itemsPerPage" max-size="viewClassifyCtrl.pagination.maxSize" boundary-links="{{viewClassifyCtrl.pagination.numPages > 2}}" rotate="false" num-pages="viewClassifyCtrl.pagination.numPages" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;" ng-change="viewClassifyCtrl.pageChanged()"></pagination>
 	</div>
 </div>

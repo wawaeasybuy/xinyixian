@@ -77,7 +77,7 @@ exports.index=function (req,res){
     var isReturn=function(index,len,tags){
     	if(index==len){
     		return res.json(200,{
-    			tags:tag,
+    			tags:tags,
     			count:count,
     			page:page
     		});
@@ -95,18 +95,27 @@ exports.index=function (req,res){
     .sort({createDate:-1})
     .exec(function (err,tags){
     	if(err){ return handleError(res,err);}
-    	for(var i=0;i<tags.length;i++){
-    		tags[i]=tags[i].toObject();
-    	}
-    	var index=0;
-    	_.each(tags,function (tag){
-    		Article.find({tags:tag._id}).count(function (err,c){
-    			if(err){ return handleError(res,err);}
-    			index++;
-    			tag.articleCount=c;
-    			isReturn(index,tags.length,tags);
+    	if(tags.length==0){
+    		return res.json(200,{
+    			tags:tags,
+    			count:count,
+    			page:page
     		});
-    	});
+    	}else{
+    		for(var i=0;i<tags.length;i++){
+	    		tags[i]=tags[i].toObject();
+	    	}
+	    	var index=0;
+	    	_.each(tags,function (tag){
+	    		Article.find({tags:tag._id}).count(function (err,c){
+	    			if(err){ return handleError(res,err);}
+	    			index++;
+	    			tag.articleCount=c;
+	    			isReturn(index,tags.length,tags);
+	    		});
+	    	});
+    	}
+    	
     });
 };
 

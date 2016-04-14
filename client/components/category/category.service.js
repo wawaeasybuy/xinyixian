@@ -16,9 +16,18 @@ angular.module('xinyixianApp')
           controller:'category'
         }
       },
+      index_admin:{
+        method: 'GET',
+        params:{
+          id:'admin'
+        }
+      },
       update: {
         method: 'PUT'
       },
+      destory:{
+        method:'DELETE'
+      }
       // show:{
       //   method: 'GET'
       // },
