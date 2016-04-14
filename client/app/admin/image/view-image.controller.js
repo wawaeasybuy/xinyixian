@@ -106,11 +106,6 @@ angular.module('xinyixianApp')
 
         //loadmore
         self.loadMore=function(){
-        	var c=_.findWhere(self.groups,{_id:self.group});
-        	self.showImages=c.images.slice(0,15+self.picturePage*16);
-        	if(c.images.length <= (15+self.picturePage*16)){
-	           self.showLoadMore = false;
-	        }
 	        self.picturePage++;
             doLocation();
         };
