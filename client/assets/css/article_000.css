@@ -13,13 +13,49 @@ body{
 	padding:0;
 }*/
 .articleContent{
-	border:1px solid red;
+	/*border:1px solid red;*/
 	width: 100%;
 }
 .picture{
-	width: 100%;
-	height: 0px;
-	padding-bottom: 60%;
-	background-color: #ff0000;
 	margin-top: 20px;
+}
+.word{
+	width: 90%;
+	margin: 20px auto 40px;
+}
+.btns{
+	/*border:1px solid red;*/
+	width: 100%;
+	height: 40px;
+	position: fixed;
+	bottom:0px;
+	background-color: #E1E1E1;
+	opacity: 0.8;
+}
+.back{
+	float: left;
+	height: 40px;
+	width: 50%;
+	line-height: 40px;
+	margin-left: 5%;
+	font-size: 16px;
+	font-weight: bold;
+	color: #333;
+}
+.left{
+	float: left;
+	/*border:1px solid red;*/
+	width: 20px;
+	height: 20px;
+	margin-top: 10px;
+	background: url(../images/left.png);
+}
+.right{
+	float: left;
+	/*border:1px solid red;*/
+	width: 20px;
+	height: 20px;
+	margin-top: 10px;
+	margin-left: 20%;
+	background: url(../images/right.png);
 }
