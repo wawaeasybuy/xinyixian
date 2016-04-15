@@ -7,6 +7,8 @@ angular.module('xinyixianApp')
 
     	self.id = $stateParams.id;
 
+    	self.host=upload_image_url;
+
     	var init=function(){
     		loadCategory();
     	};

@@ -40,22 +40,22 @@
 			</div>
 			<!-- 二级目录 -->
 			<div class="firstCatalog">
-				<div class="shenyang">沈阳</div>
-				<div class="changsha">长沙</div>
-				<div class="dalian">大连</div>
-				<div class="tianjin">天津</div>
-				<div class="wuhan">武汉</div>
-				<div class="nanjing">南京</div>
-				<div class="hangzhou">杭州</div>
-				<div class="qingdao">青岛</div>
-				<div class="beishang">北上广深</div>
-				<div class="chengdu">成都</div>
-				<div class="fun">FUN!</div>
-				<div class="suzhou">苏州</div>
-				<div class="xian">西安</div>
-				<div class="xiamen">厦门</div>
-				<div class="wuxi">无锡</div>
-				<div class="chongqing">重庆</div>
+				<div class="shenyang" ng-bind="viewHomeCtrl.tags[0].name" style="{{viewHomeCtrl.tags[0].style}}">沈阳</div>
+				<div class="changsha" ng-bind="viewHomeCtrl.tags[1].name" style="{{viewHomeCtrl.tags[0].style}}">长沙</div>
+				<div class="dalian" ng-bind="viewHomeCtrl.tags[2].name" style="{{viewHomeCtrl.tags[0].style}}">大连</div>
+				<div class="tianjin" ng-bind="viewHomeCtrl.tags[3].name" style="{{viewHomeCtrl.tags[0].style}}">天津</div>
+				<div class="wuhan" ng-bind="viewHomeCtrl.tags[4].name" style="{{viewHomeCtrl.tags[0].style}}">武汉</div>
+				<div class="nanjing" ng-bind="viewHomeCtrl.tags[5].name" style="{{viewHomeCtrl.tags[0].style}}">南京</div>
+				<div class="hangzhou" ng-bind="viewHomeCtrl.tags[6].name" style="{{viewHomeCtrl.tags[0].style}}">杭州</div>
+				<div class="qingdao" ng-bind="viewHomeCtrl.tags[7].name" style="{{viewHomeCtrl.tags[0].style}}">青岛</div>
+				<div class="beishang" ng-bind="viewHomeCtrl.tags[8].name" style="{{viewHomeCtrl.tags[0].style}}">北上广深</div>
+				<div class="chengdu" ng-bind="viewHomeCtrl.tags[9].name" style="{{viewHomeCtrl.tags[0].style}}">成都</div>
+				<div class="fun" ng-bind="viewHomeCtrl.tags[10].name" style="{{viewHomeCtrl.tags[0].style}}">FUN!</div>
+				<div class="suzhou" ng-bind="viewHomeCtrl.tags[11].name" style="{{viewHomeCtrl.tags[0].style}}">苏州</div>
+				<div class="xian" ng-bind="viewHomeCtrl.tags[12].name" style="{{viewHomeCtrl.tags[0].style}}">西安</div>
+				<div class="xiamen" ng-bind="viewHomeCtrl.tags[13].name" style="{{viewHomeCtrl.tags[0].style}}">厦门</div>
+				<div class="wuxi" ng-bind="viewHomeCtrl.tags[14].name" style="{{viewHomeCtrl.tags[0].style}}">无锡</div>
+				<div class="chongqing" ng-bind="viewHomeCtrl.tags[15].name" style="{{viewHomeCtrl.tags[0].style}}">重庆</div>
 			</div>
 			<!-- 装饰圆 -->
 			<div class="decorateDots">
@@ -111,7 +111,7 @@
 			</div>
 			<div style="clear:both"></div>
 		</div>
-		<div class="loadMore">loadmore...</div>
+		<div class="loadMore" ng-click="viewHomeCtrl.loadMore()" ng-show="viewHomeCtrl._loadMore">loadmore...</div>
 
 		<!-- 底部链接栏 -->
 		<div class="bottomLink">
