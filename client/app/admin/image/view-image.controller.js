@@ -1,9 +1,12 @@
 'use strict';
 
 angular.module('xinyixianApp')
-  .controller('ViewImageController', ['$state', '$stateParams', '$location', '$scope','$cookies', 'ImageGroup','Upload',
-    function ($state, $stateParams, $location, $scope,$cookies,ImageGroup,Upload) {
+  .controller('ViewImageController', ['$state', '$stateParams', '$location', '$scope','$cookies', 'ImageGroup','Upload','Auth',
+    function ($state, $stateParams, $location, $scope,$cookies,ImageGroup,Upload,Auth) {
     	var self=this;
+        if(!Auth.isAdmin()){
+            return $location.path('/');
+        }
 
     	self.lib_image_url=lib_image_url;
     	// console.log(self.lib_image_url);

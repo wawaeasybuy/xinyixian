@@ -1,9 +1,12 @@
 'use strict';
 
 angular.module('xinyixianApp')
-  .controller('ViewClassifyController', ['$state', '$stateParams', '$location', '$scope','$cookies', 'Category',
-    function ($state, $stateParams, $location, $scope,$cookies,Category) {
+  .controller('ViewClassifyController', ['$state', '$stateParams', '$location', '$scope','$cookies', 'Category','Auth',
+    function ($state, $stateParams, $location, $scope,$cookies,Category,Auth) {
     	var self=this;
+      if(!Auth.isAdmin()){
+        return $location.path('/');
+      }
 
     	self.page = $stateParams.page || 1;
       	self.itemsPerPage = $stateParams.itemsPerPage || 20;

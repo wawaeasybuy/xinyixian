@@ -1,9 +1,12 @@
 'use strict';
 
 angular.module('xinyixianApp')
-  .controller('EditClassifyController', ['$state', '$stateParams', '$location', '$scope','$cookies', 'Category','Upload','Tag',
-    function ($state, $stateParams, $location, $scope,$cookies,Category,Upload,Tag) {
+  .controller('EditClassifyController', ['$state', '$stateParams', '$location', '$scope','$cookies', 'Category','Upload','Tag','Auth',
+    function ($state, $stateParams, $location, $scope,$cookies,Category,Upload,Tag,Auth) {
     	var self=this;
+    	if(!Auth.isAdmin()){
+          return $location.path('/');
+        }
 
     	self.id = $stateParams.id;
 

@@ -1,9 +1,12 @@
 'use strict';
 
 angular.module('xinyixianApp')
-  .controller('AddArticleController', ['$state', '$stateParams', '$location', '$scope','$cookies', 'Article', 'Upload','Category','Tag',
-    function ($state, $stateParams, $location, $scope,$cookies,Article,Upload,Category,Tag) {
+  .controller('AddArticleController', ['$state', '$stateParams', '$location', '$scope','$cookies', 'Article', 'Upload','Category','Tag','Auth',
+    function ($state, $stateParams, $location, $scope,$cookies,Article,Upload,Category,Tag,Auth) {
     	var self=this;
+        if(!Auth.isAdmin()){
+          return $location.path('/');
+        }
         
      //    self.id = $stateParams.id;
         self._updateDate=false;

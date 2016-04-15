@@ -93,7 +93,7 @@
 		<!-- 文章内容 -->
 		<div class="articleList">
 			<div class="openArticleList"></div>
-			<div class="articl" ng-repeat="article in viewHomeCtrl.articles" ui-sref="view-article({id:article._id})">
+			<div class="articl" ng-repeat="article in viewHomeCtrl.articles" ui-sref="view-article({id:article._id,category:viewHomeCtrl.id,tag:viewHomeCtrl.tag})">
 				<div class="aeticlIcon">
 					<div class="pictureBox">
 						<image class="picture" src="{{viewHomeCtrl.hostDir+article.thumbnail}}">
@@ -138,7 +138,7 @@
 </div>
 
 <!-- 大图 -->
-<!-- <div class="bigImage" style="position:absolute;width:100%;top:0px;left:0px;">
+<!-- <div class="bigImage" style="position:absolute;width:100%;top:0px;left:0px;" ng-show="false">
 	<div class="closeBigImage">关闭大图</div>
 	<img src="../assets/images/psb.png" width="100%">
 </div> -->

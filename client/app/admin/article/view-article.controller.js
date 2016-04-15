@@ -1,9 +1,14 @@
 'use strict';
 
 angular.module('xinyixianApp')
-  .controller('ViewArticleController', ['$state', '$stateParams', '$location', '$scope','$cookies', 'Article','Category',
-    function ($state, $stateParams, $location, $scope,$cookies,Article,Category) {
+  .controller('ViewArticleController', ['$state', '$stateParams', '$location', '$scope','$cookies', 'Article','Category','Auth',
+    function ($state, $stateParams, $location, $scope,$cookies,Article,Category,Auth) {
        	var self=this;
+
+        // console.log(Auth.isAdmin());
+        if(!Auth.isAdmin()){
+          return $location.path('/');
+        }
 
        	self.page = $stateParams.page || 1;
       	self.itemsPerPage = $stateParams.itemsPerPage || 20;

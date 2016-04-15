@@ -61,7 +61,7 @@
 			<div class="buttons">
 				<div class="btnEdit" ui-sref="article-edit({id:article._id})">编辑</div>
 				<div class="btnDelete" ng-click="viewArticleCtrl.dustbin(article)">删除</div>
-				<div class="btnPreview">预览</div>
+				<div class="btnPreview"ui-sref="view-article({id:article._id})">预览</div>
 				<div class="btnNumUp" ng-click="viewArticleCtrl.updateIndex(article,1)">序号上移</div>
 				<div class="btnNumDown" ng-click="viewArticleCtrl.updateIndex(article,2)">序号下移</div>
 				<div class="btnRelease" ng-show="article.state!=2" ng-click='viewArticleCtrl.release(article._id)'>发布</div>
