@@ -19,19 +19,19 @@
 			<div class="firstCatalog">
 				<div class="cityReport">
 					<!-- 230*230 -->
-					<div class="reportLogo"><img src="{{viewHomeCtrl.hostDir+viewHomeCtrl.categories[0].image}}" style="width:230px;height:230px" ng-show="viewHomeCtrl.categories[0].image"></div>
+					<div class="reportLogo" ng-mouseover="viewHomeCtrl.mousehover(viewHomeCtrl.categories[0],1)" ng-mouseout="viewHomeCtrl.mouseout()"><img src="{{viewHomeCtrl.hostDir+viewHomeCtrl.categories[0].image}}" style="width:230px;height:230px" ng-show="viewHomeCtrl.categories[0].image"></div>
 				</div>
 				<div class="infographics">
 					<!-- 170*170 -->
-					<div class="infographicsLogo"><img src="{{viewHomeCtrl.hostDir+viewHomeCtrl.categories[1].image}}" style="width:170px;height:170px" ng-show="viewHomeCtrl.categories[1].image"></div>
+					<div class="infographicsLogo" ng-mouseover="viewHomeCtrl.mousehover(viewHomeCtrl.categories[1],1)" ng-mouseout="viewHomeCtrl.mouseout()"><img src="{{viewHomeCtrl.hostDir+viewHomeCtrl.categories[1].image}}" style="width:170px;height:170px" ng-show="viewHomeCtrl.categories[1].image"></div>
 				</div>
 				<div class="cityList">
 					<!-- 320*320 -->
-					<div class="listLogo"><img src="{{viewHomeCtrl.hostDir+viewHomeCtrl.categories[2].image}}" style="width:320px;height:320px" ng-show="viewHomeCtrl.categories[2].image"></div>
+					<div class="listLogo" ng-mouseover="viewHomeCtrl.mousehover(viewHomeCtrl.categories[2],1)" ng-mouseout="viewHomeCtrl.mouseout()"><img src="{{viewHomeCtrl.hostDir+viewHomeCtrl.categories[2].image}}" style="width:320px;height:320px" ng-show="viewHomeCtrl.categories[2].image"></div>
 				</div>
 				<div class="cityActivity">
 					<!-- 230*230 -->
-					<div class="activityLogo"><img src="{{viewHomeCtrl.hostDir+viewHomeCtrl.categories[3].image}}" style="width:230px;height:230px" ng-show="viewHomeCtrl.categories[3].image"></div>
+					<div class="activityLogo" ng-mouseover="viewHomeCtrl.mousehover(viewHomeCtrl.categories[3],1)" ng-mouseout="viewHomeCtrl.mouseout()"><img src="{{viewHomeCtrl.hostDir+viewHomeCtrl.categories[3].image}}" style="width:230px;height:230px" ng-show="viewHomeCtrl.categories[3].image"></div>
 				</div>
 				<div class="aboutUs">
 					<div class="about">ABOUT</div>
@@ -40,22 +40,22 @@
 			</div>
 			<!-- 二级目录 -->
 			<div class="firstCatalog">
-				<div class="shenyang" ng-bind="viewHomeCtrl.tags[0].name" style="{{viewHomeCtrl.tags[0].style}}">沈阳</div>
-				<div class="changsha" ng-bind="viewHomeCtrl.tags[1].name" style="{{viewHomeCtrl.tags[0].style}}">长沙</div>
-				<div class="dalian" ng-bind="viewHomeCtrl.tags[2].name" style="{{viewHomeCtrl.tags[0].style}}">大连</div>
-				<div class="tianjin" ng-bind="viewHomeCtrl.tags[3].name" style="{{viewHomeCtrl.tags[0].style}}">天津</div>
-				<div class="wuhan" ng-bind="viewHomeCtrl.tags[4].name" style="{{viewHomeCtrl.tags[0].style}}">武汉</div>
-				<div class="nanjing" ng-bind="viewHomeCtrl.tags[5].name" style="{{viewHomeCtrl.tags[0].style}}">南京</div>
-				<div class="hangzhou" ng-bind="viewHomeCtrl.tags[6].name" style="{{viewHomeCtrl.tags[0].style}}">杭州</div>
-				<div class="qingdao" ng-bind="viewHomeCtrl.tags[7].name" style="{{viewHomeCtrl.tags[0].style}}">青岛</div>
-				<div class="beishang" ng-bind="viewHomeCtrl.tags[8].name" style="{{viewHomeCtrl.tags[0].style}}">北上广深</div>
-				<div class="chengdu" ng-bind="viewHomeCtrl.tags[9].name" style="{{viewHomeCtrl.tags[0].style}}">成都</div>
-				<div class="fun" ng-bind="viewHomeCtrl.tags[10].name" style="{{viewHomeCtrl.tags[0].style}}">FUN!</div>
-				<div class="suzhou" ng-bind="viewHomeCtrl.tags[11].name" style="{{viewHomeCtrl.tags[0].style}}">苏州</div>
-				<div class="xian" ng-bind="viewHomeCtrl.tags[12].name" style="{{viewHomeCtrl.tags[0].style}}">西安</div>
-				<div class="xiamen" ng-bind="viewHomeCtrl.tags[13].name" style="{{viewHomeCtrl.tags[0].style}}">厦门</div>
-				<div class="wuxi" ng-bind="viewHomeCtrl.tags[14].name" style="{{viewHomeCtrl.tags[0].style}}">无锡</div>
-				<div class="chongqing" ng-bind="viewHomeCtrl.tags[15].name" style="{{viewHomeCtrl.tags[0].style}}">重庆</div>
+				<div class="shenyang" ng-bind="viewHomeCtrl.tags[0].name" style="{{viewHomeCtrl.tags[0].style}}" ng-mouseover="viewHomeCtrl.mousehover(viewHomeCtrl.tags[0],2)" ng-mouseout="viewHomeCtrl.mouseout()">沈阳</div>
+				<div class="changsha" ng-bind="viewHomeCtrl.tags[1].name" style="{{viewHomeCtrl.tags[0].style}}" ng-mouseover="viewHomeCtrl.mousehover(viewHomeCtrl.tags[1],2)" ng-mouseout="viewHomeCtrl.mouseout()">长沙</div>
+				<div class="dalian" ng-bind="viewHomeCtrl.tags[2].name" style="{{viewHomeCtrl.tags[0].style}}" ng-mouseover="viewHomeCtrl.mousehover(viewHomeCtrl.tags[2],2)" ng-mouseout="viewHomeCtrl.mouseout()">大连</div>
+				<div class="tianjin" ng-bind="viewHomeCtrl.tags[3].name" style="{{viewHomeCtrl.tags[0].style}}" ng-mouseover="viewHomeCtrl.mousehover(viewHomeCtrl.tags[3],2)" ng-mouseout="viewHomeCtrl.mouseout()">天津</div>
+				<div class="wuhan" ng-bind="viewHomeCtrl.tags[4].name" style="{{viewHomeCtrl.tags[0].style}}" ng-mouseover="viewHomeCtrl.mousehover(viewHomeCtrl.tags[4],2)" ng-mouseout="viewHomeCtrl.mouseout()">武汉</div>
+				<div class="nanjing" ng-bind="viewHomeCtrl.tags[5].name" style="{{viewHomeCtrl.tags[0].style}}" ng-mouseover="viewHomeCtrl.mousehover(viewHomeCtrl.tags[5],2)" ng-mouseout="viewHomeCtrl.mouseout()">南京</div>
+				<div class="hangzhou" ng-bind="viewHomeCtrl.tags[6].name" style="{{viewHomeCtrl.tags[0].style}}" ng-mouseover="viewHomeCtrl.mousehover(viewHomeCtrl.tags[6],2)" ng-mouseout="viewHomeCtrl.mouseout()">杭州</div>
+				<div class="qingdao" ng-bind="viewHomeCtrl.tags[7].name" style="{{viewHomeCtrl.tags[0].style}}" ng-mouseover="viewHomeCtrl.mousehover(viewHomeCtrl.tags[7],2)" ng-mouseout="viewHomeCtrl.mouseout()">青岛</div>
+				<div class="beishang" ng-bind="viewHomeCtrl.tags[8].name" style="{{viewHomeCtrl.tags[0].style}}" ng-mouseover="viewHomeCtrl.mousehover(viewHomeCtrl.tags[8],2)" ng-mouseout="viewHomeCtrl.mouseout()">北上广深</div>
+				<div class="chengdu" ng-bind="viewHomeCtrl.tags[9].name" style="{{viewHomeCtrl.tags[0].style}}" ng-mouseover="viewHomeCtrl.mousehover(viewHomeCtrl.tags[9],2)" ng-mouseout="viewHomeCtrl.mouseout()">成都</div>
+				<div class="fun" ng-bind="viewHomeCtrl.tags[10].name" style="{{viewHomeCtrl.tags[0].style}}" ng-mouseover="viewHomeCtrl.mousehover(viewHomeCtrl.tags[10],2)" ng-mouseout="viewHomeCtrl.mouseout()">FUN!</div>
+				<div class="suzhou" ng-bind="viewHomeCtrl.tags[11].name" style="{{viewHomeCtrl.tags[0].style}}" ng-mouseover="viewHomeCtrl.mousehover(viewHomeCtrl.tags[11],2)" ng-mouseout="viewHomeCtrl.mouseout()">苏州</div>
+				<div class="xian" ng-bind="viewHomeCtrl.tags[12].name" style="{{viewHomeCtrl.tags[0].style}}" ng-mouseover="viewHomeCtrl.mousehover(viewHomeCtrl.tags[12],2)" ng-mouseout="viewHomeCtrl.mouseout()">西安</div>
+				<div class="xiamen" ng-bind="viewHomeCtrl.tags[13].name" style="{{viewHomeCtrl.tags[0].style}}" ng-mouseover="viewHomeCtrl.mousehover(viewHomeCtrl.tags[13],2)" ng-mouseout="viewHomeCtrl.mouseout()">厦门</div>
+				<div class="wuxi" ng-bind="viewHomeCtrl.tags[14].name" style="{{viewHomeCtrl.tags[0].style}}" ng-mouseover="viewHomeCtrl.mousehover(viewHomeCtrl.tags[14],2)" ng-mouseout="viewHomeCtrl.mouseout()">无锡</div>
+				<div class="chongqing" ng-bind="viewHomeCtrl.tags[15].name" style="{{viewHomeCtrl.tags[0].style}}" ng-mouseover="viewHomeCtrl.mousehover(viewHomeCtrl.tags[15],2)" ng-mouseout="viewHomeCtrl.mouseout()">重庆</div>
 			</div>
 			<!-- 装饰圆 -->
 			<div class="decorateDots">
@@ -87,7 +87,7 @@
 			<!-- 显示二维码圆 -->
 			<div class="showQdcode"></div>
 			<!-- 所有文章 -->
-			<div class="articleKind">所有文章</div>
+			<div class="articleKind" ng-bind="viewHomeCtrl.showSelected">所有文章</div>
 		</div>
 
 		<!-- 文章内容 -->

@@ -18,6 +18,7 @@ angular.module('xinyixianApp')
       self.articles=[];
       self._loadMore=true;
       // console.log("self.itemsPerPage",self.itemsPerPage);
+      self.showSelected="所有文章";
 
       //重新生成路由
       var doLocation=function(){
@@ -57,6 +58,7 @@ angular.module('xinyixianApp')
             if(self.pagination.page*self.pagination.itemsPerPage>=self.pagination.totalItems){
               self._loadMore=false;
             }
+
        		});
        };
 
@@ -67,7 +69,11 @@ angular.module('xinyixianApp')
             itemsPerPage:16
           };
           Tag.index(condition,{},function (data){
-            self.tags=data.tags
+            self.tags=data.tags;
+            var c=_.findWhere(self.tags,{_id:self.tag});
+            if(c){
+              self.showSelected=c.name;
+            }
           },function(){ 
 
           });
@@ -81,6 +87,10 @@ angular.module('xinyixianApp')
         };
         Category.index(condition,function (data){
           self.categories=data.categories;
+          var c=_.findWhere(self.categories,{_id:self.category});
+          if(c){
+            self.showSelected=c.name;
+          }
         });
 
        };
@@ -98,5 +108,40 @@ angular.module('xinyixianApp')
        };
 
        init();
+
+       //鼠标滑过时,1=category,2=tag
+       self.mousehover=function(info,state){
+          // console.log(category);
+          if(info){
+            switch(state){
+              case 1:
+                
+                break;
+              case 2:
+                
+                break;
+            }
+            self.showSelected=info.name;
+          }else{
+            self.mouseout();
+          }
+          
+       };
+
+       //鼠标移出
+       self.mouseout=function(){
+          _.each(self.tags,function (tag){
+            tag.style="background:#9a9a9a"
+          });
+          self.showSelected='全部文章';
+          var c=_.findWhere(self.categories,{_id:self.category});
+          if(c){
+            self.showSelected=c.name;
+          }
+          c=_.findWhere(self.tags,{_id:self.tag});
+          if(c){
+            self.showSelected=c.name;
+          }
+       };
         
   }]);
