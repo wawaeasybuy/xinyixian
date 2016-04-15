@@ -55,6 +55,7 @@ body{
 	background-color: #f1f1f1;
 	text-indent: 20px;
 	border:1px solid #ccc;
+	line-height: 35px;
 }
 .imageBtn{
 	float: left;
@@ -77,6 +78,7 @@ body{
 .showImage img{
 	width: 100px;
 	height: 100px;
+	/*border:none;*/
 }
 .img{
 	width: 100px;
@@ -106,4 +108,84 @@ body{
 	line-height: 36px;
 	margin-right: 30px;
 	cursor: pointer;
+}
+
+
+.showTags{
+	/*border:1px solid red;*/
+	float: left;
+	width: 500px;
+	margin-left: 50px;
+	position: relative;
+}
+.showTag{
+	border:1px solid #ccc;
+	float: left;
+	width: 78px;
+	margin-right: 20px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	margin-top: 5px;
+}
+.addTag{
+	float: left;
+	/*border:1px solid red;*/
+	width: 20px;
+	height: 20px;
+	background: url(../images/add.png);
+	margin-top: 5px;
+	margin-left: 30px;
+}
+
+.chooseTag{
+	/*display: none;*/
+	width: 200px;
+	height: 100px;
+	background: #fff;
+	box-shadow: #ccc 0 0 5px 0;
+	position: absolute;
+	top:0px;
+	right: 150px;
+}
+.close{
+	width: 20px;
+	height: 20px;
+	border-radius: 20px;
+	background: url(../images/close.png);
+	position: relative;
+	top:2px;
+	left: 178px;
+}
+.chooseTagName{
+	width: 150px;
+	height: 60px;
+	margin:0 auto;
+	/*border:1px solid red;*/
+}
+.name{
+	/*border:1px solid red;*/
+	float: left;
+	height: 60px;
+	line-height: 60px;
+}
+.chooseBox{
+	float: left;
+	width: 80px;
+	height: 30px;
+	border:1px solid #ccc;
+	margin-top: 12px;
+	margin-left: 10px;
+	cursor: pointer;
+}
+.Tags{
+	width: 80px;
+	height: 20px;
+	border:1px solid #ccc;
+	border-top: none;
+	text-align: center;
+	line-height: 20px;
+	position: relative;
+	top:-14px;
+	left: 55px;
 }

@@ -18,16 +18,37 @@
 			</div> -->
 			<div class="classifyInfo">
 				<div class="title">ID</div>
-				<input type="text" class="input" ng-model="editClassifyCtrl.category._id">
+				<input type="text" style="border:none" class="input" ng-model="editClassifyCtrl.category._id">
 			</div>
 			<div class="classifyInfo">
 				<div class="title" >Url名</div>
-				<!-- <div ng-bind="editClassifyCtrl.host+editClassifyCtrl.category.url"></div> -->
-				<input type="text" class="input" ng-model="editClassifyCtrl.category.url">
+				<div class="input" style="border:none" ng-bind="editClassifyCtrl.host+editClassifyCtrl.category.url"></div>
+				<!-- <input type="text" ng-model="editClassifyCtrl.category.url"> -->
 			</div>
 			<div class="classifyInfo">
 				<div class="title">分类名称</div>
 				<input type="text" class="input" ng-model="editClassifyCtrl.category.name">
+			</div>
+			<div class="classifyInfo">
+				<div class="title" >提示标签</div>
+				<input type="text" class="input" placeholder="多个标签之间用英文的逗号隔开">
+			</div>
+			<div class="classifyInfo"sz>
+				<div class="title">标签</div>
+				<div class="showTags">
+					<div class="showTag"></div>
+					<div class="showTag"><div class="addTag"></div></div>
+					<div class="chooseTag">
+						<div class="close"></div>
+						<div class="chooseTagName">
+							<div class="name">Tag</div>
+							<input class="chooseBox">
+						</div>
+						<div class="Tags">
+							<div class="tag">222</div>
+						</div>
+					</div>
+				</div>
 			</div>
 			<div class="classifyInfo">
 				<div class="title">分类图标</div>
