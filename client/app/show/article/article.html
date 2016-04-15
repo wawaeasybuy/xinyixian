@@ -59,10 +59,10 @@
 
 		<!-- 推荐列表 -->
 		<div class="recommendList">
-			<div class="recommend" ng-repeat="a in [1,2,3,4,5]">
+			<div class="recommend" ng-repeat="article in viewArticleCtrl.pushArticles">
 				<div class="recommendIcon">
 					<div class="pictureBox">
-						<image class="picture" src="../assets/images/city.png">
+						<image class="picture" src="{{viewArticleCtrl.hostDir+article.thumbnail}}">
 					</div>
 					<div class="pictureMask"></div>
 					<!-- <div class="cityName"><u>苏州</u></div> -->
@@ -70,10 +70,10 @@
 				
 				<div class="number">
 					<span class="symbol">#</span>
-					<span class="num">14</span>
+					<span class="num" ng-bind="article.i">14</span>
 				</div>
-				<div class="cityIntroduction">城市向上生长的野心从未停止</div>
-				<div class="time">2015.10.10</div>
+				<div class="cityIntroduction" ng-bind="article.summary">城市向上生长的野心从未停止</div>
+				<div class="time" ng-bind="article.updateDate | date:'yyyy.MM.dd'">2015.10.10</div>
 			</div>
 		</div>
 

@@ -412,3 +412,38 @@ exports.change = function (req,res){
 	});
 	
 };
+
+//推荐文章
+exports.pushArticle=function (req,res){
+	var category=req.query.category;
+	var tag=req.query.tag;
+	var condition={state:2};
+	if(category){
+		condition=_.merge(condition,{category:category});
+	}
+	if(tag){
+		condition=_.merge(condition,{tags:tag});
+	}
+	User.find({sign:'1'},function (err,user){
+		var amount=user.nextArticleNumber-1;
+		Article.find(condition,function (err,articles){
+			if(articles.length<=5){
+				return res.json(200,{articles:articles});
+			}else{
+				articles=getRandNum(articles,5);
+				return res.json(200,{articles:articles});
+			}
+		});
+	});
+};
+
+//从数组arr中获得num个不重复的成员
+var getRandNum=function(arr,num){
+	var arts=[];
+	while(arts.length<num){
+		var index=parseInt(Math.random()*arr.length);
+		arts.push(arr[index]);
+		arr.splice(arr[index],1);
+	}
+	
+};

@@ -31,7 +31,7 @@
 				<div class="buttons">
 					<div class="btnEdit" ui-sref="tag-edit({id:tag._id})">编辑</div>
 					<div class="btnDelete" ng-click="viewTagCtrl.destory(tag._id)">删除</div>
-					<div class="btnShow">查看</div>
+					<div class="btnShow" ui-sref="main({tag:tag._id})">查看</div>
 				</div>
 		</div>
 		<div class="batchDelete" ng-click="viewTagCtrl.dustbin_all()">批量删除</div>

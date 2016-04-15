@@ -5,6 +5,8 @@ angular.module('xinyixianApp')
     function ($state, $stateParams, $location, $scope,$cookies,Article,Category) {
        var self=this;
        self.id = $stateParams.id;
+       self.category = $stateParams.category;
+       self.tag = $stateParams.tag;
        
        //图片文件目录
       	self.hostDir=upload_image_url;
@@ -13,6 +15,7 @@ angular.module('xinyixianApp')
        		Article.show({id:self.id},function (data){
        			self.article=data.article;
        			self.articleImage=self.hostDir+self.article.image;
+            loadPushAirticle();
        		});
        };
 
@@ -25,6 +28,27 @@ angular.module('xinyixianApp')
 	          self.categories=data.categories;
 	        });
        };
+
+       var loadPushAirticle=function(){
+          var condition={};
+          if(self.category){
+            condition=_.merge(condition,{category:self.category});
+          }
+          if(self.tag){
+            condition=_.merge(condition,{tag:self.tag});
+          }
+          Article.pushArticle(condition,{},function (data){
+            self.pushArticles=data.articles;
+            var count=self.pushArticles.length;
+            _.each(self.pushArticles,function (article){
+              article.i=count;
+              count--;
+            });
+          },function(){
+
+          });
+       };
+
        var init=function(){
        		loadAirticle();
        		loadCategory();

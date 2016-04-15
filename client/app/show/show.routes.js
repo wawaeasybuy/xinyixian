@@ -11,14 +11,14 @@ angular.module('xinyixianApp')
         // authenticate: true
       })
       .state('main', {
-        url: '/?page&itemsPerPage&id&tag',
+        url: '/?page&itemsPerPage&id&tag',//id为category,tag为tag
         templateUrl: 'app/show/home/home.html',
         controller: 'ViewHomeController',
         controllerAs: 'viewHomeCtrl',
         // authenticate: false
       })
       .state('view-article', {
-        url: '/show/article/view/:id',
+        url: '/show/article/view/:id?&catgeory&tag',//category为category,tag为tag
         templateUrl: 'app/show/article/article.html',
         controller: 'ViewAarticleController',
         controllerAs: 'viewArticleCtrl',

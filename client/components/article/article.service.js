@@ -53,6 +53,13 @@ angular.module('xinyixianApp')
           id:'destory',
           controller:'all'
         }
+      },
+      pushArticle:{
+        method: 'GET',
+        params:{
+          id:'push',
+          controller:'article'
+        }
       }
 	  });
   });

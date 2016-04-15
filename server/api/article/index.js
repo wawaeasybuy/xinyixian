@@ -9,6 +9,7 @@ var router = express.Router();
 router.get('/', controller.index);
 router.get('/admin/index',auth.hasRole(['admin']), controller.admin_index);
 router.get('/:id', controller.show);
+router.get('/push/article', controller.pushArticle);
 router.get('/:id/changeArticle', auth.hasRole(['admin']), controller.change);
 router.post('/', auth.hasRole(['admin']), controller.create);
 router.put('/:id', auth.hasRole(['admin']), controller.update);
