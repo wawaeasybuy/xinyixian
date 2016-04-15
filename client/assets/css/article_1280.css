@@ -16,7 +16,7 @@ body{
 
 /*导航的位置*/
 .navPosition{
-	border:1px solid #00ff00;
+	/*border:1px solid #00ff00;*/
 	width: 870px;
 	height: 50px;
 	margin: 0 auto;
@@ -158,6 +158,8 @@ body{
 .splitLine{
 	/*margin: 0 auto;*/
 	/*width: 1024px;*/
+	width: 900px;
+	margin: 0 auto;
 	height: 2px;
 	background-color: #686868;
 }
@@ -310,7 +312,8 @@ body{
 /*底部链接栏*/
 .bottomLink{
 	/*border:1px solid red;*/
-	margin-top: 100px;
+	margin: 100px auto 0;
+	width: 1000px;
 	height: 22px;
 }
 .links{

@@ -26,7 +26,9 @@ body{
 /*导航的位置*/
 .navPosition{
 	/*border:1px solid #00ff00;*/
+	width: 870px;
 	height: 50px;
+	margin: 0 auto;
 	position: relative;
 }
 /*logo的位置*/
@@ -61,6 +63,7 @@ body{
 	height: 22px;
 	border-radius: 22px;
 	background-color: #fff;
+	overflow: hidden;
 
 }
 .nav .navName{
@@ -164,6 +167,8 @@ body{
 .splitLine{
 	/*margin: 0 auto;*/
 	/*width: 1024px;*/
+	width: 900px;
+	margin: 0 auto;
 	height: 2px;
 	background-color: #686868;
 }
@@ -177,7 +182,6 @@ body{
 	width: 1024px;
 	height: 230px;
 	overflow: hidden;
-	transform: scale(0.8);
 }
 /*某个推荐*/
 .recommend{
@@ -317,9 +321,9 @@ body{
 /*底部链接栏*/
 .bottomLink{
 	/*border:1px solid red;*/
-	margin-top: 100px;
+	margin: 100px auto 0;
+	width: 1000px;
 	height: 22px;
-	transform: scale(0.8);
 }
 .links{
 	/*border:1px solid red;*/
