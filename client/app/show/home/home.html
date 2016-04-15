@@ -144,7 +144,7 @@
 
 <div class="css320">
 	<!-- 导航 -->
-    <div class="mobileNavPosition">
+    <div class="mobileNavPosition" style="{{viewHomeCtrl.changeStyle}}" ng-click="viewHomeCtrl.styleChange()">
     	<div class="mobileNavs">
     		<div class="mobileNav">
     			<div class="rank"><img src="{{viewHomeCtrl.hostDir+viewHomeCtrl.categories[0].image}}" style="width:60px;height:60px;" ng-show="viewHomeCtrl.categories[0].image"></div>
@@ -164,7 +164,7 @@
     		</div>
     		<div class="btns">
 	    		<div class="aboutUs">about us</div>
-	    		<div class="closeNav"></div>
+	    		<div class="closeNav" ng-click="viewHomeCtrl.styleChange2()"></div>
 	    	</div>
     		<!-- <div style="clear:both"></div> -->
     	</div>

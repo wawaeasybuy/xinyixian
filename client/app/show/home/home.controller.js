@@ -20,6 +20,16 @@ angular.module('xinyixianApp')
       // console.log("self.itemsPerPage",self.itemsPerPage);
       self.showSelected="所有文章";
 
+
+      self.changeStyle = "position: fixed;top:0px;left: -40%;";
+
+      self.styleChange = function (){
+        self.changeStyle = "position: fixed;top:0px;left: 0%;opacity: 0.8;";
+      };
+      self.styleChange2 = function (){
+        self.changeStyle = "position: fixed;top:0px;left: -40%;";
+      };
+
       if(self.tag){
         delete self.category;
       }
