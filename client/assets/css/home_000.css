@@ -63,6 +63,7 @@ html,body{height:100%; width:100%;}
 	border:3px solid #fff;
 	margin-top: 15%;
 	cursor: pointer;
+	overflow: hidden;
 }
 .word{
 	/*border:1px solid red;*/
