@@ -20,6 +20,10 @@ angular.module('xinyixianApp')
       // console.log("self.itemsPerPage",self.itemsPerPage);
       self.showSelected="所有文章";
 
+      if(self.tag){
+        delete self.category;
+      }
+
       //重新生成路由
       var doLocation=function(){
         $location
@@ -41,7 +45,7 @@ angular.module('xinyixianApp')
             condition=_.merge(condition,{category:self.category});
           }
           if(self.tag){
-            condition=_.merge(condition,{tags:self.tag});
+            condition=_.merge(condition,{tag:self.tag});
           }
 
        		Article.index(condition,function (data){
@@ -73,6 +77,7 @@ angular.module('xinyixianApp')
             var c=_.findWhere(self.tags,{_id:self.tag});
             if(c){
               self.showSelected=c.name;
+              c.style="background:#0f0";
             }
           },function(){ 
 
@@ -90,6 +95,7 @@ angular.module('xinyixianApp')
           var c=_.findWhere(self.categories,{_id:self.category});
           if(c){
             self.showSelected=c.name;
+            c.style="border:5px solid #0f0";
           }
         });
 
@@ -145,7 +151,7 @@ angular.module('xinyixianApp')
           var c=_.findWhere(self.categories,{_id:self.category});
           if(c){
             self.showSelected=c.name;
-
+            c.style="border:5px solid #0f0";
           }
           //tags
           c=_.findWhere(self.tags,{_id:self.tag});
@@ -155,9 +161,34 @@ angular.module('xinyixianApp')
           }
        };
 
+       //重置category,tag
+       var borderInit=function(){
+          _.each(self.tags,function (tag){
+            tag.style='';
+          });
+          _.each(self.categories,function (category){
+            category.style='';
+          });
+       };
+
        //选择种类
        self.chooseCategory=function(category){
-        console.log(category);
+          //重置category,tag
+          borderInit();
+          self.category=category._id;
+          delete self.tag;
+          doLocation();
+          // category.style="border:5px solid #0f0";
+
+          // console.log(category);
+
        };
-        
+
+       //选择tag
+       self.chooseTag=function(tag){
+          borderInit();
+          self.tag=tag._id;
+          delete self.category;
+          doLocation();
+       };        
   }]);

@@ -261,6 +261,7 @@ exports.index=function (req,res){
 	var tag=req.query.tag;
 	var name=req.query.retrieval;
 	var condition={state:2};
+	console.log(req.query);
 	if(category){
 		condition=_.merge(condition,{category:category});
 	}
