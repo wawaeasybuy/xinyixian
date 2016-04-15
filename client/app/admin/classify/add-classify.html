@@ -25,6 +25,23 @@
 				<input type="text" class="input">
 			</div> -->
 			<div class="classifyInfo">
+				<div class="title">标签</div>
+				<div class="showTags">
+					<div class="showTag" ng-repeat="tag in addClassifyCtrl.showTags" ng-bind="tag.name" ng-click="addClassifyCtrl.pullTag(tag)"></div>
+					<div class="showTag" ng-click="addClassifyCtrl.openAddTag()"><div class="addTag"></div></div>
+					<div class="chooseTag" ng-show="addClassifyCtrl._openAddTag">
+						<div class="close" ng-click="addClassifyCtrl.closeOpenAddTag()"></div>
+						<div class="chooseTagName">
+							<div class="name">Tag</div>
+							<input class="chooseBox" ng-model="addClassifyCtrl.selectTagName" ng-change="addClassifyCtrl.select()">
+						</div>
+						<div class="Tags">
+							<div class="tag" ng-repeat="tag in addClassifyCtrl.selectTags" ng-bind="tag.name" ng-click="addClassifyCtrl.chooseTag(tag)">222</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="classifyInfo">
 				<div class="title">分类图标</div>
 				<div class="imageBtn" ngf-select ngf-change="addClassifyCtrl.upload($files)">上传图片</div>
 			</div>

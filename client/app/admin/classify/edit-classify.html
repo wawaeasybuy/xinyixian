@@ -33,19 +33,19 @@
 				<div class="title" >提示标签</div>
 				<input type="text" class="input" placeholder="多个标签之间用英文的逗号隔开">
 			</div>
-			<div class="classifyInfo"sz>
+			<div class="classifyInfo">
 				<div class="title">标签</div>
 				<div class="showTags">
-					<div class="showTag"></div>
-					<div class="showTag"><div class="addTag"></div></div>
-					<div class="chooseTag">
-						<div class="close"></div>
+					<div class="showTag" ng-repeat="tag in editClassifyCtrl.showTags" ng-bind="tag.name" ng-click="editClassifyCtrl.pullTag(tag)"></div>
+					<div class="showTag" ng-click="editClassifyCtrl.openAddTag()"><div class="addTag"></div></div>
+					<div class="chooseTag" ng-show="editClassifyCtrl._openAddTag">
+						<div class="close" ng-click="editClassifyCtrl.closeOpenAddTag()"></div>
 						<div class="chooseTagName">
 							<div class="name">Tag</div>
-							<input class="chooseBox">
+							<input class="chooseBox" ng-model="editClassifyCtrl.selectTagName" ng-change="editClassifyCtrl.select()">
 						</div>
 						<div class="Tags">
-							<div class="tag">222</div>
+							<div class="tag" ng-repeat="tag in editClassifyCtrl.selectTags" ng-bind="tag.name" ng-click="editClassifyCtrl.chooseTag(tag)">222</div>
 						</div>
 					</div>
 				</div>

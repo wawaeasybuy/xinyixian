@@ -199,7 +199,9 @@ exports.destory_all=function(req,res){
 //admin get category by id
 exports.show=function (req,res){
 	var id=req.params.id;
-	Category.findById(id,function (err,category){
+	Category.findById(id)
+	.populate('tags')
+	.exec(function (err,category){
 		if(err){ return handleError(res,err);}
 		if(!category){return res.json(404,{error:{msg:'category not found'}});}
 		return res.json(200,{category:category});
