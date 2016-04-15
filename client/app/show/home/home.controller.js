@@ -36,6 +36,11 @@ angular.module('xinyixianApp')
         self.changeStyle="什么鬼";
         // position: fixed;top:0px;left: -40%;
       };
+      self.loadAgain = function (){
+        delete self.category;
+        delete self.tag;
+        doLocation();
+      };
 
       if(self.tag){
         delete self.category;
