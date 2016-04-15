@@ -109,12 +109,12 @@
 			<img  src="{{viewArticleCtrl.articleImage}}" width="100%">
 		</div>
 		<div class="word">
-			<div width="100%"></div>
+			<div width="100%" ng-bind-html="viewArticleCtrl.article.content | to_trusted"></div>
 		</div>
 		<div class="btns">
-			<div class="back"><u>back</u></div>
-			<div class="left"></div>
-			<div class="right"></div>
+			<div class="back" ui-sref="article-view"><u>back</u></div>
+			<div class="left" ng-click="viewArticleCtrl.changeArticleUp()"></div>
+			<div class="right" ng-click="viewArticleCtrl.changeArticleDown()"></div>
 		</div>
 	</div>
 </div>

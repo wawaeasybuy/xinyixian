@@ -134,6 +134,8 @@ body{
 	height: 500px;
 }
 .article{
+	word-break:break-all; /*支持IE，chrome，FF不支持*/
+　　word-wrap:break-word;/*支持IE，chrome，FF*/
 	/*border:1px solid red;*/
 }
 .articleShare{

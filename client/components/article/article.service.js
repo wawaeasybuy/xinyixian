@@ -60,6 +60,12 @@ angular.module('xinyixianApp')
           id:'push',
           controller:'article'
         }
+      },
+      change:{
+        method: 'GET',
+        params:{
+          controller:'changeArticle'
+        }
       }
 	  });
   });

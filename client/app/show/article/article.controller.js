@@ -10,6 +10,14 @@ angular.module('xinyixianApp')
        self.id = $stateParams.id;
        self.category = $stateParams.category;
        self.tag = $stateParams.tag;
+
+       //重新生成路由
+        var doLocation=function(){
+          $location
+            .search('id', self.category)
+            .search('tag', self.tag);
+          console.log($location);
+        };
        
        //图片文件目录
       	self.hostDir=upload_image_url;
@@ -53,6 +61,38 @@ angular.module('xinyixianApp')
           },function(){
 
           });
+       };
+
+       self.changeArticleUp = function (){
+        var condition = {
+          id:self.id,
+          index:self.article.index,
+          state: 1,
+          category:self.category,
+          tag:self.tag 
+        };
+        Article.change(condition,{},function (data){
+          self.id = data.article._id;
+          doLocation();
+        },function (){
+
+        });
+       };
+
+       self.changeArticleDown = function (){
+        var condition = {
+          id:self.id,
+          index:self.article.index,
+          state: 2,
+          category:self.category,
+          tag:self.tag 
+        };
+        Article.change(condition,{},function (data){
+          self.id = data.article._id;
+          doLocation();
+        },function (){
+
+        });
        };
 
        var init=function(){
