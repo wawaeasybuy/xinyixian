@@ -11,6 +11,7 @@ angular.module('xinyixianApp')
        self.category = $stateParams.category;
        self.tag = $stateParams.tag;
 
+
        //重新生成路由
         var doLocation=function(){
           $location
@@ -18,6 +19,10 @@ angular.module('xinyixianApp')
             .search('tag', self.tag);
           console.log($location);
         };
+
+
+       self.showBigImageModel=false;
+
        
        //图片文件目录
       	self.hostDir=upload_image_url;
@@ -28,6 +33,9 @@ angular.module('xinyixianApp')
        			self.articleImage=self.hostDir+self.article.image;
             if(!Auth.isAdmin()&&self.article.state!="2"){
               return $location.path('/');
+            }
+            if(self.article.isBigImage){
+              self.showBigImageModel=true;
             }
             loadPushAirticle();
        		});
@@ -98,6 +106,10 @@ angular.module('xinyixianApp')
        var init=function(){
        		loadAirticle();
        		loadCategory();
+       };
+
+       self.closeBigImageModel=function(){
+        self.showBigImageModel=false;
        };
         init();
   }]);

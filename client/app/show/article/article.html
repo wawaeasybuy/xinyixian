@@ -3,7 +3,7 @@
 <link href="../assets/css/article_000.css"rel="stylesheet"type="text/css"  media="screen and (min-width: 0px) and (max-width: 959px)">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-<div class="css960">
+<div class="css960" ng-hide="viewArticleCtrl.showBigImageModel">
 	<div class="backgroundPosition">
 		<!-- 导航的位置 -->
 		<div class="navPosition">
@@ -101,7 +101,11 @@
 	</div>
 </div>
 
-
+<!-- 大图 -->
+<div class="bigImage" style="position:absolute;width:100%;top:0px;left:0px;" ng-show="viewArticleCtrl.showBigImageModel">
+	<div class="closeBigImage" ng-click="viewArticleCtrl.closeBigImageModel()">关闭大图</div>
+	<img src="{{viewArticleCtrl.hostDir+viewArticleCtrl.article.image}}" width="100%">
+</div>
 
 <div class="css320">
 	<div class="articleContent">
