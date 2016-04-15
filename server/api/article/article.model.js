@@ -66,3 +66,16 @@ ArticleSchema.pre('save', function(next){
 		next();
 	}
 });
+
+//添加url ,默认分类的URL为空
+// ArticleSchema.post('save', function(){
+// 	var self=this;
+// 	//添加url
+// 	console.log("self");
+// 	console.log(self);
+// 	if(self.state==2 && !self.updateDate){
+// 		self.updateDate=new Date();
+// 		self.save();
+// 	}
+	
+// });

@@ -55,6 +55,12 @@ exports.create=function (req,res){
 	req.body.tags=getNoRepeatArr(req.body.tags);
 	//先把String转换成数组
 	req.body.remindTag=getTagArr(req.body.remindTag);
+	if(req.body.updateDate==''){
+		delete req.body.updateDate;
+	}
+	if(req.body.addDate==''){
+		delete req.body.addDate;
+	}
 	if(!req.body.category){
 		Category.findOne({sgin:1},function (err,category){
 			if(err){ return handleError(res,err);}
