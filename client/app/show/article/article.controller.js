@@ -12,15 +12,6 @@ angular.module('xinyixianApp')
        self.tag = $stateParams.tag;
 
 
-       //重新生成路由
-        var doLocation=function(){
-          $location
-            .search('id', self.category)
-            .search('tag', self.tag);
-          console.log($location);
-        };
-
-
        self.showBigImageModel=false;
 
        
@@ -80,10 +71,9 @@ angular.module('xinyixianApp')
           tag:self.tag 
         };
         Article.change(condition,{},function (data){
-          self.id = data.article._id;
-          doLocation();
+          $state.go("view-article",{id:data.article._id,category:self.category,tag:self.tag});
         },function (){
-
+          alert("该文章为第一篇文章");
         });
        };
 
@@ -96,10 +86,9 @@ angular.module('xinyixianApp')
           tag:self.tag 
         };
         Article.change(condition,{},function (data){
-          self.id = data.article._id;
-          doLocation();
+          $state.go("view-article",{id:data.article._id,category:self.category,tag:self.tag});
         },function (){
-
+          alert("该文章为最后一篇文章");
         });
        };
 

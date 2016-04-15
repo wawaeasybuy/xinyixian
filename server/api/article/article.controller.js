@@ -388,11 +388,19 @@ exports.change = function (req,res){
 		if(err){ return handleError(res,err);}
 		if(!article){return res.json(404,{error:{msg:'article not found'}});}
 		Article.find(condition)
-		.sort({index:1})
+		.sort({index:-1})
 		.limit(parseInt(index)+1)
 		.exec(function (err,articles){
 			if(err){ return handleError(res,err);}
-			var num=articles.indexOf(article);//当前文章的下标
+			// console.log(article._id);
+			// console.log("xxx");
+			var idArr=[];
+			_.each(articles,function(article){
+				idArr.push(article._id.toString());
+			});
+			// console.log(idArr);
+			var num=idArr.indexOf(article._id.toString());//当前文章的下标
+			// console.log(num);
 			// console.log("num",num);
 			if(state==1){
 				if(num==0){
@@ -405,6 +413,8 @@ exports.change = function (req,res){
 				}
 				var aimNum=num+1;
 			}
+			// console.log(aimNum);
+			// console.log(articles.length);
 			return res.json(200,{
 				article:articles[aimNum]
 			});
