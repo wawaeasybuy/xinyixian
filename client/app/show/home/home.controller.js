@@ -113,12 +113,11 @@ angular.module('xinyixianApp')
        self.mousehover=function(info,state){
           // console.log(category);
           if(info){
+            // console.log(info);
             switch(state){
               case 1:
-                
-                break;
-              case 2:
-                
+                // console.log("highlight");
+                highlight(info);
                 break;
             }
             self.showSelected=info.name;
@@ -128,20 +127,37 @@ angular.module('xinyixianApp')
           
        };
 
+       //让二级目录亮
+       var highlight=function(info){
+          _.each(self.tags,function (tag){
+            if(info.tags.indexOf(tag._id)>-1){
+              tag.style="background:#0f0";
+            }
+          });
+       };
+
        //鼠标移出
        self.mouseout=function(){
           _.each(self.tags,function (tag){
-            tag.style="background:#9a9a9a"
+            tag.style="";
           });
           self.showSelected='全部文章';
           var c=_.findWhere(self.categories,{_id:self.category});
           if(c){
             self.showSelected=c.name;
+
           }
+          //tags
           c=_.findWhere(self.tags,{_id:self.tag});
           if(c){
             self.showSelected=c.name;
+            c.style="background:#0f0";
           }
+       };
+
+       //选择种类
+       self.chooseCategory=function(category){
+        console.log(category);
        };
         
   }]);

@@ -7,7 +7,8 @@ angular.module('xinyixianApp')
 
     	self.category={
     		name:'',
-    		image:''
+    		image:'',
+    		tags:[]
     	};
 
     	self.showTags=[];
