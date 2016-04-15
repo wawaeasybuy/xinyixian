@@ -35,6 +35,10 @@ html,body{height:100%; width:100%;}
 	transition:0.8s linear;
 	-webkit-transition:0.8s linear;//重点
 	-moz-transition:0.8s linear;
+	position: fixed;
+	top:0px;
+	left: -40%;
+	opacity: 0.8;
 }
 
 .mobileNavs{

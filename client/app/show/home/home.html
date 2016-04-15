@@ -148,23 +148,23 @@
     	<div class="mobileNavs">
     		<div class="mobileNav">
     			<div class="rank"><img src="{{viewHomeCtrl.hostDir+viewHomeCtrl.categories[0].image}}" style="width:60px;height:60px;" ng-show="viewHomeCtrl.categories[0].image"></div>
-    			<div class="word" ng-bind="viewHomeCtrl.categories[0].name">rank</div>
+    			<div class="word" ng-bind="viewHomeCtrl.categories[0].name" ng-click="viewHomeCtrl.chooseCategory(viewHomeCtrl.categories[0])">rank</div>
     		</div>
     		<div class="mobileNav">
     			<div class="info"><img src="{{viewHomeCtrl.hostDir+viewHomeCtrl.categories[1].image}}" style="width:60px;height:60px;" ng-show="viewHomeCtrl.categories[1].image"></div>
-    			<div class="word" ng-bind="viewHomeCtrl.categories[1].name">info</div>
+    			<div class="word" ng-bind="viewHomeCtrl.categories[1].name" ng-click="viewHomeCtrl.chooseCategory(viewHomeCtrl.categories[0])">info</div>
     		</div>
     		<div class="mobileNav">
     			<div class="city"><img src="{{viewHomeCtrl.hostDir+viewHomeCtrl.categories[2].image}}" style="width:60px;height:60px;" ng-show="viewHomeCtrl.categories[2].image"></div>
-    			<div class="word" ng-bind="viewHomeCtrl.categories[2].name">city</div>
+    			<div class="word" ng-bind="viewHomeCtrl.categories[2].name" ng-click="viewHomeCtrl.chooseCategory(viewHomeCtrl.categories[0])">city</div>
     		</div>
     		<div class="mobileNav">
     			<div class="report"><img src="{{viewHomeCtrl.hostDir+viewHomeCtrl.categories[3].image}}" style="width:60px;height:60px;" ng-show="viewHomeCtrl.categories[3].image"></div>
-    			<div class="word" ng-bind="viewHomeCtrl.categories[3].name">report</div>
+    			<div class="word" ng-bind="viewHomeCtrl.categories[3].name" ng-click="viewHomeCtrl.chooseCategory(viewHomeCtrl.categories[0])">report</div>
     		</div>
     		<div class="btns">
 	    		<div class="aboutUs">about us</div>
-	    		<div class="closeNav" ng-click="viewHomeCtrl.styleChange2()"></div>
+	    		<div class="closeNav" ng-click="viewHomeCtrl.styleChange()"></div>
 	    	</div>
     		<!-- <div style="clear:both"></div> -->
     	</div>
