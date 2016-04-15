@@ -84,8 +84,10 @@ exports.create=function (req,res){
 //update article (含发布，删除，更新，state改变即可)
 exports.update=function(req,res){
 	var id=req.params.id;
+	if(req.body.updateDate==''){
+		delete req.body.updateDate;
+	}
 	if(!id){return res.json(400,{error:{msg:'id is required'}});}
-	
 	var articleDetails=_.pick(req.body,'category','remindTag','tags','title','author','image','isBigImage','thumbnail','summary','updateDate','content','state','speciaLink');
 	// articleDetails.category=getNoRepeatArr(articleDetails.category);
 	if(articleDetails.tags){
@@ -98,6 +100,9 @@ exports.update=function(req,res){
 		if(err){ return handleError(res,err);}
 		if(!article){return res.json(404,{error:{msg:'article not found'}});}
 		article=_.assign(article,articleDetails);
+		if(article.state==2&&!article.updateDate){
+			article.updateDate=new Date();
+		}
 		article.save(function (err,article){
 			if(err){ return handleError(res,err);}
 			return res.json(200,{article:article});
