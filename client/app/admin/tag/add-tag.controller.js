@@ -1,10 +1,12 @@
 'use strict';
 
 angular.module('xinyixianApp')
-  .controller('AddTagController', ['$state', '$stateParams', '$location', '$scope','$cookies', 'Tag',
-    function ($state, $stateParams, $location, $scope,$cookies,Tag) {
+  .controller('AddTagController', ['$state', '$stateParams', '$location', '$scope','$cookies', 'Tag','Auth',
+    function ($state, $stateParams, $location, $scope,$cookies,Tag,Auth) {
     	var self=this;
-
+        if(!Auth.isAdmin()){
+            return $location.path('/');
+        }
     	self.tags={
     		name:name
     	};

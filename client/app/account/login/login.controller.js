@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('xinyixianApp')
-  .controller('LoginCtrl', function ($scope, Auth, $location,$stateParams) {
+  .controller('LoginCtrl', function ($scope, Auth, $location,$stateParams,User) {
     $scope.user = {};
     $scope.errors = {};
 
@@ -9,8 +9,7 @@ angular.module('xinyixianApp')
 
     Auth.logout();
     if(self.role!='admin'){
-      $location.path('/');
-      return;
+      return $location.path('/');
     }
 
     $scope.login = function(form) {
@@ -22,8 +21,14 @@ angular.module('xinyixianApp')
           password: $scope.user.password
         })
         .then( function() {
-          // Logged in, redirect to home
-          $location.path('/');
+          // // Logged in, redirect to home
+          User.get({},function (data){
+            if(data.role=="admin"){
+              console.log("$location.path('article-view');");
+              $location.path('/admin/article/view');
+            }
+          });
+          // 
         })
         .catch( function(err) {
           $scope.errors.other = err.message;

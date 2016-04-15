@@ -1,9 +1,12 @@
 'use strict';
 
 angular.module('xinyixianApp')
-  .controller('ViewAarticleController', ['$state', '$stateParams', '$location', '$scope','$cookies', 'Article','Category',
-    function ($state, $stateParams, $location, $scope,$cookies,Article,Category) {
+  .controller('ViewAarticleController', ['$state', '$stateParams', '$location', '$scope','$cookies', 'Article','Category','Auth',
+    function ($state, $stateParams, $location, $scope,$cookies,Article,Category,Auth) {
        var self=this;
+
+      
+
        self.id = $stateParams.id;
        self.category = $stateParams.category;
        self.tag = $stateParams.tag;
@@ -15,6 +18,9 @@ angular.module('xinyixianApp')
        		Article.show({id:self.id},function (data){
        			self.article=data.article;
        			self.articleImage=self.hostDir+self.article.image;
+            if(!Auth.isAdmin()&&self.article.state!="2"){
+              return $location.path('/');
+            }
             loadPushAirticle();
        		});
        };

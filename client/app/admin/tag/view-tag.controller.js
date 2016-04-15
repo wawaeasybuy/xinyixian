@@ -1,9 +1,13 @@
 'use strict';
 
 angular.module('xinyixianApp')
-  .controller('ViewTagController', ['$state', '$stateParams', '$location', '$scope', '$cookies', 'Tag',
-    function ($state, $stateParams, $location, $scope, $cookies, Tag) {
+  .controller('ViewTagController', ['$state', '$stateParams', '$location', '$scope', '$cookies', 'Tag','Auth',
+    function ($state, $stateParams, $location, $scope, $cookies, Tag,Auth) {
     	var self=this;
+
+      if(!Auth.isAdmin()){
+          return $location.path('/');
+      }
 
     	var page = $stateParams.page || 1;
         var itemsPerPage = $stateParams.itemsPerPage || 10;
