@@ -16,8 +16,10 @@ body{
 
 /*导航的位置*/
 .navPosition{
-	/*border:1px solid #00ff00;*/
+	border:1px solid #00ff00;
+	width: 870px;
 	height: 50px;
+	margin: 0 auto;
 	position: relative;
 }
 /*logo的位置*/

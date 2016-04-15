@@ -22,9 +22,7 @@ angular.module('xinyixianApp')
         var doLocation=function(){
           $location
             .search('page', self.pagination.page)
-            .search('itemsPerPage', self.pagination.itemsPerPage)
-            .search('category', self.category)
-            .search('state', self.state);
+            .search('itemsPerPage', self.pagination.itemsPerPage);
           console.log($location);
         };
 
