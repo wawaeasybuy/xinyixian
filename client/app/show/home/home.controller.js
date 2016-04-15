@@ -19,22 +19,18 @@ angular.module('xinyixianApp')
       self._loadMore=true;
       // console.log("self.itemsPerPage",self.itemsPerPage);
       self.showSelected="所有文章";
-
+      self.showOpen = true;
 
       self.changeStyle = "";
 
       self.styleChange = function (){
-        if(self.changeStyle==""){
+          self.showOpen = false;
           self.changeStyle="position: fixed;top:0px;left: 0%;opacity: 0.8;";
-        }else{
-          self.changeStyle=""
-        }
         // position: fixed;top:0px;left: 0%;opacity: 0.8;
       };
-      self.styleChange2 = function (){
-        console.log("xx");
-        self.changeStyle="什么鬼";
-        // position: fixed;top:0px;left: -40%;
+      self.closeNav = function (){
+        self.showOpen = true;
+        self.changeStyle="";
       };
       self.loadAgain = function (){
         delete self.category;

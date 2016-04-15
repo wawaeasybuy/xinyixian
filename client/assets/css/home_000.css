@@ -85,6 +85,16 @@ html,body{height:100%; width:100%;}
 	margin-top: 50%;
 
 }
+.openNav{
+	width: 20px;
+	height: 20px;
+	/*border:1px solid red;*/
+	border-radius: 20px;
+	background-color: #fff;
+	position: fixed;
+	bottom: 0px;
+	left: 5px;
+}
 .closeNav{
 	width: 24px;
 	height: 24px;

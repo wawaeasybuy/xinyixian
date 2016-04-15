@@ -144,31 +144,31 @@
 
 <div class="css320">
 	<!-- 导航 -->
-    <div class="mobileNavPosition" style="{{viewHomeCtrl.changeStyle}}" ng-click="viewHomeCtrl.styleChange()">
+    <div class="mobileNavPosition" style="{{viewHomeCtrl.changeStyle}}">
     	<div class="mobileNavs">
-    		<div class="mobileNav">
+    		<div class="mobileNav" ng-click="viewHomeCtrl.chooseCategory(viewHomeCtrl.categories[0])">
     			<div class="rank"><img src="{{viewHomeCtrl.hostDir+viewHomeCtrl.categories[0].image}}" style="width:60px;height:60px;" ng-show="viewHomeCtrl.categories[0].image"></div>
-    			<div class="word" ng-bind="viewHomeCtrl.categories[0].name" ng-click="viewHomeCtrl.chooseCategory(viewHomeCtrl.categories[0])">rank</div>
+    			<div class="word" ng-bind="viewHomeCtrl.categories[0].name">rank</div>
     		</div>
-    		<div class="mobileNav">
+    		<div class="mobileNav" ng-click="viewHomeCtrl.chooseCategory(viewHomeCtrl.categories[1])">
     			<div class="info"><img src="{{viewHomeCtrl.hostDir+viewHomeCtrl.categories[1].image}}" style="width:60px;height:60px;" ng-show="viewHomeCtrl.categories[1].image"></div>
-    			<div class="word" ng-bind="viewHomeCtrl.categories[1].name" ng-click="viewHomeCtrl.chooseCategory(viewHomeCtrl.categories[0])">info</div>
+    			<div class="word" ng-bind="viewHomeCtrl.categories[1].name">info</div>
     		</div>
-    		<div class="mobileNav">
+    		<div class="mobileNav" ng-click="viewHomeCtrl.chooseCategory(viewHomeCtrl.categories[2])">
     			<div class="city"><img src="{{viewHomeCtrl.hostDir+viewHomeCtrl.categories[2].image}}" style="width:60px;height:60px;" ng-show="viewHomeCtrl.categories[2].image"></div>
-    			<div class="word" ng-bind="viewHomeCtrl.categories[2].name" ng-click="viewHomeCtrl.chooseCategory(viewHomeCtrl.categories[0])">city</div>
+    			<div class="word" ng-bind="viewHomeCtrl.categories[2].name">city</div>
     		</div>
-    		<div class="mobileNav">
+    		<div class="mobileNav" ng-click="viewHomeCtrl.chooseCategory(viewHomeCtrl.categories[3])">
     			<div class="report"><img src="{{viewHomeCtrl.hostDir+viewHomeCtrl.categories[3].image}}" style="width:60px;height:60px;" ng-show="viewHomeCtrl.categories[3].image"></div>
-    			<div class="word" ng-bind="viewHomeCtrl.categories[3].name" ng-click="viewHomeCtrl.chooseCategory(viewHomeCtrl.categories[0])">report</div>
+    			<div class="word" ng-bind="viewHomeCtrl.categories[3].name">report</div>
     		</div>
     		<div class="btns">
 	    		<div class="aboutUs">about us</div>
-	    		<div class="closeNav" ng-click="viewHomeCtrl.styleChange()"></div>
+	    		<div class="closeNav" ng-click="viewHomeCtrl.closeNav()"></div>
 	    	</div>
     		<!-- <div style="clear:both"></div> -->
     	</div>
-    	<div></div>
+    	<div class="openNav" ng-show="viewHomeCtrl.showOpen" ng-click="viewHomeCtrl.styleChange()"><img src="../assets/images/right.png"></div>
 	</div>
 	<!-- <div class="rightArrow"></div> -->
 
