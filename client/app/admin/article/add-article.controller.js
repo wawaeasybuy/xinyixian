@@ -117,7 +117,7 @@ angular.module('xinyixianApp')
             Tag.select({name:self.selectTagName},{},function (data){
                 self.selectTags=data.tags;
             },function(){
-
+                self.selectTags=[];
             });
         };
 

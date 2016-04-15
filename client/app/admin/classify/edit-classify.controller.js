@@ -66,7 +66,7 @@ angular.module('xinyixianApp')
 	    		console.log("success");
 	    		$state.go('classify-view');
 	    	},function(){
-
+	    		self.selectTags=[];
 	    	});
 	    };
 
