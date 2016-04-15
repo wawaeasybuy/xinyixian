@@ -52,6 +52,7 @@ body{
 	height: 22px;
 	border-radius: 22px;
 	background-color: #fff;
+	overflow: hidden;
 
 }
 .nav .navName{

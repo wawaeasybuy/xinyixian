@@ -29,11 +29,7 @@
 				<div class="title">分类名称</div>
 				<input type="text" class="input" ng-model="editClassifyCtrl.category.name">
 			</div>
-			<div class="classifyInfo">
-				<div class="title" >提示标签</div>
-				<input type="text" class="input" placeholder="多个标签之间用英文的逗号隔开">
-			</div>
-			<div class="classifyInfo">
+			<div style="margin-top:20px">
 				<div class="title">标签</div>
 				<div class="showTags">
 					<div class="showTag" ng-repeat="tag in editClassifyCtrl.showTags" ng-bind="tag.name" ng-click="editClassifyCtrl.pullTag(tag)"></div>
@@ -50,6 +46,7 @@
 					</div>
 				</div>
 			</div>
+			<div style="clear:both"></div>
 			<div class="classifyInfo">
 				<div class="title">分类图标</div>
 				<div class="imageBtn" ngf-select ngf-change="editClassifyCtrl.upload($files)">上传图片</div>
