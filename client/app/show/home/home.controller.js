@@ -21,13 +21,20 @@ angular.module('xinyixianApp')
       self.showSelected="所有文章";
 
 
-      self.changeStyle = "position: fixed;top:0px;left: -40%;";
+      self.changeStyle = "";
 
       self.styleChange = function (){
-        self.changeStyle = "position: fixed;top:0px;left: 0%;opacity: 0.8;";
+        if(self.changeStyle==""){
+          self.changeStyle="position: fixed;top:0px;left: 0%;opacity: 0.8;";
+        }else{
+          self.changeStyle=""
+        }
+        // position: fixed;top:0px;left: 0%;opacity: 0.8;
       };
       self.styleChange2 = function (){
-        self.changeStyle = "position: fixed;top:0px;left: -40%;";
+        console.log("xx");
+        self.changeStyle="什么鬼";
+        // position: fixed;top:0px;left: -40%;
       };
 
       if(self.tag){
