@@ -247,6 +247,11 @@ angular.module('xinyixianApp')
         	
         };
 
+        self.openChooseSelect = function (){
+            self._openSelect = true;
+        };
+     
+
         init();
 
   }]);

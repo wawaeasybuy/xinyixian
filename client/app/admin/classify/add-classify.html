@@ -12,18 +12,31 @@
 
 	<div class="contentPosition">
 		<div class="content">
-			<!-- <div class="classifyInfo">
-				<div class="title">项目名称</div>
-				<input type="text" class="input">
-			</div> -->
 			<div class="classifyInfo">
 				<div class="title">分类名称</div>
 				<input type="text" class="input" ng-model="addClassifyCtrl.category.name">
 			</div>
-			<!-- <div class="classifyInfo">
-				<div class="title" >Url名</div>
-				<input type="text" class="input">
-			</div> -->
+			<div class="classifyInfo">
+				<div class="title" >提示标签</div>
+				<input type="text" class="input" placeholder="多个标签之间用英文的逗号隔开">
+			</div>
+			<div class="classifyInfo">
+				<div class="title">标签</div>
+				<div class="showTags">
+					<div class="showTag"></div>
+					<div class="showTag"><div class="addTag"></div></div>
+					<div class="chooseTag">
+						<div class="close"></div>
+						<div class="chooseTagName">
+							<div class="name">Tag</div>
+							<input class="chooseBox">
+						</div>
+						<div class="Tags">
+							<div class="tag">222</div>
+						</div>
+					</div>
+				</div>
+			</div>
 			<div class="classifyInfo">
 				<div class="title">标签</div>
 				<div class="showTags">

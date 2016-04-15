@@ -156,7 +156,7 @@ body{
 .chooseTag{
 	/*display: none;*/
 	width: 200px;
-	height: 100px;
+	height: 150px;
 	background: #fff;
 	box-shadow: #ccc 0 0 5px 0;
 	position: absolute;
@@ -195,14 +195,22 @@ body{
 }
 .Tags{
 	width: 94px;
-	height: 20px;
-	border:1px solid #ccc;
+	height: 40px;
+	/*border:1px solid #ccc;*/
 	border-top: none;
-	text-align: center;
+	/*text-align: center;*/
 	line-height: 20px;
 	position: relative;
 	top:-12px;
 	left: 58px;
+}
+.tag{
+	width: 94px;
+	height: 20px;
+	border:1px solid #ccc;
+	border-top: none;
+	cursor: pointer;
+	text-indent: 5px;
 }
 /*日历*/
 .datepickerPosition{

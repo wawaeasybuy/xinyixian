@@ -53,19 +53,20 @@
 				<div class="move" ng-show="viewImageCtrl._openEditImage" ng-click="viewImageCtrl.openMove(image)">移动至</div>
 			</div>
 			<!-- 移动到其他分类 -->
-			<div class="addNewClassify" ng-show="viewImageCtrl._openMove">
-				<div class="close" ng-click="viewImageCtrl.closeMove()"></div>
-				<div class="classifyContent">
-					<div class="name">分类名</div>
+			<div class="moveOtherClassify" ng-show="viewImageCtrl._openMove">
+				<div class="closeMove" ng-click="viewImageCtrl.closeMove()"></div>
+				<div class="moveClassifyName">
+					<div class="moveName">分类名</div>
 					<!-- 显示框 -->
-					<div ng-bind="viewImageCtrl.selectedImage.name"></div>
+					<div class="moveChoose" style="text-overflow:ellipsis" ng-bind="viewImageCtrl.selectedImage.name" ng-click="viewImageCtrl.openChooseSelect()"></div>
+					<!-- <div style="clear:both"></dvi> -->
 					<!-- 选择框 -->
-					<div>
-						<div ng-repeat="group in viewImageCtrl.groups" ng-bind="group.name" ng-click="viewImageCtrl.chooseMoveAim(group)"></div>
+					<div class="moveSelects" ng-show="viewImageCtrl._openSelect">
+						<div class="moveSelect" style="text-overflow:ellipsis" ng-repeat="group in viewImageCtrl.groups" ng-bind="group.name" ng-click="viewImageCtrl.chooseMoveAim(group)"></div>
 					</div>
 				</div>
 				<div style="clear:both"></div>
-				<div class="save" ng-click="viewImageCtrl.doMove()">保存</div>
+				<div class="save moveSave" ng-click="viewImageCtrl.doMove()">保存</div>
 			</div>
 			<!-- 移动到其他分类 -->
 			<div class="showImage uploadImage" ngf-select ngf-change="viewImageCtrl.upload($files)"></div>

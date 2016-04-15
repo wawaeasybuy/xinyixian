@@ -178,6 +178,7 @@ body{
 	position: relative;
 	bottom:0px;
 	left: 0px;
+	cursor: pointer;
 }
 .loadmore{
 	width: 80%;
@@ -186,4 +187,75 @@ body{
 	line-height: 20px;
 	text-align: center;
 	margin-top: 20px;
+}
+
+.moveOtherClassify{
+	/*border:1px solid red;*/
+	width: 400px;
+	height: 250px;
+	background-color: #fff;
+	margin: 0 auto;
+	position: fixed;
+	top:200px;
+	left: 0px;
+	right: 0px;
+	z-index: 9999;
+	box-shadow: #ccc 0 0 5px 0;
+}
+.closeMove{
+	width: 20px;
+	height: 20px;
+	border-radius: 20px;
+	background: url(../images/close.png);
+	float: right;
+	margin-right: 10px;
+	margin-top: 10px;
+}
+.moveClassifyName{
+	width: 250px;
+	height: 36px;
+	margin: 50px auto 0;
+	/*border:1px solid red;*/
+}
+.moveName{
+	float: left;
+	width: 40px;
+	height: 36px;
+	line-height: 36px;
+}
+.moveChoose{
+	float: left;
+	width: 150px;
+	height: 36px;
+	line-height: 36px;
+	border: 1px solid #ccc;
+	margin-left: 20px;
+	cursor: pointer;
+	text-indent: 20px;
+	overflow: hidden;
+	white-space: nowrap;
+}
+.moveSelects{
+	border:1px solid #ccc;
+	width: 150px;
+	height: 100px;
+	margin-top: 36px;
+	margin-left: 60px;
+	border-top: none;
+	overflow-y: auto;
+}
+.moveSelect{
+	width: 132px;
+	height: 20px;
+	overflow: hidden;
+	border-bottom:1px solid #ccc; 
+	background-color: #fff;
+	line-height: 20px;
+	text-indent: 20px;
+	overflow: hidden;
+	white-space: nowrap;
+	cursor: pointer;
+}
+.moveSave{
+	margin-top: 110px;
 }
