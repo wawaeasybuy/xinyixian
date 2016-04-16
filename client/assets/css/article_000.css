@@ -6,12 +6,10 @@ body{
 .css960{
 	display: none;
 }
-/*.css320{
-	width:100%;
-	height:100%;
-	margin:0; 
-	padding:0;
-}*/
+
+.bigImage{
+	display: none;
+}
 .articleContent{
 	/*border:1px solid red;*/
 	width: 100%;

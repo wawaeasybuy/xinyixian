@@ -95,7 +95,7 @@
 				<div class="bigImage">大图模式</div><div class="chooseBigImage" ng-click="editArticleCtrl.chooseBigImage()"><img src="../assets/images/choose.png" ng-show="editArticleCtrl.article.isBigImage"></div>
 			</div>
 			<div class="showImage">
-				<div class="img"><img src="{{editArticleCtrl.showImage}}"></div>
+				<div class="img"><img title="建议尺寸1920*1050" src="{{editArticleCtrl.showImage}}"></div>
 				<!-- 图片进度条 -->
 				<progressbar ng-show="editArticleCtrl.loaded1 > 0" class="progress-striped progressBar" ng-class="{active: editArticleCtrl.loaded1 < 100}" max="100" value="editArticleCtrl.loaded1" style="background-color:#9DD1FF;display: block;border-radius:5px;text-align:center"><span ng-bind="editArticleCtrl.loaded1"></span>%</progressbar>
 			</div>
@@ -105,7 +105,7 @@
 			</div>
 			<!-- 建议图片大小为150*150 -->
 			<div class="showImage">
-				<div class="img"><img src="{{editArticleCtrl.showThumbnail}}"></div>
+				<div class="img"><img title="建议尺寸150*150" src="{{editArticleCtrl.showThumbnail}}"></div>
 				<!-- 图片进度条 -->
 	            <progressbar ng-show="editArticleCtrl.loaded2 > 0" class="progress-striped" ng-class="{active: editArticleCtrl.loaded2 < 100}" max="100" value="editArticleCtrl.loaded2" style="background-color:#9DD1FF;display: block;border-radius:5px;text-align:center"><span ng-bind="editArticleCtrl.loaded2"></span>%</progressbar>
 			</div>

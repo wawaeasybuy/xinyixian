@@ -52,7 +52,7 @@
 				<div class="imageBtn" ngf-select ngf-change="editClassifyCtrl.upload($files)">上传图片</div>
 			</div>
 			<div class="showImage">
-				<div class="img"><img src="{{editClassifyCtrl.showImage}}"></div>
+				<div class="img"><img title="建议尺寸320*320" src="{{editClassifyCtrl.showImage}}"></div>
 				<!-- 图片进度条 -->
 				<div style="width:100px;">
 	            	<progressbar ng-show="editClassifyCtrl.loaded > 0" class="progress-striped progressBar" ng-class="{active: editClassifyCtrl.loaded < 100}" max="100" value="editClassifyCtrl.loaded" style="width:100px;"><span ng-bind="editClassifyCtrl.loaded"></span>%</progressbar>

@@ -20,22 +20,7 @@ body{
 	top:-120px;
 	left: -125px;
 }
-.closeBigImage{
-	/*border: 1px solid red;*/
-	position: fixed;
-	right: 10px;
-	top: 10px;
-	font-size: 18px;
-	width: 100px;
-	height: 30px;
-	line-height: 30px;
-	text-align: center;
-	border-radius: 30px;
-	border:5px solid #f00;
-	color: #f00;
-	font-weight: bolder;
-	cursor: pointer;
-}
+
 /*导航的位置*/
 .navPosition{
 	/*border:1px solid red;*/
@@ -207,6 +192,8 @@ body{
 .wuhan:hover,.nanjing:hover,.hangzhou:hover,.qingdao:hover,
 .beishang:hover,.chengdu:hover,.fun:hover,.suzhou:hover,
 .xian:hover,.xiamen:hover,.wuxi:hover,.chongqing:hover{
+	overflow: hidden;
+	white-space: nowrap;
 	background-color: #00ff00;
 }
 /*.word{
@@ -580,7 +567,7 @@ body{
 	border-bottom: 2px solid #c7c7c7;
 	/*文字css*/
 	text-align: center;
-	line-height: 17px;
+	line-height: 34px;
 	color: #c7c7c7;
 	font-size: 10px;
 	font-weight: bold;
@@ -591,6 +578,8 @@ body{
 	padding-bottom: 3px;
 	position: absolute;
 	bottom: 10px;
+	overflow: hidden;
+	white-space: nowrap;
 }
 /*时间*/
 .time{

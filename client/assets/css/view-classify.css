@@ -67,6 +67,8 @@ body{
 	float: left;
 	width: 198px;
 	text-align: center;
+	overflow: hidden;
+	white-space: nowrap;
 }
 .height60{
 	height: 60px;
