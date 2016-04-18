@@ -1,0 +1,131 @@
+<link href="../assets/css/article_1280.css" rel="stylesheet" type="text/css" media="screen and (min-width: 1280px) and (max-width: 1920px)">
+<link href="../assets/css/article_960.css"rel="stylesheet"type="text/css"  media="screen and (min-width: 0px) and (max-width: 1279px)">
+<!-- <link href="../assets/css/article_960.css"rel="stylesheet"type="text/css"  media="screen and (min-width: 0px) and (max-width: 1129px)"> -->
+<link href="../assets/css/about_us.css"rel="stylesheet"type="text/css">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<div class="css960" ng-hide="viewArticleCtrl.showBigImageModel">
+	<div class="backgroundPosition">
+		<!-- 导航的位置 -->
+		<div class="navPosition">
+			<!-- logo -->
+			<div class="logo" ui-sref="main"></div>
+			<!-- 上横线 -->
+			<div class="upLine"></div>
+			<!-- 四个导航 -->
+			<div class="navs">
+				<div class="nav" ng-repeat="category in viewArticleCtrl.categories">
+					<div class="dot"><img src="{{viewArticleCtrl.hostDir+category.image}}" style="width:22px;height:22px" ng-show="category.image"></div>
+					<div class="navName" ng-bind="category.name" ui-sref="main({id:category._id})">城市榜单</div>
+				</div>
+				
+			</div>
+			<!-- 二维码展示区 -->
+			<div class="qrCodes">
+				<div class="qrCode"></div>
+				<div class="qrCode"></div>
+				<div class="qrCode"></div>
+				<div class="qrCode"></div>
+				<div class="qrCode"></div>
+			</div>
+			<!-- 搜索 -->
+			<!-- <div class="search">暂定</div> -->
+			<!-- 下横线 -->
+			<div class="downLine"></div>
+		</div>
+		<!-- about_us_nav -->
+		<div class="navPosition about_Nav" >
+			<img src="../assets/images/about_us_nav.jpg">
+		</div>
+
+		<!-- 内容的位置 -->
+		<div class="articleContent about_content">
+			<div>
+				<div class="content_nav_left content_nav_select">
+					<div>关于新一线</div>
+					<div class="border border_green"></div>
+					<div class="border border_black"></div>
+				</div>
+				<div class="content_nav_right">
+					<div>联系新一线</div>
+					<div class="border"></div>
+					<div class="border"></div>
+				</div>
+				<div style="clear:both"></div>
+			</div>
+			<div style="margin-top:30px">
+				<div class="cell_logo"><img src="../assets/images/what_p1.png"></div>
+				<div class="cell_content">
+					<div class="cell_title">什么是新一线</div>
+					<div class="cell_text">“新一线”是《第一财经周刊》首创新概念，是指那些最有可能在未来成为新的“一线城市”的城市；也泛指正在发展中的中国二三四五线城市。</div>
+					<div class="cell_text">2016年4月，第一财经·新一线发布最新《中国城市商业魅力排行榜》，对中国338个地级以上城市进行排名，评选出成都、杭州、武汉、天津、南京、重庆、西安、长沙、青岛、沈阳、大连、厦门、苏州、宁波、无锡为15个“新一线城市”。</div>
+				</div>
+				<div style="clear:both"></div>
+			</div>
+			<div style="margin-top:30px">
+				<div class="cell_logo"><img src="../assets/images/what_p2.png"></div>
+				<div class="cell_content">
+					<div class="cell_title">新一线城市研究所</div>
+					<div class="cell_text">第一财经旗下城市数据新闻项目。</div>
+					<div class="cell_text">致力于集结城市商业数据，用新鲜视角分析、探究城市未来，为城市管理者、城市开拓者、城市人提供丰富有趣、有价值的数据内容和数据服务。</div>
+					<div class="cell_text">通过研究我们发现，商业是一个城市最有活力的部分；对年轻人的吸引力决定了一个城市的未来。因此，新一线将商业数据作为评判城市的重要维度，同时，将高度关注城市中的年轻人。</div>
+				</div>
+				<div style="clear:both"></div>
+			</div>
+			<div style="margin-top:30px">
+				<div class="cell_logo"><img src="../assets/images/what_p3.png"></div>
+				<div class="cell_content">
+					<div class="cell_title">新一线产品</div>
+					<div class="cell_text">新一线城市研究所拥有覆盖338座中国地级以上城市和200个品牌的城市商业数据库，30家互联网平台的用户行为数据库，以及城市基础资料库、城市商业生态数据库和基于地理信息的互联网数据库。</div>
+					<div class="cell_text">目前，新一线城市研究所已经推出“商业魅力城市”、“幸福城市”、“旅游城市”、“消费城市”（超链接见下）等城市榜单报告，以及有关各行业、公司、年轻人趣味与城市结合的报告，并将推出政府、机构、企业定制的城市相关数据报告和数据服务。</div>
+					<div class="cell_text">Links</div>
+					<div class="cell_text">商业魅力城市 reportfiles/2016report-2016rank.pdf</div>
+					<div class="cell_text">幸  福  城  市 reportfiles/2015report-lifestylerank.pdf</div>
+					<div class="cell_text">旅  游  城  市 reportfiles/2015report-touristcities.pdf</div>
+					<div class="cell_text">消  费  城  市 reportfiles/2015report-consumrank.pdf</div>
+				</div>
+				<div style="clear:both"></div>
+			</div>
+			<div style="margin-top:30px">
+				<div class="cell_logo"><img src="../assets/images/what_p4.png"></div>
+				<div class="cell_content">
+					<div class="cell_title">媒体报道</div>
+					<div class="cell_text">《“新一酱”的幸福城市》<br>link:http://www.jfdaily.com/pl/bw/201604/t20160417_2222643.html</div>
+					<div class="cell_text">“新一酱”的幸福城市》<br>link:http://www.jfdaily.com/pl/bw/201604/t20160417_2222643.html</div>
+					
+				</div>
+				<div style="clear:both"></div>
+			</div>
+			
+		</div>
+
+		<!-- 与底部的分割线 -->
+		<div class="splitLine"></div>
+
+
+		
+
+		<!-- 底部链接栏 -->
+		<div class="bottomLink">
+			<div class="links">
+				<div class="link">ABOUT US</div>
+				<div class="link">第一财经周刊</div>
+				<div class="link">一财网</div>
+				<div class="link">用户协议</div>
+				<div class="link">RSS订阅</div>
+			</div>
+			<div class="records">
+				<div class="email">
+					<div class="emailDot"></div>
+					<div class="word">邮件订阅</div>
+				</div>
+				<div class="record">
+					<div class="recordDot"></div>
+					<div class="word">© 2016 第一财经.新一线城市研究所 沪ICP备15026457号-2</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+
