@@ -5,7 +5,7 @@
 }
 
 .about_content{
-	border:1px solid #000;
+	/*border:1px solid #000;*/
 	margin:15px auto 0;
 	padding-bottom:38px;
 	width: 700px;
@@ -20,6 +20,7 @@
 	letter-spacing:5px;
 	color: #ADADAD;
 	line-height: 22px;
+	cursor: pointer;
 }
 
 .content_nav_right{
@@ -31,6 +32,7 @@
 	letter-spacing:5px;
 	color: #ADADAD;
 	line-height: 22px;
+	cursor: pointer;
 }
 
 .content_nav_select{
@@ -70,4 +72,59 @@
 	font-size: 11px;
 	color: #6F6F6F;
 	margin-top: 15px;
+}
+.text_word{
+	/*border:1px solid red;*/
+	width: 574px;
+	margin: 40px auto 0;
+	color: #686868;
+}
+.text_word2{
+	/*border:1px solid red;*/
+	margin-top:20px;
+}
+.memberIntroduction{
+	width: 574px;
+	margin: 20px auto 0;
+	/*border-bottom:2px solid #686868;*/
+}
+.member{
+	float: left;
+	width: 190px;
+	height: 180px;
+	/*border:1px solid #0f0;*/
+}
+.memberPhoto{
+	width: 100px;
+	height: 100px;
+	border-radius: 100px;
+	overflow: hidden;
+}
+.img{
+	width: 100px;
+	height: 100px;
+}
+.introduction{
+	border-top:1px solid #000;
+	width: 180px;
+	margin-top: 10px;
+	padding-top: 10px;
+	color: #686868;
+}
+.contractUs{
+	width: 574px;
+	margin: 0 auto;
+	border-top:2px solid #686868;
+	color: #444;
+	font-size: 14px;
+}
+.contractTitle{
+	margin-top: 40px;
+	/*border:1px solid red;*/
+	font-size: 16px;
+	font-weight: bold;
+}
+.contractEmail,.contractTel,.contractAddress{
+	margin-top: 25px;
+	letter-spacing:4px;
 }

@@ -4,7 +4,7 @@
 <link href="../assets/css/about_us.css"rel="stylesheet"type="text/css">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-<div class="css960" ng-hide="viewArticleCtrl.showBigImageModel">
+<div class="css960">
 	<div class="backgroundPosition">
 		<!-- 导航的位置 -->
 		<div class="navPosition">
@@ -14,8 +14,8 @@
 			<div class="upLine"></div>
 			<!-- 四个导航 -->
 			<div class="navs">
-				<div class="nav" ng-repeat="category in viewArticleCtrl.categories">
-					<div class="dot"><img src="{{viewArticleCtrl.hostDir+category.image}}" style="width:22px;height:22px" ng-show="category.image"></div>
+				<div class="nav" ng-repeat="category in aboutCtrl.categories">
+					<div class="dot"><img  class="img" src="{{aboutCtrl.hostDir+category.image}}" style="width:22px;height:22px" ng-show="category.image"></div>
 					<div class="navName" ng-bind="category.name" ui-sref="main({id:category._id})">城市榜单</div>
 				</div>
 				
@@ -39,15 +39,15 @@
 		</div>
 
 		<!-- 内容的位置 -->
-		<div class="articleContent about_content">
+		<div class="articleContent about_content" ng-show="aboutCtrl.aboutXinyixian">
 			<div>
 				<div class="content_nav_left content_nav_select">
-					<div>关于新一线</div>
+					<div ng-click="aboutCtrl.openAboutXinyixian()">关于新一线</div>
 					<div class="border border_green"></div>
 					<div class="border border_black"></div>
 				</div>
 				<div class="content_nav_right">
-					<div>联系新一线</div>
+					<div ng-click="aboutCtrl.openContractXinyixian()">联系新一线</div>
 					<div class="border"></div>
 					<div class="border"></div>
 				</div>
@@ -99,8 +99,69 @@
 			
 		</div>
 
+		<!-- 内容的位置2 -->
+		<div class="articleContent about_content" ng-show="aboutCtrl.contractXinyixian">
+			<div>
+				<div class="content_nav_left content_nav_select">
+					<div ng-click="aboutCtrl.openAboutXinyixian()">关于新一线</div>
+					<div class="border"></div>
+					<div class="border"></div>
+				</div>
+				<div class="content_nav_right">
+					<div ng-click="aboutCtrl.openContractXinyixian()">联系新一线</div>
+					<div class="border border_green"></div>
+					<div class="border border_black"></div>
+				</div>
+				<div style="clear:both"></div>
+			</div>
+
+			<div class="text_word">
+				<div class="text_word1">新一线城市研究所团队脱胎于《第一财经周刊》的商业报道团队，同时具备了数据新闻的分析能力，由一帮既能写代码做数据分析、又能采访报道讲故事的数据新闻记者构成。</div>
+				<div class="text_word2">我们报道的方向不局限于城市商业，而是更关注与其相关的城市人的生活方式。</div>
+			</div>
+			
+			<div class="memberIntroduction">
+				<div class="member">
+					<div class="memberPhoto"><img class="img" src="../assets/images/maoyimei.jpg"></div>
+					<div class="introduction">毛怡玫，数据新闻记者，几乎每个月都要对某些统计网站优雅地翻个白眼</div>
+				</div>
+				<div class="member">
+					<div class="memberPhoto"><img class="img" src="../assets/images/shencongle.jpg"></div>
+					<div class="introduction">沈从乐，主编，周围这几位看上去好苦的样子，其实他们各个都超享受</div>
+				</div>
+				<div class="member">
+					<div class="memberPhoto"><img class="img" src="../assets/images/shiyuhan.jpg"></div>
+					<div class="introduction">施钰涵，数据新闻编辑，跨界做数据之后，常年这个状态</div>
+				</div>
+				<div class="member">
+					<div class="memberPhoto"><img class="img" src="../assets/images/shiweibei.jpg"></div>
+					<div class="introduction">石玮蓓，市场经理，几乎24小时在线的MKTer，热衷于所有的享乐方式</div>
+				</div>
+				<div class="member">
+					<div class="memberPhoto"><img class="img" src="../assets/images/wangfanghong.jpg"></div>
+					<div class="introduction">王方宏，设计总监，内心世界住着个任性的男子</div>
+				</div>
+				<div class="member">
+					<div class="memberPhoto"><img class="img" src="../assets/images/xiangweixiao.jpg"></div>
+					<div class="introduction">项维肖，数据新闻记者，被数据搞，被稿子虐，嗯……并不苦</div>
+				</div>
+				<div class="member">
+					<div class="memberPhoto"><img class="img" src="../assets/images/xiaowenjie.jpg"></div>
+					<div class="introduction">肖文杰，《第一财经周刊》记者，特别喜欢写新一线的稿子</div>
+				</div>
+				<div style="clear:both"></div>
+			</div>
+
+			<div class="contractUs">
+				<div class="contractTitle">数据／品牌／商业合作</div>
+				<div class="contractEmail">E:xinyixian@yicai.com / shiweibei@yicai.com</div>
+				<div class="contractTel">T:021-22004339</div>
+				<div class="contractAddress">ADD:上海市静安区成都北路333号招商局广场</div>
+			</div>
+		</div>
+
 		<!-- 与底部的分割线 -->
-		<div class="splitLine"></div>
+		<div class="splitLine" style="width:574px;"></div>
 
 
 		

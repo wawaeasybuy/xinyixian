@@ -25,7 +25,7 @@ angular.module('xinyixianApp')
         // authenticate: true
       })
       .state('about_us', {
-        url: '/about_us?state',//state，1=关于新一线，2=联系新一线
+        url: '/about_us:id?state',//state，1=关于新一线，2=联系新一线
         templateUrl: 'app/show/about_us/about_us.html',
         controller: 'AboutUsController',
         controllerAs: 'aboutCtrl',
