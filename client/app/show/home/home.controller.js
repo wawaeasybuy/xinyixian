@@ -39,7 +39,10 @@ angular.module('xinyixianApp')
       self.loadAgain = function (){
         delete self.category;
         delete self.tag;
-        doLocation();
+        delete self.retrieval;
+        self.articles=[];
+        self._loadMore=true;
+        loadArticle();
       };
 
       if(self.tag){
@@ -51,7 +54,7 @@ angular.module('xinyixianApp')
         $location
           .search('id', self.category)
           .search('tag', self.tag);
-        console.log($location);
+        // console.log($location);
       };
 
        self.go = function(){
@@ -63,6 +66,9 @@ angular.module('xinyixianApp')
             page:self.pagination.page,
             itemsPerPage:self.pagination.itemsPerPage
           };
+          if(self.retrieval){
+            condition=_.merge(condition,{retrieval:self.retrieval});
+          }
           if(self.category&&self.category!='all'){
             condition=_.merge(condition,{category:self.category});
           }
@@ -222,6 +228,44 @@ angular.module('xinyixianApp')
        self.openWechatQdcode = function (){
         self.showQdcode = !self.showQdcode;
         self.qdcode = "../assets/images/wechatQrcode.png";
+       };
+
+        //搜索
+       self.select=function(){
+        // console.log("query");
+          if(!self.retrieval){return;}
+          self._loadMore=true;
+          self.pagination.page=1;
+          var condition={
+            page:self.pagination.page,
+            itemsPerPage:self.pagination.itemsPerPage
+          };
+          if(self.retrieval){
+            condition=_.merge(condition,{retrieval:self.retrieval});
+          }
+          if(self.category&&self.category!='all'){
+            condition=_.merge(condition,{category:self.category});
+          }
+          if(self.tag){
+            condition=_.merge(condition,{tag:self.tag});
+          }
+
+          Article.index(condition,function (data){
+
+            self.articles=data.articles;
+            // console.log(self.articles);
+            self.pagination.page=data.page;
+            self.pagination.totalItems=data.count;
+            var count=data.count;
+            _.each(self.articles,function (article){
+              article.i=count;
+              count--;
+            });
+            if(self.pagination.page*self.pagination.itemsPerPage>=self.pagination.totalItems){
+              self._loadMore=false;
+            }
+
+          });
        };
 
   }]);

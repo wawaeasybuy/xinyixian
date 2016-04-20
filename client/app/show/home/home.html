@@ -82,7 +82,7 @@
 			<div class="qrcodeDots">
 				<a class="qrcodeDot1" ng-click="viewHomeCtrl.openWechatQdcode()"><img width="25px" height="25px" src="../assets/images/wechat.png"></a>
 				<a class="qrcodeDot2" target="_black" ng-href="http://weibo.com/therisinglab"><img width="25px" height="25px" src="../assets/images/weibo.png"></a>
-				<a class="qrcodeDot3" target="_black" ng-href="http:// zhuanlan.zhihu.com/ therisinglab"><img width="25px" height="25px" src="../assets/images/zhihu.png"></a>
+				<a class="qrcodeDot3" target="_black" ng-href="http://zhuanlan.zhihu.com/therisinglab"><img width="25px" height="25px" src="../assets/images/zhihu.png"></a>
 				<a class="qrcodeDot4" ng-click="viewHomeCtrl.openQqQdcode()"><img width="25px" height="25px" src="../assets/images/qq.png"></a>
 				<a class="qrcodeDot5" target="_black" ng-href="mailto:xinyixian@yicai.co m"><img width="25px" height="25px" src="../assets/images/email.png"></a>
 			</div>
@@ -90,7 +90,7 @@
 			<div class="showQdcode" ng-show="viewHomeCtrl.showQdcode"><img width="170px" height="170px" src="{{viewHomeCtrl.qdcode}}"></div>
 
 			<!-- 搜索 -->
-			<div class="search"><input type="text" placeholder="Search"></div>
+			<div class="search"><input type="text" placeholder="Search" ng-change="viewHomeCtrl.select()" ng-model="viewHomeCtrl.retrieval"></div>
 
 			<!-- 所有文章 -->
 			<div class="articleKind" ng-bind="viewHomeCtrl.showSelected">所有文章</div>
@@ -117,7 +117,8 @@
 			</div>
 			<div style="clear:both"></div>
 		</div>
-		<div class="loadMore" ng-click="viewHomeCtrl.loadMore()" ng-show="viewHomeCtrl._loadMore">loadmore...</div>
+		<div class="loadMore" ng-show="viewHomeCtrl._loadMore" ng-click="viewHomeCtrl.loadMore()" style="cursor: pointer;">loadmore...</div>
+		 
 
 		<!-- 底部链接栏 -->
 		<div class="bottomLink">
@@ -169,9 +170,9 @@
     			<div class="word" ng-bind="viewHomeCtrl.categories[3].name">report</div>
     		</div>
     		<div class="btns">
-    			<div class="aboutUs">home</div>
+    			<div class="aboutUs" ng-click="viewHomeCtrl.loadAgain()">home</div>
+    			<input class="search" type="text" placeholder="Search" ng-change="viewHomeCtrl.select()" ng-model="viewHomeCtrl.retrieval">
 	    		<div class="aboutUs">about us</div>
-	    		<input class="search" type="text" placeholder="Search">
 	    		<div class="closeNav" ng-click="viewHomeCtrl.closeNav()"></div>
 	    	</div>
     		<!-- <div style="clear:both"></div> -->
@@ -199,10 +200,12 @@
 				<div class="cityIntroduction" style="text-overflow:ellipsis" ng-bind="article.summary">城市向上生长的野心从未停止</div>
 				<div class="time" ng-bind="article.updateDate | date:'yyyy.MM.dd'">2015.10.10</div>
 			</div>
+
 			<div style="clear:both"></div>
+			<div class="loadMore" ng-click="viewHomeCtrl.loadMore()" ng-show="viewHomeCtrl._loadMore" style="color:#fff;text-align:center;margin-top:10px;cursor: pointer;">loadmore...</div>
 		</div>
 		<div style="clear:both"></div>
 	</div>
-
+	
 
 </div>

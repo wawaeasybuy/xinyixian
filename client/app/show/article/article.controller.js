@@ -113,6 +113,8 @@ angular.module('xinyixianApp')
         self.qdcode = "../assets/images/wechatQrcode.png";
        };
 
+      
+
 
     init();
   }]);

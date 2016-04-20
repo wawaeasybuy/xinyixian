@@ -324,7 +324,7 @@ exports.admin_index=function (req,res){
         limit: itemsPerPage
 	})
 	.populate("tags category")
-	.sort({index:1})
+	.sort({index:-1})
 	.exec(function (err,articles){
 		if(err){ return handleError(res,err);}
 		return res.json(200,{

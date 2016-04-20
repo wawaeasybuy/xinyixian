@@ -4,14 +4,14 @@ angular.module('xinyixianApp')
   .config(function($stateProvider) {
     $stateProvider
       .state('view-home', {
-        url: '/show/home/view?page&itemsPerPage&id&tag',//id为category,tag为tag
+        url: '/show/home/view?page&itemsPerPage&id&tag&retrieval',//id为category,tag为tag
         templateUrl: 'app/show/home/home.html',
         controller: 'ViewHomeController',
         controllerAs: 'viewHomeCtrl',
         // authenticate: true
       })
       .state('main', {
-        url: '/?page&itemsPerPage&id&tag',//id为category,tag为tag
+        url: '/?page&itemsPerPage&id&tag&retrieval',//id为category,tag为tag
         templateUrl: 'app/show/home/home.html',
         controller: 'ViewHomeController',
         controllerAs: 'viewHomeCtrl',

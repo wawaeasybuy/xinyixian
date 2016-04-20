@@ -8,26 +8,23 @@ angular.module('xinyixianApp')
        self.aboutXinyixian = true;
        self.contractXinyixian = false;
        self.showQdcode = false;
-
+       //图片文件目录
+      self.hostDir=upload_image_url;
 
        //载入category,
-		// var loadCategory=function(){
-		// 	var condition={
-		// 		page:1,
-		// 		itemsPerPage:4
-		// 	};
-		// 	Category.index(condition,function (data){
-		// 		self.categories=data.categories;
-		// 		var c=_.findWhere(self.categories,{_id:self.category});
-		// 		if(c){
-		// 		    self.showSelected=c.name;
-		// 		    c.style="border:5px solid #0f0";
-		// 		}
-		// 	});
-		// };
+		var loadCategory=function(){
+			var condition={
+				page:1,
+				itemsPerPage:4
+			};
+			Category.index(condition,function (data){
+				self.categories=data.categories;
+				var c=_.findWhere(self.categories,{_id:self.category});
+			});
+		};
 
     	var init=function(){
-        	// loadCategory();
+        	loadCategory();
     	};
 
 
