@@ -38,7 +38,7 @@ User.find({}).remove(function() {
     role: 'admin',
     name: 'Admin',
     email: 'admin@admin.com',
-    password: 'admin'
+    password: 'xinyixian'
   }, function() {
       console.log('finished populating admin');
       User.create({
