@@ -128,6 +128,15 @@ a{text-decoration: none;}
 	z-index: 999;
 	box-shadow: #ccc 0 0 5px 0;
 }
+.Qdcode{
+	position:relative;
+	top:20px;
+	left:20px;
+	width:130px;
+}
+.Qdcode img{
+	width:130px;
+}
 /*搜索*/
 .search{
 	float: right;

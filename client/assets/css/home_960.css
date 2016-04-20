@@ -421,10 +421,19 @@ a{text-decoration: none;}
 	position: absolute;
 	top:45px;
 	left: 830px;
-	/*background-color: #0F0;*/
-	/*opacity: 0.8;*/
+	background-color: #0F0;
+	opacity: 0.8;
 	overflow: hidden;
 	/*display: none;*/
+}
+.Qdcode{
+	position:relative;
+	top:20px;
+	left:20px;
+	width:130px;
+}
+.Qdcode img{
+	width:130px;
 }
 /*搜索*/
 .search{

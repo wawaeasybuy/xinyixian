@@ -32,7 +32,12 @@
 				<a class="qrcodeDot5" target="_black" ng-href="mailto:xinyixian@yicai.co m"><img width="25px" height="25px" src="../assets/images/email.png"></a>
 			</div>
 			<!-- 显示二维码圆 -->
-			<div class="showQdcode" ng-show="viewArticleCtrl.showQdcode"><img width="170px" height="170px" src="{{viewArticleCtrl.qdcode}}"></div>
+			<div class="showQdcode" ng-show="viewArticleCtrl.showQdcode">
+				<div class="Qdcode">
+					<img src="{{viewArticleCtrl.qdcode}}">
+				</div>
+				<!-- <img width="170px" height="170px" src="{{viewArticleCtrl.qdcode}}"> -->
+			</div>
 
 			<!-- 下横线 -->
 			<div class="downLine"></div>

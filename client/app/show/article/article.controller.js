@@ -105,12 +105,22 @@ angular.module('xinyixianApp')
 
        // 打开二维码
        self.openQqQdcode = function (){
-        self.showQdcode = !self.showQdcode;
-        self.qdcode = "../assets/images/qqQrcode.png";
+        
+        if(self.showQdcode&&self.qdcode == "../assets/images/wechatQrcode.png"){
+          self.qdcode = "../assets/images/qqQrcode.png";
+        }else{
+          self.showQdcode = !self.showQdcode;
+          self.qdcode = "../assets/images/qqQrcode.png";
+        }
+        
        };
        self.openWechatQdcode = function (){
-        self.showQdcode = !self.showQdcode;
-        self.qdcode = "../assets/images/wechatQrcode.png";
+        if(self.showQdcode&&self.qdcode == "../assets/images/qqQrcode.png"){
+          self.qdcode = "../assets/images/wechatQrcode.png";
+        }else{
+          self.showQdcode = !self.showQdcode;
+          self.qdcode = "../assets/images/wechatQrcode.png";
+        }
        };
 
       
