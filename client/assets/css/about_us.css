@@ -72,6 +72,7 @@
 	font-size: 11px;
 	color: #6F6F6F;
 	margin-top: 15px;
+	border:none;
 }
 .text_word{
 	/*border:1px solid red;*/
@@ -127,4 +128,7 @@
 .contractEmail,.contractTel,.contractAddress{
 	margin-top: 25px;
 	letter-spacing:4px;
+}
+.link{
+	cursor: pointer;
 }

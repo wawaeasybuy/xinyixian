@@ -13,6 +13,7 @@ html,body{height:100%; width:100%;}
 	/*overflow:hidden; */
 	margin:0; 
 	padding:0;
+	border:1px solid red;
 }
 .bigImage{
 	display: none;
@@ -127,7 +128,7 @@ html,body{height:100%; width:100%;}
 }
 .articleListPosition{
 	/*border:1px solid red;*/
-	width: 150px;
+	width: 660px;
 	margin: 0 auto;
 }
 /*某篇文章*/
@@ -136,6 +137,8 @@ html,body{height:100%; width:100%;}
 	float: left;
 	width: 150px;
 	height: 198px;
+	margin-left: 35px;
+	margin-right: 35px;
 	margin-top: 30px;
 	position: relative;
 }

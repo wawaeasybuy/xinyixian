@@ -23,14 +23,18 @@ angular.module('xinyixianApp')
 
       self.changeStyle = "";
 
+      self.showQdcode = false;
+
       self.styleChange = function (){
           self.showOpen = false;
           self.changeStyle="position: fixed;top:0px;left: 0%;opacity: 0.8;";
+          self.openNav = "opacity:0;transition:0.2s linear;"
         // position: fixed;top:0px;left: 0%;opacity: 0.8;
       };
       self.closeNav = function (){
         self.showOpen = true;
         self.changeStyle="";
+        self.openNav = "opacity:1;transition:0.2s linear 0.6s;"
       };
       self.loadAgain = function (){
         delete self.category;
@@ -208,5 +212,16 @@ angular.module('xinyixianApp')
           self.tag=tag._id;
           delete self.category;
           doLocation();
-       };        
+       };  
+
+       // 打开二维码
+       self.openQqQdcode = function (){
+        self.showQdcode = !self.showQdcode;
+        self.qdcode = "../assets/images/qqQrcode.png";
+       };
+       self.openWechatQdcode = function (){
+        self.showQdcode = !self.showQdcode;
+        self.qdcode = "../assets/images/wechatQrcode.png";
+       };
+
   }]);

@@ -1,7 +1,8 @@
-body,span{margin: 0px;padding: 0px;}
+body,span,a{margin: 0px;padding: 0px;}
 body{
 	background-color: #353535;
 }
+a{text-decoration: none;}
 .css320{
 	display: none;
 }
@@ -372,12 +373,20 @@ body{
 	left:1230px;
 }
 /*二维码圆*/
-.qrcodeDots div{
+.qrcodeDots a{
 	width: 25px;
 	height: 25px;
 	border-radius: 25px;
-	background-color: #fff;
+	/*background-color: #0f0;*/
 	cursor: pointer;
+	overflow: hidden;
+}
+.qrcodeDots a img{
+	width: 25px;
+	height: 25px;
+	position: relative;
+	top:-2px;
+	left: -2px;
 }
 .qrcodeDot1{
 	position: absolute;
@@ -412,16 +421,29 @@ body{
 	position: absolute;
 	top:45px;
 	left: 830px;
-	background-color: #00ff00;
-	opacity: 0.8;
-	display: none;
+	/*background-color: #0F0;*/
+	/*opacity: 0.8;*/
+	overflow: hidden;
+	/*display: none;*/
 }
-.qrcodeDot1:hover,
-.qrcodeDot2:hover,
-.qrcodeDot3:hover,
-.qrcodeDot4:hover,
-.qrcodeDot5:hover{
-	background-color: #00ff00;
+/*搜索*/
+.search{
+	border-bottom:2px solid #ccc;
+	width: 100px;
+	height: 22px;
+	margin-left: 20px;
+	position: relative;
+	top:-20px;
+	position: absolute;
+	top:15px;
+	left: 1000px;
+}
+.search input{
+	width: 100px;
+	height: 20px;
+	text-indent: 20px;
+	background-color: #353535;
+	border:none;
 }
 
 
@@ -622,6 +644,7 @@ body{
 	font-size: 12px;
 	font-weight: bold;
 	color: #b6b6b6;
+	border:none;
 }
 .records{
 	/*border:1px solid red;*/
@@ -648,5 +671,7 @@ body{
 .word{
 	float: left;
 	margin-left: 5px;
+	border:none;
+	color:#b6b6b6;
 }
 /*底部链接栏*/

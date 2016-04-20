@@ -13,6 +13,7 @@ angular.module('xinyixianApp')
 
 
        self.showBigImageModel=false;
+       self.showQdcode = false;
 
        
        //图片文件目录
@@ -100,6 +101,19 @@ angular.module('xinyixianApp')
        self.closeBigImageModel=function(){
         self.showBigImageModel=false;
        };
-        init();
+
+
+       // 打开二维码
+       self.openQqQdcode = function (){
+        self.showQdcode = !self.showQdcode;
+        self.qdcode = "../assets/images/qqQrcode.png";
+       };
+       self.openWechatQdcode = function (){
+        self.showQdcode = !self.showQdcode;
+        self.qdcode = "../assets/images/wechatQrcode.png";
+       };
+
+
+    init();
   }]);
 

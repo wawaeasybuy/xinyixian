@@ -19,16 +19,21 @@
 				</div>
 				
 			</div>
-			<!-- 二维码展示区 -->
-			<div class="qrCodes">
-				<div class="qrCode"></div>
-				<div class="qrCode"></div>
-				<div class="qrCode"></div>
-				<div class="qrCode"></div>
-				<div class="qrCode"></div>
-			</div>
+
 			<!-- 搜索 -->
-			<!-- <div class="search">暂定</div> -->
+			<div class="search"><input type="text" placeholder="Search"></div>
+
+			<!-- 二维码圆 -->
+			<div class="qrcodeDots">
+				<a class="qrcodeDot1" ng-click="viewArticleCtrl.openWechatQdcode()"><img width="25px" height="25px" src="../assets/images/wechat.png"></a>
+				<a class="qrcodeDot2" target="_black" ng-href="http://weibo.com/therisinglab"><img width="25px" height="25px" src="../assets/images/weibo.png"></a>
+				<a class="qrcodeDot3" target="_black" ng-href="http:// zhuanlan.zhihu.com/ therisinglab"><img width="25px" height="25px" src="../assets/images/zhihu.png"></a>
+				<a class="qrcodeDot4" ng-click="viewArticleCtrl.openQqQdcode()"><img width="25px" height="25px" src="../assets/images/qq.png"></a>
+				<a class="qrcodeDot5" target="_black" ng-href="mailto:xinyixian@yicai.co m"><img width="25px" height="25px" src="../assets/images/email.png"></a>
+			</div>
+			<!-- 显示二维码圆 -->
+			<div class="showQdcode" ng-show="viewArticleCtrl.showQdcode"><img width="170px" height="170px" src="{{viewArticleCtrl.qdcode}}"></div>
+
 			<!-- 下横线 -->
 			<div class="downLine"></div>
 		</div>
@@ -80,23 +85,23 @@
 		<!-- 底部链接栏 -->
 		<div class="bottomLink">
 			<div class="links">
-				<div class="link">ABOUT US</div>
-				<div class="link">第一财经周刊</div>
-				<div class="link">一财网</div>
-				<div class="link">用户协议</div>
-				<div class="link">RSS订阅</div>
+				<a class="link" ui-sref="about_us">ABOUT US</a>
+				<a class="link" target="_black" ng-href="http://www.cbnweek.com">第一财经周刊</a>
+				<a class="link" target="_black" ng-href="http://www.yicai.com">一财网</a>
+				<a class="link" target="_black" ng-href="">用户协议</a>
+				<a class="link" target="_black" ng-href="">RSS订阅</a>
 			</div>
 			<div class="records">
 				<div class="email">
 					<div class="emailDot"></div>
-					<div class="word">邮件订阅</div>
+					<a class="word" target="_black" ng-href="http://www.therisinglab.com/emailsubscribe/">邮件订阅</a>
 				</div>
 				<div class="record">
 					<div class="recordDot"></div>
-					<div class="word">© 2016 第一财经.新一线城市研究所 沪ICP备15026457号-2</div>
+					<a class="word" target="_black" ng-href="http://www.miitbeian.gov.cn/">© 2016 第一财经.新一线城市研究所 沪ICP备15026457号-2</a>
 				</div>
 			</div>
-		</div>
+		</div> 
 
 	</div>
 </div>

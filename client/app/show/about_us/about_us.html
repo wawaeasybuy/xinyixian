@@ -20,14 +20,16 @@
 				</div>
 				
 			</div>
-			<!-- 二维码展示区 -->
-			<div class="qrCodes">
-				<div class="qrCode"></div>
-				<div class="qrCode"></div>
-				<div class="qrCode"></div>
-				<div class="qrCode"></div>
-				<div class="qrCode"></div>
+			<!-- 二维码圆 -->
+			<div class="qrcodeDots">
+				<a class="qrcodeDot1" ng-click="aboutCtrl.openWechatQdcode()"><img width="25px" height="25px" src="../assets/images/wechat.png"></a>
+				<a class="qrcodeDot2" target="_black" ng-href="http://weibo.com/therisinglab"><img width="25px" height="25px" src="../assets/images/weibo.png"></a>
+				<a class="qrcodeDot3" target="_black" ng-href="http:// zhuanlan.zhihu.com/ therisinglab"><img width="25px" height="25px" src="../assets/images/zhihu.png"></a>
+				<a class="qrcodeDot4" ng-click="aboutCtrl.openQqQdcode()"><img width="25px" height="25px" src="../assets/images/qq.png"></a>
+				<a class="qrcodeDot5" target="_black" ng-href="mailto:xinyixian@yicai.co m"><img width="25px" height="25px" src="../assets/images/email.png"></a>
 			</div>
+			<!-- 显示二维码圆 -->
+			<div class="showQdcode" ng-show="aboutCtrl.showQdcode"><img width="170px" height="170px" src="{{aboutCtrl.qdcode}}"></div>
 			<!-- 搜索 -->
 			<!-- <div class="search">暂定</div> -->
 			<!-- 下横线 -->
@@ -42,12 +44,12 @@
 		<div class="articleContent about_content" ng-show="aboutCtrl.aboutXinyixian">
 			<div>
 				<div class="content_nav_left content_nav_select">
-					<div ng-click="aboutCtrl.openAboutXinyixian()">关于新一线</div>
+					<div ng-click="aboutCtrl.openAboutXinyixian()" style="color:#333">关于新一线</div>
 					<div class="border border_green"></div>
 					<div class="border border_black"></div>
 				</div>
 				<div class="content_nav_right">
-					<div ng-click="aboutCtrl.openContractXinyixian()">联系新一线</div>
+					<div ng-click="aboutCtrl.openContractXinyixian()" style="color:#686868">联系新一线</div>
 					<div class="border"></div>
 					<div class="border"></div>
 				</div>
@@ -79,10 +81,10 @@
 					<div class="cell_text">新一线城市研究所拥有覆盖338座中国地级以上城市和200个品牌的城市商业数据库，30家互联网平台的用户行为数据库，以及城市基础资料库、城市商业生态数据库和基于地理信息的互联网数据库。</div>
 					<div class="cell_text">目前，新一线城市研究所已经推出“商业魅力城市”、“幸福城市”、“旅游城市”、“消费城市”（超链接见下）等城市榜单报告，以及有关各行业、公司、年轻人趣味与城市结合的报告，并将推出政府、机构、企业定制的城市相关数据报告和数据服务。</div>
 					<div class="cell_text">Links</div>
-					<div class="cell_text">商业魅力城市 reportfiles/2016report-2016rank.pdf</div>
-					<div class="cell_text">幸  福  城  市 reportfiles/2015report-lifestylerank.pdf</div>
-					<div class="cell_text">旅  游  城  市 reportfiles/2015report-touristcities.pdf</div>
-					<div class="cell_text">消  费  城  市 reportfiles/2015report-consumrank.pdf</div>
+					<div class="cell_text link" ui-sref="../assets/reportfiles/2016report-2016rank.pdf">商业魅力城市 reportfiles/2016report-2016rank.pdf</div>
+					<div class="cell_text link" ui-sref="../assets/2015report-lifestylerank.pdf">幸  福  城  市 reportfiles/2015report-lifestylerank.pdf</div>
+					<div class="cell_text link" ui-sref="../assets/2015report-touristcities.pdf">旅  游  城  市 reportfiles/2015report-touristcities.pdf</div>
+					<div class="cell_text link" ui-sref="../assets/reportfiles/2015report-consumrank.pdf">消  费  城  市 reportfiles/2015report-consumrank.pdf</div>
 				</div>
 				<div style="clear:both"></div>
 			</div>
@@ -90,8 +92,8 @@
 				<div class="cell_logo"><img src="../assets/images/what_p4.png"></div>
 				<div class="cell_content">
 					<div class="cell_title">媒体报道</div>
-					<div class="cell_text">《“新一酱”的幸福城市》<br>link:http://www.jfdaily.com/pl/bw/201604/t20160417_2222643.html</div>
-					<div class="cell_text">“新一酱”的幸福城市》<br>link:http://www.jfdaily.com/pl/bw/201604/t20160417_2222643.html</div>
+					<a class="cell_text" target="_blank" ng-href="http://www.jfdaily.com/pl/bw/201604/t20160417_2222643.html">《“新一酱”的幸福城市》<br>link:http://www.jfdaily.com/pl/bw/201604/t20160417_2222643.html</a>
+					<a class="cell_text" target="_blank" ng-href="http://www.jfdaily.com/pl/bw/201604/t20160417_2222643.html">“新一酱”的幸福城市》<br>link:http://www.jfdaily.com/pl/bw/201604/t20160417_2222643.html</a>
 					
 				</div>
 				<div style="clear:both"></div>
@@ -103,12 +105,12 @@
 		<div class="articleContent about_content" ng-show="aboutCtrl.contractXinyixian">
 			<div>
 				<div class="content_nav_left content_nav_select">
-					<div ng-click="aboutCtrl.openAboutXinyixian()">关于新一线</div>
+					<div ng-click="aboutCtrl.openAboutXinyixian()" style="color:#686868">关于新一线</div>
 					<div class="border"></div>
 					<div class="border"></div>
 				</div>
 				<div class="content_nav_right">
-					<div ng-click="aboutCtrl.openContractXinyixian()">联系新一线</div>
+					<div ng-click="aboutCtrl.openContractXinyixian()" style="color:#333">联系新一线</div>
 					<div class="border border_green"></div>
 					<div class="border border_black"></div>
 				</div>
@@ -169,23 +171,23 @@
 		<!-- 底部链接栏 -->
 		<div class="bottomLink">
 			<div class="links">
-				<div class="link">ABOUT US</div>
-				<div class="link">第一财经周刊</div>
-				<div class="link">一财网</div>
-				<div class="link">用户协议</div>
-				<div class="link">RSS订阅</div>
+				<a class="link" ui-sref="about_us">ABOUT US</a>
+				<a class="link" target="_black" ng-href="http://www.cbnweek.com">第一财经周刊</a>
+				<a class="link" target="_black" ng-href="http://www.yicai.com">一财网</a>
+				<a class="link" target="_black" ng-href="">用户协议</a>
+				<a class="link" target="_black" ng-href="">RSS订阅</a>
 			</div>
 			<div class="records">
 				<div class="email">
 					<div class="emailDot"></div>
-					<div class="word">邮件订阅</div>
+					<a class="word" target="_black" ng-href="http://www.therisinglab.com/emailsubscribe/">邮件订阅</a>
 				</div>
 				<div class="record">
 					<div class="recordDot"></div>
-					<div class="word">© 2016 第一财经.新一线城市研究所 沪ICP备15026457号-2</div>
+					<a class="word" target="_black" ng-href="http://www.miitbeian.gov.cn/">© 2016 第一财经.新一线城市研究所 沪ICP备15026457号-2</a>
 				</div>
 			</div>
-		</div>
+		</div> 
 
 	</div>
 </div>

@@ -1,7 +1,9 @@
 
 <link href="../assets/css/home_1280.css" rel="stylesheet" type="text/css" media="screen and (min-width: 1280px) and (max-width: 1920px)">
 <link href="../assets/css/home_960.css"rel="stylesheet"type="text/css"  media="screen and (min-width: 960px) and (max-width: 1279px)">
-<link href="../assets/css/home_000.css"rel="stylesheet"type="text/css"  media="screen and (min-width: 0px) and (max-width: 959px)">
+<link href="../assets/css/home_900.css"rel="stylesheet"type="text/css"  media="screen and (min-width: 900px) and (max-width: 959px)">
+<link href="../assets/css/home_550.css"rel="stylesheet"type="text/css"  media="screen and (min-width: 550px) and (max-width: 900px)">
+<link href="../assets/css/home_000.css"rel="stylesheet"type="text/css"  media="screen and (min-width: 0px) and (max-width: 550px)">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <div class="css960">
@@ -78,14 +80,18 @@
 			</div>
 			<!-- 二维码圆 -->
 			<div class="qrcodeDots">
-				<div class="qrcodeDot1"></div>
-				<div class="qrcodeDot2"></div>
-				<div class="qrcodeDot3"></div>
-				<div class="qrcodeDot4"></div>
-				<div class="qrcodeDot5"></div>
+				<a class="qrcodeDot1" ng-click="viewHomeCtrl.openWechatQdcode()"><img width="25px" height="25px" src="../assets/images/wechat.png"></a>
+				<a class="qrcodeDot2" target="_black" ng-href="http://weibo.com/therisinglab"><img width="25px" height="25px" src="../assets/images/weibo.png"></a>
+				<a class="qrcodeDot3" target="_black" ng-href="http:// zhuanlan.zhihu.com/ therisinglab"><img width="25px" height="25px" src="../assets/images/zhihu.png"></a>
+				<a class="qrcodeDot4" ng-click="viewHomeCtrl.openQqQdcode()"><img width="25px" height="25px" src="../assets/images/qq.png"></a>
+				<a class="qrcodeDot5" target="_black" ng-href="mailto:xinyixian@yicai.co m"><img width="25px" height="25px" src="../assets/images/email.png"></a>
 			</div>
 			<!-- 显示二维码圆 -->
-			<div class="showQdcode"></div>
+			<div class="showQdcode" ng-show="viewHomeCtrl.showQdcode"><img width="170px" height="170px" src="{{viewHomeCtrl.qdcode}}"></div>
+
+			<!-- 搜索 -->
+			<div class="search"><input type="text" placeholder="Search"></div>
+
 			<!-- 所有文章 -->
 			<div class="articleKind" ng-bind="viewHomeCtrl.showSelected">所有文章</div>
 		</div>
@@ -116,20 +122,20 @@
 		<!-- 底部链接栏 -->
 		<div class="bottomLink">
 			<div class="links">
-				<div class="link">ABOUT US</div>
-				<div class="link">第一财经周刊</div>
-				<div class="link">一财网</div>
-				<div class="link">用户协议</div>
-				<div class="link">RSS订阅</div>
+				<a class="link" ui-sref="about_us">ABOUT US</a>
+				<a class="link" target="_black" ng-href="http://www.cbnweek.com">第一财经周刊</a>
+				<a class="link" target="_black" ng-href="http://www.yicai.com">一财网</a>
+				<a class="link" target="_black" ng-href="">用户协议</a>
+				<a class="link" target="_black" ng-href="">RSS订阅</a>
 			</div>
 			<div class="records">
 				<div class="email">
 					<div class="emailDot"></div>
-					<div class="word">邮件订阅</div>
+					<a class="word" target="_black" ng-href="http://www.therisinglab.com/emailsubscribe/">邮件订阅</a>
 				</div>
 				<div class="record">
 					<div class="recordDot"></div>
-					<div class="word">© 2016 第一财经.新一线城市研究所 沪ICP备15026457号-2</div>
+					<a class="word" target="_black" ng-href="http://www.miitbeian.gov.cn/">© 2016 第一财经.新一线城市研究所 沪ICP备15026457号-2</a>
 				</div>
 			</div>
 		</div> 
@@ -163,12 +169,14 @@
     			<div class="word" ng-bind="viewHomeCtrl.categories[3].name">report</div>
     		</div>
     		<div class="btns">
+    			<div class="aboutUs">home</div>
 	    		<div class="aboutUs">about us</div>
+	    		<input class="search" type="text" placeholder="Search">
 	    		<div class="closeNav" ng-click="viewHomeCtrl.closeNav()"></div>
 	    	</div>
     		<!-- <div style="clear:both"></div> -->
     	</div>
-    	<div class="openNav" ng-show="viewHomeCtrl.showOpen" ng-click="viewHomeCtrl.styleChange()"><img src="../assets/images/right.png"></div>
+    	<div class="openNav" style="{{viewHomeCtrl.openNav}}" ng-click="viewHomeCtrl.styleChange()"><img src="../assets/images/right.png"></div>
 	</div>
 	<!-- <div class="rightArrow"></div> -->
 
@@ -188,7 +196,7 @@
 					<span class="symbol">#</span>
 					<span class="num" ng-bind="article.i">14</span>
 				</div>
-				<div class="cityIntroduction" ng-bind="article.summary">城市向上生长的野心从未停止</div>
+				<div class="cityIntroduction" style="text-overflow:ellipsis" ng-bind="article.summary">城市向上生长的野心从未停止</div>
 				<div class="time" ng-bind="article.updateDate | date:'yyyy.MM.dd'">2015.10.10</div>
 			</div>
 			<div style="clear:both"></div>
