@@ -31,6 +31,12 @@ angular.module('xinyixianApp')
           controller:'dustbin'
         }
       },
+      addPv:{
+        method: 'PUT',
+        params:{
+          controller:'pv'
+        }
+      },
       destory:{
         method: 'DELETE'
       },

@@ -437,11 +437,14 @@ exports.pushArticle=function (req,res){
 	User.find({sign:'1'},function (err,user){
 		var amount=user.nextArticleNumber-1;
 		Article.find(condition,function (err,articles){
+			console.log("2");
 			if(articles.length<=5){
+				console.log("3");
 				return res.json(200,{articles:articles});
 			}else{
 				articles=getRandNum(articles,5);
-				return res.json(200,{articles:articles});
+				// console.log(articles);
+				return res.json(200,{"articles":articles});
 			}
 		});
 	});
@@ -455,5 +458,15 @@ var getRandNum=function(arr,num){
 		arts.push(arr[index]);
 		arr.splice(arr[index],1);
 	}
-	
+	return arts;
+};
+
+//计算有效阅读量
+exports.addPv=function (req,res){
+	var id=req.params.id;
+	Article.findByIdAndUpdate(id,{ $inc: { pv: 1 } },function (err,article){
+		if(err){ return handleError(res,err);}
+		if(!article){return res.json(404,{error:{msg:'article not found'}});}
+		return res.json(200,{msg:'ok'});
+	});
 };

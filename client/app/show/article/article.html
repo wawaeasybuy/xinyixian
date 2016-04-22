@@ -69,7 +69,7 @@
 
 		<!-- 推荐列表 -->
 		<div class="recommendList">
-			<div class="recommend" ng-repeat="article in viewArticleCtrl.pushArticles">
+			<div class="recommend" ng-repeat="article in viewArticleCtrl.pushArticles" ui-sref="view-article({id:article._id})" ng-click="viewArticleCtrl.addpv(article._id)">
 				<div class="recommendIcon">
 					<div class="pictureBox">
 						<image class="picture" src="{{viewArticleCtrl.hostDir+article.thumbnail}}">

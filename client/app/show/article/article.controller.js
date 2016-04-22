@@ -123,7 +123,12 @@ angular.module('xinyixianApp')
         }
        };
 
-      
+      //增加阅读量
+       self.addpv=function(id){
+          Article.addPv({id:id},{},function(){
+            
+          });
+       };
 
 
     init();

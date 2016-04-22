@@ -104,7 +104,7 @@
 		<!-- 文章内容 -->
 		<div class="articleList">
 			<div class="openArticleList"></div>
-			<div class="articl" ng-repeat="article in viewHomeCtrl.articles" ui-sref="view-article({id:article._id,category:viewHomeCtrl.id,tag:viewHomeCtrl.tag})">
+			<div class="articl" ng-repeat="article in viewHomeCtrl.articles" ui-sref="view-article({id:article._id,category:viewHomeCtrl.id,tag:viewHomeCtrl.tag})" ng-click="viewHomeCtrl.addpv(article._id)">
 				<div class="aeticlIcon">
 					<div class="pictureBox">
 						<image class="picture" src="{{viewHomeCtrl.hostDir+article.thumbnail}}">
