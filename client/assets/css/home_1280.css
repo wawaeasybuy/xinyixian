@@ -384,22 +384,22 @@ a{text-decoration: none;}
 .qrcodeDot1{
 	position: absolute;
 	top:15px;
-	left:770px;
+	left:794px;
 }
 .qrcodeDot2{
 	position: absolute;
 	top:15px;
-	left:820px;
+	left:838px;
 }
 .qrcodeDot3{
 	position: absolute;
 	top:15px;
-	left:870px;
+	left:882px;
 }
 .qrcodeDot4{
 	position: absolute;
 	top:15px;
-	left:920px;
+	left:926px;
 }
 .qrcodeDot5{
 	position: absolute;
@@ -420,13 +420,16 @@ a{text-decoration: none;}
 	/*display: none;*/
 }
 .Qdcode{
-	position:relative;
+	/*position:relative;
 	top:20px;
 	left:20px;
-	width:130px;
+	width:130px;*/
 }
 .Qdcode img{
-	width:130px;
+	width:100px;
+	height: 100px;
+	margin-top: 35px;
+	margin-left: 35px;
 }
 /*搜索*/
 .search{
