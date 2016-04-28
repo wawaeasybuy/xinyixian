@@ -22,6 +22,9 @@ angular.module('xinyixianApp')
     			if(self.category.image){
                     self.showImage=upload_image_url+self.category.image;
                 }
+                if(self.category.icon){
+                    self.showIcon=upload_image_url+self.category.icon;
+                }
                 self.showTags=_.clone(self.category.tags);
     		},function(){
 
@@ -54,6 +57,33 @@ angular.module('xinyixianApp')
 	                alert("上传失败");
 	            }, function (evt) {
 	            	self.loaded = parseInt(100.0 * evt.loaded / evt.total);
+	            });
+	        };
+	    };
+
+	    self.upload2=function(file){
+	        // console.log("sasa");
+	        // console.log(file);
+	        if(file.length>0){
+	            var file=file[0];
+	            var now = new Date().getTime();
+	            var nowStr = now.toString();
+	            var rand = (Math.floor(Math.random() * (MAX - MIN)) + MIN).toString();
+	            var randStr = rand.toString();
+	            var filename = nowStr + '_' + randStr + '_' + file.name.replace(/[^0-9a-z\.]+/gi, '');
+	            console.log(filename);
+	            Upload.upload({
+	                method: 'POST',
+	                url: 'api/upload',
+	                data: {file: file, 'filename': filename}
+	            }).then(function (resp) {
+	            	self.category.icon=filename;
+	                self.showIcon=upload_image_url+filename;
+
+	            }, function (resp) {
+	                alert("上传失败");
+	            }, function (evt) {
+	            	self.loaded2 = parseInt(100.0 * evt.loaded / evt.total);
 	            });
 	        };
 	    };

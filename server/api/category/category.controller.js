@@ -23,7 +23,7 @@ var getNoRepeatArr=function (arr){
 
 //create category
 exports.create=function (req,res){
-	var categoryDetails=_.pick(req.body,'name','image','tags');
+	var categoryDetails=_.pick(req.body,'name','image','tags','icon');
 	if(!categoryDetails.name){return res.json(400,{error:{msg:'name is required'}});}
 	categoryDetails.tags=getNoRepeatArr(categoryDetails.tags);
 	categoryDetails.createDate=new Date();
@@ -47,7 +47,7 @@ exports.update=function(req,res){
 	var id=req.params.id;
 	if(!id){return res.json(400,{error:{msg:'id is required'}});}
 	
-	var categoryDetails=_.pick(req.body,'name','image','tags');
+	var categoryDetails=_.pick(req.body,'name','image','tags','icon');
 	categoryDetails.tags=getNoRepeatArr(categoryDetails.tags);
 	Category.findById(id,function (err,category){
 		if(err){ return handleError(res,err);}

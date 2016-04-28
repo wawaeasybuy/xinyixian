@@ -6,7 +6,8 @@ angular.module('xinyixianApp')
       .state('login', {
         url: '/login?role',
         templateUrl: 'app/account/login/login.html',
-        controller: 'LoginCtrl'
+        controller: 'LoginCtrl',
+        controllerAs: 'logCtrl',
       })
       .state('signup', {
         url: '/signup',

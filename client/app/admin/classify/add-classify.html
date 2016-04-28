@@ -45,6 +45,17 @@
 	            	<progressbar ng-show="addClassifyCtrl.loaded > 0" class="progress-striped progressBar" ng-class="{active: addClassifyCtrl.loaded < 100}" max="100" value="addClassifyCtrl.loaded" style="width:100px;"><span ng-bind="addClassifyCtrl.loaded"></span>%</progressbar>
 	          	</div>
 			</div>
+			<div class="classifyInfo" style="margin-top:20px;">
+				<div class="title">icon图标</div>
+				<div class="imageBtn" ngf-select ngf-change="addClassifyCtrl.upload2($files)">上传图片</div>
+			</div>
+			<div class="showImage">
+				<div class="img"><img title="建议尺寸320*320" src="{{addClassifyCtrl.showIcon}}"></div>
+				<!-- 图片进度条 -->
+				<div style="width:100px;">
+	            	<progressbar ng-show="addClassifyCtrl.loaded2 > 0" class="progress-striped progressBar" ng-class="{active: addClassifyCtrl.loaded2 < 100}" max="100" value="addClassifyCtrl.loaded2" style="width:100px;"><span ng-bind="addClassifyCtrl.loaded2"></span>%</progressbar>
+	          	</div>
+			</div>
 			
 		</div>
 

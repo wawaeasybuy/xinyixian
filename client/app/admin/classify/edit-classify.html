@@ -58,6 +58,17 @@
 	            	<progressbar ng-show="editClassifyCtrl.loaded > 0" class="progress-striped progressBar" ng-class="{active: editClassifyCtrl.loaded < 100}" max="100" value="editClassifyCtrl.loaded" style="width:100px;"><span ng-bind="editClassifyCtrl.loaded"></span>%</progressbar>
 	          	</div>
 			</div>
+			<div class="classifyInfo" style="margin-top:20px;">
+				<div class="title">icon图标</div>
+				<div class="imageBtn" ngf-select ngf-change="editClassifyCtrl.upload2($files)">上传图片</div>
+			</div>
+			<div class="showImage">
+				<div class="img"><img title="建议尺寸320*320" src="{{editClassifyCtrl.showIcon}}"></div>
+				<!-- 图片进度条 -->
+				<div style="width:100px;">
+	            	<progressbar ng-show="editClassifyCtrl.loaded2 > 0" class="progress-striped progressBar" ng-class="{active: editClassifyCtrl.loaded2 < 100}" max="100" value="editClassifyCtrl.loaded2" style="width:100px;"><span ng-bind="editClassifyCtrl.loaded2"></span>%</progressbar>
+	          	</div>
+			</div>
 			
 		</div>
 
