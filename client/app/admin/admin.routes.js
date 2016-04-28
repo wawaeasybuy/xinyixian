@@ -26,6 +26,14 @@ angular.module('xinyixianApp')
         controllerAs: 'addArticleCtrl',
         // authenticate: true
       })
+      .state('imageAddress-view', {
+        url: '/admin/article/viewAddress?page',
+        templateUrl: 'app/admin/article/view-imageAddress.html',
+        controller: 'ViewImageAddressController',
+        controllerAs: 'viewImageAddressCtrl',
+        // authenticate: true
+      })
+
 
 
       // 分类页面

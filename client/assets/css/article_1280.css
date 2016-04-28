@@ -3,6 +3,9 @@ body{
 	background-color: #E1E1E1;
 }
 a{text-decoration: none;}
+.css960{
+	display: block;
+}
 .css320{
 	display: none;
 }

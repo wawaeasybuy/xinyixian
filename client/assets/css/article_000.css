@@ -6,7 +6,9 @@ body{
 .css960{
 	display: none;
 }
-
+.css320{
+	display: block;
+}
 .bigImage{
 	display: none;
 }

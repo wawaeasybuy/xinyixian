@@ -1,0 +1,35 @@
+body{margin: 0px;padding: 0px;}
+body{
+	background-color: #f1f1f1;
+}
+/*图片地址*/
+.showPictureAddress{
+	/*border:1px solid red;*/
+	width: 1000px;
+	margin: 0 auto;
+}
+.pictureAddress{
+	/*border:1px solid #f0f;*/
+	float: left;
+	width: 400px;
+	height: 80px;
+	margin-left: 50px;
+	margin-right: 50px;
+	margin-top: 20px;
+}
+.picture,.address{
+	float: left;
+}
+.picture{
+	width: 80px;
+	height: 80px;
+	background-color: #ccc;
+}
+.address{
+	width: 300px;
+	height: 80px;
+	text-indent: 20px;
+	line-height: 40px;
+	margin-left: 10px;
+	overflow: hidden;
+}
