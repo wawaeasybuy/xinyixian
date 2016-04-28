@@ -1,30 +1,25 @@
 <link href="../assets/css/view-imageAddress.css"rel="stylesheet"type="text/css">
+<link href="../assets/css/view-image.css"rel="stylesheet"type="text/css">
+<style type="text/css">
+.name1{
+	float: left;
+	margin-left: 5px;
+	margin-top: 10px;
+}
+</style>
+<div class="backgroundPosition">
+	<div class="content">
+		<div class="imageClassifys">
+			<div class="name1" ng-repeat="group in viewImageAddressCtrl.groups" ng-bind="group.name" ng-click="viewImageAddressCtrl.chooseGroup(group)"></div>
+			<div style="clear:both"></div>
+		</div>
 
+		<div class="showPictureAddress">
+			<div class="pictureAddress" ng-repeat="image in viewImageAddressCtrl.showImages">
+				<div class="picture"><img src="{{viewImageAddressCtrl.lib_image_url+image}}"></div>
+				<div class="address" ng-bind="image"></div>
+			</div>
+		</div>
 
-<div class="showPictureAddress">
-	<div class="pictureAddress">
-		<div class="picture"></div>
-		<div class="address">file:///C:/Users/Administrator/Desktop/网站尺寸要求.pdffile:///C:/Users/Administrator/Desktop/网站尺寸要求.pdffile:///C:/Users/Administrator/Desktop/网站尺寸要求.pdf</div>
 	</div>
-	<div class="pictureAddress">
-		<div class="picture"></div>
-		<div class="address"></div>
-	</div>
-	<div class="pictureAddress">
-		<div class="picture"></div>
-		<div class="address"></div>
-	</div>
-	<div class="pictureAddress">
-		<div class="picture"></div>
-		<div class="address"></div>
-	</div>
-	<div class="pictureAddress">
-		<div class="picture"></div>
-		<div class="address"></div>
-	</div>
-	<div class="pictureAddress">
-		<div class="picture"></div>
-		<div class="address"></div>
-	</div>
-
 </div>

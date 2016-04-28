@@ -1,6 +1,9 @@
-body,span{margin: 0px;padding: 0px;}
+body,span,a{margin: 0px;padding: 0px;}
 body{
 	background-color: #f1f1f1;
+}
+a{
+	text-decoration: none;
 }
 /*最大框*/
 .backgroundPosition{
@@ -125,6 +128,7 @@ body{
 	text-align: center;
 	border:1px solid #ccc;
 	cursor: pointer;
+	color: #333;
 }
 
 .showTags{

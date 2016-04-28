@@ -27,10 +27,10 @@ angular.module('xinyixianApp')
         // authenticate: true
       })
       .state('imageAddress-view', {
-        url: '/admin/article/viewAddress',
+        url: '/admin/article/viewAddress?page',
         templateUrl: 'app/admin/article/view-imageAddress.html',
         controller: 'ViewImageAddressController',
-        controllerAs: 'viewImageAddressArticleCtrl',
+        controllerAs: 'viewImageAddressCtrl',
         // authenticate: true
       })
 
