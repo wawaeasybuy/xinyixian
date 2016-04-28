@@ -114,18 +114,12 @@
 				<div class="title">正文</div>
 				<div style="width:580px;float:left;margin-left:50px;margin-top:-20px;">
 					<div class="loadArticle" ng-click="editArticleCtrl.show()">载入或重置文章内容</div>
-					<div class="loadArticle" ng-click="editArticleCtrl.showPictureAddress()">图片地址</div>
+					<div class="loadArticle" ui-sref="imageAddress-view">图片地址</div>
 					<div id="editor">
 						<!-- 正文 -->
 					</div>
 				</div>
 				<!-- <div></div> -->
-			</div>
-			<div class="showPictureAddress" ng-show="editArticleCtrl.">
-				<div class="pictureAddress">
-					<div class="picture"></div>
-					<div class="address"></div>
-				</div>
 			</div>
 		</div>
 
