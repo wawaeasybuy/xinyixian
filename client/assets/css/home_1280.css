@@ -3,6 +3,9 @@ body{
 	background-color: #353535;
 }
 a{text-decoration: none;}
+.css960{
+	display: block;
+}
 .css320{
 	display: none;
 }
@@ -369,7 +372,7 @@ a{text-decoration: none;}
 	width: 25px;
 	height: 25px;
 	border-radius: 25px;
-	/*background-color: #0f0;*/
+	background-color: #0f0;
 	cursor: pointer;
 	overflow: hidden;
 	border:none;
@@ -386,6 +389,16 @@ a{text-decoration: none;}
 	top:15px;
 	left:794px;
 }
+.checkMark{
+	width: 10px;
+	height: 10px;
+	border-radius: 10px;
+	background-color: #0f0;
+	opacity: 0.5;
+	position: absolute;
+	top:35px;
+	left:801.5px;
+}
 .qrcodeDot2{
 	position: absolute;
 	top:15px;
@@ -400,6 +413,9 @@ a{text-decoration: none;}
 	position: absolute;
 	top:15px;
 	left:926px;
+}
+.checkMark2{
+	left:933.5px;
 }
 .qrcodeDot5{
 	position: absolute;
@@ -425,11 +441,13 @@ a{text-decoration: none;}
 	left:20px;
 	width:130px;*/
 }
-.Qdcode img{
+.QdcodeImg{
+	/*border:1px solid red;*/
 	width:100px;
 	height: 100px;
-	margin-top: 35px;
-	margin-left: 35px;
+	position: absolute;
+	top:80px;
+	left: 865px;
 }
 /*搜索*/
 .search{
