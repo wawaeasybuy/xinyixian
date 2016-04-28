@@ -259,7 +259,7 @@ exports.index=function (req,res){
    	var count;
 	var category=req.query.category;
 	var tag=req.query.tag;
-	var name=req.query.retrieval;
+	var retrieval=req.query.retrieval;
 	var condition={state:2};
 	if(category){
 		condition=_.merge(condition,{category:category});
@@ -267,28 +267,54 @@ exports.index=function (req,res){
 	if(tag){
 		condition=_.merge(condition,{tags:tag});
 	}
-	if(name){
-		condition=_.merge(condition,{title:{'$regex' : '.*' + name + '.*'}});
-	}
-	console.log(condition);
-	Article.find(condition).count(function (err,c){
-		if(err){ return handleError(res,err);}
-		count=c;
-	});
-	Article.find(condition,{},{
-		skip: (page - 1) * itemsPerPage,
-        limit: itemsPerPage
-	})
-	.populate("tags category")
-	.sort({updateDate:-1})
-	.exec(function (err,articles){
-		if(err){ return handleError(res,err);}
-		return res.json(200,{
-			articles:articles,
-			page:page,
-			count:count
+	// if(name){
+	// 	condition=_.merge(condition,{title:{'$regex' : '.*' + name + '.*'}});
+	// }
+	// console.log(condition);
+	if(retrieval){
+		Article.find(condition)
+		.or([{title:{'$regex' : '.*' + retrieval + '.*'}},{content:{'$regex' : '.*' + retrieval + '.*'}}])
+		.count(function (err,c){
+			if(err){ return handleError(res,err);}
+			count=c;
 		});
-	});
+		Article.find(condition,{},{
+			skip: (page - 1) * itemsPerPage,
+	        limit: itemsPerPage
+		})
+		.or([{title:{'$regex' : '.*' + retrieval + '.*'}},{content:{'$regex' : '.*' + retrieval + '.*'}}])
+		.populate("tags category")
+		.sort({index:-1})
+		.exec(function (err,articles){
+			if(err){ return handleError(res,err);}
+			return res.json(200,{
+				articles:articles,
+				page:page,
+				count:count
+			});
+		});
+	}else{
+		Article.find(condition)
+		.count(function (err,c){
+			if(err){ return handleError(res,err);}
+			count=c;
+		});
+		Article.find(condition,{},{
+			skip: (page - 1) * itemsPerPage,
+	        limit: itemsPerPage
+		})
+		.populate("tags category")
+		.sort({index:-1})
+		.exec(function (err,articles){
+			if(err){ return handleError(res,err);}
+			return res.json(200,{
+				articles:articles,
+				page:page,
+				count:count
+			});
+		});
+	}
+	
 
 };
 
