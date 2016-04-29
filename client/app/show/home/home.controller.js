@@ -58,6 +58,18 @@ angular.module('xinyixianApp')
        self.go = function(){
        	$state.go('article-view');
        };
+
+       //将tag转化为str
+       var getStringArr=function(arr){
+          var str='';
+          if(arr.length>0){
+            str=arr[0].name;
+            for(var i=1;i<arr.length;i++){
+              str=str+','+arr[i].name;
+            }
+          }
+          return str;
+        };
        //tag,category目前两者存一
        var loadArticle=function(){
           var condition={
@@ -83,6 +95,7 @@ angular.module('xinyixianApp')
             var count=data.count;
             _.each(self.articles,function (article){
               article.i=count;
+              article.showTag=getStringArr(article.tags);
               count--;
             });
             if(self.pagination.page*self.pagination.itemsPerPage>=self.pagination.totalItems){
@@ -299,4 +312,10 @@ angular.module('xinyixianApp')
             
           });
        };
+
+       //
+       // self.go=function(article){
+       //    console.log("xxxx");
+       //    $location.absUrl("http://wwww.baidu.com");
+       // };
   }]);
