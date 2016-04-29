@@ -40,9 +40,7 @@ angular.module('xinyixianApp')
         delete self.category;
         delete self.tag;
         delete self.retrieval;
-        self.articles=[];
-        self._loadMore=true;
-        loadArticle();
+        doLocation();
       };
 
       if(self.tag){
@@ -154,7 +152,6 @@ angular.module('xinyixianApp')
                 highlight(info);
                 break;
             }
-            self.showSelected=info.name;
           }else{
             self.mouseout();
           }
@@ -175,7 +172,6 @@ angular.module('xinyixianApp')
           _.each(self.tags,function (tag){
             tag.style="";
           });
-          self.showSelected='全部文章';
           var c=_.findWhere(self.categories,{_id:self.category});
           if(c){
             self.showSelected=c.name;
