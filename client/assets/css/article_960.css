@@ -63,8 +63,8 @@ a{text-decoration: none;}
 .navs{
 	/*border:1px solid #0000ff;*/
 	width: 500px;
-	height: 22px;
-	margin-top: 13px;
+	height: 25px;
+	margin-top: 12px;
 }
 /*每个导航*/
 .navs .nav{
@@ -73,17 +73,20 @@ a{text-decoration: none;}
 }
 .nav .dot{
 	float: left;
-	width: 22px;
-	height: 22px;
-	border-radius: 22px;
+	width: 25px;
+	height: 25px;
+	border-radius: 25px;
 	background-color: #fff;
 	overflow: hidden;
 	cursor: pointer;
 }
+.nav .dot:hover{
+	background-color: #0f0;
+}
 .nav .navName{
 	float: left;
 	text-indent: 3px;
-	line-height: 22px;
+	line-height: 25px;
 	font-size: 12px;
 	color: #999;
 	font-weight: bold;
@@ -94,14 +97,14 @@ a{text-decoration: none;}
 	/*border:1px solid red;*/
 	float: right;
 	position: relative;
-	top:-20px;
+	top:-25px;
 }
 .qrcodeDots a{
 	float: left;
 	width: 25px;
 	height: 25px;
 	border-radius: 25px;
-	/*background-color: #0f0;*/
+	background-color: #0f0;
 	cursor: pointer;
 	overflow: hidden;
 	border:none;
@@ -122,8 +125,8 @@ a{text-decoration: none;}
 	position: absolute;
 	top:60px;
 	left: 650px;
-	/*background-color: #0F0;*/
-	/*opacity: 0.8;*/
+	background-color: #0F0;
+	opacity: 0.7;
 	overflow: hidden;
 	/*display: none;*/
 	z-index: 999;
@@ -154,6 +157,7 @@ a{text-decoration: none;}
 	text-indent: 20px;
 	background-color: #E1E1E1;
 	border:none;
+	outline: none;
 }
 /*下横线*/
 .downLine{
@@ -167,19 +171,10 @@ a{text-decoration: none;}
 /*文章内容页*/
 .articleContent{
 	/*border:1px solid red;*/
-	margin: 50px auto 0px;
-	width: 580px;
+	margin: 45px auto 0px;
+	width: 640px;
 	padding-bottom: 50px;
 	position: relative;
-}
-.articleImage{
-	height: 320px;
-	background-color: #fff;
-}
-.articleWord{
-	margin-top:50px;
-	/*height: 500px;*/
-	/*background-color: #fff;*/
 }
 /*撑开文章高度*/
 .openArticleWord{
@@ -188,10 +183,45 @@ a{text-decoration: none;}
 	width: 0;
 	height: 500px;
 }
+.articleImage{
+	/*height: 320px;*/
+	background-color: #fff;
+}
+.articleTitle{
+	/*border:1px solid red;*/
+	color: #333;
+	font-size: 48px;
+	height: 48px;
+	line-height: 48px;
+	margin-top: 45px;
+	font-weight: bold;
+}
+.articleAuthor{
+	/*border:1px solid red;*/
+	color: #666;
+	font-size: 16px;
+	height: 16px;
+	line-height: 16px;
+	margin-top: 20px;
+	font-weight: bold;
+}
+.articleAbstract{
+	border-top: 2px solid #ccc;
+	border-bottom: 2px solid #ccc;
+	font-size: 30px;
+	height: 60px;
+	line-height: 30px;
+	padding: 20px;
+	overflow: hidden;
+	margin-top: 45px;
+	text-align: center;
+}
 .article{
+	/*border:1px solid red;*/
 	word-break:break-all; /*支持IE，chrome，FF不支持*/
 　　word-wrap:break-word;/*支持IE，chrome，FF*/
-	/*border:1px solid red;*/
+	overflow:hidden;
+	margin-top: 20px
 }
 .articleShare{
 	/*border:1px solid red;*/
@@ -235,33 +265,33 @@ a{text-decoration: none;}
 /*推荐列表*/
 .recommendList{
 	/*border:1px solid red;*/
-	margin: 0 auto;
-	width: 1024px;
-	height: 230px;
+	margin: 20px auto 0px;
+	width: 1100px;
+	height: 245px;
 	overflow: hidden;
 	cursor: pointer;
 }
 /*某个推荐*/
 .recommend{
+	/*border:1px solid red;*/
 	float: left;
-	width: 150px;
-	height: 198px;
-	margin-left: 27px;
-	margin-right: 27px;
-	margin-top: 30px;
+	width: 200px;
+	height: 245px;
+	margin-left: 10px;
+	margin-right: 10px;
 	position: relative;
 }
 /*推荐的图片部分包括遮罩*/
 .recommendIcon{
-	width: 150px;
-	height: 150px;
-	border-radius: 150px;
+	width: 200px;
+	height: 200px;
+	border-radius: 200px;
 	position: relative;
 }
 .pictureBox{
-	width: 150px;
-	height: 150px;
-	border-radius: 150px;
+	width: 200px;
+	height: 200px;
+	border-radius: 200px;
 	overflow: hidden;
 	transition:0.4s linear;
 	-webkit-transition:0.4s linear;//重点
@@ -269,9 +299,9 @@ a{text-decoration: none;}
 }
 /*图片的遮罩*/
 .pictureMask{
-	width: 150px;
-	height: 150px;
-	border-radius: 150px;
+	width: 200px;
+	height: 200px;
+	border-radius: 200px;
 	background-color: transparent;
 	position: absolute;
 	top:0px;
@@ -280,8 +310,8 @@ a{text-decoration: none;}
 	-moz-transition:0.4s linear;
 }
 .picture{
-	width: 150px;
-	height: 150px;
+	width: 200px;
+	height: 200px;
 	transition:0.4s linear;
 }
 /*.cityName{
@@ -298,23 +328,23 @@ a{text-decoration: none;}
 }*/
 /*悬浮时的效果*/
 .recommendIcon:hover .pictureBox{
-	border-radius: 30px;
-	transform:rotate(45deg) scale(0.8);
-	-webkit-border-radius:30px;
-	-moz-border-radius:30px;
-	-o-border-radius:30px;
+	border-radius: 15px;
+	transform:rotate(45deg) scale(0.75);
+	-webkit-border-radius:15px;
+	-moz-border-radius:15px;
+	-o-border-radius:15px;
 }
 .recommendIcon:hover .pictureMask{
 	background-color: #00ff00;
 	opacity:0.4;
-	border-radius: 30px;
-	transform:rotate(45deg) scale(0.8);
-	-webkit-border-radius:30px;
-	-moz-border-radius:30px;
-	-o-border-radius:30px;
+	border-radius: 15px;
+	transform:rotate(45deg) scale(0.75);
+	-webkit-border-radius:15px;
+	-moz-border-radius:15px;
+	-o-border-radius:15px;
 }
 .recommendIcon:hover .picture{
-	transform: rotate(-45deg) scale(1.25);
+	transform: rotate(-45deg) scale(1.35);
 }
 /*.recommendIcon:hover .cityName{
 	display: none;
@@ -322,36 +352,36 @@ a{text-decoration: none;}
 /*序号*/
 .number{
 	/*border:1px solid red;*/
-	width: 48px;
+	width: 60px;
 	height: 30px;
 	line-height: 0px;
 	position: absolute;
-	left: -10px;
-	bottom: 52px;
-	color: #333;
+	bottom: 60px;
+	color: #535353;
+	opacity: 0.7;
 }
 .symbol{
 	/*border:1px solid red;*/
 	font-size: 12px;
 	position: relative;
-	top:-15px;
-	left: 5px;
+	top:-25px;
 }
 .num{
 	/*border:1px solid red;*/
-	font-size: 32px;
+	font-size: 44px;
 	line-height: 30px;
 }
 /*城市信息*/
 .cityIntroduction{
-	width: 130px;
+	width: 180px;
 	height: 34px;
-	border-top: 2px solid #333;
-	border-bottom: 2px solid #333;
+	border-top: 2px solid #535353;
+	border-bottom: 2px solid #535353;
 	/*文字css*/
 	text-align: center;
 	line-height: 34px;
-	color: #333;
+	color: #535353;
+	opacity: 0.7;
 	font-size: 10px;
 	font-weight: bold;
 	/*位置css*/
@@ -368,7 +398,8 @@ a{text-decoration: none;}
 .time{
 	height: 6px;
 	line-height: 6px;
-	color: #333;
+	color: #535353;
+	opacity: 0.7;
 	position: absolute;
 	bottom: 1px;
 	font-size: 8px;
@@ -381,9 +412,11 @@ a{text-decoration: none;}
 /*底部链接栏*/
 .bottomLink{
 	/*border:1px solid red;*/
-	margin: 100px auto 0;
-	width: 1000px;
-	height: 22px;
+	margin: 160px auto;
+	width: 1100px;
+	height: 30px;
+	color: rgb(120,120,120);
+	line-height: 30px;
 }
 .links{
 	/*border:1px solid red;*/
@@ -392,38 +425,43 @@ a{text-decoration: none;}
 	/*border:1px solid red;*/
 	float: left;
 	width: 80px;
-	line-height: 22px;
 	font-size: 12px;
 	font-weight: bold;
-	color: #666;
+	color: #b6b6b6;
 	border:none;
 }
 .records{
 	/*border:1px solid red;*/
 	float: right;
-	width: 480px;
+	width: 430px;
 	font-size: 12px;
 	font-weight: bold;
-	color: #666;
+	color: #b6b6b6;
 }
 .email,.record{
 	/*border:1px solid red;*/
 	float: left;
-	height: 22px;
-	line-height: 22px;
+}
+.email{
+	width: 85px;
+}
+.record{
+	width: 300px;
 	margin-left: 5px;
 }
 .emailDot,.recordDot{
 	float: left;
-	width: 22px;
-	height: 22px;
-	border-radius: 22px;
-	background-color: #8b8b8b;
+	width: 30px;
+	height: 30px;
+	border-radius: 30px;
+	background-color: #9a9a9a;
 }
 .word{
-	float: left;
-	margin-left: 5px;
+	/*border:1px solid red;*/
+	/*float: left;*/
+	text-indent: 5px;
 	border:none;
-	color: #666;
+	color:#b6b6b6;
+	white-space:nowrap
 }
 /*底部链接栏*/
