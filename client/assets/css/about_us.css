@@ -1,14 +1,21 @@
 .about_Nav{
-	/*border-bottom:2px solid #686868;*/
+	/*border:1px solid #000;*/
+	border-bottom:2px solid #686868;
 	/*border-top:2px solid #686868;*/
-	height:290px;
+	margin: 0 auto;
+    position: relative;
+    width: 1000px;
+	text-align: center;
 }
-
 .about_content{
 	/*border:1px solid #000;*/
 	margin:15px auto 0;
 	padding-bottom:38px;
-	width: 700px;
+	width: 755px;
+}
+
+.about_Nav img{
+	margin-top: -10px;
 }
 
 .content_nav_left{
@@ -54,45 +61,53 @@
 }
 
 .cell_logo{
-	width: 46px;
+	width: 50px;
 	float: left;
 }
 
 .cell_content{
-	width: 585px;
+	width: 640px;
 	margin-left: 15px;
 	float: left;
 }
 
 .cell_title{
-	font-size: 16px;
+	font-size: 18px;
 }
 
 .cell_text{
-	font-size: 11px;
+	font-size: 12px;
 	color: #6F6F6F;
-	margin-top: 15px;
+	margin-top: 18px;
 	border:none;
 }
 .text_word{
 	/*border:1px solid red;*/
-	width: 574px;
+	width: 640px;
 	margin: 40px auto 0;
-	color: #686868;
+	color: rgb(120,120,120);
+}
+.text_word1{
+	/*border:1px solid red;*/
+	color: rgb(53,53,53);
+	font-size: 12px;
 }
 .text_word2{
 	/*border:1px solid red;*/
 	margin-top:20px;
+	color: rgb(53,53,53);
+	font-size: 12px;
 }
 .memberIntroduction{
-	width: 574px;
-	margin: 20px auto 0;
+	width: 640px;
+	margin: 40px auto 0;
 	/*border-bottom:2px solid #686868;*/
 }
 .member{
 	float: left;
-	width: 190px;
+	width: 203px;
 	height: 180px;
+	margin-right: 10px;
 	/*border:1px solid #0f0;*/
 }
 .memberPhoto{
@@ -107,22 +122,22 @@
 }
 .introduction{
 	border-top:1px solid #000;
-	width: 180px;
+	width: 203px;
 	margin-top: 10px;
 	padding-top: 10px;
-	color: #686868;
+	color: rgb(53,53,53);
+	font-size: 12px;
 }
 .contractUs{
-	width: 574px;
+	width: 640px;
 	margin: 0 auto;
 	border-top:2px solid #686868;
 	color: #444;
-	font-size: 14px;
+	font-size: 16px;
 }
 .contractTitle{
 	margin-top: 40px;
 	/*border:1px solid red;*/
-	font-size: 16px;
 	font-weight: bold;
 }
 .contractEmail,.contractTel,.contractAddress{
@@ -131,4 +146,8 @@
 }
 .link{
 	cursor: pointer;
+}
+.connect{
+	margin-top: 35px;
+	width: 640px;
 }

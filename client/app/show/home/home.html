@@ -113,21 +113,41 @@
 		<!-- 文章内容 -->
 		<div class="articleList">
 			<div class="openArticleList"></div>
-			<div class="articl" ng-repeat="article in viewHomeCtrl.articles" ui-sref="view-article({id:article._id,category:viewHomeCtrl.id,tag:viewHomeCtrl.tag})" ng-click="viewHomeCtrl.addpv(article._id)">
-				<div class="aeticlIcon">
-					<div class="pictureBox">
-						<image class="picture" src="{{viewHomeCtrl.hostDir+article.thumbnail}}">
+			<div class="articl" ng-repeat="article in viewHomeCtrl.articles">
+				<div ui-sref="view-article({id:article._id,category:viewHomeCtrl.id,tag:viewHomeCtrl.tag})" ng-click="viewHomeCtrl.addpv(article._id)" ng-hide="article.speciaLink&&article.speciaLink!=''">
+					<div class="aeticlIcon">
+						<div class="pictureBox">
+							<image class="picture" src="{{viewHomeCtrl.hostDir+article.thumbnail}}">
+						</div>
+						<div class="pictureMask"></div>
+						<div class="cityName"><u ng-bind="article.showTag">苏州</u></div>
 					</div>
-					<div class="pictureMask"></div>
-					<div class="cityName"><u ng-bind="article.title">苏州</u></div>
+					
+					<div class="number">
+						<span class="symbol">#</span>
+						<span class="num" ng-bind="article.i">14</span>
+					</div>
+					<div class="cityIntroduction" style="text-overflow:ellipsis" title="{{article.title}}" ng-bind="article.title">城市向上生长的野心</div>
+					<div class="time" ng-bind="article.updateDate | date:'yyyy.MM.dd'">2015.10.10</div>
 				</div>
+				<!-- 链接到外站 -->
+				<a ng-href="{{article.speciaLink}}" ng-click="viewHomeCtrl.addpv(article._id)" ng-show="article.speciaLink&&article.speciaLink!=''">
+					<div class="aeticlIcon">
+						<div class="pictureBox">
+							<image class="picture" src="{{viewHomeCtrl.hostDir+article.thumbnail}}">
+						</div>
+						<div class="pictureMask"></div>
+						<div class="cityName"><u ng-bind="article.showTag">苏州</u></div>
+					</div>
+					
+					<div class="number">
+						<span class="symbol">#</span>
+						<span class="num" ng-bind="article.i">14</span>
+					</div>
+					<div class="cityIntroduction" style="text-overflow:ellipsis" title="{{article.title}}" ng-bind="article.title">城市向上生长的野心</div>
+					<div class="time" ng-bind="article.updateDate | date:'yyyy.MM.dd'">2015.10.10</div>
+				</a>
 				
-				<div class="number">
-					<span class="symbol">#</span>
-					<span class="num" ng-bind="article.i">14</span>
-				</div>
-				<div class="cityIntroduction" style="text-overflow:ellipsis" title="{{article.summary}}" ng-bind="article.summary">城市向上生长的野心</div>
-				<div class="time" ng-bind="article.updateDate | date:'yyyy.MM.dd'">2015.10.10</div>
 			</div>
 			<div style="clear:both"></div>
 		</div>
@@ -168,19 +188,19 @@
     <div class="mobileNavPosition" style="{{viewHomeCtrl.changeStyle}}">
     	<div class="mobileNavs">
     		<div class="mobileNav" ng-click="viewHomeCtrl.chooseCategory(viewHomeCtrl.categories[0])">
-    			<div class="rank"><img src="{{viewHomeCtrl.hostDir+viewHomeCtrl.categories[0].image}}" style="width:60px;height:60px;" ng-show="viewHomeCtrl.categories[0].image"></div>
+    			<div class="rank"><img src="{{viewHomeCtrl.hostDir+viewHomeCtrl.categories[0].icon}}" style="width:60px;height:60px;" ng-show="viewHomeCtrl.categories[0].icon"></div>
     			<div class="word" ng-bind="viewHomeCtrl.categories[0].name">rank</div>
     		</div>
     		<div class="mobileNav" ng-click="viewHomeCtrl.chooseCategory(viewHomeCtrl.categories[1])">
-    			<div class="info"><img src="{{viewHomeCtrl.hostDir+viewHomeCtrl.categories[1].image}}" style="width:60px;height:60px;" ng-show="viewHomeCtrl.categories[1].image"></div>
+    			<div class="info"><img src="{{viewHomeCtrl.hostDir+viewHomeCtrl.categories[1].icon}}" style="width:60px;height:60px;" ng-show="viewHomeCtrl.categories[1].icon"></div>
     			<div class="word" ng-bind="viewHomeCtrl.categories[1].name">info</div>
     		</div>
     		<div class="mobileNav" ng-click="viewHomeCtrl.chooseCategory(viewHomeCtrl.categories[2])">
-    			<div class="city"><img src="{{viewHomeCtrl.hostDir+viewHomeCtrl.categories[2].image}}" style="width:60px;height:60px;" ng-show="viewHomeCtrl.categories[2].image"></div>
+    			<div class="city"><img src="{{viewHomeCtrl.hostDir+viewHomeCtrl.categories[2].icon}}" style="width:60px;height:60px;" ng-show="viewHomeCtrl.categories[2].icon"></div>
     			<div class="word" ng-bind="viewHomeCtrl.categories[2].name">city</div>
     		</div>
     		<div class="mobileNav" ng-click="viewHomeCtrl.chooseCategory(viewHomeCtrl.categories[3])">
-    			<div class="report"><img src="{{viewHomeCtrl.hostDir+viewHomeCtrl.categories[3].image}}" style="width:60px;height:60px;" ng-show="viewHomeCtrl.categories[3].image"></div>
+    			<div class="report"><img src="{{viewHomeCtrl.hostDir+viewHomeCtrl.categories[3].icon}}" style="width:60px;height:60px;" ng-show="viewHomeCtrl.categories[3].icon"></div>
     			<div class="word" ng-bind="viewHomeCtrl.categories[3].name">report</div>
     		</div>
     		<div class="btns">
@@ -198,21 +218,40 @@
     <!-- 文章内容 -->
 	<div class="articleList">
 		<div class="articleListPosition">
-			<div class="articl" ng-repeat="article in viewHomeCtrl.articles" ui-sref="view-article({id:article._id})">
-				<div class="aeticlIcon">
-					<div class="pictureBox">
-						<image class="picture"  src="{{viewHomeCtrl.hostDir+article.thumbnail}}">
+			<div class="articl" ng-repeat="article in viewHomeCtrl.articles">
+				<div ui-sref="view-article({id:article._id})" ng-click="viewHomeCtrl.addpv(article._id)" ng-hide="article.speciaLink&&article.speciaLink!=''">
+					<div class="aeticlIcon">
+						<div class="pictureBox">
+							<image class="picture"  src="{{viewHomeCtrl.hostDir+article.thumbnail}}">
+						</div>
+						<div class="pictureMask"></div>
+						<div class="cityName"><u ng-bind="article.title">苏州</u></div>
 					</div>
-					<div class="pictureMask"></div>
-					<div class="cityName"><u ng-bind="article.title">苏州</u></div>
+					
+					<div class="number">
+						<span class="symbol">#</span>
+						<span class="num" ng-bind="article.i">14</span>
+					</div>
+					<div class="cityIntroduction" style="text-overflow:ellipsis" ng-bind="article.summary">城市向上生长的野心从未停止</div>
+					<div class="time" ng-bind="article.updateDate | date:'yyyy.MM.dd'">2015.10.10</div>
 				</div>
-				
-				<div class="number">
-					<span class="symbol">#</span>
-					<span class="num" ng-bind="article.i">14</span>
-				</div>
-				<div class="cityIntroduction" style="text-overflow:ellipsis" ng-bind="article.summary">城市向上生长的野心从未停止</div>
-				<div class="time" ng-bind="article.updateDate | date:'yyyy.MM.dd'">2015.10.10</div>
+				<!-- 链接到外站 -->
+				<a ng-href="{{article.speciaLink}}" ng-click="viewHomeCtrl.addpv(article._id)" ng-show="article.speciaLink&&article.speciaLink!=''">
+					<div class="aeticlIcon">
+						<div class="pictureBox">
+							<image class="picture"  src="{{viewHomeCtrl.hostDir+article.thumbnail}}">
+						</div>
+						<div class="pictureMask"></div>
+						<div class="cityName"><u ng-bind="article.title">苏州</u></div>
+					</div>
+					
+					<div class="number">
+						<span class="symbol">#</span>
+						<span class="num" ng-bind="article.i">14</span>
+					</div>
+					<div class="cityIntroduction" style="text-overflow:ellipsis" ng-bind="article.summary">城市向上生长的野心从未停止</div>
+					<div class="time" ng-bind="article.updateDate | date:'yyyy.MM.dd'">2015.10.10</div>
+				</a>
 			</div>
 
 			<div style="clear:both"></div>

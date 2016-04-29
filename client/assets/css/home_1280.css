@@ -2,7 +2,11 @@ body,span,a{margin: 0px;padding: 0px;}
 body{
 	background-color: #353535;
 }
-a{text-decoration: none;}
+a{
+	text-decoration: none;
+	border-style: none;
+    border-width: 0px;
+}
 .css960{
 	display: block;
 }

@@ -38,14 +38,44 @@ angular.module('xinyixianApp')
        		self.contractXinyixian = true;
        };
 
+       //初始化二维码状态
+       var qdcode_init = function (){
+        self.QdcodeBgcolor1 = '';
+        self.QdcodeBgcolor2 = '';
+        self.showWechatQdcode = false;
+        self.showQqQdcode = false;
+       };
        // 打开二维码
        self.openQqQdcode = function (){
-        self.showQdcode = !self.showQdcode;
-        self.qdcode = "../assets/images/qqQrcode.png";
+        qdcode_init();
+        if(self.showQdcode&&self.qdcode == "../assets/images/wechatQrcode.png"){
+          self.qdcode = "../assets/images/qqQrcode.png";
+          self.QdcodeBgcolor2 = 'background-color:#fff';
+          self.showQqQdcode = true;
+        }else{
+          self.showQdcode = !self.showQdcode;
+          if(self.showQdcode){
+            self.qdcode = "../assets/images/qqQrcode.png";
+            self.QdcodeBgcolor2 = 'background-color:#fff';
+            self.showQqQdcode = true;
+          }
+        }
+        
        };
        self.openWechatQdcode = function (){
-        self.showQdcode = !self.showQdcode;
-        self.qdcode = "../assets/images/wechatQrcode.png";
+        qdcode_init();
+        if(self.showQdcode&&self.qdcode == "../assets/images/qqQrcode.png"){
+          self.qdcode = "../assets/images/wechatQrcode.png";
+          self.QdcodeBgcolor1 = 'background-color:#fff';
+          self.showWechatQdcode = true;
+        }else{
+          self.showQdcode = !self.showQdcode;
+          if(self.showQdcode){
+            self.qdcode = "../assets/images/wechatQrcode.png";
+            self.QdcodeBgcolor1 = 'background-color:#fff';
+            self.showWechatQdcode = true;
+          }
+        }
        };
 
       init();

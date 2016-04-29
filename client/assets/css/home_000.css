@@ -2,6 +2,11 @@ body,span{margin: 0px;padding: 0px;}
 body{
 	background-color: #353535;
 }
+a{
+	text-decoration: none;
+	border-style: none;
+    border-width: 0px;
+}
 html,body{height:100%; width:100%;}
 /*最大的div*/
 .css960{

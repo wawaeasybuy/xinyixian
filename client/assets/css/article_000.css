@@ -2,7 +2,11 @@ body,span{margin: 0px;padding: 0px;}
 body{
 	background-color: #E1E1E1;
 }
-
+a{
+	text-decoration: none;
+	border-style: none;
+    border-width: 0px;
+}
 .css960{
 	display: none;
 }

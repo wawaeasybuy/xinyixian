@@ -2,7 +2,11 @@ body,span,a{margin: 0px;padding: 0px;}
 body{
 	background-color: #E1E1E1;
 }
-a{text-decoration: none;}
+a{
+	text-decoration: none;
+	border-style: none;
+    border-width: 0px;
+}
 .css960{
 	display: block;
 }
@@ -48,7 +52,7 @@ a{text-decoration: none;}
 }
 /*上面横线*/
 .upLine{
-	height: 3px;
+	height: 2px;
 	background-color: #686868;
 }
 /*四个导航*/
@@ -85,6 +89,19 @@ a{text-decoration: none;}
 	cursor: pointer;
 }
 /*二维码圆*/
+.checkMark{
+	width: 10px;
+	height: 10px;
+	border-radius: 10px;
+	background-color: #0f0;
+	opacity: 0.5;
+	position: absolute;
+	top:20px;
+	right:188px;
+}
+.checkMark2{
+	right:53px;
+}
 .qrcodeDots{
 	/*border:1px solid red;*/
 	float: right;
@@ -116,12 +133,12 @@ a{text-decoration: none;}
 	border-radius: 170px;
 	position: absolute;
 	top:60px;
-	left: 650px;
+	right:0px;
 	background-color: #0F0;
 	opacity: 0.7;
 	overflow: hidden;
 	/*display: none;*/
-	z-index: 999;
+	z-index: 998;
 	box-shadow: #ccc 0 0 5px 0;
 }
 .Qdcode{
@@ -132,6 +149,15 @@ a{text-decoration: none;}
 }
 .Qdcode img{
 	width:130px;
+}
+.QdcodeImg{
+	/*border:1px solid red;*/
+	width:100px;
+	height: 100px;
+	position: absolute;
+	top:95px;
+	right: 35px;
+	z-index: 999;
 }
 /*搜索*/
 .search{
@@ -192,7 +218,7 @@ a{text-decoration: none;}
 	/*border:1px solid red;*/
 	color: #666;
 	font-size: 16px;
-	height: 16px;
+	/*height: 16px;*/
 	line-height: 16px;
 	margin-top: 20px;
 	font-weight: bold;
@@ -201,7 +227,7 @@ a{text-decoration: none;}
 	border-top: 2px solid #ccc;
 	border-bottom: 2px solid #ccc;
 	font-size: 30px;
-	height: 60px;
+	/*height: 60px;*/
 	line-height: 30px;
 	padding: 20px;
 	overflow: hidden;

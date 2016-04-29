@@ -33,19 +33,26 @@
 
 			<!-- 二维码圆 -->
 			<div class="qrcodeDots">
-				<a class="qrcodeDot1" ng-click="viewArticleCtrl.openWechatQdcode()"><img width="25px" height="25px" src="../assets/images/wechat.png"></a>
+				<a class="qrcodeDot1" ng-click="viewArticleCtrl.openWechatQdcode()" style="{{viewArticleCtrl.QdcodeBgcolor1}}"><img width="25px" height="25px" src="../assets/images/wechat.png"></a>
+				<div class="checkMark" ng-show="viewArticleCtrl.showWechatQdcode"></div>
 				<a class="qrcodeDot2" target="_black" ng-href="http://weibo.com/therisinglab"><img width="25px" height="25px" src="../assets/images/weibo.png"></a>
 				<a class="qrcodeDot3" target="_black" ng-href="http:// zhuanlan.zhihu.com/ therisinglab"><img width="25px" height="25px" src="../assets/images/zhihu.png"></a>
-				<a class="qrcodeDot4" ng-click="viewArticleCtrl.openQqQdcode()"><img width="25px" height="25px" src="../assets/images/qq.png"></a>
+				<a class="qrcodeDot4" ng-click="viewArticleCtrl.openQqQdcode()" style="{{viewArticleCtrl.QdcodeBgcolor2}}"><img width="25px" height="25px" src="../assets/images/qq.png"></a>
+				<div class="checkMark checkMark2" ng-show="viewArticleCtrl.showQqQdcode"></div>
 				<a class="qrcodeDot5" target="_black" ng-href="mailto:xinyixian@yicai.com"><img width="25px" height="25px" src="../assets/images/email.png"></a>
 			</div>
 			<!-- 显示二维码圆 -->
-			<div class="showQdcode" ng-show="viewArticleCtrl.showQdcode">
+			<!-- <div class="showQdcode" ng-show="viewArticleCtrl.showQdcode">
 				<div class="Qdcode">
 					<img src="{{viewArticleCtrl.qdcode}}">
 				</div>
-				<!-- <img width="170px" height="170px" src="{{viewArticleCtrl.qdcode}}"> -->
+			</div> -->
+			<div class="showQdcode" ng-show="viewArticleCtrl.showQdcode">
+				<div class="Qdcode">
+				</div>
+				<!-- <img width="170px" src="{{viewHomeCtrl.qdcode}}"> -->
 			</div>
+			<img class="QdcodeImg" ng-show="viewArticleCtrl.showQdcode" src="{{viewArticleCtrl.qdcode}}">
 
 			<!-- 下横线 -->
 			<div class="downLine"></div>
@@ -57,9 +64,9 @@
 			<div class="articleImage"><img src="{{viewArticleCtrl.articleImage}}" style="width:580px;"></div>
 			<div class="articleWord">
 				<div class="openArticleWord" ></div>
-				<div class="articleTitle">标题标题标题标题</div>
-				<div class="articleAuthor">徐涛徐涛徐涛</div>
-				<div class="articleAbstract">标题标题标题标题徐涛徐涛徐涛标题标题标题标题徐涛徐涛徐涛</div>
+				<div class="articleTitle"></div>
+				<div class="articleAuthor" ng-bind="viewArticleCtrl.article.author">作者</div>
+				<div class="articleAbstract" ng-bind="viewArticleCtrl.article.summary">摘要</div>
 				<div class="article" ng-bind-html="viewArticleCtrl.article.content | to_trusted"></div>
 				<div style="clear:both"></div>
 			</div>
@@ -80,21 +87,42 @@
 
 		<!-- 推荐列表 -->
 		<div class="recommendList">
-			<div class="recommend" ng-repeat="article in viewArticleCtrl.pushArticles" ui-sref="view-article({id:article._id})" ng-click="viewArticleCtrl.addpv(article._id)">
-				<div class="recommendIcon">
-					<div class="pictureBox">
-						<image class="picture" src="{{viewArticleCtrl.hostDir+article.thumbnail}}">
+			<div class="recommend" ng-repeat="article in viewArticleCtrl.pushArticles">
+				<div ui-sref="view-article({id:article._id})" ng-click="viewArticleCtrl.addpv(article._id)" ng-hide="article.speciaLink&&article.speciaLink!=''">
+					<div class="recommendIcon">
+						<div class="pictureBox">
+							<image class="picture" src="{{viewArticleCtrl.hostDir+article.thumbnail}}">
+						</div>
+						<div class="pictureMask"></div>
+						<!-- <div class="cityName"><u>苏州</u></div> -->
 					</div>
-					<div class="pictureMask"></div>
-					<!-- <div class="cityName"><u>苏州</u></div> -->
+					
+					<div class="number">
+						<span class="symbol">#</span>
+						<span class="num" ng-bind="article.i">14</span>
+					</div>
+					<div class="cityIntroduction" style="text-overflow:ellipsis" title="{{article.summary}}" ng-bind="article.summary">城市向上生长的野心从未停止</div>
+					<div class="time" ng-bind="article.updateDate | date:'yyyy.MM.dd'">2015.10.10</div>
 				</div>
+
+				<!-- 链接到外站 -->
+				<a ng-href="{{article.speciaLink}}" ng-click="viewArticleCtrl.addpv(article._id)" ng-show="article.speciaLink&&article.speciaLink!=''">
+					<div class="recommendIcon">
+						<div class="pictureBox">
+							<image class="picture" src="{{viewArticleCtrl.hostDir+article.thumbnail}}">
+						</div>
+						<div class="pictureMask"></div>
+						<!-- <div class="cityName"><u>苏州</u></div> -->
+					</div>
+					
+					<div class="number">
+						<span class="symbol">#</span>
+						<span class="num" ng-bind="article.i">14</span>
+					</div>
+					<div class="cityIntroduction" style="text-overflow:ellipsis" title="{{article.summary}}" ng-bind="article.summary">城市向上生长的野心从未停止</div>
+					<div class="time" ng-bind="article.updateDate | date:'yyyy.MM.dd'">2015.10.10</div>
+				</a>
 				
-				<div class="number">
-					<span class="symbol">#</span>
-					<span class="num" ng-bind="article.i">14</span>
-				</div>
-				<div class="cityIntroduction" style="text-overflow:ellipsis" title="{{article.summary}}" ng-bind="article.summary">城市向上生长的野心从未停止</div>
-				<div class="time" ng-bind="article.updateDate | date:'yyyy.MM.dd'">2015.10.10</div>
 			</div>
 		</div>
 

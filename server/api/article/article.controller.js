@@ -479,10 +479,11 @@ exports.pushArticle=function (req,res){
 //从数组arr中获得num个不重复的成员
 var getRandNum=function(arr,num){
 	var arts=[];
+	console.log();
 	while(arts.length<num){
 		var index=parseInt(Math.random()*arr.length);
 		arts.push(arr[index]);
-		arr.splice(arr[index],1);
+		arr.splice(index,1);
 	}
 	return arts;
 };
