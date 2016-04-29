@@ -5,21 +5,40 @@
 	float: left;
 	margin-left: 5px;
 	margin-top: 10px;
+	cursor: pointer;
+}
+.loadMore{
+	margin-top:10px;
+	border: 1px solid #ccc;
+	background:#D8D8D8; 
+	text-align: center;
+	font-size: 12px;
+	cursor: pointer;
+}
+.remind{
+	margin-top: 20px;
+	font-size: 16px;
+	text-align: center;
+	color: #9D9B9B
 }
 </style>
 <div class="backgroundPosition">
 	<div class="content">
 		<div class="imageClassifys">
-			<div class="name1" ng-repeat="group in viewImageAddressCtrl.groups" ng-bind="group.name" ng-click="viewImageAddressCtrl.chooseGroup(group)"></div>
+
+			<div class="name1" style="{{group.style}}" ng-repeat="group in viewImageAddressCtrl.groups" ng-bind="group.name" ng-click="viewImageAddressCtrl.chooseGroup(group)" ng-click="viewImageAddressCtrl.chooseGroup(group)" eat-click-if="viewImageAddressCtrl.group==group._id"></div>
 			<div style="clear:both"></div>
 		</div>
 
 		<div class="showPictureAddress">
+			<div class="remind" ng-show="viewImageAddressCtrl.showImages.length==0">此分类暂无图片</div>
 			<div class="pictureAddress" ng-repeat="image in viewImageAddressCtrl.showImages">
 				<div class="picture"><img src="{{viewImageAddressCtrl.lib_image_url+image}}"></div>
-				<div class="address" ng-bind="image"></div>
+				<div class="address" ng-bind="viewImageAddressCtrl.lib_image_url+image"></div>
 			</div>
+			<div style="clear:both"></div>
 		</div>
+		<div class="loadMore" ng-show="viewImageAddressCtrl.showLoadMore" ng-click="viewImageAddressCtrl.loadMore()">loodMore</div>
 
 	</div>
 </div>
