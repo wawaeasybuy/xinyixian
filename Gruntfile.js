@@ -157,7 +157,14 @@ module.exports = function (grunt) {
           dot: true,
           src: [
             '.tmp',
-            '<%= yeoman.dist %>/*',
+			'<%= yeoman.dist %>/server/*',
+			'<%= yeoman.dist %>/client/*.*',
+			'<%= yeoman.dist %>/client/app/*',
+			'<%= yeoman.dist %>/client/assets/ckeditor',
+			'<%= yeoman.dist %>/client/assets/bower_components',
+			'<%= yeoman.dist %>/client/assets/css',
+			'<%= yeoman.dist %>/client/assets/images',
+			'<%= yeoman.dist %>/client/assets/reportfiles',
             '!<%= yeoman.dist %>/.git*',
             '!<%= yeoman.dist %>/.openshift',
             '!<%= yeoman.dist %>/Procfile'
