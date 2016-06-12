@@ -6,14 +6,14 @@
 	display: none;
 }
 </style>
-<link href="../assets/css/home_1280.css" rel="stylesheet" type="text/css" media="screen and (min-width: 1280px) and (max-width: 1920px)">
+<link href="../assets/css/home_1280.css" rel="stylesheet" type="text/css" media="screen and (min-width: 1280px) ">
 <link href="../assets/css/home_960.css"rel="stylesheet"type="text/css"  media="screen and (min-width: 960px) and (max-width: 1279px)">
 <link href="../assets/css/home_900.css"rel="stylesheet"type="text/css"  media="screen and (min-width: 900px) and (max-width: 959px)">
 <link href="../assets/css/home_550.css"rel="stylesheet"type="text/css"  media="screen and (min-width: 550px) and (max-width: 900px)">
 <link href="../assets/css/home_000.css"rel="stylesheet"type="text/css"  media="screen and (min-width: 0px) and (max-width: 550px)">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-<div class="css960">
+<div class="css960" ng-click="viewHomeCtrl.initCode()">
 	<div class="backgroundPosition">
 		<!-- 导航的位置 -->
 		<div class="navPosition">
@@ -104,7 +104,7 @@
 			<img class="QdcodeImg" ng-show="viewHomeCtrl.showQdcode" src="{{viewHomeCtrl.qdcode}}">
 
 			<!-- 搜索 -->
-			<div class="search"><input type="text" placeholder="Search" ng-change="viewHomeCtrl.select()" ng-model="viewHomeCtrl.retrieval"></div>
+			<div class="search"><input type="text" placeholder="Search" onfocus="this.placeholder=''" onblur="this.placeholder='Search'" ng-change="viewHomeCtrl.select()" ng-model="viewHomeCtrl.retrieval"></div>
 
 			<!-- 所有文章 -->
 			<div class="articleKind" ng-bind="viewHomeCtrl.showSelected">所有文章</div>
@@ -170,7 +170,7 @@
 				</div>
 				<div class="record">
 					<div class="recordDot"></div>
-					<a class="word" target="_black" ng-href="http://www.miitbeian.gov.cn/">© 2016 第一财经.新一线城市研究所 沪ICP备15026457号-2</a>
+					<a class="word" target="_black" ng-href="http://www.miitbeian.gov.cn/">© 2016 第一财经·新一线城市研究所 沪ICP备15026457号-2</a>
 				</div>
 			</div>
 		</div> 

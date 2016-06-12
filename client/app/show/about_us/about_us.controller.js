@@ -11,6 +11,7 @@ angular.module('xinyixianApp')
        //图片文件目录
       self.hostDir=upload_image_url;
 
+      var isInitCode=true;
        //载入category,
 		var loadCategory=function(){
 			var condition={
@@ -48,6 +49,7 @@ angular.module('xinyixianApp')
        // 打开二维码
        self.openQqQdcode = function (){
         qdcode_init();
+        isInitCode=false;
         if(self.showQdcode&&self.qdcode == "../assets/images/wechatQrcode.png"){
           self.qdcode = "../assets/images/qqQrcode.png";
           self.QdcodeBgcolor2 = 'background-color:#fff';
@@ -64,6 +66,7 @@ angular.module('xinyixianApp')
        };
        self.openWechatQdcode = function (){
         qdcode_init();
+        isInitCode=false;
         if(self.showQdcode&&self.qdcode == "../assets/images/qqQrcode.png"){
           self.qdcode = "../assets/images/wechatQrcode.png";
           self.QdcodeBgcolor1 = 'background-color:#fff';
@@ -76,6 +79,17 @@ angular.module('xinyixianApp')
             self.showWechatQdcode = true;
           }
         }
+       };
+
+       //点击空白初始化二维码
+       self.initCode=function(){
+        if (isInitCode) {
+          qdcode_init();
+          self.showQdcode=false;
+          self.showQdcode=false;
+        };
+        isInitCode=true;
+          // qdcode_init();
        };
 
       init();

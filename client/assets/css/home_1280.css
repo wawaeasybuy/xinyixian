@@ -633,7 +633,7 @@ a{
 	padding-top: 3px;
 	padding-bottom: 3px;
 	position: absolute;
-	bottom: 10px;
+	bottom: 6px;
 	overflow: hidden;
 	/*white-space: nowrap;*/
 }
@@ -676,11 +676,12 @@ a{
 .links .link{
 	/*border:1px solid red;*/
 	float: left;
-	width: 80px;
+	/*width: 80px;*/
 	font-size: 12px;
 	font-weight: bold;
 	color: #b6b6b6;
 	border:none;
+	margin-right: 20px;
 }
 .records{
 	/*border:1px solid red;*/
