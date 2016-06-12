@@ -276,7 +276,7 @@ angular.module('xinyixianApp')
         //搜索
        self.select=function(){
         // console.log("query");
-          if(!self.retrieval){return;}
+          
           self._loadMore=true;
           self.pagination.page=1;
           var condition={

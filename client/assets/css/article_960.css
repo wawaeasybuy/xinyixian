@@ -55,6 +55,7 @@ a{
 	width: 90px;
 	height: 90px;
 	background: url(../images/logo.png);
+	background-size:90px;
 	position: absolute;
 	top:0px;
 	left: -100px;
