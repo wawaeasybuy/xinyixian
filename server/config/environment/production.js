@@ -11,7 +11,7 @@ module.exports = {
   // Server port
   port:     process.env.OPENSHIFT_NODEJS_PORT ||
             process.env.PORT ||
-            3040,
+            3050,
 
   // MongoDB connection options
   mongo: {
