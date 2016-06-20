@@ -33,12 +33,14 @@ a{
 .backgroundPosition{
 	/*border:1px solid red;*/
 	width: 80%;
-	margin: 20px auto 200px;
+	margin: 40px auto 200px;
 	transform: scale(0.8);
 	position: relative;
 	top:-200px;
 }
-
+.backgroundPosition_aboutUs{
+	margin: 70px auto 200px;
+}
 
 /*导航的位置*/
 .navPosition{
@@ -53,6 +55,7 @@ a{
 	width: 90px;
 	height: 90px;
 	background: url(../images/logo.png);
+	background-size:90px;
 	position: absolute;
 	top:0px;
 	left: -100px;
@@ -217,10 +220,12 @@ a{
 	/*border:1px solid red;*/
 	color: #333;
 	font-size: 48px;
-	height: 48px;
+	min-height: 48px;
 	line-height: 48px;
 	margin-top: 45px;
 	font-weight: bold;
+	word-break:break-all; /*支持IE，chrome，FF不支持*/
+	word-wrap:break-word;/*支持IE，chrome，FF*/
 }
 .articleAuthor{
 	/*border:1px solid red;*/
@@ -234,9 +239,9 @@ a{
 .articleAbstract{
 	border-top: 2px solid #ccc;
 	border-bottom: 2px solid #ccc;
-	font-size: 30px;
+	font-size: 18px;
 	/*height: 60px;*/
-	line-height: 30px;
+	line-height: 18px;
 	padding: 20px;
 	overflow: hidden;
 	margin-top: 45px;
@@ -450,11 +455,12 @@ a{
 .links .link{
 	/*border:1px solid red;*/
 	float: left;
-	width: 80px;
+	/*width: 80px;*/
 	font-size: 12px;
 	font-weight: bold;
 	color: #b6b6b6;
 	border:none;
+	margin-right: 20px;
 }
 .records{
 	/*border:1px solid red;*/
