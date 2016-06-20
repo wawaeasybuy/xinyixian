@@ -82,10 +82,10 @@ html,body{height:100%; width:100%;}
 }
 .aboutUs{
 	width: 66px;
-	height: 30px;
-	border-radius: 30px;
+	height: 20px;
+	border-radius: 20px;
 	background-color: #E1E1E1;
-	line-height: 30px;
+	line-height: 20px;
 	text-align: center;
 	cursor: pointer;
 	margin-top: 10%;
@@ -93,8 +93,8 @@ html,body{height:100%; width:100%;}
 }
 .search{
 	width: 66px;
-	height: 30px;
-	border-radius: 30px;
+	height: 20px;
+	border-radius: 20px;
 	background-color: #E1E1E1;
 	text-align: center;
 	cursor: pointer;
@@ -102,13 +102,13 @@ html,body{height:100%; width:100%;}
 	border:none;
 }
 .openNav{
-	width: 20px;
-	height: 20px;
-	/*border:1px solid red;*/
-	border-radius: 20px;
-	background-color: #fff;
+	width: 24px;
+	height: 24px;
+	border:2px solid #E1E1E1;
+	border-radius: 24px;
+	/*background-color: #fff;*/
 	position: fixed;
-	bottom: 0px;
+	bottom: 10px;
 	left: 5px;
 }
 .closeNav{
@@ -118,7 +118,7 @@ html,body{height:100%; width:100%;}
 	border:2px solid #E1E1E1;
 	background: url(../images/closeNav.png);
 	margin: 0 auto;
-	margin-top: 20%;
+	margin-top: 50%;
 }
 
 
@@ -270,7 +270,7 @@ html,body{height:100%; width:100%;}
 	line-height: 6px;
 	color: #c7c7c7;
 	position: absolute;
-	bottom: 1px;
+	bottom: -4px;
 	font-size: 8px;
 	/*border:1px solid red;*/
 }

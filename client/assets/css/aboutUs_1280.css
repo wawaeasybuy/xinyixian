@@ -3,18 +3,21 @@ body{
 	background-color: #E1E1E1;
 }
 a{
-	text-decoration: none;
+	text-decoration:underline;
 	border-style: none;
     border-width: 0px;
+}
+.css960{
+	display: block;
 }
 .css320{
 	display: none;
 }
-.css960{
-	display: block;
+/*最大的div*/
+.backgroundPosition{
 	/*border:1px solid red;*/
-	/*width:1000px;*/
-	margin:0 auto;
+	width: 80%;
+	margin: 20px auto 200px;
 }
 .closeBigImage{
 	/*border: 1px solid red;*/
@@ -27,19 +30,6 @@ a{
 	background: url(../images/closeNav.png);
 	border:2px solid #000;
 	cursor: pointer;
-}
-
-/*最大的div*/
-.backgroundPosition{
-	/*border:1px solid red;*/
-	width: 80%;
-	margin: 40px auto 200px;
-	transform: scale(0.8);
-	position: relative;
-	top:-200px;
-}
-.backgroundPosition_aboutUs{
-	margin: 70px auto 200px;
 }
 
 /*导航的位置*/
@@ -235,6 +225,7 @@ a{
 	line-height: 16px;
 	margin-top: 20px;
 	font-weight: bold;
+	
 }
 .articleAbstract{
 	border-top: 2px solid #ccc;
@@ -253,10 +244,6 @@ a{
 　　word-wrap:break-word;/*支持IE，chrome，FF*/
 	overflow:hidden;
 	margin-top: 20px
-}
-.article img{
-	width:100% !important;
-	height: 100% !important;
 }
 .articleShare{
 	/*border:1px solid red;*/

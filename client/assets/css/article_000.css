@@ -29,6 +29,10 @@ a{
 	word-break:break-all; /*支持IE，chrome，FF不支持*/
 　　word-wrap:break-word;/*支持IE，chrome，FF*/
 }
+.word img{
+	width:100% !important;
+	height: 100% !important;
+}
 .btns{
 	/*border:1px solid red;*/
 	width: 100%;

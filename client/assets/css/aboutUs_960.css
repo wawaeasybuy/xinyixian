@@ -3,7 +3,7 @@ body{
 	background-color: #E1E1E1;
 }
 a{
-	text-decoration: none;
+	text-decoration: underline;
 	border-style: none;
     border-width: 0px;
 }
@@ -253,10 +253,6 @@ a{
 　　word-wrap:break-word;/*支持IE，chrome，FF*/
 	overflow:hidden;
 	margin-top: 20px
-}
-.article img{
-	width:100% !important;
-	height: 100% !important;
 }
 .articleShare{
 	/*border:1px solid red;*/
