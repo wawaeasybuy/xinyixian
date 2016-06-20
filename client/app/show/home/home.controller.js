@@ -43,6 +43,7 @@ angular.module('xinyixianApp')
         delete self.tag;
         delete self.retrieval;
         doLocation();
+        loadArticle();
       };
 
       if(self.tag){
