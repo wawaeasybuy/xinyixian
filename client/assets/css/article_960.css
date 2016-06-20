@@ -32,15 +32,11 @@ a{
 /*最大的div*/
 .backgroundPosition{
 	/*border:1px solid red;*/
-	width: 80%;
+	width: 1100px;
 	margin: 40px auto 200px;
 	transform: scale(0.8);
-	-ms-transform: scale(0.8); 	/* IE 9 */
-	-moz-transform: scale(0.8); 	/* Firefox */
-	-webkit-transform: scale(0.8); /* Safari 和 Chrome */
-	-o-transform: scale(0.8); 	/* Opera */
 	position: relative;
-	top:-200px;
+	top:-260px;
 }
 .backgroundPosition_aboutUs{
 	margin: 70px auto 200px;
