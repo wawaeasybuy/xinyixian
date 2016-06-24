@@ -15,6 +15,9 @@ a{
 	/*border:1px solid red;*/
 	/*width:1000px;*/
 	margin:0 auto;
+	position: relative;
+	/*border: 1px solid #000;*/
+	/*margin-top: -100px;*/
 }
 .closeBigImage{
 	/*border: 1px solid red;*/
@@ -33,10 +36,13 @@ a{
 .backgroundPosition{
 	/*border:1px solid red;*/
 	width: 1100px;
-	margin: 40px auto 200px;
+	/*margin: 40px auto 200px;*/
 	transform: scale(0.8);
 	position: relative;
-	top:-260px;
+	height: 400px;
+	top:-20px;
+	/*height:100%;*/
+	/*top:10%;*/
 }
 .backgroundPosition_aboutUs{
 	margin: 70px auto 200px;
