@@ -97,12 +97,13 @@ html,body{height:100%; width:100%;}
 	/*border: 2px solid #fff;*/
 	/*width: 66px;*/
 	width: 56px;
-	height: 20px;
+	height: 15px;
 	border-radius: 20px;
 	background-color: #E1E1E1;
 	text-align: center;
 	cursor: pointer;
 	margin-top: 10%;
+	margin-left: -1px;
 }
 .openNav{
 	width: 15px;
