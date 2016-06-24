@@ -79,8 +79,10 @@ html,body{height:100%; width:100%;}
 	/*border:1px solid red;*/
 	width: 66px;
 	height: 40%;
+	/*border: 2px solid #fff;*/
 }
 .aboutUs{
+	/*border: 2px solid #fff;*/
 	width: 66px;
 	height: 20px;
 	border-radius: 20px;
@@ -92,14 +94,15 @@ html,body{height:100%; width:100%;}
 
 }
 .search{
-	width: 66px;
+	/*border: 2px solid #fff;*/
+	/*width: 66px;*/
+	width: 56px;
 	height: 20px;
 	border-radius: 20px;
 	background-color: #E1E1E1;
 	text-align: center;
 	cursor: pointer;
 	margin-top: 10%;
-	border:none;
 }
 .openNav{
 	width: 15px;

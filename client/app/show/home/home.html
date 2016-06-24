@@ -205,8 +205,8 @@
     		</div>
     		<div class="btns">
     			<div class="aboutUs" ng-click="viewHomeCtrl.loadAgain()">Home</div>
-    			<input class="search" type="text" placeholder="Search" ng-change="viewHomeCtrl.select()" ng-model="viewHomeCtrl.retrieval">
-	    		<div class="aboutUs">About Us</div>
+    			<input class="search" placeholder="Search" ng-change="viewHomeCtrl.select()" ng-model="viewHomeCtrl.retrieval">
+	    		<div class="aboutUs" ui-sref="about_us">About Us</div>
 	    		<div class="closeNav" ng-click="viewHomeCtrl.closeNav()"></div>
 	    	</div>
     		<!-- <div style="clear:both"></div> -->
@@ -242,7 +242,7 @@
 							<image class="picture"  src="{{viewHomeCtrl.hostDir+article.thumbnail}}">
 						</div>
 						<div class="pictureMask"></div>
-						<div class="cityName"><u ng-bind="article.title">苏州</u></div>
+						<!-- <div class="cityName"><u ng-bind="article.title">苏州</u></div> -->
 					</div>
 					
 					<div class="number">
