@@ -42,6 +42,7 @@ angular.module('xinyixianApp')
         delete self.category;
         delete self.tag;
         delete self.retrieval;
+        self.articles=[];
         doLocation();
         loadArticle();
       };
