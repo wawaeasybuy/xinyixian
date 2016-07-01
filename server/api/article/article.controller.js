@@ -453,7 +453,7 @@ exports.change = function (req,res){
 exports.pushArticle=function (req,res){
 	var category=req.query.category;
 	var tag=req.query.tag;
-	var condition={state:2};
+	var condition={state:2,_id:{$ne:"576cf8c456188c1642600f69"}};
 	if(category){
 		condition=_.merge(condition,{category:category});
 	}
