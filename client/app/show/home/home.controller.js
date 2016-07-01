@@ -39,12 +39,19 @@ angular.module('xinyixianApp')
         self.openNav = "opacity:1;transition:0.2s linear 0.6s;"
       };
       self.loadAgain = function (){
+        var open=true;
+        if(self.category||self.tag){
+          open=false;
+        }
         delete self.category;
         delete self.tag;
         delete self.retrieval;
         self.articles=[];
         doLocation();
-        loadArticle();
+        if(open){
+          loadArticle();
+        }
+        
       };
 
       if(self.tag){
