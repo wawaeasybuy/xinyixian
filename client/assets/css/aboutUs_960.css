@@ -496,4 +496,11 @@ a{
 	color:#b6b6b6;
 	white-space:nowrap
 }
+.link{
+	color:#6f6f6f;
+	font-weight:bold;
+	text-decoration:underline;
+	display: inline; 
+	border:0px;
+}
 /*底部链接栏*/
