@@ -3,6 +3,9 @@
 angular.module('xinyixianApp')
   .controller('AboutUsController', ['$state', '$stateParams', '$location', '$scope','$cookies', 'Article','Category','Auth',
     function ($state, $stateParams, $location, $scope,$cookies,Article,Category,Auth) {
+      // title
+      document.title="关于新一线城市研究所";
+      
        var self=this;
 
        self.aboutXinyixian = true;

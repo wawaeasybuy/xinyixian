@@ -3,6 +3,7 @@
 angular.module('xinyixianApp')
   .controller('ViewAarticleController', ['$state', '$stateParams', '$location', '$scope','$cookies', 'Article','Category','Auth',
     function ($state, $stateParams, $location, $scope,$cookies,Article,Category,Auth) {
+
        var self=this;
 
       
@@ -29,6 +30,8 @@ angular.module('xinyixianApp')
             if(self.article.isBigImage){
               self.showBigImageModel=true;
             }
+            //title
+            document.title="'"+self.article.title+"'"+"| 新一线城市研究所";
             loadPushAirticle();
        		});
        };

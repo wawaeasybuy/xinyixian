@@ -3,6 +3,9 @@
 angular.module('xinyixianApp')
   .controller('ViewHomeController', ['$state', '$stateParams', '$location', '$scope','$cookies', 'Article','Category','Tag',
     function ($state, $stateParams, $location, $scope,$cookies,Article,Category,Tag) {
+      //title
+      document.title="新一线城市研究所";
+
        self = this;
 
       self.category = $stateParams.id;
@@ -18,7 +21,7 @@ angular.module('xinyixianApp')
       self.articles=[];
       self._loadMore=true;
       // console.log("self.itemsPerPage",self.itemsPerPage);
-      self.showSelected="所有文章";
+      self.showSelected="所 有 文 章";
       self.showOpen = true;
 
       self.changeStyle = "";
@@ -128,6 +131,8 @@ angular.module('xinyixianApp')
             if(c){
               self.showSelected=c.name;
               c.style="background:#0f0";
+              //title
+              document.title="'"+self.showSelected+"'"+"| 新一线城市研究所";
             }
           },function(){ 
 
@@ -146,6 +151,8 @@ angular.module('xinyixianApp')
           if(c){
             self.showSelected=c.name;
             c.style="border:5px solid #0f0";
+            //title
+            document.title="'"+self.showSelected+"'"+"| 新一线城市研究所";
           }
         });
 
