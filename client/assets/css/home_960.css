@@ -19,7 +19,7 @@ a{
 /*最大的div*/
 .backgroundPosition{
 	/*border:1px solid red;*/
-	width: 1250px;
+	width: 1300px;
 	/*margin: 20px auto 200px;*/
 	transform: scale(0.8);
 	position: relative;
@@ -58,11 +58,11 @@ a{
 }
 /*logo*/
 .logo{
-	width: 90px;
-	height: 90px;
-	border-radius: 90px;
-	background: url(../images/logo.png);
-	background-size:90px;
+	width: 100px;
+	height: 100px;
+	border-radius: 100px;
+	background: url(../images/logo.png) no-repeat;
+	background-size:100px;
 	position: absolute;
 	top:0px;
 	left: 0px;
@@ -392,14 +392,15 @@ a{
 .qrcodeDots a img{
 	width: 25px;
 	height: 25px;
+	padding: 0px;
 	position: relative;
-	top:-2px;
-	left: -2px;
+	margin: 0px;
+	margin-right: 18.75px;
 }
 .qrcodeDot1{
 	position: absolute;
 	top:15px;
-	left:794px;
+	left:770px;
 }
 .checkMark{
 	width: 10px;
@@ -409,30 +410,30 @@ a{
 	opacity: 0.5;
 	position: absolute;
 	top:35px;
-	left:801.5px;
+	left:777.5px;
 }
 .qrcodeDot2{
 	position: absolute;
 	top:15px;
-	left:838px;
+	left:813.75px;
 }
 .qrcodeDot3{
 	position: absolute;
 	top:15px;
-	left:882px;
+	left:857.5px;
 }
 .qrcodeDot4{
 	position: absolute;
 	top:15px;
-	left:926px;
+	left:901.25px;
 }
 .checkMark2{
-	left:933.5px;
+	left:908.75px;
 }
 .qrcodeDot5{
 	position: absolute;
 	top:15px;
-	left:970px;
+	left:945px;
 }
 /*显示二维码的圆*/
 .showQdcode{
@@ -441,7 +442,19 @@ a{
 	border-radius: 170px;
 	position: absolute;
 	top:45px;
-	left: 830px;
+	left: 697.5px;
+	background-color: #0F0;
+	opacity: 0.7;
+	overflow: hidden;
+	/*display: none;*/
+}
+.showQdcode2{
+	width: 170px;
+	height: 170px;
+	border-radius: 170px;
+	position: absolute;
+	top:45px;
+	left: 828.75px;
 	background-color: #0F0;
 	opacity: 0.7;
 	overflow: hidden;
@@ -459,24 +472,33 @@ a{
 	height: 100px;
 	position: absolute;
 	top:80px;
-	left: 865px;
+	left: 732.5px;
+}
+.QdcodeImg2{
+	/*border:1px solid red;*/
+	width:100px;
+	height: 100px;
+	position: absolute;
+	top:80px;
+	left: 863.75px;
 }
 /*搜索*/
 .search{
-	border-bottom:2px solid #ccc;
-	width: 100px;
-	height: 22px;
+	border-bottom:1px solid #ccc;
+	width: 200px;
+	height: 25px;
 	margin-left: 20px;
 	position: relative;
 	top:-20px;
 	position: absolute;
 	top:15px;
-	left: 1000px;
+	left: 970px;
 }
 .search input{
-	width: 100px;
-	height: 20px;
-	text-indent: 20px;
+	width: 180px;
+	height: 23px;
+	margin-left: 20px;
+	text-align: right;
 	background-color: #353535;
 	border:none;
 	outline: none;
@@ -493,8 +515,9 @@ a{
 	left: 0px;
 	right: 0px;
 	bottom: 0px;
-	line-height: 18px;
+	line-height: 16px;
 	text-align: center;
+	bottom: 0px;
 	font-size: 12px;
 	color: #c3c3c3;
 	font-weight: bold;
@@ -506,7 +529,7 @@ a{
 /*文章内容*/
 .articleList{
 	/*border:1px solid red;*/
-	margin: 0 auto;
+	margin: 20px auto 0;
 	width: 1100px;
 	/*cursor: pointer;*/
 }
@@ -521,10 +544,11 @@ a{
 	/*border:1px solid red;*/
 	float: left;
 	width: 200px;
-	height: 245px;
+	height: 260px;
 	margin-left: 10px;
 	margin-right: 10px;
-	margin-top: 45px;
+	margin-top: 0px;
+	margin-bottom: 30px;
 	position: relative;
 	cursor: pointer;
 }
@@ -568,7 +592,7 @@ a{
 	height: 200px;
 	line-height: 200px;
 	text-align: center;
-	color: #fff;
+	color: #ffffff;
 	opacity: 0.7;
 	font-size: 14px;
 	font-weight: bold;
@@ -607,8 +631,8 @@ a{
 	height: 30px;
 	line-height: 0px;
 	position: absolute;
-	bottom: 60px;
-	color: #fff;
+	bottom: 85px;
+	color: #ffffff;
 	opacity: 0.7;
 }
 .symbol{
@@ -619,41 +643,46 @@ a{
 }
 .num{
 	/*border:1px solid red;*/
-	font-size: 44px;
+	font-size: 54px;
 	line-height: 30px;
 }
 /*文章信息*/
 .cityIntroduction{
 	width: 180px;
-	height: 34px;
-	border-top: 2px solid #fff;
-	border-bottom: 2px solid #fff;
+	height: 45px;
+	border-top: 2px solid #ffffff;
+	border-bottom: 2px solid #ffffff;
 	/*文字css*/
 	text-align: center;
 	line-height: 18px;
-	color: #fff;
+	color: #ffffff;
 	opacity: 0.7;
 	font-size: 10px;
 	font-weight: bold;
+	letter-spacing: 1px;
+	vertical-align: middle;
 	/*位置css*/
 	padding-left: 10px;
 	padding-right: 10px;
-	padding-top: 3px;
-	padding-bottom: 3px;
+	padding-top: 11px;
+	padding-bottom: 0px;
 	position: absolute;
-	bottom: 6px;
+	bottom: 15px;
 	overflow: hidden;
 	/*white-space: nowrap;*/
+	/*border:1px solid red;*/
 }
 /*时间*/
 .time{
-	height: 6px;
-	line-height: 6px;
+	height: 3px;
+	line-height: 0px;
 	color: rgb(120,120,120);
 	position: absolute;
-	bottom: -4px;
-	font-size: 8px;
+	bottom: 1px;
+	font-size: 10px;
+	font-weight: bold;
 	opacity: 0.7;
+	font-family: "courier new";
 	/*border:1px solid red;*/
 }
 .loadMore{
@@ -663,7 +692,7 @@ a{
 	height: 20px;
 	line-height: 20px;
 	text-align: center;
-	color: #fff;
+	color: #ffffff;
 }
 /*推荐列表*/
 /*文章内容*/
@@ -672,8 +701,10 @@ a{
 /*底部链接栏*/
 .bottomLink{
 	/*border:1px solid red;*/
-	margin: 160px auto;
-	width: 1100px;
+	margin-top: 100px;
+	margin-bottom: 45px;
+	margin-left: 110px;
+	width: 1080px;
 	height: 30px;
 	color: rgb(225,225,225);
 	line-height: 30px;
@@ -685,7 +716,7 @@ a{
 	/*border:1px solid red;*/
 	float: left;
 	/*width: 80px;*/
-	font-size: 12px;
+	font-size: 10px;
 	font-weight: bold;
 	color: #b6b6b6;
 	border:none;
@@ -694,8 +725,8 @@ a{
 .records{
 	/*border:1px solid red;*/
 	float: right;
-	width: 430px;
-	font-size: 12px;
+	width: 440px;
+	font-size: 10px;
 	font-weight: bold;
 	color: #b6b6b6;
 }

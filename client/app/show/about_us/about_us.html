@@ -32,12 +32,19 @@
 				<a class="qrcodeDot5" target="_black" ng-href="mailto:xinyixian@yicai.com"><img width="25px" height="25px" src="../assets/images/email.png"></a>
 			</div>
 			<!-- 显示二维码圆 -->
-			<div class="showQdcode" ng-show="aboutCtrl.showQdcode">
+			<div class="showQdcode" ng-show="aboutCtrl.showWechatQdcode">
 				<div class="Qdcode">
 				</div>
 				<!-- <img width="170px" src="{{viewHomeCtrl.qdcode}}"> -->
 			</div>
-			<img class="QdcodeImg" ng-show="aboutCtrl.showQdcode" src="{{aboutCtrl.qdcode}}">
+			<img class="QdcodeImg" ng-show="aboutCtrl.showWechatQdcode" src="../assets/images/wechatQrcode.png">
+
+			<div class="showQdcode showQdcode2" ng-show="aboutCtrl.showQqQdcode">
+				<div class="Qdcode">
+				</div>
+				<!-- <img width="170px" src="{{viewHomeCtrl.qdcode}}"> -->
+			</div>
+			<img class="QdcodeImg QdcodeImg2" ng-show="aboutCtrl.showQqQdcode" src="../assets/images/qqQrcode.png">
 			<!-- 搜索 -->
 			<!-- <div class="search">暂定</div> -->
 			<!-- 下横线 -->

@@ -96,12 +96,19 @@
 				<a class="qrcodeDot5" target="_black" ng-href="mailto:xinyixian@yicai.com"><img width="25px" height="25px" src="../assets/images/email.png"></a>
 			</div>
 			<!-- 显示二维码圆 -->
-			<div class="showQdcode" ng-show="viewHomeCtrl.showQdcode">
+			<div class="showQdcode" ng-show="viewHomeCtrl.showWechatQdcode">
 				<div class="Qdcode">
 				</div>
 				<!-- <img width="170px" src="{{viewHomeCtrl.qdcode}}"> -->
 			</div>
-			<img class="QdcodeImg" ng-show="viewHomeCtrl.showQdcode" src="{{viewHomeCtrl.qdcode}}">
+			<img class="QdcodeImg" ng-show="viewHomeCtrl.showWechatQdcode" src="../assets/images/wechatQrcode.png">
+
+			<div class="showQdcode showQdcode2" ng-show="viewHomeCtrl.showQqQdcode">
+				<div class="Qdcode">
+				</div>
+				<!-- <img width="170px" src="{{viewHomeCtrl.qdcode}}"> -->
+			</div>
+			<img class="QdcodeImg QdcodeImg2" ng-show="viewHomeCtrl.showQqQdcode" src="../assets/images/qqQrcode.png">
 
 			<!-- 搜索 -->
 			<div class="search"><input type="text" placeholder="Search" onfocus="this.placeholder=''" onblur="this.placeholder='Search'" ng-change="viewHomeCtrl.select()" ng-model="viewHomeCtrl.retrieval" style="color:#ccc;font-family:'微软雅黑'"></div>

@@ -4,26 +4,27 @@
 	/*border-top:2px solid #686868;*/
 	margin: 0 auto;
     position: relative;
-    width: 1000px;
+    width: 1080px;
 	text-align: center;
 }
 .about_content{
 	/*border:1px solid #000;*/
 	margin:15px auto 0;
-	padding-bottom:38px;
-	width: 755px;
+	padding-bottom:0px;
+	width: 780px;
 }
 
 .about_Nav img{
-	margin-top: -10px;
+	margin-top: -12px;
+	margin-bottom:-2px;
 }
 
 .content_nav_left{
 	float:left;
-	width: 220px;
+	width: 200px;
 	text-align: center;
 	font-size: 12px;
-	margin-left: 63px;
+	margin-left: 70px;
 	letter-spacing:5px;
 	color: #ADADAD;
 	line-height: 22px;
@@ -32,10 +33,10 @@
 
 .content_nav_right{
 	float:right;
-	width: 220px;
+	width: 200px;
 	text-align: center;
 	font-size: 12px;
-	margin-right: 63px;
+	margin-right: 70px;
 	letter-spacing:5px;
 	color: #ADADAD;
 	line-height: 22px;
@@ -48,7 +49,7 @@
 
 .border{
 	float: left;
-	width:110px;
+	width:100px;
 	border-bottom: 2px solid #ADADAD;
 }
 
@@ -67,17 +68,19 @@
 
 .cell_content{
 	width: 640px;
-	margin-left: 15px;
+	margin-left: 20px;
 	float: left;
 }
 
 .cell_title{
-	font-size: 18px;
+	font-size: 20px;
+	margin-top:10px;
 }
 
 .cell_text{
-	font-size: 12px;
-	color: #6F6F6F;
+	font-size: 16px;
+	line-height: 26px;
+	color: #353535;
 	margin-top: 18px;
 	border:none;
 }
@@ -90,23 +93,24 @@
 .text_word1{
 	/*border:1px solid red;*/
 	color: rgb(53,53,53);
-	font-size: 12px;
+	font-size: 16px;
 }
 .text_word2{
 	/*border:1px solid red;*/
 	margin-top:20px;
 	color: rgb(53,53,53);
-	font-size: 12px;
+	font-size: 16px;
 }
 .memberIntroduction{
-	width: 640px;
+	width: 660px;
 	margin: 40px auto 0;
 	/*border-bottom:2px solid #686868;*/
 }
 .member{
 	float: left;
-	width: 203px;
-	height: 180px;
+	width: 200px;
+	height: 175px;
+	margin-left: 10px;
 	margin-right: 10px;
 	/*border:1px solid #0f0;*/
 }
@@ -122,21 +126,26 @@
 }
 .introduction{
 	border-top:1px solid #000;
-	width: 203px;
+	width: 200px;
 	margin-top: 10px;
 	padding-top: 10px;
 	color: rgb(53,53,53);
 	font-size: 12px;
+	line-height: 18px;
+	text-align: justify;
 }
 .contractUs{
 	width: 640px;
-	margin: 0 auto;
+	margin-left: 70px;
+	margin-right:70px;
+	margin-top:22px;
+	margin-bottom:38px;
 	border-top:2px solid #686868;
 	color: #444;
 	font-size: 16px;
 }
 .contractTitle{
-	margin-top: 40px;
+	margin-top: 38px;
 	/*border:1px solid red;*/
 	font-weight: bold;
 }

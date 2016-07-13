@@ -47,12 +47,19 @@
 					<img src="{{viewArticleCtrl.qdcode}}">
 				</div>
 			</div> -->
-			<div class="showQdcode" ng-show="viewArticleCtrl.showQdcode">
+			<div class="showQdcode" ng-show="viewArticleCtrl.showWechatQdcode">
 				<div class="Qdcode">
 				</div>
 				<!-- <img width="170px" src="{{viewHomeCtrl.qdcode}}"> -->
 			</div>
-			<img class="QdcodeImg" ng-show="viewArticleCtrl.showQdcode" src="{{viewArticleCtrl.qdcode}}">
+			<img class="QdcodeImg" ng-show="viewArticleCtrl.showWechatQdcode" src="../assets/images/wechatQrcode.png">
+
+			<div class="showQdcode showQdcode2" ng-show="viewArticleCtrl.showQqQdcode">
+				<div class="Qdcode">
+				</div>
+				<!-- <img width="170px" src="{{viewHomeCtrl.qdcode}}"> -->
+			</div>
+			<img class="QdcodeImg QdcodeImg2" ng-show="viewArticleCtrl.showQqQdcode" src="../assets/images/qqQrcode.png">
 
 			<!-- 下横线 -->
 			<div class="downLine"></div>

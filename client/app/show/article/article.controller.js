@@ -113,39 +113,19 @@ angular.module('xinyixianApp')
         self.showQqQdcode = false;
        };
        // 打开二维码
-       self.openQqQdcode = function (){
-        qdcode_init();
-        isInitCode=false;
-        if(self.showQdcode&&self.qdcode == "../assets/images/wechatQrcode.png"){
-          self.qdcode = "../assets/images/qqQrcode.png";
-          self.QdcodeBgcolor2 = 'background-color:#fff';
-          self.showQqQdcode = true;
-        }else{
-          self.showQdcode = !self.showQdcode;
-          if(self.showQdcode){
-            self.qdcode = "../assets/images/qqQrcode.png";
-            self.QdcodeBgcolor2 = 'background-color:#fff';
-            self.showQqQdcode = true;
-          }
-        }
-        
-       };
        self.openWechatQdcode = function (){
         qdcode_init();
+        self.QdcodeBgcolor1 = 'background-color:#fff;';
         isInitCode=false;
-        if(self.showQdcode&&self.qdcode == "../assets/images/qqQrcode.png"){
-          self.qdcode = "../assets/images/wechatQrcode.png";
-          self.QdcodeBgcolor1 = 'background-color:#fff';
-          self.showWechatQdcode = true;
-        }else{
-          self.showQdcode = !self.showQdcode;
-          if(self.showQdcode){
-            self.qdcode = "../assets/images/wechatQrcode.png";
-            self.QdcodeBgcolor1 = 'background-color:#fff';
-            self.showWechatQdcode = true;
-          }
-        }
+        self.showWechatQdcode = true;
        };
+       self.openQqQdcode = function (){
+        qdcode_init();
+        self.QdcodeBgcolor2 = 'background-color:#fff;';
+        isInitCode=false;
+        self.showQqQdcode = true;
+       };
+       
 
        //点击空白初始化二维码
        self.initCode=function(){
