@@ -63,7 +63,6 @@ angular.module('xinyixianApp')
         self.showQqQdcode = true;
        };
         
-       };
        self.openWechatQdcode = function (){
         qdcode_init();
         isInitCode=false;
